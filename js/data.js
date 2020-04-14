@@ -391,7 +391,7 @@ const ITEM_DATA = [
     { id: 6, type: 2, name: "20.3cm連装砲", power: 8 },
     { id: 7, type: 3, name: "35.6cm連装砲", power: 15 },
     { id: 8, type: 3, name: "41cm連装砲", power: 20 },
-    { id: 9, type: 3, name: "46cm連装砲", power: 26 },
+    { id: 9, type: 3, name: "46cm三連装砲", power: 26 },
     { id: 10, type: 1, name: "12.7cm連装高角砲", power: 2, accuracy: 1 },
     { id: 11, type: 2, name: "15.2cm単装砲", power: 2, accuracy: 1 },
     { id: 12, type: 4, name: "15.5cm三連装副砲", power: 7, accuracy: 2 },
