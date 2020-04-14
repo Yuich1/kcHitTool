@@ -175,7 +175,10 @@ $(function () {
             $(".myfleet .power").html(power);
             $(".myfleet .lv").val(defaultLevel);
             //結果背景画像変更
-            $(".result.box .background-img").css("background-image", `url(./images/full/${id}.png)`)
+            const img = $('<img>', {'src': `./images/full/${id}.png`});
+            img.on("load", function () {
+                $(".result.box .background-img").css("background-image", `url(./images/full/${id}.png)`);
+            });
         }
         getResultData();
     }
@@ -318,7 +321,7 @@ const getResultData = () => {
     let power = parseInt($(".myfleet .power").text());
     const armor = parseInt($(".enemy .armor").text());
     console.log(armor);
-    
+
 
     let sink = 0;
     let taiha = 0;
