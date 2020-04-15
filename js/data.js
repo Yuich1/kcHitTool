@@ -860,4 +860,12 @@ const ENEMY_DATA = [
             { id: 1549, state: "normal", luck: 1, avoidance: 5, avoidance_item: 0, armor: 50, hp: 66 },
         ]
     },
+    {
+        type: 8, name: "PT小鬼群", main_id: 1637, remodel: [
+            { id: 1637, state: "A", luck: 0, avoidance: 0, avoidance_item: 0, armor: 19, hp: 9 },
+            { id: 1638, state: "B", luck: 0, avoidance: 0, avoidance_item: 0, armor: 29, hp: 9 },
+            { id: 1639, state: "C", luck: 0, avoidance: 0, avoidance_item: 0, armor: 29, hp: 15 },
+            { id: 1640, state: "D", luck: 0, avoidance: 0, avoidance_item: 0, armor: 39, hp: 18 },
+        ]
+    },
 ]
