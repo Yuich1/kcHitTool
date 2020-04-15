@@ -50,71 +50,71 @@ const ENGAGEMENT_DAMAGE_COEF = [1.2, 1.0, 0.8, 0.6];
 const SHIP_DATA = [
     {
         type: 1, name: "金剛", main_id: 591, speed: "high", remodel: [
-            { id: 78, state: "未改造", power: 89, torp: 0, luck: 12, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 209, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 149, state: "改二", power: 98, torp: 0, luck: 15, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 591, state: "改二丙", power: 98, torp: 42, luck: 18, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] }
+            { id: 78, state: "未改造", power: 89, torp: 0, luck: 12, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 209, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 149, state: "改二", power: 98, torp: 0, luck: 15, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 591, state: "改二丙", power: 98, torp: 42, luck: 18, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "比叡", main_id: 150, speed: "high", remodel: [
-            { id: 86, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 210, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 150, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] }
+            { id: 86, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 210, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 150, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "榛名", main_id: 151, speed: "high", remodel: [
-            { id: 79, state: "未改造", power: 89, torp: 0, luck: 15, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 211, state: "改", power: 94, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 151, state: "改二", power: 96, torp: 0, luck: 41, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] }
+            { id: 79, state: "未改造", power: 89, torp: 0, luck: 15, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 211, state: "改", power: 94, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 151, state: "改二", power: 96, torp: 0, luck: 41, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "霧島", main_id: 152, speed: "high", remodel: [
-            { id: 85, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 212, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 152, state: "改二", power: 104, torp: 0, luck: 14, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] }
+            { id: 85, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 212, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 152, state: "改二", power: 104, torp: 0, luck: 14, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "扶桑", main_id: 411, speed: "low", remodel: [
-            { id: 26, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128] },
-            { id: 286, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128] },
-            { id: 411, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemId: [128] }
+            { id: 26, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 286, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 411, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "山城", main_id: 412, speed: "low", remodel: [
-            { id: 27, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128] },
-            { id: 287, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128] },
-            { id: 412, state: "改二", power: 98, torp: 0, luck: 14, slot: 4, cantHaveItemId: [128] }
+            { id: 27, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 287, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 412, state: "改二", power: 98, torp: 0, luck: 14, slot: 4, cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "伊勢", main_id: 553, speed: "low", remodel: [
-            { id: 77, state: "未改造", power: 89, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128] },
-            { id: 82, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128] },
-            { id: 553, state: "改二", power: 88, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128] }
+            { id: 77, state: "未改造", power: 89, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 82, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 553, state: "改二", power: 88, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "日向", main_id: 554, speed: "low", remodel: [
-            { id: 87, state: "未改造", power: 94, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128] },
-            { id: 88, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128] },
-            { id: 554, state: "改二", power: 86, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128] }
+            { id: 87, state: "未改造", power: 94, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 88, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 554, state: "改二", power: 86, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "長門", main_id: 541, speed: "low", remodel: [
-            { id: 80, state: "未改造", power: 99, torp: 0, luck: 20, slot: 4, cantHaveItemId: [128] },
+            { id: 80, state: "未改造", power: 99, torp: 0, luck: 20, slot: 4, cantHaveItemId: [128, 281] },
             { id: 275, state: "改", power: 99, torp: 0, luck: 32, slot: 4 },
             { id: 541, state: "改二", power: 118, torp: 0, luck: 40, slot: 4, specialCanHaveItemType: [1] }
         ]
     },
     {
         type: 1, name: "陸奥", main_id: 573, speed: "low", remodel: [
-            { id: 81, state: "未改造", power: 99, torp: 0, luck: 3, slot: 4, cantHaveItemId: [128] },
+            { id: 81, state: "未改造", power: 99, torp: 0, luck: 3, slot: 4, cantHaveItemId: [128, 281] },
             { id: 276, state: "改", power: 99, torp: 0, luck: 6, slot: 4 },
             { id: 573, state: "改二", power: 118, torp: 0, luck: 16, slot: 4 }
         ]
@@ -134,59 +134,59 @@ const SHIP_DATA = [
     },
     {
         type: 1, name: "Bismarck", main_id: 178, speed: "high", remodel: [
-            { id: 171, state: "未改造", power: 88, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 172, state: "改", power: 93, torp: 0, luck: 10, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 173, state: "zwei", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 178, state: "drie", power: 99, torp: 36, luck: 22, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] }
+            { id: 171, state: "未改造", power: 88, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 172, state: "改", power: 93, torp: 0, luck: 10, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 173, state: "zwei", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 178, state: "drie", power: 99, torp: 36, luck: 22, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
         type: 1, name: "Italia", main_id: 446, speed: "high", remodel: [
-            { id: 441, state: "Littorio", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 446, state: "Italia", power: 102, torp: 0, luck: 30, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
+            { id: 441, state: "Littorio", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 446, state: "Italia", power: 102, torp: 0, luck: 30, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Roma", main_id: 447, speed: "high", remodel: [
-            { id: 442, state: "未改造", power: 98, torp: 0, luck: 6, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 447, state: "改", power: 105, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
+            { id: 442, state: "未改造", power: 98, torp: 0, luck: 6, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 447, state: "改", power: 105, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Iowa", main_id: 360, speed: "high", remodel: [
-            { id: 440, state: "未改造", power: 150, torp: 0, luck: 35, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 360, state: "改", power: 115, torp: 0, luck: 40, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
+            { id: 440, state: "未改造", power: 150, torp: 0, luck: 35, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 360, state: "改", power: 115, torp: 0, luck: 40, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Colorado", main_id: 1496, speed: "low", remodel: [
-            { id: 601, state: "未改造", power: 96, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128] },
-            { id: 1496, state: "改", power: 105, torp: 0, luck: 40, slot: 4, cantHaveItemId: [128] },
+            { id: 601, state: "未改造", power: 96, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 1496, state: "改", power: 105, torp: 0, luck: 40, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Warspite", main_id: 364, speed: "low", remodel: [
-            { id: 439, state: "未改造", power: 92, torp: 0, luck: 55, slot: 4, cantHaveItemId: [128] },
-            { id: 364, state: "改", power: 106, torp: 0, luck: 70, slot: 4, cantHaveItemId: [128] },
+            { id: 439, state: "未改造", power: 92, torp: 0, luck: 55, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 364, state: "改", power: 106, torp: 0, luck: 70, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Nelson", main_id: 576, speed: "low", remodel: [
-            { id: 571, state: "未改造", power: 102, torp: 0, luck: 24, slot: 4, cantHaveItemId: [128] },
-            { id: 576, state: "改", power: 114, torp: 0, luck: 28, slot: 4, cantHaveItemId: [128] },
+            { id: 571, state: "未改造", power: 102, torp: 0, luck: 24, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 576, state: "改", power: 114, torp: 0, luck: 28, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Richelieu", main_id: 392, speed: "high", remodel: [
-            { id: 492, state: "未改造", power: 94, torp: 0, luck: 22, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
-            { id: 392, state: "改", power: 96, torp: 0, luck: 24, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128] },
+            { id: 492, state: "未改造", power: 94, torp: 0, luck: 22, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 392, state: "改", power: 96, torp: 0, luck: 24, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
         type: 1, name: "Гангут", main_id: 513, speed: "low", remodel: [
-            { id: 511, state: "未改造", power: 78, torp: 28, luck: 20, slot: 4, cantHaveItemId: [128] },
-            { id: 512, state: "Октябрьская революция", power: 89, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128] },
-            { id: 513, state: "Гангут два", power: 90, torp: 32, luck: 35, slot: 4, cantHaveItemId: [128] },
+            { id: 511, state: "未改造", power: 78, torp: 28, luck: 20, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 512, state: "Октябрьская революция", power: 89, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 513, state: "Гангут два", power: 90, torp: 32, luck: 35, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
