@@ -209,7 +209,7 @@ $(function () {
             { type: "gun", id: [1, 2, 3] },
             { type: "secondaly-gun", id: [4] },
             { type: "fighter", id: [7] },
-            { type: "attacker", id: [8, 9] },
+            { type: "attacker", id: [8, 9, 10] },
             { type: "torpedo", id: [5, 6] },
             { type: "radar", id: [14, 15] },
             { type: "other", id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] },
@@ -220,18 +220,36 @@ $(function () {
             let targetTabId;
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = ITEM_DATA[index];
-                const exist = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
+                const canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
                     c => c == item.type
                 );
-                if (exist) {
-                    console.log(exist + item.type)
+                let isException = false;
+                let isSpecial = false;
+                if (canHave) {
+                    const isExceptionId = selectedMyFleet.cantHaveItemId ? selectedMyFleet.cantHaveItemId.some(
+                        c => c == item.id
+                    ) : false;
+                    const isExceptionType = selectedMyFleet.cantHaveItemType ? selectedMyFleet.cantHaveItemType.some(
+                        c => c == item.type
+                    ) : false;
+                    isException = isExceptionId || isExceptionType;
+                } else {
+                    const isSpecialId = selectedMyFleet.specialCanHaveItemId ? selectedMyFleet.specialCanHaveItemId.some(
+                        c => c == item.id
+                    ) : false;
+                    const isSpecialType = selectedMyFleet.specialCanHaveItemType ? selectedMyFleet.specialCanHaveItemType.some(
+                        c => c == item.type
+                    ) : false;
+                    isSpecial = isSpecialId || isSpecialType;
+                }
+                if ((canHave && !isException) || isSpecial) {
+                    //console.log(exist + item.type)
                     for (let index = 0; index < itemType.length; index++) {
                         if (itemType[index].id.indexOf(item.type) != -1) {
                             targetTabId = itemType[index].type;
                             break;
                         }
                     }
-
 
                     let title = "";
                     if (item.type == 8 | item.type == 9) {
