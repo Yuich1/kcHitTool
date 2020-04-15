@@ -380,6 +380,152 @@ const SHIP_DATA = [
             { id: 393, state: "改", power: 50, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
         ]
     },
+    {
+        type: 3, name: "古鷹", main_id: 416, remodel: [
+            { id: 59, state: "未改造", power: 54, torp: 59, luck: 10, slot: 3 },
+            { id: 262, state: "改", power: 70, torp: 59, luck: 10, slot: 4 },
+            { id: 416, state: "改二", power: 77, torp: 75, luck: 14, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "加古", main_id: 417, remodel: [
+            { id: 60, state: "未改造", power: 49, torp: 49, luck: 10, slot: 3 },
+            { id: 263, state: "改", power: 70, torp: 59, luck: 10, slot: 4 },
+            { id: 417, state: "改二", power: 78, torp: 77, luck: 12, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "青葉", main_id: 264, remodel: [
+            { id: 61, state: "未改造", power: 54, torp: 59, luck: 20, slot: 3 },
+            { id: 264, state: "改", power: 72, torp: 59, luck: 30, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "衣笠", main_id: 142, remodel: [
+            { id: 123, state: "未改造", power: 54, torp: 59, luck: 20, slot: 3 },
+            { id: 295, state: "改", power: 66, torp: 59, luck: 10, slot: 4 },
+            { id: 142, state: "改二", power: 78, torp: 74, luck: 13, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "妙高", main_id: 319, remodel: [
+            { id: 62, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
+            { id: 265, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
+            { id: 319, state: "改二", power: 80, torp: 88, luck: 32, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "那智", main_id: 192, remodel: [
+            { id: 63, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
+            { id: 266, state: "改", power: 76, torp: 69, luck: 10, slot: 4 },
+            { id: 192, state: "改二", power: 80, torp: 84, luck: 18, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "足柄", main_id: 193, remodel: [
+            { id: 64, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
+            { id: 267, state: "改", power: 77, torp: 69, luck: 10, slot: 4 },
+            { id: 193, state: "改二", power: 82, torp: 84, luck: 20, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "羽黒", main_id: 194, remodel: [
+            { id: 65, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
+            { id: 268, state: "改", power: 77, torp: 69, luck: 10, slot: 4 },
+            { id: 194, state: "改二", power: 84, torp: 84, luck: 19, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "高雄", main_id: 269, remodel: [
+            { id: 66, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
+            { id: 269, state: "改", power: 77, torp: 79, luck: 10, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "愛宕", main_id: 270, remodel: [
+            { id: 67, state: "未改造", power: 54, torp: 59, luck: 10, slot: 3 },
+            { id: 270, state: "改", power: 77, torp: 79, luck: 10, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "摩耶", main_id: 428, remodel: [
+            { id: 68, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
+            { id: 271, state: "改", power: 78, torp: 69, luck: 10, slot: 4 },
+            { id: 428, state: "改二", power: 77, torp: 84, luck: 14, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "鳥海", main_id: 427, remodel: [
+            { id: 69, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
+            { id: 272, state: "改", power: 78, torp: 69, luck: 10, slot: 4 },
+            { id: 427, state: "改二", power: 86, torp: 86, luck: 19, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "最上", main_id: 73, remodel: [
+            { id: 70, state: "未改造", power: 59, torp: 69, luck: 10, slot: 3 },
+            { id: 73, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "三隈", main_id: 121, remodel: [
+            { id: 120, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
+            { id: 121, state: "改", power: 76, torp: 69, luck: 10, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "鈴谷", main_id: 503, remodel: [
+            { id: 124, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
+            { id: 129, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
+            { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "熊野", main_id: 504, remodel: [
+            { id: 125, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
+            { id: 130, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
+            { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "利根", main_id: 188, remodel: [
+            { id: 71, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
+            { id: 273, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
+            { id: 188, state: "改二", power: 77, torp: 82, luck: 15, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "筑摩", main_id: 189, remodel: [
+            { id: 72, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
+            { id: 274, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
+            { id: 189, state: "改二", power: 77, torp: 83, luck: 14, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "Prinz Eugen", main_id: 177, remodel: [
+            { id: 176, state: "未改造", power: 56, torp: 64, luck: 30, slot: 3 },
+            { id: 177, state: "改", power: 75, torp: 84, luck: 40, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "Zara", main_id: 496, remodel: [
+            { id: 448, state: "未改造", power: 58, torp: 28, luck: 10, slot: 3 },
+            { id: 358, state: "改", power: 75, torp: 40, luck: 12, slot: 4 },
+            { id: 496, state: "due", power: 87, torp: 48, luck: 17, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "Pola", main_id: 361, remodel: [
+            { id: 449, state: "未改造", power: 59, torp: 32, luck: 9, slot: 3 },
+            { id: 361, state: "改", power: 77, torp: 44, luck: 11, slot: 4 },
+        ]
+    },
+    {
+        type: 3, name: "Houston", main_id: 600, remodel: [
+            { id: 595, state: "未改造", power: 52, torp: 40, luck: 12, slot: 3 },
+            { id: 600, state: "改", power: 76, torp: 60, luck: 20, slot: 4 },
+        ]
+    },
 ];
 
 const ITEM_DATA = [

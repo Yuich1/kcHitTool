@@ -151,9 +151,9 @@ $(function () {
         }
         const state = selectedFleet.state;
         const luck = selectedFleet.luck;
-
         const src = `./images/ships/${id}.png`;
         let setState = state;
+        console.log(setState);
         if (setState == "未改造" || setState == "normal") {
             setState = "";
         }
