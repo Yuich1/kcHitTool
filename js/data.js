@@ -184,9 +184,9 @@ const SHIP_DATA = [
     },
     {
         type: 1, name: "Гангут", main_id: 513, speed: "low", remodel: [
-            { id: 511, state: "未改造", power: 78, torp: 28, luck: 20, slot: 4, cantHaveItemId: [128, 281] },
-            { id: 512, state: "Октябрьская революция", power: 89, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
-            { id: 513, state: "Гангут два", power: 90, torp: 32, luck: 35, slot: 4, cantHaveItemId: [128, 281] },
+            { id: 511, state: "未改造", power: 78, torp: 28, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 512, state: "Октябрьская революция", power: 89, torp: 0, luck: 30, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 513, state: "Гангут два", power: 90, torp: 32, luck: 35, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
