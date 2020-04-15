@@ -175,7 +175,7 @@ $(function () {
             $(".myfleet .power").html(power);
             $(".myfleet .lv").val(defaultLevel);
             //結果背景画像変更
-            const img = $('<img>', {'src': `./images/full/${id}.png`});
+            const img = $('<img>', { 'src': `./images/full/${id}.png` });
             img.on("load", function () {
                 $(".result.box .background-img").css("background-image", `url(./images/full/${id}.png)`);
             });
@@ -186,7 +186,6 @@ $(function () {
     //装備スロットを構成する
     const setItemForm = () => {
         $(".myfleet .items tr").remove();
-        console.log(selectedMyFleet.state);
         for (let index = 0; index < selectedMyFleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
             const tr = $("<tr>").append($("<td>")
@@ -221,52 +220,57 @@ $(function () {
             let targetTabId;
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = ITEM_DATA[index];
-                for (let index = 0; index < itemType.length; index++) {
-                    if (itemType[index].id.indexOf(item.type) != -1) {
-                        targetTabId = itemType[index].type;
-                        break;
-                    }
-                }
-                let title = "";
-                if (item.type == 8 | item.type == 9) {
-                    title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
-                } else {
-                    title = `火力 ${item.power ? item.power : 0}, 命中 ${item.accuracy ? item.accuracy : 0}`;
-                }
-                const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
-                    .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
-                const slotButtonId = this.id;
-                button.on("click", function () {
-                    $(`#${slotButtonId}`).text(item.name);
-                    selectedItemList[slotButtonId.charAt(slotButtonId.length - 1)] = item;
-                    let itemPower = 0;
-                    let itemTorp = 0;
-                    let itemBomb = 0;
-                    let power = 0;
-                    itemAccuracy = 0;
-                    selectedItemList.forEach((t) => {
-                        if (t != 0) {
-                            itemPower += t.power ? t.power : 0;
-                            itemTorp += t.torp ? t.torp : 0;
-                            itemBomb += t.bomb ? t.bomb : 0;
-                            itemAccuracy += t.accuracy ? t.accuracy : 0;
-                            power = selectedMyFleet.power + itemPower;
-                            if (selectedMyFleet.type == 2) {
-                                power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
-                            }
-                            console.log(`p is ${itemPower}`);
-
+                const exist = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
+                    c => c == item.type
+                );
+                if (exist) {
+                    console.log(exist + item.type)
+                    for (let index = 0; index < itemType.length; index++) {
+                        if (itemType[index].id.indexOf(item.type) != -1) {
+                            targetTabId = itemType[index].type;
+                            break;
                         }
-                    })
+                    }
 
-                    $(".myfleet .power").html(power);
-                    $(".myfleet .accuracy").html(itemAccuracy);
-                    getResultData();
-                });
-                const tr = $("<tr>").append($("<td>").append(button))
-                $(`#${targetTabId} tbody`).append(tr);
-                $('[data-toggle="tooltip"]').tooltip();
 
+                    let title = "";
+                    if (item.type == 8 | item.type == 9) {
+                        title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+                    } else {
+                        title = `火力 ${item.power ? item.power : 0}, 命中 ${item.accuracy ? item.accuracy : 0}`;
+                    }
+                    const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
+                        .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
+                    const slotButtonId = this.id;
+                    button.on("click", function () {
+                        $(`#${slotButtonId}`).text(item.name);
+                        selectedItemList[slotButtonId.charAt(slotButtonId.length - 1)] = item;
+                        let itemPower = 0;
+                        let itemTorp = 0;
+                        let itemBomb = 0;
+                        let power = 0;
+                        itemAccuracy = 0;
+                        selectedItemList.forEach((t) => {
+                            if (t != 0) {
+                                itemPower += t.power ? t.power : 0;
+                                itemTorp += t.torp ? t.torp : 0;
+                                itemBomb += t.bomb ? t.bomb : 0;
+                                itemAccuracy += t.accuracy ? t.accuracy : 0;
+                                power = selectedMyFleet.power + itemPower;
+                                if (selectedMyFleet.type == 2) {
+                                    power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
+                                }
+                            }
+                        })
+
+                        $(".myfleet .power").html(power);
+                        $(".myfleet .accuracy").html(itemAccuracy);
+                        getResultData();
+                    });
+                    const tr = $("<tr>").append($("<td>").append(button))
+                    $(`#${targetTabId} tbody`).append(tr);
+                    $('[data-toggle="tooltip"]').tooltip();
+                }
             }
         });
     }
@@ -320,8 +324,6 @@ const getDamage = (attack, armor) => {
 const getResultData = () => {
     let power = parseInt($(".myfleet .power").text());
     const armor = parseInt($(".enemy .armor").text());
-    console.log(armor);
-
 
     let sink = 0;
     let taiha = 0;

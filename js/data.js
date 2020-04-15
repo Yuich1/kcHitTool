@@ -1,12 +1,12 @@
 const SHIP_TYPE = [
-    { id: 1, name: "戦艦", type: "bb" },
-    { id: 2, name: "航空母艦", type: "cv" },
-    { id: 3, name: "重巡", type: "ca" },
-    { id: 4, name: "軽巡", type: "cl" },
-    { id: 5, name: "駆逐", type: "dd" },
-    { id: 6, name: "海防", type: "de" },
-    { id: 7, name: "潜水", type: "ss" },
-    { id: 8, name: "補助艦艇", type: "av" },
+    { id: 1, name: "戦艦", type: "bb", canHaveItem: [3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28] },
+    { id: 2, name: "航空母艦", type: "cv", canHaveItem: [4, 7, 8, 9, 14, 15, 18, 22, 24, 25, 26, 27, 28] },
+    { id: 3, name: "重巡", type: "ca", canHaveItem: [2, 4, 5, 11, 14, 15, 17, 18, 22, 24, 25, 26, 28] },
+    { id: 4, name: "軽巡", type: "cl", canHaveItem: [1, 2, 4, 5, 11, 14, 15, 18, 19, 20, 21, 24, 25, 26, 28] },
+    { id: 5, name: "駆逐", type: "dd", canHaveItem: [1, 5, 14, 18, 19, 20, 21, 24, 25, 26, 28] },
+    { id: 6, name: "海防", type: "de", canHaveItem: [1, 5, 14, 18, 19, 20, 21, 26, 28] },
+    { id: 7, name: "潜水", type: "ss", canHaveItem: [5, 6, 19, 24, 25, 26] },
+    { id: 8, name: "補助艦艇", type: "av", canHaveItem: [26] },
 ];
 
 const ITEM_TYPE = [
