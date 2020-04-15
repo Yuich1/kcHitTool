@@ -108,14 +108,14 @@ const SHIP_DATA = [
     {
         type: 1, name: "長門", main_id: 541, speed: "low", remodel: [
             { id: 80, state: "未改造", power: 99, torp: 0, luck: 20, slot: 4, cantHaveItemId: [128] },
-            { id: 275, state: "改", power: 99, torp: 0, luck: 32, slot: 4, cantHaveItemId: [128] },
+            { id: 275, state: "改", power: 99, torp: 0, luck: 32, slot: 4 },
             { id: 541, state: "改二", power: 118, torp: 0, luck: 40, slot: 4, specialCanHaveItemType: [1] }
         ]
     },
     {
         type: 1, name: "陸奥", main_id: 573, speed: "low", remodel: [
             { id: 81, state: "未改造", power: 99, torp: 0, luck: 3, slot: 4, cantHaveItemId: [128] },
-            { id: 276, state: "改", power: 99, torp: 0, luck: 6, slot: 4, cantHaveItemId: [128] },
+            { id: 276, state: "改", power: 99, torp: 0, luck: 6, slot: 4 },
             { id: 573, state: "改二", power: 118, torp: 0, luck: 16, slot: 4 }
         ]
     },
