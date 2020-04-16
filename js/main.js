@@ -254,12 +254,7 @@ $(function () {
                         }
                     }
 
-                    let title = "";
-                    if (item.type == 8 | item.type == 9) {
-                        title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
-                    } else {
-                        title = `火力 ${item.power ? item.power : 0}, 命中 ${item.accuracy ? item.accuracy : 0}`;
-                    }
+                    const title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
                         .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
                     const slotButtonId = this.id;
