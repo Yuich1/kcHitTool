@@ -105,6 +105,9 @@ body{
 }
 .fleet-list .btn{
     max-width: 120px;
+}
+.fleet-list .btn,
+.items .item{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
