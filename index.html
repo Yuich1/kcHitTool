@@ -329,25 +329,57 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
                         <li><a data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
-                        <li><a data-toggle="tab" href="#attacker" id="attacker-tab">艦攻/艦爆</a></li>
+                        <li><a data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
                         <li><a data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
                         <li><a data-toggle="tab" href="#other" id="other-tab">その他</a></li>
                     </ul>
                     <div class="tab-content item-list">
                         <div id="gun" class="tab-pane fade in active">
-                            <table class="table">
-                                <tbody></tbody>
-                            </table>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
+                                <li><a data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
+                                <li><a data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
+                            </ul>
+                            <div class="tab-content item-list">
+                                <div id="l-gun" class="tab-pane fade in active">
+                                    <table class="table">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div id="m-gun" class="tab-pane fade">
+                                    <table class="table">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div id="s-gun" class="tab-pane fade">
+                                    <table class="table">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                         <div id="secondaly-gun" class="tab-pane fade">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="attacker" class="tab-pane fade">
-                            <table class="table">
-                                <tbody></tbody>
-                            </table>
+                        <div id="plane" class="tab-pane fade">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#attacker" id="attacker">艦攻</a></li>
+                                <li><a data-toggle="tab" href="#bomber" id="#bomber">艦爆</a></li>
+                            </ul>
+                            <div class="tab-content item-list">
+                                <div id="attacker" class="tab-pane fade in active">
+                                    <table class="table">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div id="bomber" class="tab-pane fade">
+                                    <table class="table">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                         <div id="radar" class="tab-pane fade">
                             <table class="table">

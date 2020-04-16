@@ -206,10 +206,13 @@ $(function () {
     //装備の選択モーダルを構成する
     const setItemList = () => {
         const itemType = [
-            { type: "gun", id: [1, 2, 3] },
+            { type: "l-gun", id: [3] },
+            { type: "m-gun", id: [2] },
+            { type: "s-gun", id: [1] },
             { type: "secondaly-gun", id: [4] },
             { type: "fighter", id: [7] },
-            { type: "attacker", id: [8, 9, 10] },
+            { type: "attacker", id: [8] },
+            { type: "bomber", id: [9, 10] },
             { type: "torpedo", id: [5, 6] },
             { type: "radar", id: [14, 15] },
             { type: "other", id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] },
