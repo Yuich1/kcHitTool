@@ -244,14 +244,15 @@ body{
     .fleet-list .banner{
         margin-bottom: 4px;
     }
-    .fleet-list span::after{
-        white-space: pre;
-        content:"\A";
-    }
+    
 }
 @media(max-width: 580px){
     .result.box .background-img{
         background-size: 25%;
         background-position: 100% 100%;
+    }
+    .fleet-list span::after{
+        white-space: pre;
+        content:"\A";
     }
 }
