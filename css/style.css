@@ -244,12 +244,12 @@ body{
     .fleet-list .banner{
         margin-bottom: 4px;
     }
-    
 }
 @media(max-width: 580px){
     .result.box .background-img{
         background-size: 25%;
         background-position: 100% 100%;
+        transition: none;
     }
     .fleet-list span::after{
         white-space: pre;
