@@ -203,19 +203,55 @@ body{
     position: relative;
     z-index: 0;
 }
-@media (min-width: 768px){
+.result.box .background-img{
+    content: "";
+    width: 940px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url(../images/full/atlanta.png);
+    background-position: 100% -3%;
+    background-repeat: no-repeat;
+    filter: opacity(40%) saturate(120%);
+    transition: 0.7s 0.15s;
+}
+@media (max-width: 768px){
+    .header{
+        margin: 20px 0
+    }
+    .header h1{
+        font-size: 2.2rem;
+    }
+    .myfleet.box{
+        height: 440px;
+    }
+    .myfleet .fleet-img{
+        margin-bottom: 4px;
+    }
+    .myfleet span:nth-of-type(1)::before{
+        white-space: pre;
+        content:"\A";
+    }
+    #create-myfleet{
+        top: 78px;
+    }
     .result.box .background-img{
-        content: "";
-        width: 940px;
-        height: 400px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: -1;
-        background-image: url(../images/full/atlanta.png);
-        background-position: 100% -3%;
-        background-repeat: no-repeat;
-        filter: opacity(40%) saturate(120%);
-        transition: 0.7s 0.15s;
+        background-size: 50%;
+        background-position: 100% 100%;
+    }
+    .fleet-list .banner{
+        margin-bottom: 4px;
+    }
+    .fleet-list span::after{
+        white-space: pre;
+        content:"\A";
+    }
+}
+@media(max-width: 480px){
+    .result.box .background-img{
+        background-size: 25%;
+        background-position: 100% 100%;
     }
 }
