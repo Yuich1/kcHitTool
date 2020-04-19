@@ -1,4 +1,3 @@
-if (ITEM_DATA[8].name) { console.log(ITEM_DATA[8].name) };
 let hasBbList = false;
 let hasCvList = false;
 let hasCaList = false;
@@ -153,7 +152,6 @@ $(function () {
         const luck = selectedFleet.luck;
         const src = `./images/ships/${id}.png`;
         let setState = state;
-        console.log(setState);
         if (setState == "未改造" || setState == "normal") {
             setState = "";
         }
@@ -222,7 +220,7 @@ $(function () {
             const type = $(this).attr("id");
             let targetTabId;
             for (let index = 0; index < ITEM_DATA.length; index++) {
-                const item = ITEM_DATA[index];
+                const item = Object.assign({}, ITEM_DATA[index]);
                 const canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
                     c => c == item.type
                 );
@@ -258,14 +256,23 @@ $(function () {
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
                         .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
                     const slotButtonId = this.id;
+                    //装備選択時の処理
                     button.on("click", function () {
                         $(`#${slotButtonId}`).text(item.name);
-                        selectedItemList[slotButtonId.charAt(slotButtonId.length - 1)] = item;
+                        const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
+                        selectedItemList[slotNumber] = item;
                         let itemPower = 0;
                         let itemTorp = 0;
                         let itemBomb = 0;
                         let power = 0;
                         itemAccuracy = 0;
+                        const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
+                        const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
+                        const multiBonus = getMultiBonus(slotNumber);
+                        //console.log("相互ボーナス: " + multiBonus.power)
+                        selectedItemList[slotNumber].power += singleAddableBonus.power ? singleAddableBonus.power : 0 + singleBonus.power ? singleBonus.power : 0;
+                        
+                        //console.log(multiBonus);
                         selectedItemList.forEach((t) => {
                             if (t != 0) {
                                 itemPower += t.power ? t.power : 0;
@@ -273,11 +280,13 @@ $(function () {
                                 itemBomb += t.bomb ? t.bomb : 0;
                                 itemAccuracy += t.accuracy ? t.accuracy : 0;
                                 power = selectedMyFleet.power + itemPower;
+                                //空母用計算式
                                 if (selectedMyFleet.type == 2) {
                                     power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
                                 }
                             }
                         })
+                        power += multiBonus.power ? multiBonus.power : 0;
 
                         $(".myfleet .power").html(power);
                         $(".myfleet .accuracy").html(itemAccuracy);
@@ -297,6 +306,67 @@ $(function () {
         $(".myfleet .accuracy").html(itemAccuracy);
     }
 })
+
+const getSingleAddableBonus = (item) => {
+    let power = 0;
+    let accuracy = 0;
+    let torp = 0;
+    let bomb = 0;
+    item.singleAddableBonus.forEach((t) => {
+        if (t.targetId.some(c => c == selectedMyFleet.id)) {
+            power += t.power ? t.power : 0;
+            torp += t.torp ? t.torp : 0;
+            bomb += t.bomb ? t.bomb : 0;
+            accuracy += t.accuracy ? t.accuracy : 0;
+        }
+    })
+    return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
+
+}
+
+const getSingleBonus = (item, slotNum) => {
+    let power = 0;
+    let accuracy = 0;
+    let torp = 0;
+    let bomb = 0;
+    item.singleBonus.forEach((t) => {
+        const checkItemData = selectedItemList.slice(0, slotNum);
+        if (checkItemData.some(c => c.id == item.id)) {
+            return {};
+        }
+        if (t.targetId.some(c => c == selectedMyFleet.id)) {
+            power += t.power ? t.power : 0;
+            torp += t.torp ? t.torp : 0;
+            bomb += t.bomb ? t.bomb : 0;
+            accuracy += t.accuracy ? t.accuracy : 0;
+        }
+    })
+    return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
+}
+
+const getMultiBonus = (slotNum) => {
+    let power = 0;
+    let accuracy = 0;
+    let torp = 0;
+    let bomb = 0;
+    for (let index = 0; index < selectedMyFleet.slot; index++) {
+        const item = selectedItemList[index];
+        //console.log("スロットindex: " + slotNum)
+        if (item && item.multiBonus) {
+            item.multiBonus.forEach((t) => {
+                if (t.isBonus(index)) {
+                    if (t.targetId.some(c => c == selectedMyFleet.id)) {
+                        power += t.power ? t.power : 0;
+                        torp += t.torp ? t.torp : 0;
+                        bomb += t.bomb ? t.bomb : 0;
+                        accuracy += t.accuracy ? t.accuracy : 0;
+                    }
+                }
+            })
+        }
+    }
+    return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
+}
 
 const getHitTerm = (formation_coef, support_cost, cond_conef, luck, lv, equip_hit) => {
     return cond_conef * formation_coef * (support_cost + 1.5 * Math.sqrt(luck)) + 2 * Math.sqrt(lv) + equip_hit;

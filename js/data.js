@@ -555,12 +555,12 @@ const ITEM_DATA = [
     { id: 24, type: 9, name: "彗星", bomb: 8 },
     //{ id: 25, type: 11, name: "零式水上偵察機", power: 0, torp: 0, accuracy: 1 },
     //{ id: 26, type: 12, name: "瑞雲", power: 0, torp: 0, accuracy: 1 },
-    { id: 27, type: 14, name: "13号対空電探", accuracy: 1 },
-    { id: 28, type: 14, name: "22号対水上電探", accuracy: 3 },
-    { id: 29, type: 14, name: "33号対水上電探", accuracy: 5 },
-    { id: 30, type: 15, name: "21号対空電探", accuracy: 2 },
-    { id: 31, type: 15, name: "32号対水上電探", accuracy: 8 },
-    { id: 32, type: 15, name: "42号対空電探", accuracy: 4 },
+    { id: 27, type: 14, name: "13号対空電探", accuracy: 1, isSurface: false, isAir: true },
+    { id: 28, type: 14, name: "22号対水上電探", accuracy: 3, isSurface: true, isAir: false },
+    { id: 29, type: 14, name: "33号対水上電探", accuracy: 5, isSurface: true, isAir: false },
+    { id: 30, type: 15, name: "21号対空電探", accuracy: 2, isSurface: false, isAir: true },
+    { id: 31, type: 15, name: "32号対水上電探", accuracy: 8, isSurface: true, isAir: false },
+    { id: 32, type: 15, name: "42号対空電探", accuracy: 4, isSurface: true, isAir: true },
     //{ id: 33, type: 25, name: "改良式艦本式タービン" },
     //{ id: 34, type: 24, name: "強化型艦本式缶" },
     { id: 35, type: 17, name: "三式弾" },
@@ -578,7 +578,85 @@ const ITEM_DATA = [
     //{ id: 47, type: 19, name: "三式水中聴音機", power: 0, torp: 0, accuracy: 2 },
     { id: 48, type: 1, name: "12cm単装高角砲", power: 1 },
     { id: 49, type: 18, name: "25mm単装機銃" },
-    { id: 50, type: 2, name: "20.3cm(3号)連装砲", power: 10, accuracy: 1 },
+    {
+        id: 50, type: 2, name: "20.3cm(3号)連装砲", power: 10, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [62, 265, 319, 63, 266, 192, 64, 267, 193, 65, 268, 194, 66, 269, 67, 270] },
+            { power: 1, targetId: [59, 262, 416, 60, 263, 417, 61, 264, 123, 295, 142] }
+        ],
+        singleBonus: [
+            { power: 2, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189] },
+        ],
+        multiBonus: [
+            { //3号2積み
+                power: 4, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189], isBonus: function (slotNumber) {
+                    let c = 0;
+                    if (slotNumber == 0) {
+                        return false;
+                    }
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 50) c++;
+                    }
+                    return c == 1;
+                }
+            },
+            { //3号3積み,3号4積み
+                power: 3, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189], isBonus: function (slotNumber) {
+                    let c = 0;
+                    if (slotNumber == 0) {
+                        return false;
+                    }
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 50) c++;
+                    }
+                    return c == 2 || c == 3;
+                }
+            },
+            { //3号水上電探(古鷹型,青葉型)
+                power: 1, targetId: [59, 262, 416, 60, 263, 417, 61, 264, 123, 295, 142], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    const furutakaType = [59, 262, 416, 60, 263, 417];
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.id == 90 && furutakaType.some(c => c == selectedMyFleet.id)) {
+                            return false; //2号があれば2号電探を優先
+                        }
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 50) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+            { //3号水上電探(妙高型,高雄型,最上型,利根型)
+                power: 3, targetId: [62, 265, 319, 63, 266, 192, 64, 267, 193, 65, 268, 194, 66, 269, 67, 270, 70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 50) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+        ]
+    },
     { id: 51, type: 18, name: "12cm30連装噴進砲" },
     { id: 52, type: 8, name: "流星改", torp: 13 },
     //{ id: 53, type: 7, name: "烈風 一一型", power: 0, torp: 0, accuracy: 2 },
@@ -607,9 +685,37 @@ const ITEM_DATA = [
     { id: 84, type: 18, name: "2cm 四連装FlaK 38", accuracy: 1 },
     { id: 85, type: 18, name: "3.7cm FlaK M42", power: 1, accuracy: 1 },
 
-    { id: 88, type: 14, name: "22号対水上電探改", accuracy: 8 },
-    { id: 89, type: 15, name: "21号対空電探改", accuracy: 3 },
-    { id: 90, type: 2, name: "20.3cm(2号)連装砲", power: 9, accuracy: 1 },
+    { id: 88, type: 14, name: "22号対水上電探改四", accuracy: 8, isSurface: true, isAir: false },
+    { id: 89, type: 15, name: "21号対空電探改", accuracy: 3, isSurface: true, isAir: true },
+    {
+        id: 90, type: 2, name: "20.3cm(2号)連装砲", power: 9, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [416, 417, 295, 264] },
+            { power: 3, targetId: [142] },
+            { power: 1, targetId: [59, 262, 60, 263, 61, 123, 62, 265, 319, 63, 266, 192, 64, 267, 193, 65, 268, 194, 66, 269, 67, 270, 68, 271, 428, 69, 272, 427, 70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189] }
+        ],
+        multiBonus: [
+            { // 2号水上電探
+                power: 3, targetId: [59, 262, 416, 60, 263, 417, 61, 264, 123, 295, 142], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 90) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
     { id: 91, type: 1, name: "12.7cm連装高角砲(後期型)", power: 2, accuracy: 1 },
     { id: 92, type: 18, name: "毘式40mm連装機銃" },
     { id: 93, type: 8, name: "九七式艦攻(友永隊)", torp: 11, accuracy: 3 },
@@ -621,9 +727,15 @@ const ITEM_DATA = [
     { id: 100, type: 9, name: "彗星(江草隊)", bomb: 13, accuracy: 4 },
 
     { id: 103, type: 3, name: "試製35.6cm連装砲", power: 18, accuracy: 2 },
-    { id: 104, type: 3, name: "35.6cm連装砲(ダズル迷彩)", power: 15, accuracy: 1 },
+    {
+        id: 104, type: 3, name: "35.6cm連装砲(ダズル迷彩)", power: 15, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [149, 151] },
+            { power: 1, targetId: [150, 152] },
+        ],
+    },
     { id: 105, type: 3, name: "試製41cm三連装砲", power: 22, accuracy: 2 },
-    { id: 106, type: 14, name: "13号対空電探改", accuracy: 2 },
+    { id: 106, type: 14, name: "13号対空電探改", accuracy: 2, isSurface: false, isAir: true },
 
     { id: 111, type: 9, name: "彗星(六〇一空)", bomb: 11, accuracy: 1 },
     { id: 112, type: 8, name: "天山(六〇一空)", torp: 10, accuracy: 1 },
@@ -637,7 +749,7 @@ const ITEM_DATA = [
 
     { id: 122, type: 1, name: "10cm高角砲+高射装置", power: 3, accuracy: 1 },
     { id: 123, type: 2, name: "SKC34 20.3cm連装砲", power: 10, accuracy: 3 },
-    { id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10 },
+    { id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10, isSurface: true, isAir: true },
 
     { id: 128, type: 3, name: "試製51cm連装砲", power: 30, accuracy: 1 },
     { id: 129, type: 28, name: "熟練見張員", accuracy: 2 },
@@ -652,8 +764,8 @@ const ITEM_DATA = [
 
     { id: 139, type: 2, name: "15.2cm連装砲改", power: 6, accuracy: 4 },
 
-    { id: 141, type: 15, name: "32号対水上電探改", accuracy: 9 },
-    { id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9 },
+    { id: 141, type: 15, name: "32号対水上電探改", accuracy: 9, isSurface: true, isAir: false },
+    { id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9, isSurface: true, isAir: true },
     { id: 143, type: 8, name: "九七式艦攻(村田隊)", torp: 12, accuracy: 2 },
     { id: 144, type: 8, name: "天山一二型(村田隊)", torp: 15, accuracy: 2 },
 
@@ -720,16 +832,116 @@ const ITEM_DATA = [
     { id: 275, type: 4, name: "10cm連装高角砲改 + 増設機銃", power: 2, accuracy: 2 },
     { id: 276, type: 3, name: "46cm三連装砲改", power: 27, accuracy: 2 },
     { id: 277, type: 9, name: "FM-2", power: 2, bomb: 2, accuracy: 2 },
-    { id: 278, type: 15, name: "SKレーダー", accuracy: 1 },
-    { id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4 },
+    { id: 278, type: 15, name: "SKレーダー", accuracy: 1, isSurface: true, isAir: true },
+    { id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4, isSurface: true, isAir: true },
     { id: 280, type: 1, name: "QF 4.7inch砲 Mk.XII改", power: 3, accuracy: 1 },
     { id: 281, type: 3, name: "51cm連装砲", power: 32, accuracy: 1 },
     { id: 282, type: 1, name: "130m B-13連装砲", power: 4 },
 
     { id: 284, type: 1, name: "5inch単装砲 Mk.30", power: 2, accuracy: 1 },
 
-    { id: 289, type: 3, name: "35.6cn三連装砲改(ダズル迷彩仕様)", power: 19, accuracy: 3 },
-    { id: 290, type: 3, name: "41cm三連装砲改二", power: 23, accuracy: 5 },
+    {
+        id: 289, type: 3, name: "35.6cn三連装砲改(ダズル迷彩仕様)", power: 19, accuracy: 3,
+        singleAddableBonus: [
+            { power: 2, targetId: [149, 151] },
+            { power: 1, targetId: [150, 152] },
+        ],
+        multiBonus: [
+            { //水上電探
+                power: 2, targetId: [149, 151], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 289) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
+    {
+        id: 290, type: 3, name: "41cm三連装砲改二", power: 23, accuracy: 5,
+        singleAddableBonus: [
+            { power: 3, targetId: [553, 554] },
+            { power: 2, targetId: [82, 88] },
+            { power: 1, targetId: [411, 412] },
+        ],
+        multiBonus: [
+            { //41cm連装砲改二(長門型改二)
+                power: 2, targetId: [541, 573], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let is41TwinGun = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.id == 318) {
+                            is41TwinGun = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 290) {
+                            c++;
+                        }
+                    }
+                    return is41TwinGun && c == 1;
+                }
+            },
+            { //41cm連装砲改二(日向改二)
+                power: 1, targetId: [554], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let is41TwinGun = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.id == 318) {
+                            is41TwinGun = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 290) {
+                            c++;
+                        }
+                    }
+                    return is41TwinGun && c == 1;
+                }
+            },
+            { //対空電探+41cm連装砲改二(日向改二)
+                power: 1, targetId: [541, 573], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isAir = false;
+                    let is41TwinGun = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.id == 318) {
+                            is41TwinGun = true;
+                        }
+                    }
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isAir) {
+                            isAir = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 290) {
+                            c++;
+                        }
+                    }
+                    return isAir && is41TwinGun && c == 1;
+                }
+            },
+        ]
+    },
     { id: 291, type: 9, name: "彗星二二型(六三四空)", bomb: 11, accuracy: 2 },
     { id: 292, type: 9, name: "彗星二二型(六三四空/熟練)", bomb: 12, accuracy: 3 },
     { id: 293, type: 1, name: "12cm単装砲改二", power: 1, accuracy: 1 },
@@ -737,34 +949,92 @@ const ITEM_DATA = [
     { id: 295, type: 1, name: "12.7cm連装砲A型改三(戦時改修) + 高射装置", power: 2, accuracy: 1 },
     { id: 296, type: 1, name: "12.7cm連装砲B型改四(戦時改修) + 高射装置", power: 3, accuracy: 1 },
     { id: 297, type: 1, name: "12.7cm連装砲A型", power: 2 },
-    { id: 298, type: 3, name: "16inch Mk.I三連装砲", power: 21, accuracy: 2 },
-    { id: 299, type: 3, name: "16inch Mk.I三連装砲 + AFCT改", power: 22, accuracy: 4 },
-    { id: 300, type: 3, name: "16inch Mk.I三連装砲改 + FCR type284", power: 23, accuracy: 6 },
+    {
+        id: 298, type: 3, name: "16inch Mk.I三連装砲", power: 21, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [571, 576, 439, 364] },
+            { power: 1, targetId: [149, 150, 151, 152] },
+        ]
+    },
+    {
+        id: 299, type: 3, name: "16inch Mk.I三連装砲 + AFCT改", power: 22, accuracy: 4,
+        singleAddableBonus: [
+            { power: 2, targetId: [571, 576, 439, 364] },
+            { power: 1, targetId: [149, 150, 151, 152] },
+        ]
+    },
+    {
+        id: 300, type: 3, name: "16inch Mk.I三連装砲改 + FCR type284", power: 23, accuracy: 6,
+        singleAddableBonus: [
+            { power: 2, targetId: [571, 576, 439, 364] },
+            { power: 1, targetId: [149, 150, 151, 152] },
+        ]
+    },
     { id: 301, type: 18, name: "20連装7inch UP Rocket Launchers" },
     { id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2 },
     { id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3 },
 
     { id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2 },
     { id: 306, type: 9, name: "Ju87C改二(KMX搭載機/熟練)", bomb: 10, accuracy: 3 },
-    { id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9 },
+    { id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true },
     { id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6 },
 
     { id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3 },
 
     { id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2 },
 
-    { id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8 },
+    { id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true },
     { id: 316, type: 9, name: "Re.2001 CB改", power: 3, bomb: 6, accuracy: 1 },
     { id: 317, type: 17, name: "三式弾改", power: 3, accuracy: 1 },
-    { id: 318, type: 3, name: "41cm連装砲改二", power: 21, accuracy: 5 },
+    {
+        id: 318, type: 3, name: "41cm連装砲改二", power: 21, accuracy: 5,
+        singleAddableBonus: [
+            { power: 3, targetId: [541, 573, 554] },
+            { power: 2, targetId: [553, 82, 88] },
+            { power: 1, targetId: [441, 412] },
+        ]
+    },
     { id: 319, type: 9, name: "彗星一二型(六三四空/三号爆弾搭載機)", bomb: 12, accuracy: 1 },
     { id: 320, type: 9, name: "彗星一二型(三一号光電管爆弾搭載機)", bomb: 11, accuracy: 5 },
 
-    { id: 328, type: 3, name: "35.6cm連装砲改", power: 16, accuracy: 3 },
-    { id: 329, type: 3, name: "35.6cm連装砲改二", power: 17, accuracy: 5 },
-    { id: 330, type: 3, name: "16inch Mk.I連装砲", power: 20, accuracy: 1 },
-    { id: 331, type: 3, name: "16inch Mk.V連装砲", power: 21, accuracy: 2 },
-    { id: 332, type: 3, name: "16inch Mk.VIII連装砲改", power: 21, accuracy: 4 },
+    {
+        id: 328, type: 3, name: "35.6cm連装砲改", power: 16, accuracy: 3,
+        singleAddableBonus: [
+            { power: 3, targetId: [591] },
+            { power: 2, targetId: [149, 150, 151, 152, 209, 210, 211, 212] },
+            { power: 1, targetId: [78, 86, 79, 85, 26, 286, 411, 27, 287, 412, 77, 82, 553, 87, 88, 554] }
+        ]
+    },
+    {
+        id: 329, type: 3, name: "35.6cm連装砲改二", power: 17, accuracy: 5,
+        singleAddableBonus: [
+            { power: 4, targetId: [591] },
+            { power: 3, targetId: [149, 150, 151, 152] },
+            { power: 2, targetId: [209, 210, 211, 212] },
+            { power: 1, targetId: [78, 86, 79, 85, 26, 286, 411, 27, 287, 412, 77, 82, 553, 87, 88, 554] },
+        ]
+    },
+    {
+        id: 330, type: 3, name: "16inch Mk.I連装砲", power: 20, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [576, 541, 573] },
+            { power: 1, targetId: [1496, 601, 275, 80, 81, 276] }
+        ]
+    },
+    {
+        id: 331, type: 3, name: "16inch Mk.V連装砲", power: 21, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [1496, 576, 541, 573] },
+            { power: 1, targetId: [275, 276] },
+        ]
+    },
+    {
+        id: 332, type: 3, name: "16inch Mk.VIII連装砲改", power: 21, accuracy: 4,
+        singleAddableBonus: [
+            { power: 2, targetId: [1496, 576, 541, 573] },
+            { power: 1, targetId: [275, 276, 601] },
+        ]
+    },
 
     { id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1 },
     { id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2 },
@@ -773,8 +1043,20 @@ const ITEM_DATA = [
     { id: 344, type: 8, name: "九七式艦攻改 試製三号戊型(空六号電探改装備機)", torp: 7, accuracy: 1 },
     { id: 345, type: 8, name: "九七式艦攻改(熟練)試製三号戊型(空六号電探改装備機)", torp: 9, accuracy: 2 },
 
-    { id: 356, type: 2, name: "8inch三連装砲 Mk.9", power: 11 },
-    { id: 357, type: 2, name: "8inch三連装砲 Mk.9 mod.2", power: 12, accuracy: 1 },
+    {
+        id: 356, type: 2, name: "8inch三連装砲 Mk.9", power: 11,
+        singleAddableBonus: [
+            { power: 2, targetId: [595, 600] },
+            { power: 1, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504] },
+        ]
+    },
+    {
+        id: 357, type: 2, name: "8inch三連装砲 Mk.9 mod.2", power: 12, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [595, 600] },
+            { power: 1, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504] },
+        ]
+    },
     { id: 358, type: 4, name: "5inch 単装高角砲群", power: 2, accuracy: 1 },
     { id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2 },
     { id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3 },
