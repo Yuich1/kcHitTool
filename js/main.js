@@ -270,7 +270,7 @@ $(function () {
                         const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
                         const multiBonus = getMultiBonus(slotNumber);
                         console.log("単体ボーナス: " + singleAddableBonus.power)
-                        selectedItemList[slotNumber].power += singleAddableBonus.power ? singleAddableBonus.power : 0 + singleBonus.power ? singleBonus.power : 0;
+                        selectedItemList[slotNumber].power = selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0 + singleAddableBonus.power ? singleAddableBonus.power : 0 + singleBonus.power ? singleBonus.power : 0;
                         
                         //console.log(multiBonus);
                         selectedItemList.forEach((t) => {
