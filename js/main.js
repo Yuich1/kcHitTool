@@ -269,7 +269,7 @@ $(function () {
                         const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
                         const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
                         const multiBonus = getMultiBonus(slotNumber);
-                        //console.log("相互ボーナス: " + multiBonus.power)
+                        console.log("単体ボーナス: " + singleAddableBonus.power)
                         selectedItemList[slotNumber].power += singleAddableBonus.power ? singleAddableBonus.power : 0 + singleBonus.power ? singleBonus.power : 0;
                         
                         //console.log(multiBonus);

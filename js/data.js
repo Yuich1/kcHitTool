@@ -546,7 +546,13 @@ const ITEM_DATA = [
     //{ id: 15, type: 5, name: "61cm四連装(酸素)魚雷", torp: 10 },
     { id: 16, type: 8, name: "九七式艦攻", torp: 5 },
     { id: 17, type: 8, name: "天山", torp: 7 },
-    { id: 18, type: 8, name: "流星", torp: 10 },
+    {
+        id: 18, type: 8, name: "流星", torp: 10,
+        singleAddableBonus: [
+            { power: 2, targetId: [277, 278, 156, 594] },
+            { power: 1, targetId: [599] },
+        ]
+    },
     //{ id: 19, type: 7, name: "九六式艦戦", power: 0, torp: 0, accuracy: 0 },
     //{ id: 20, type: 7, name: "零式艦戦21型", power: 0, torp: 0, accuracy: 0 },
     //{ id: 21, type: 7, name: "零式艦戦52型", power: 0, torp: 0, accuracy: 0 },
@@ -658,7 +664,13 @@ const ITEM_DATA = [
         ]
     },
     { id: 51, type: 18, name: "12cm30連装噴進砲" },
-    { id: 52, type: 8, name: "流星改", torp: 13 },
+    {
+        id: 52, type: 8, name: "流星改", torp: 13,
+        singleAddableBonus: [
+            { power: 2, targetId: [277, 278, 156, 594] },
+            { power: 1, targetId: [599] },
+        ]
+    },
     //{ id: 53, type: 7, name: "烈風 一一型", power: 0, torp: 0, accuracy: 2 },
     { id: 54, type: 27, name: "彩雲", accuracy: 2 },
     //{ id: 55, type: 7, name: "紫電改二", power: 0, torp: 0, accuracy: 0 },
@@ -718,8 +730,20 @@ const ITEM_DATA = [
     },
     { id: 91, type: 1, name: "12.7cm連装高角砲(後期型)", power: 2, accuracy: 1 },
     { id: 92, type: 18, name: "毘式40mm連装機銃" },
-    { id: 93, type: 8, name: "九七式艦攻(友永隊)", torp: 11, accuracy: 3 },
-    { id: 94, type: 8, name: "天山一二型(友永隊)", torp: 14, accuracy: 3 },
+    {
+        id: 93, type: 8, name: "九七式艦攻(友永隊)", torp: 11, accuracy: 3,
+        singleBonus: [
+            { power: 3, targetId: [91, 280, 196] },
+            { power: 1, targetId: [90, 279, 197] },
+        ]
+    },
+    {
+        id: 94, type: 8, name: "天山一二型(友永隊)", torp: 14, accuracy: 3,
+        singleBonus: [
+            { power: 7, targetId: [196] },
+            { power: 3, targetId: [197] },
+        ]
+    },
 
     { id: 97, type: 9, name: "九九式艦爆(熟練)", bomb: 7, accuracy: 2 },
     { id: 98, type: 8, name: "九七式艦攻(熟練)", torp: 8, accuracy: 2 },
@@ -766,8 +790,23 @@ const ITEM_DATA = [
 
     { id: 141, type: 15, name: "32号対水上電探改", accuracy: 9, isSurface: true, isAir: false },
     { id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9, isSurface: true, isAir: true },
-    { id: 143, type: 8, name: "九七式艦攻(村田隊)", torp: 12, accuracy: 2 },
-    { id: 144, type: 8, name: "天山一二型(村田隊)", torp: 15, accuracy: 2 },
+    {
+        id: 143, type: 8, name: "九七式艦攻(村田隊)", torp: 12, accuracy: 2,
+        singleBonus: [
+            { power: 3, targetId: [277, 594] },
+            { power: 2, targetId: [278, 110] },
+            { power: 1, targetId: [111, 157] },
+        ]
+    },
+    {
+        id: 144, type: 8, name: "天山一二型(村田隊)", torp: 15, accuracy: 2,
+        singleBonus: [
+            { power: 4, targetId: [461, 466] },
+            { power: 3, targetId: [277, 594, 599] },
+            { power: 2, targetId: [278, 110, 288, 462, 467] },
+            { power: 1, targetId: [111, 112, 157] },
+        ]
+    },
 
     { id: 147, type: 1, name: "120mm連装砲", power: 3, accuracy: 1 },
     { id: 148, type: 9, name: "試製南山", bomb: 11 },
@@ -785,7 +824,12 @@ const ITEM_DATA = [
 
     { id: 183, type: 3, name: "16inch三連装砲 Mk.7 + GFCS", power: 24, accuracy: 7 },
 
-    { id: 188, type: 8, name: "Re2001 G改", power: 3, torp: 4 },
+    {
+        id: 188, type: 8, name: "Re2001 G改", power: 3, torp: 4,
+        singleAddableBonus: [
+            { power: 3, targetId: [444, 365] },
+        ]
+    },
 
     { id: 190, type: 3, name: "38.1cm Mk.I連装砲", power: 18, accuracy: 1 },
     { id: 191, type: 18, name: "QF 2ポンド8連装ポンポン砲", power: 1 },
@@ -1038,10 +1082,38 @@ const ITEM_DATA = [
 
     { id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1 },
     { id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2 },
-    { id: 342, type: 8, name: "流星改(一航戦)", torp: 14, accuracy: 1 },
-    { id: 343, type: 8, name: "流星改(一航戦/熟練)", torp: 15, accuracy: 2 },
-    { id: 344, type: 8, name: "九七式艦攻改 試製三号戊型(空六号電探改装備機)", torp: 7, accuracy: 1 },
-    { id: 345, type: 8, name: "九七式艦攻改(熟練)試製三号戊型(空六号電探改装備機)", torp: 9, accuracy: 2 },
+    {
+        id: 342, type: 8, name: "流星改(一航戦)", torp: 14, accuracy: 1,
+        singleAddableBonus: [
+            { power: 3, targetId: [599] },
+            { power: 2, targetId: [594] },
+            { power: 1, targetId: [277, 278, 461, 466, 462, 467] },
+        ]
+    },
+    {
+        id: 343, type: 8, name: "流星改(一航戦/熟練)", torp: 15, accuracy: 2,
+        singleAddableBonus: [
+            { power: 5, targetId: [599] },
+            { power: 3, targetId: [594] },
+            { power: 2, targetId: [277, 278] },
+            { power: 1, targetId: [461, 466, 462, 467] },
+        ]
+    },
+    {
+        id: 344, type: 8, name: "九七式艦攻改 試製三号戊型(空六号電探改装備機)", torp: 7, accuracy: 1,
+        singleAddableBonus: [
+            { power: 4, targetId: [318] },
+            { power: 3, targetId: [599] },
+            { power: 2, targetId: [555, 560, 282] },
+        ]
+    },
+    {
+        id: 345, type: 8, name: "九七式艦攻改(熟練)試製三号戊型(空六号電探改装備機)", torp: 9, accuracy: 2,
+        singleAddableBonus: [
+            { power: 5, targetId: [318] },
+            { power: 3, targetId: [555, 560, 599, 282] },
+        ]
+    },
 
     {
         id: 356, type: 2, name: "8inch三連装砲 Mk.9", power: 11,
