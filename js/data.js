@@ -675,7 +675,12 @@ const ITEM_DATA = [
     { id: 54, type: 27, name: "彩雲", accuracy: 2 },
     //{ id: 55, type: 7, name: "紫電改二", power: 0, torp: 0, accuracy: 0 },
     //{ id: 56, type: 7, name: "震電改", power: 0, torp: 0, accuracy: 0 },
-    { id: 57, type: 9, name: "彗星一二型甲", bomb: 10 },
+    {
+        id: 57, type: 9, name: "彗星一二型甲", bomb: 10,
+        singleAddableBonus: [
+            { power: 2, targetId: [553, 554] }
+        ]
+    },
     { id: 58, type: 5, name: "61cm五連装(酸素)魚雷", torp: 12, accuracy: 1 },
     //{ id: 59, type: 11, name: "零式水上観測機", power: 0, torp: 0, accuracy: 2 },
     { id: 60, type: 9, name: "零式艦戦62型(爆戦)", bomb: 4 },
@@ -747,8 +752,21 @@ const ITEM_DATA = [
 
     { id: 97, type: 9, name: "九九式艦爆(熟練)", bomb: 7, accuracy: 2 },
     { id: 98, type: 8, name: "九七式艦攻(熟練)", torp: 8, accuracy: 2 },
-    { id: 99, type: 9, name: "九九式艦爆(江草隊)", bomb: 10, accuracy: 4 },
-    { id: 100, type: 9, name: "彗星(江草隊)", bomb: 13, accuracy: 4 },
+    {
+        id: 99, type: 9, name: "九九式艦爆(江草隊)", bomb: 10, accuracy: 4,
+        singleBonus: [
+            { power: 4, targetId: [90, 279, 197] },
+            { power: 1, targetId: [91, 280, 196] },
+        ]
+    },
+    {
+        id: 100, type: 9, name: "彗星(江草隊)", bomb: 13, accuracy: 4,
+        singleBonus: [
+            { power: 6, targetId: [197] },
+            { power: 4, targetId: [553, 554] },
+            { power: 3, targetId: [196] },
+        ]
+    },
 
     { id: 103, type: 3, name: "試製35.6cm連装砲", power: 18, accuracy: 2 },
     {
@@ -761,7 +779,12 @@ const ITEM_DATA = [
     { id: 105, type: 3, name: "試製41cm三連装砲", power: 22, accuracy: 2 },
     { id: 106, type: 14, name: "13号対空電探改", accuracy: 2, isSurface: false, isAir: true },
 
-    { id: 111, type: 9, name: "彗星(六〇一空)", bomb: 11, accuracy: 1 },
+    {
+        id: 111, type: 9, name: "彗星(六〇一空)", bomb: 11, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [553, 554] },
+        ]
+    },
     { id: 112, type: 8, name: "天山(六〇一空)", torp: 10, accuracy: 1 },
     { id: 113, type: 8, name: "流星(六〇一空)", torp: 13, accuracy: 1 },
     { id: 114, type: 3, name: "38cm連装砲改", power: 17, accuracy: 3 },
@@ -986,8 +1009,18 @@ const ITEM_DATA = [
             },
         ]
     },
-    { id: 291, type: 9, name: "彗星二二型(六三四空)", bomb: 11, accuracy: 2 },
-    { id: 292, type: 9, name: "彗星二二型(六三四空/熟練)", bomb: 12, accuracy: 3 },
+    {
+        id: 291, type: 9, name: "彗星二二型(六三四空)", bomb: 11, accuracy: 2,
+        singleAddableBonus: [
+            { power: 6, targetId: [553, 554] },
+        ]
+    },
+    {
+        id: 292, type: 9, name: "彗星二二型(六三四空/熟練)", bomb: 12, accuracy: 3,
+        singleAddableBonus: [
+            { power: 8, targetId: [553, 554] },
+        ]
+    },
     { id: 293, type: 1, name: "12cm単装砲改二", power: 1, accuracy: 1 },
     { id: 294, type: 1, name: "12.7cm連装砲A型改二", power: 2, accuracy: 1 },
     { id: 295, type: 1, name: "12.7cm連装砲A型改三(戦時改修) + 高射装置", power: 2, accuracy: 1 },
@@ -1018,8 +1051,18 @@ const ITEM_DATA = [
     { id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2 },
     { id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3 },
 
-    { id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2 },
-    { id: 306, type: 9, name: "Ju87C改二(KMX搭載機/熟練)", bomb: 10, accuracy: 3 },
+    {
+        id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2,
+        singleAddableBonus: [
+            { power: 1, targetId: [432, 353, 444, 365] }
+        ]
+    },
+    {
+        id: 306, type: 9, name: "Ju87C改二(KMX搭載機/熟練)", bomb: 10, accuracy: 3,
+        singleBonus: [
+            { power: 1, targetId: [432, 353, 444, 365] }
+        ]
+    },
     { id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true },
     { id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6 },
 
@@ -1028,7 +1071,12 @@ const ITEM_DATA = [
     { id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2 },
 
     { id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true },
-    { id: 316, type: 9, name: "Re.2001 CB改", power: 3, bomb: 6, accuracy: 1 },
+    {
+        id: 316, type: 9, name: "Re.2001 CB改", power: 3, bomb: 6, accuracy: 1,
+        singleAddableBonus: [
+            { power: 4, targetId: [444, 365] }
+        ]
+    },
     { id: 317, type: 17, name: "三式弾改", power: 3, accuracy: 1 },
     {
         id: 318, type: 3, name: "41cm連装砲改二", power: 21, accuracy: 5,
@@ -1038,8 +1086,20 @@ const ITEM_DATA = [
             { power: 1, targetId: [441, 412] },
         ]
     },
-    { id: 319, type: 9, name: "彗星一二型(六三四空/三号爆弾搭載機)", bomb: 12, accuracy: 1 },
-    { id: 320, type: 9, name: "彗星一二型(三一号光電管爆弾搭載機)", bomb: 11, accuracy: 5 },
+    {
+        id: 319, type: 9, name: "彗星一二型(六三四空/三号爆弾搭載機)", bomb: 12, accuracy: 1,
+        singleBonus: [
+            { power: 7, targetId: [553, 554] },
+        ]
+    },
+    {
+        id: 320, type: 9, name: "彗星一二型(三一号光電管爆弾搭載機)", bomb: 11, accuracy: 5,
+        singleBonus: [
+            { power: 4, targetId: [508, 509, 554] },
+            { power: 3, targetId: [196, 197] },
+            { power: 2, targetId: [553] },
+        ]
+    },
 
     {
         id: 328, type: 3, name: "35.6cm連装砲改", power: 16, accuracy: 3,
