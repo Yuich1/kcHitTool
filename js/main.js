@@ -27,6 +27,9 @@ $(function () {
     $("#ca-tab").on("click", function () {
         setFleetList(3, false);
     });
+    $("#dd-tab").on("click", function () {
+        setFleetList(5, false);
+    })
 
     $("#create-enemy, #enemy-img, #enemy-name").on("click", function () {
         setFleetList(1, true);
@@ -271,7 +274,7 @@ $(function () {
                         const multiBonus = getMultiBonus(slotNumber);
                         console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
                         selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
-                        
+
                         //console.log(multiBonus);
                         selectedItemList.forEach((t) => {
                             if (t != 0) {
