@@ -1010,6 +1010,96 @@ const SHIP_DATA = [
             { id: 301, state: "改", power: 44, torp: 79, luck: 15, slot: 3 },
         ]
     },
+    {
+        type: 5, name: "夕雲", main_id: 542, remodel: [
+            { id: 133, state: "未改造", power: 30, torp: 69, luck: 12, slot: 2 },
+            { id: 302, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
+            { id: 542, state: "改二", power: 67, torp: 87, luck: 18, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "巻雲", main_id: 563, remodel: [
+            { id: 134, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
+            { id: 303, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
+            { id: 563, state: "改二", power: 64, torp: 90, luck: 16, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "風雲", main_id: 564, remodel: [
+            { id: 453, state: "未改造", power: 30, torp: 70, luck: 13, slot: 2 },
+            { id: 349, state: "改", power: 50, torp: 81, luck: 14, slot: 3 },
+            { id: 564, state: "改二", power: 66, torp: 89, luck: 20, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "長波", main_id: 543, remodel: [
+            { id: 135, state: "未改造", power: 30, torp: 69, luck: 13, slot: 2 },
+            { id: 304, state: "改", power: 50, torp: 80, luck: 14, slot: 3 },
+            { id: 543, state: "改二", power: 69, torp: 89, luck: 30, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "高波", main_id: 345, remodel: [
+            { id: 424, state: "未改造", power: 30, torp: 69, luck: 8, slot: 2 },
+            { id: 345, state: "改", power: 51, torp: 80, luck: 10, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "藤波", main_id: 373, remodel: [
+            { id: 485, state: "未改造", power: 31, torp: 69, luck: 9, slot: 2 },
+            { id: 373, state: "改", power: 52, torp: 79, luck: 11, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "早波", main_id: 688, remodel: [
+            { id: 528, state: "未改造", power: 30, torp: 68, luck: 9, slot: 2 },
+            { id: 688, state: "改", power: 51, torp: 80, luck: 10, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "浜波", main_id: 680, remodel: [
+            { id: 484, state: "未改造", power: 31, torp: 68, luck: 10, slot: 2 },
+            { id: 680, state: "改", power: 52, torp: 78, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "沖波", main_id: 569, remodel: [
+            { id: 452, state: "未改造", power: 30, torp: 69, luck: 10, slot: 2 },
+            { id: 359, state: "改", power: 50, torp: 81, luck: 12, slot: 3 },
+            { id: 569, state: "改二", power: 65, torp: 87, luck: 22, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "岸波", main_id: 686, remodel: [
+            { id: 527, state: "未改造", power: 31, torp: 68, luck: 10, slot: 2 },
+            { id: 686, state: "改", power: 50, torp: 80, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "朝霜", main_id: 578, remodel: [
+            { id: 425, state: "未改造", power: 29, torp: 68, luck: 16, slot: 2 },
+            { id: 344, state: "改", power: 50, torp: 78, luck: 18, slot: 3 },
+            { id: 578, state: "改二", power: 68, torp: 88, luck: 28, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "早霜", main_id: 324, remodel: [
+            { id: 409, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
+            { id: 324, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "秋霜", main_id: 695, remodel: [
+            { id: 625, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
+            { id: 695, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "清霜", main_id: 325, remodel: [
+            { id: 410, state: "未改造", power: 30, torp: 69, luck: 12, slot: 2 },
+            { id: 325, state: "改", power: 50, torp: 80, luck: 13, slot: 3 },
+        ]
+    },
 ];
 
 const ITEM_DATA = [
