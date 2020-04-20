@@ -1358,7 +1358,12 @@ const ITEM_DATA = [
     { id: 60, type: 9, name: "零式艦戦62型(爆戦)", bomb: 4 },
     { id: 61, type: 27, name: "二式艦上偵察機", accuracy: 3 },
 
-    { id: 63, type: 1, name: "12.7cm連装砲B型改二", power: 3 },
+    {
+        id: 63, type: 1, name: "12.7cm連装砲B型改二", power: 3,
+        singleAddableBonus: [
+            { power: 1, targetId: [627, 145, 144, 245] },
+        ]
+    },
     { id: 64, type: 9, name: "Ju87C改", bomb: 9, accuracy: 1 },
     { id: 65, type: 2, name: "15.2cm連装砲", power: 5, accuracy: 3 },
     { id: 66, type: 4, name: "8cm高角砲", power: 1, accuracy: 1 },
@@ -1563,8 +1568,159 @@ const ITEM_DATA = [
     { id: 256, type: 8, name: "TBF", power: 2, torp: 9 },
     { id: 257, type: 8, name: "TBM-3D", power: 2, torp: 9, accuracy: 2 },
 
-    { id: 266, type: 1, name: "12.7cm連装砲C型改二", power: 3, accuracy: 1 },
-    { id: 267, type: 1, name: "12.7cm連装砲D型改二", power: 3, accuracy: 2 },
+    {
+        id: 266, type: 1, name: "12.7cm連装砲C型改二", power: 3, accuracy: 1,
+        singleAddableBonus: [
+            { power: 1, targetId: [42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470, 17, 225, 18, 226, 19, 227, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301] },
+        ],
+        singleBonus: [
+            { power: 2, targetId: [566, 567, 568] },
+        ],
+        multiBonus: [
+            { // C砲改二2積み
+                power: 3, targetId: [566, 567, 568], isBonus: function (slotNumber) {
+                    let c = 0;
+                    if (slotNumber == 0) {
+                        return false;
+                    }
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 266) c++;
+                    }
+                    return c == 1;
+                }
+            },
+            { // C砲改二3積み
+                power: 1, targetId: [566, 567, 568], isBonus: function (slotNumber) {
+                    let c = 0;
+                    if (slotNumber == 0) {
+                        return false;
+                    }
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 266) c++;
+                    }
+                    return c == 2;
+                }
+            },
+            { //C砲改二水上電探(白露型,朝潮型)
+                power: 1, targetId: [42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 266) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+            { //C砲改二水上電探(陽炎型)
+                power: 2, targetId: [17, 225, 566, 18, 226, 567, 19, 227, 568, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 266) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+        ]
+    },
+    {
+        id: 267, type: 1, name: "12.7cm連装砲D型改二", power: 3, accuracy: 2,
+        singleAddableBonus: [
+            { power: 3, targetId: [542, 563, 564, 543, 578, 569] },
+            { power: 2, targetId: [133, 302, 134, 303, 453, 349, 135, 304, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 527, 686, 425, 344, 409, 324, 625, 695, 410, 325, 50, 229] },
+            { power: 1, targetId: [17, 225, 18, 226, 19, 227, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301] }
+        ],
+        singleBonus: [
+            { power: 2, targetId: [566, 567, 568] },
+        ],
+        multiBonus: [
+            { // D砲改二2積み,3積み
+                power: 1, targetId: [566, 567, 568], isBonus: function (slotNumber) {
+                    let c = 0;
+                    if (slotNumber == 0) {
+                        return false;
+                    }
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 267) c++;
+                    }
+                    return c == 1 || c == 2;
+                }
+            },
+            { //D砲改二水上電探(夕雲型改二)
+                power: 3, targetId: [542, 563, 564, 543, 578, 569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 267) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+            { //D砲改二水上電探(夕雲型)
+                power: 2, targetId: [133, 302, 134, 303, 453, 349, 135, 304, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 527, 686, 425, 344, 409, 324, 625, 695, 410, 325], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 267) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+            { //D砲改二水上電探(島風改)
+                power: 1, targetId: [229], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    selectedItemList.forEach((t) => {
+                        if (t.isSurface) {
+                            isSurface = true;
+                        }
+                    })
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 267) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+        ]
+    },
 
     { id: 273, type: 27, name: "彩雲(偵四)", accuracy: 2 },
     { id: 274, type: 18, name: "12cm30連装噴進砲改二", accuracy: 1 },
@@ -1575,7 +1731,12 @@ const ITEM_DATA = [
     { id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4, isSurface: true, isAir: true },
     { id: 280, type: 1, name: "QF 4.7inch砲 Mk.XII改", power: 3, accuracy: 1 },
     { id: 281, type: 3, name: "51cm連装砲", power: 32, accuracy: 1 },
-    { id: 282, type: 1, name: "130m B-13連装砲", power: 4 },
+    {
+        id: 282, type: 1, name: "130m B-13連装砲", power: 4,
+        singleAddableBonus: [
+            { power: 2, targetId: [516, 395, 147, 115, 293, 622, 623, 624] },
+        ]
+    },
 
     { id: 284, type: 1, name: "5inch単装砲 Mk.30", power: 2, accuracy: 1 },
 
@@ -1693,10 +1854,116 @@ const ITEM_DATA = [
             { power: 8, targetId: [553, 554] },
         ]
     },
-    { id: 293, type: 1, name: "12cm単装砲改二", power: 1, accuracy: 1 },
-    { id: 294, type: 1, name: "12.7cm連装砲A型改二", power: 2, accuracy: 1 },
-    { id: 295, type: 1, name: "12.7cm連装砲A型改三(戦時改修) + 高射装置", power: 2, accuracy: 1 },
-    { id: 296, type: 1, name: "12.7cm連装砲B型改四(戦時改修) + 高射装置", power: 3, accuracy: 1 },
+    {
+        id: 293, type: 1, name: "12cm単装砲改二", power: 1, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261] },
+        ],
+        multiBonus: [
+            {
+                power: 2, targetId: [471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 293) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
+    {
+        id: 294, type: 1, name: "12.7cm連装砲A型改二", power: 2, accuracy: 1,
+        singleAddableBonus: [
+            { power: 1, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237] },
+        ],
+        multiBonus: [
+            { // 水上電探(吹雪型,綾波型,暁型)
+                power: 3, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 294) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
+    {
+        id: 295, type: 1, name: "12.7cm連装砲A型改三(戦時改修) + 高射装置", power: 2, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237] }
+        ],
+        multiBonus: [
+            { // 水上電探(吹雪型,綾波型,暁型)
+                power: 3, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 295) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+        ]
+    },
+    {
+        id: 296, type: 1, name: "12.7cm連装砲B型改四(戦時改修) + 高射装置", power: 3, accuracy: 1,
+        singleAddableBonus: [
+            { power: 3, targetId: [627] },
+            { power: 2, targetId: [497, 145, 144] },
+            { power: 1, targetId: [13, 207, 195, 14, 208, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237, 38, 238, 326, 39, 239, 40, 240, 41, 241, 419, 42, 242, 43, 243, 44, 244, 498, 45, 245, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247] },
+        ],
+        multiBonus: [
+            { // 水上電探(綾波型,暁型,初春型,白露型)
+                power: 1, targetId: [13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237, 38, 238, 326, 39, 239, 40, 240, 41, 241, 419, 42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 296) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
     { id: 297, type: 1, name: "12.7cm連装砲A型", power: 2 },
     {
         id: 298, type: 3, name: "16inch Mk.I三連装砲", power: 21, accuracy: 2,
@@ -1736,11 +2003,22 @@ const ITEM_DATA = [
         ]
     },
     { id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true },
-    { id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6 },
+    {
+        id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6,
+        singleAddableBonus: [
+            { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
+            { power: 1, targetId: [597, 696, 471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261, 9, 201, 426, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237, 38, 238, 326, 39, 239, 40, 240, 41, 241, 419, 42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470, 17, 225, 566, 18, 226, 567, 19, 227, 568, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301, 133, 302, 542, 134, 303, 563, 453, 349, 564, 135, 304, 543, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 569, 527, 686, 425, 344, 578, 409, 324, 625, 695, 410, 325, 421, 330, 422, 346, 532, 537, 423, 357, 50, 229] },
+        ],
+    },
 
     { id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3 },
 
-    { id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2 },
+    {
+        id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
+        ]
+    },
 
     { id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true },
     {
@@ -1869,7 +2147,55 @@ const ITEM_DATA = [
     { id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6 },
 
     { id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2 },
-    { id: 366, type: 1, name: "12.7cm連装砲D型改三", power: 3, accuracy: 2 },
+    {
+        id: 366, type: 1, name: "12.7cm連装砲D型改三", power: 3, accuracy: 2,
+        singleAddableBonus: [
+            { power: 4, targetId: [569] },
+            { power: 3, targetId: [542, 563, 564, 543, 578] },
+            { power: 2, targetId: [133, 302, 134, 303, 453, 349, 135, 304, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 527, 686, 425, 344, 409, 324, 625, 695, 410, 325, 50, 229, 566, 567, 568] },
+            { power: 1, targetId: [17, 225, 18, 226, 19, 227, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301] },
+        ],
+        multiBonus: [
+            { // 水上電探(夕雲型改二,島風改)
+                power: 2, targetId: [542, 563, 564, 543, 578, 569, 229], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 366) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            },
+            { // 対空電探(夕雲型改二,島風改)
+                power: 1, targetId: [542, 563, 564, 543, 578, 569, 229], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isAir = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isAir) {
+                            isAir = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 366) {
+                            c++;
+                        }
+                    }
+                    return isAir && c == 1;
+                }
+            },
+        ]
+    },
 
     //{id: , type: , name: "", power: , torp: , accuracy: },
 
