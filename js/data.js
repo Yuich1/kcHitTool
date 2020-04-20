@@ -901,6 +901,115 @@ const SHIP_DATA = [
             { id: 470, state: "改二乙", power: 60, torp: 83, luck: 37, slot: 3 },
         ]
     },
+    {
+        type: 5, name: "陽炎", main_id: 566, remodel: [
+            { id: 17, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
+            { id: 225, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+            { id: 566, state: "改二", power: 68, torp: 90, luck: 20, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "不知火", main_id: 567, remodel: [
+            { id: 18, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
+            { id: 226, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+            { id: 567, state: "改二", power: 67, torp: 91, luck: 24, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "黒潮", main_id: 568, remodel: [
+            { id: 19, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
+            { id: 227, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+            { id: 568, state: "改二", power: 69, torp: 88, luck: 22, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "親潮", main_id: 362, remodel: [
+            { id: 456, state: "未改造", power: 30, torp: 68, luck: 13, slot: 2 },
+            { id: 362, state: "改", power: 50, torp: 78, luck: 14, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "初風", main_id: 300, remodel: [
+            { id: 190, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
+            { id: 300, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "雪風", main_id: 228, remodel: [
+            { id: 20, state: "未改造", power: 29, torp: 79, luck: 50, slot: 2 },
+            { id: 228, state: "改", power: 59, torp: 89, luck: 60, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "天津風", main_id: 198, remodel: [
+            { id: 181, state: "未改造", power: 29, torp: 79, luck: 18, slot: 2 },
+            { id: 316, state: "改", power: 49, torp: 84, luck: 17, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "時津風", main_id: 322, remodel: [
+            { id: 186, state: "未改造", power: 29, torp: 69, luck: 13, slot: 2 },
+            { id: 322, state: "改", power: 48, torp: 79, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "浦風", main_id: 556, remodel: [
+            { id: 168, state: "未改造", power: 29, torp: 69, luck: 13, slot: 2 },
+            { id: 317, state: "改", power: 48, torp: 79, luck: 13, slot: 3 },
+            { id: 556, state: "丁改", power: 62, torp: 80, luck: 18, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "磯風", main_id: 557, remodel: [
+            { id: 167, state: "未改造", power: 29, torp: 69, luck: 16, slot: 2 },
+            { id: 320, state: "改", power: 48, torp: 79, luck: 18, slot: 3 },
+            { id: 557, state: "乙改", power: 61, torp: 82, luck: 24, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "浜風", main_id: 558, remodel: [
+            { id: 170, state: "未改造", power: 29, torp: 69, luck: 15, slot: 2 },
+            { id: 312, state: "改", power: 48, torp: 79, luck: 17, slot: 3 },
+            { id: 558, state: "乙改", power: 58, torp: 83, luck: 20, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "谷風", main_id: 559, remodel: [
+            { id: 169, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
+            { id: 313, state: "改", power: 48, torp: 79, luck: 16, slot: 3 },
+            { id: 559, state: "改二", power: 59, torp: 84, luck: 17, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "野分", main_id: 329, remodel: [
+            { id: 415, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
+            { id: 329, state: "改", power: 48, torp: 79, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "嵐", main_id: 354, remodel: [
+            { id: 454, state: "未改造", power: 29, torp: 69, luck: 11, slot: 2 },
+            { id: 354, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "萩風", main_id: 355, remodel: [
+            { id: 455, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
+            { id: 355, state: "改", power: 50, torp: 79, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "舞風", main_id: 294, remodel: [
+            { id: 122, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
+            { id: 294, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "秋雲", main_id: 301, remodel: [
+            { id: 132, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
+            { id: 301, state: "改", power: 44, torp: 79, luck: 15, slot: 3 },
+        ]
+    },
 ];
 
 const ITEM_DATA = [
