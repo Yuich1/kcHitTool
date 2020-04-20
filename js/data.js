@@ -1100,6 +1100,104 @@ const SHIP_DATA = [
             { id: 325, state: "改", power: 50, torp: 80, luck: 13, slot: 3 },
         ]
     },
+    {
+        type: 5, name: "秋月", main_id: 330, remodel: [
+            { id: 421, state: "未改造", power: 48, torp: 48, luck: 10, slot: 2 },
+            { id: 330, state: "改", power: 57, torp: 54, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "照月", main_id: 346, remodel: [
+            { id: 422, state: "未改造", power: 49, torp: 49, luck: 9, slot: 2 },
+            { id: 346, state: "改", power: 58, torp: 56, luck: 11, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "涼月", main_id: 537, remodel: [
+            { id: 532, state: "未改造", power: 47, torp: 46, luck: 27, slot: 2 },
+            { id: 537, state: "改", power: 56, torp: 52, luck: 37, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "初月", main_id: 357, remodel: [
+            { id: 423, state: "未改造", power: 50, torp: 47, luck: 7, slot: 2 },
+            { id: 357, state: "改", power: 60, torp: 54, luck: 8, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "島風", main_id: 229, remodel: [
+            { id: 50, state: "未改造", power: 29, torp: 89, luck: 10, slot: 2 },
+            { id: 229, state: "改", power: 59, torp: 99, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Z1", main_id: 179, remodel: [
+            { id: 174, state: "未改造", power: 26, torp: 60, luck: 6, slot: 2 },
+            { id: 310, state: "改", power: 45, torp: 70, luck: 12, slot: 3 },
+            { id: 179, state: "zwei", power: 49, torp: 71, luck: 15, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Z3", main_id: 180, remodel: [
+            { id: 175, state: "未改造", power: 26, torp: 60, luck: 6, slot: 2 },
+            { id: 311, state: "改", power: 45, torp: 70, luck: 12, slot: 3 },
+            { id: 180, state: "zwei", power: 47, torp: 71, luck: 15, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Maestrale", main_id: 580, remodel: [
+            { id: 575, state: "未改造", power: 27, torp: 58, luck: 14, slot: 2 },
+            { id: 580, state: "改", power: 54, torp: 72, luck: 17, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Grecale", main_id: 619, remodel: [
+            { id: 614, state: "未改造", power: 26, torp: 57, luck: 14, slot: 2 },
+            { id: 619, state: "改", power: 55, torp: 68, luck: 40, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Libeccio", main_id: 347, remodel: [
+            { id: 443, state: "未改造", power: 27, torp: 58, luck: 12, slot: 2 },
+            { id: 347, state: "改", power: 48, torp: 72, luck: 16, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Samuel B.Roberts", main_id: 681, remodel: [
+            { id: 561, state: "未改造", power: 24, torp: 38, luck: 30, slot: 2 },
+            { id: 681, state: "改", power: 50, torp: 70, luck: 40, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Fletcher", main_id: 692, remodel: [
+            { id: 596, state: "未改造", power: 31, torp: 60, luck: 30, slot: 2 },
+            { id: 692, state: "改", power: 54, torp: 72, luck: 40, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Johnston", main_id: 689, remodel: [
+            { id: 562, state: "未改造", power: 32, torp: 60, luck: 17, slot: 2 },
+            { id: 689, state: "改", power: 55, torp: 72, luck: 40, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Jervis", main_id: 394, remodel: [
+            { id: 519, state: "未改造", power: 32, torp: 82, luck: 50, slot: 2 },
+            { id: 394, state: "改", power: 52, torp: 90, luck: 55, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Janus", main_id: 893, remodel: [
+            { id: 520, state: "未改造", power: 33, torp: 82, luck: 17, slot: 2 },
+            { id: 893, state: "改", power: 53, torp: 90, luck: 22, slot: 3 },
+        ]
+    },
+    {
+        type: 5, name: "Ташкент", main_id: 395, remodel: [
+            { id: 516, state: "未改造", power: 50, torp: 48, luck: 40, slot: 3 },
+            { id: 395, state: "改", power: 66, torp: 68, luck: 43, slot: 4 },
+        ]
+    },
 ];
 
 const ITEM_DATA = [
