@@ -206,13 +206,13 @@ body{
 .result.box .background-img{
     content: "";
     width: 940px;
-    height: 400px;
+    height: 600px;
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     z-index: -1;
     background-image: url(../images/full/atlanta.png);
-    background-position: 100% -3%;
+    background-position: 100% 100%;
     background-repeat: no-repeat;
     filter: opacity(40%) saturate(120%);
     transition: 0.7s 0.15s;
