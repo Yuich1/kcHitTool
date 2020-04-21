@@ -271,7 +271,7 @@ $(function () {
                         const multiBonus = getMultiBonus(slotNumber);
                         console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
                         selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
-                        
+
                         //console.log(multiBonus);
                         selectedItemList.forEach((t) => {
                             if (t != 0) {
@@ -369,7 +369,7 @@ const getMultiBonus = (slotNum) => {
 }
 
 const getHitTerm = (formation_coef, support_cost, cond_conef, luck, lv, equip_hit) => {
-    return cond_conef * formation_coef * (support_cost + 1.5 * Math.sqrt(luck)) + 2 * Math.sqrt(lv) + equip_hit;
+    return Math.round(cond_conef * formation_coef * (support_cost + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
 }
 
 const getAvoidanceTerm = (avoidance, luck) => {
