@@ -941,7 +941,7 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 5, name: "天津風", main_id: 198, remodel: [
+        type: 5, name: "天津風", main_id: 316, remodel: [
             { id: 181, state: "未改造", power: 29, torp: 79, luck: 18, slot: 2 },
             { id: 316, state: "改", power: 49, torp: 84, luck: 17, slot: 3 },
         ]
