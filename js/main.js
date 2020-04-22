@@ -385,7 +385,7 @@ const getMultiBonus = (slotNum) => {
 }
 
 const getHitTerm = (formation_coef, support_const, cond_conef, luck, lv, equip_hit) => {
-    return Math.floor(cond_conef * formation_coef * (support_const + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
+    return Math.floor(cond_conef * formation_coef * Math.floor(support_const + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
 }
 
 const getAvoidanceTerm = (avoidance, luck) => {
