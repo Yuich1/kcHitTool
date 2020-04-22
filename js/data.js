@@ -41,7 +41,7 @@ const ITEM_TYPE = [
 ];
 
 // 単縦, 複縦, 輪形, 梯形, 単横, 警戒
-const FORMATION_ACC_COEF = [1.0, 1.2, 1.0, 1.2, 1.2, 1.0];
+const FORMATION_ACC_COEF = [1.0, 1.2, 1.0, 1.2, 1.2, 1.2];
 const FORMATION_AVO_COEF = [1.0, 1.0, 1.1, 1.2, 1.3, 1.0];
 const FORMATION_DAMAGE_COEF = [1.0, 0.8, 0.7, 0.75, 0.6, 0.5];
 // T有利, 同航, 反航, T不利
