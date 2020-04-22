@@ -284,10 +284,10 @@ $(function () {
 })
 
 const setItem = (slotNumber, item) => {
-    if(slotNumber == selectedMyFleet.slot && !item.name){
+    if (slotNumber == selectedMyFleet.slot && !item.name) {
         const text = "補強増設";
         $(`#itemSlot${slotNumber}`).text(text);
-    }else{
+    } else {
         $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
     }
     selectedItemList[slotNumber] = item;
@@ -314,8 +314,12 @@ const setItem = (slotNumber, item) => {
             if (selectedMyFleet.type == 2) {
                 power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
             }
-        }else{
+        } else {
             power = selectedMyFleet.power;
+            //空母用計算式
+            if (selectedMyFleet.type == 2) {
+                power = Math.floor((power - 1) * 1.5) + 55;
+            }
         }
     })
     power += multiBonus.power ? multiBonus.power : 0;
