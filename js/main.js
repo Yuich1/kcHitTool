@@ -417,12 +417,6 @@ const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCo
     return attack * criticalCoef;
 }
 
-const getDamage = (attack, armor) => {
-    const randArmor = Math.random() * (armor - 1);
-    const damage = Math.floor(attack - (armor * 0.7 + randArmor * 0.6));
-    return damage;
-}
-
 const getResultData = () => {
     let power = parseInt($(".myfleet .power").text());
     const armor = parseInt($(".enemy .armor").text());
@@ -437,10 +431,11 @@ const getResultData = () => {
     const engagementDamageCoef = parseFloat($(".engagement").val());
     const criticalCoef = parseFloat($(".critical").val());
     const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef, criticalCoef));
-    const trialNumber = 10000;
+    const trialNumber = 100;
 
     for (let index = 0; index < trialNumber; index++) {
-        const damage = getDamage(cappedAttack, armor);
+        const randArmor = index / 100 * (armor - 1);
+        const damage = Math.floor(cappedAttack - (armor * 0.7 + randArmor * 0.6));
         if (damage >= hp) {
             sink++;
         } else if (damage > hp * 0.75) {
