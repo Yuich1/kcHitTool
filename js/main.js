@@ -384,8 +384,8 @@ const getMultiBonus = (slotNum) => {
     return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
 }
 
-const getHitTerm = (formation_coef, support_cost, cond_conef, luck, lv, equip_hit) => {
-    return Math.round(cond_conef * formation_coef * (support_cost + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
+const getHitTerm = (formation_coef, support_const, cond_conef, luck, lv, equip_hit) => {
+    return Math.floor(cond_conef * formation_coef * (support_const + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
 }
 
 const getAvoidanceTerm = (avoidance, luck) => {
@@ -402,7 +402,7 @@ const getAvoidanceTerm = (avoidance, luck) => {
 }
 
 const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
-    let finalAccuracy = hitTerm - avoidanceTerm;
+    let finalAccuracy = hitTerm - avoidanceTerm + 1;
     if (finalAccuracy > 97) {
         finalAccuracy = 97;
     }
@@ -481,14 +481,14 @@ const getResultData = () => {
     }
 
     let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
-    hitTerm = Math.round(hitTerm * 10) / 10;
+    //hitTerm = Math.round(hitTerm * 10) / 10;
     $("#hitTerm").html(`命中項 ${hitTerm}`);
 
     let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").text()), parseInt($(".enemy .luck").text()));
     $("#avoidanceTerm").html(`基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "(不明)" : avoidanceTerm}`);
 
     let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
-    finalAccuracy = Math.round(finalAccuracy * 10) / 10;
+    //finalAccuracy = Math.round(finalAccuracy * 10) / 10;
     $("#finalAccuracy").html(`最終命中率 ${finalAccuracy}%`);
 
     $(".result .progress-bar-miss").attr("style", `width:${100 - finalAccuracy}%`);
