@@ -190,7 +190,7 @@ $(function () {
         for (let index = 0; index < selectedMyFleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
             const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
-            remove.on("click", function () { setItem(index, NaN) });
+            remove.on("click", function () { setItem(index, "") });
             const tr = $("<tr>").append($("<td>")
                 .append(button))
                 .append(remove)
@@ -198,9 +198,11 @@ $(function () {
                 )
             $(".myfleet .items tbody").append(tr);
         }
+        const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
+        remove.on("click", function () { setItem(selectedMyFleet.slot, "") });
         const tr = $("<tr>").append($("<td>")
-            .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: "itemSlot5", "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" })))
-            .append($("<button>", { type: "button", class: "btn btn-default", html: "&times;" }))
+            .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" })))
+            .append(remove)
             .append($("<td>")
             )
         $(".myfleet .items tbody").append(tr);
@@ -222,7 +224,6 @@ $(function () {
         ];
         $(".myfleet .item").on("click", function () {
             $(".item-list .table tr").remove();
-            const type = $(this).attr("id");
             let targetTabId;
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = Object.assign({}, ITEM_DATA[index]);
@@ -283,7 +284,12 @@ $(function () {
 })
 
 const setItem = (slotNumber, item) => {
-    $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
+    if(slotNumber == selectedMyFleet.slot && !item.name){
+        const text = "補強増設";
+        $(`#itemSlot${slotNumber}`).text(text);
+    }else{
+        $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
+    }
     selectedItemList[slotNumber] = item;
     let itemPower = 0;
     let itemTorp = 0;
