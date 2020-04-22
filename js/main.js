@@ -190,7 +190,7 @@ $(function () {
         for (let index = 0; index < selectedMyFleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
             const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
-            remove.on("click", function () { setItem(index, "") });
+            remove.on("click", function () { setItem(index, 0) });
             const tr = $("<tr>").append($("<td>")
                 .append(button))
                 .append(remove)
@@ -199,7 +199,7 @@ $(function () {
             $(".myfleet .items tbody").append(tr);
         }
         const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
-        remove.on("click", function () { setItem(selectedMyFleet.slot, "") });
+        remove.on("click", function () { setItem(selectedMyFleet.slot, 0) });
         const tr = $("<tr>").append($("<td>")
             .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" })))
             .append(remove)
@@ -314,6 +314,8 @@ const setItem = (slotNumber, item) => {
             if (selectedMyFleet.type == 2) {
                 power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
             }
+        }else{
+            power = selectedMyFleet.power;
         }
     })
     power += multiBonus.power ? multiBonus.power : 0;
