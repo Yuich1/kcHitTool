@@ -1,6 +1,6 @@
 const SHIP_TYPE = [
     { id: 1, name: "戦艦", type: "bb", canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28] },
-    { id: 2, name: "航空母艦", type: "cv", canHaveItem: [4, 7, 8, 9, 14, 15, 18, 22, 24, 25, 26, 27, 28] },
+    { id: 2, name: "航空母艦", type: "cv", canHaveItem: [4, 7, 8, 9, 14, 15, 18, 22, 24, 25, 26, 27] },
     { id: 3, name: "重巡", type: "ca", canHaveItem: [2, 4, 5, 11, 14, 15, 17, 18, 22, 24, 25, 26, 28] },
     { id: 4, name: "軽巡", type: "cl", canHaveItem: [1, 2, 4, 5, 11, 14, 15, 18, 19, 20, 21, 24, 25, 26, 28] },
     { id: 5, name: "駆逐", type: "dd", canHaveItem: [1, 5, 14, 18, 19, 20, 21, 24, 25, 26, 28] },
@@ -122,14 +122,14 @@ const SHIP_DATA = [
     {
         type: 1, name: "大和", main_id: 136, speed: "low", remodel: [
             { id: 131, state: "未改造", power: 129, torp: 0, luck: 12, slot: 4 },
-            { id: 136, state: "改", power: 139, torp: 0, luck: 13, slot: 4 }
+            { id: 136, state: "改", power: 139, torp: 0, luck: 13, slot: 4, expansionCanHaveItemId: [71, 275] }
         ]
     },
     {
         type: 1, name: "武蔵", main_id: 546, speed: "low", remodel: [
             { id: 143, state: "未改造", power: 129, torp: 0, luck: 10, slot: 4 },
-            { id: 148, state: "改", power: 139, torp: 0, luck: 9, slot: 4 },
-            { id: 546, state: "改二", power: 145, torp: 0, luck: 10, slot: 5 }
+            { id: 148, state: "改", power: 139, torp: 0, luck: 9, slot: 4, expansionCanHaveItemId: [71, 275] },
+            { id: 546, state: "改二", power: 145, torp: 0, luck: 10, slot: 5, expansionCanHaveItemId: [71, 275] }
         ]
     },
     {
@@ -253,8 +253,8 @@ const SHIP_DATA = [
     },
     {
         type: 2, name: "大鳳", main_id: 156, remodel: [
-            { id: 153, state: "未改造", power: 49, torp: 0, luck: 2, slot: 4 },
-            { id: 156, state: "改", power: 59, torp: 0, luck: 4, slot: 4 },
+            { id: 153, state: "未改造", power: 49, torp: 0, luck: 2, slot: 4, expansionCanHaveItemId: [71, 275] },
+            { id: 156, state: "改", power: 59, torp: 0, luck: 4, slot: 4, expansionCanHaveItemId: [71, 275] },
         ]
     },
     {
@@ -334,12 +334,12 @@ const SHIP_DATA = [
     },
     {
         type: 2, name: "鈴谷", main_id: 508, remodel: [
-            { id: 508, state: "航改二", power: 56, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
+            { id: 508, state: "航改二", power: 56, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
         type: 2, name: "熊野", main_id: 509, remodel: [
-            { id: 509, state: "航改二", power: 55, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
+            { id: 509, state: "航改二", power: 55, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
@@ -477,14 +477,14 @@ const SHIP_DATA = [
         type: 3, name: "鈴谷", main_id: 503, remodel: [
             { id: 124, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
             { id: 129, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
-            { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4 },
+            { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4, expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
         type: 3, name: "熊野", main_id: 504, remodel: [
             { id: 125, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
             { id: 130, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
-            { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4 },
+            { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4, expansionCanHaveItemId: [66, 220] },
         ]
     },
     {

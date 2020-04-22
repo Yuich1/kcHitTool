@@ -189,16 +189,20 @@ $(function () {
         $(".myfleet .items tr").remove();
         for (let index = 0; index < selectedMyFleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
+            const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
+            remove.on("click", function () { setItem(index, 0) });
             const tr = $("<tr>").append($("<td>")
                 .append(button))
+                .append(remove)
                 .append($("<td>")
                 )
             $(".myfleet .items tbody").append(tr);
         }
-        const tr = $("<tr>")
-            .append($("<td>")
-                .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: "itemSlot5", "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" }))
-            )
+        const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
+        remove.on("click", function () { setItem(selectedMyFleet.slot, 0) });
+        const tr = $("<tr>").append($("<td>")
+            .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" })))
+            .append(remove)
             .append($("<td>")
             )
         $(".myfleet .items tbody").append(tr);
@@ -218,17 +222,24 @@ $(function () {
             { type: "radar", id: [14, 15] },
             { type: "other", id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] },
         ];
+        const expansionItemType = [18, 25, 26, 28];
         $(".myfleet .item").on("click", function () {
             $(".item-list .table tr").remove();
-            const type = $(this).attr("id");
             let targetTabId;
+            const slotButtonId = this.id;
+            let isExpansionSlot = selectedMyFleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = Object.assign({}, ITEM_DATA[index]);
-                const canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
-                    c => c == item.type
-                );
                 let isException = false;
                 let isSpecial = false;
+                let isExpansion = false;
+                let canHave = false;
+                if (isExpansionSlot) {
+                    isExpansion = expansionItemType.some(c => c == item.type);
+                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type) && isExpansion;
+                } else {
+                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type);
+                }
                 if (canHave) {
                     const isExceptionId = selectedMyFleet.cantHaveItemId ? selectedMyFleet.cantHaveItemId.some(
                         c => c == item.id
@@ -237,7 +248,7 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isException = isExceptionId || isExceptionType;
-                } else {
+                } else if (isExpansion) {
                     const isSpecialId = selectedMyFleet.specialCanHaveItemId ? selectedMyFleet.specialCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
@@ -245,6 +256,10 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isSpecial = isSpecialId || isSpecialType;
+                } else {
+                    isSpecial = selectedMyFleet.expansionCanHaveItemId ? selectedMyFleet.expansionCanHaveItemId.some(
+                        c => c == item.id
+                    ) : false;
                 }
                 if ((canHave && !isException) || isSpecial) {
                     //console.log(exist + item.type)
@@ -258,42 +273,11 @@ $(function () {
                     const title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
                         .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
-                    const slotButtonId = this.id;
                     //装備選択時の処理
                     button.on("click", function () {
-                        $(`#${slotButtonId}`).text(item.name);
                         const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
                         selectedItemList[slotNumber] = item;
-                        let itemPower = 0;
-                        let itemTorp = 0;
-                        let itemBomb = 0;
-                        let power = 0;
-                        itemAccuracy = 0;
-                        const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
-                        const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
-                        const multiBonus = getMultiBonus(slotNumber);
-                        console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
-                        selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
-
-                        //console.log(multiBonus);
-                        selectedItemList.forEach((t) => {
-                            if (t != 0) {
-                                itemPower += t.power ? t.power : 0;
-                                itemTorp += t.torp ? t.torp : 0;
-                                itemBomb += t.bomb ? t.bomb : 0;
-                                itemAccuracy += t.accuracy ? t.accuracy : 0;
-                                power = selectedMyFleet.power + itemPower;
-                                //空母用計算式
-                                if (selectedMyFleet.type == 2) {
-                                    power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
-                                }
-                            }
-                        })
-                        power += multiBonus.power ? multiBonus.power : 0;
-
-                        $(".myfleet .power").html(power);
-                        $(".myfleet .accuracy").html(itemAccuracy);
-                        getResultData();
+                        setItem(slotNumber, item);
                     });
                     const tr = $("<tr>").append($("<td>").append(button))
                     $(`#${targetTabId} tbody`).append(tr);
@@ -309,6 +293,46 @@ $(function () {
         $(".myfleet .accuracy").html(itemAccuracy);
     }
 })
+
+const setItem = (slotNumber, item) => {
+    if (slotNumber == selectedMyFleet.slot && !item.name) {
+        const text = "補強増設";
+        $(`#itemSlot${slotNumber}`).text(text);
+    } else {
+        $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
+    }
+    selectedItemList[slotNumber] = item;
+    let itemPower = 0;
+    let itemTorp = 0;
+    let itemBomb = 0;
+    let power = 0;
+    itemAccuracy = 0;
+    const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
+    const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
+    const multiBonus = getMultiBonus(slotNumber);
+    //console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
+    selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
+
+    //console.log(multiBonus);
+    selectedItemList.forEach((t) => {
+        if (t != 0) {
+            itemPower += t.power ? t.power : 0;
+            itemTorp += t.torp ? t.torp : 0;
+            itemBomb += t.bomb ? t.bomb : 0;
+            itemAccuracy += t.accuracy ? t.accuracy : 0;
+        }
+        power = selectedMyFleet.power + itemPower;
+        //空母用計算式
+        if (selectedMyFleet.type == 2) {
+            power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
+        }
+    })
+    power += multiBonus.power ? multiBonus.power : 0;
+
+    $(".myfleet .power").html(power);
+    $(".myfleet .accuracy").html(itemAccuracy);
+    getResultData();
+}
 
 const getSingleAddableBonus = (item) => {
     let power = 0;
@@ -371,8 +395,8 @@ const getMultiBonus = (slotNum) => {
     return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
 }
 
-const getHitTerm = (formation_coef, support_cost, cond_conef, luck, lv, equip_hit) => {
-    return Math.round(cond_conef * formation_coef * (support_cost + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
+const getHitTerm = (formation_coef, support_const, cond_conef, luck, lv, equip_hit) => {
+    return Math.floor(cond_conef * formation_coef * Math.floor(support_const + 1.5 * Math.sqrt(luck) + 2 * Math.sqrt(lv) + equip_hit));
 }
 
 const getAvoidanceTerm = (avoidance, luck) => {
@@ -389,7 +413,7 @@ const getAvoidanceTerm = (avoidance, luck) => {
 }
 
 const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
-    let finalAccuracy = hitTerm - avoidanceTerm;
+    let finalAccuracy = hitTerm - avoidanceTerm + 1;
     if (finalAccuracy > 97) {
         finalAccuracy = 97;
     }
@@ -402,12 +426,6 @@ const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCo
         attack = 150 + Math.sqrt(attack - 150);
     }
     return attack * criticalCoef;
-}
-
-const getDamage = (attack, armor) => {
-    const randArmor = Math.random() * (armor - 1);
-    const damage = Math.floor(attack - (armor * 0.7 + randArmor * 0.6));
-    return damage;
 }
 
 const getResultData = () => {
@@ -424,10 +442,11 @@ const getResultData = () => {
     const engagementDamageCoef = parseFloat($(".engagement").val());
     const criticalCoef = parseFloat($(".critical").val());
     const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef, criticalCoef));
-    const trialNumber = 10000;
+    const trialNumber = 100;
 
     for (let index = 0; index < trialNumber; index++) {
-        const damage = getDamage(cappedAttack, armor);
+        const randArmor = index / 100 * (armor - 1);
+        const damage = Math.floor(cappedAttack - (armor * 0.7 + randArmor * 0.6));
         if (damage >= hp) {
             sink++;
         } else if (damage > hp * 0.75) {
@@ -468,14 +487,14 @@ const getResultData = () => {
     }
 
     let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
-    hitTerm = Math.round(hitTerm * 10) / 10;
+    //hitTerm = Math.round(hitTerm * 10) / 10;
     $("#hitTerm").html(`命中項 ${hitTerm}`);
 
     let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").text()), parseInt($(".enemy .luck").text()));
     $("#avoidanceTerm").html(`基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "(不明)" : avoidanceTerm}`);
 
     let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
-    finalAccuracy = Math.round(finalAccuracy * 10) / 10;
+    //finalAccuracy = Math.round(finalAccuracy * 10) / 10;
     $("#finalAccuracy").html(`最終命中率 ${finalAccuracy}%`);
 
     $(".result .progress-bar-miss").attr("style", `width:${100 - finalAccuracy}%`);
