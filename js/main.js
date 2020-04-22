@@ -248,7 +248,7 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isException = isExceptionId || isExceptionType;
-                } else {
+                } else if (isExpansion) {
                     const isSpecialId = selectedMyFleet.specialCanHaveItemId ? selectedMyFleet.specialCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
@@ -256,11 +256,10 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isSpecial = isSpecialId || isSpecialType;
-                }
-                if (isExpansionSlot) {
-                    isExpansion = expansionItemType.some(
-                        c => c == item.type
-                    )
+                } else {
+                    isSpecial = selectedMyFleet.expansionCanHaveItemId ? selectedMyFleet.expansionCanHaveItemId.some(
+                        c => c == item.id
+                    ) : false;
                 }
                 if ((canHave && !isException) || isSpecial) {
                     //console.log(exist + item.type)
