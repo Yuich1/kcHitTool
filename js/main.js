@@ -222,16 +222,24 @@ $(function () {
             { type: "radar", id: [14, 15] },
             { type: "other", id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] },
         ];
+        const expansionItemType = [18, 25, 26, 28];
         $(".myfleet .item").on("click", function () {
             $(".item-list .table tr").remove();
             let targetTabId;
+            const slotButtonId = this.id;
+            let isExpansionSlot = selectedMyFleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = Object.assign({}, ITEM_DATA[index]);
-                const canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(
-                    c => c == item.type
-                );
                 let isException = false;
                 let isSpecial = false;
+                let isExpansion = false;
+                let canHave = false;
+                if (isExpansionSlot) {
+                    isExpansion = expansionItemType.some(c => c == item.type);
+                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type) && isExpansion;
+                } else {
+                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type);
+                }
                 if (canHave) {
                     const isExceptionId = selectedMyFleet.cantHaveItemId ? selectedMyFleet.cantHaveItemId.some(
                         c => c == item.id
@@ -249,6 +257,11 @@ $(function () {
                     ) : false;
                     isSpecial = isSpecialId || isSpecialType;
                 }
+                if (isExpansionSlot) {
+                    isExpansion = expansionItemType.some(
+                        c => c == item.type
+                    )
+                }
                 if ((canHave && !isException) || isSpecial) {
                     //console.log(exist + item.type)
                     for (let index = 0; index < itemType.length; index++) {
@@ -261,7 +274,6 @@ $(function () {
                     const title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
                         .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
-                    const slotButtonId = this.id;
                     //装備選択時の処理
                     button.on("click", function () {
                         const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
@@ -299,7 +311,7 @@ const setItem = (slotNumber, item) => {
     const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
     const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
     const multiBonus = getMultiBonus(slotNumber);
-    console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
+    //console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
     selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
 
     //console.log(multiBonus);
