@@ -321,17 +321,11 @@ const setItem = (slotNumber, item) => {
             itemTorp += t.torp ? t.torp : 0;
             itemBomb += t.bomb ? t.bomb : 0;
             itemAccuracy += t.accuracy ? t.accuracy : 0;
-            power = selectedMyFleet.power + itemPower;
-            //空母用計算式
-            if (selectedMyFleet.type == 2) {
-                power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
-            }
-        } else {
-            power = selectedMyFleet.power;
-            //空母用計算式
-            if (selectedMyFleet.type == 2) {
-                power = Math.floor((power - 1) * 1.5) + 55;
-            }
+        }
+        power = selectedMyFleet.power + itemPower;
+        //空母用計算式
+        if (selectedMyFleet.type == 2) {
+            power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
         }
     })
     power += multiBonus.power ? multiBonus.power : 0;
