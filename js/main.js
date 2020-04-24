@@ -16,6 +16,7 @@ let selectedEnemyFleet;
 let selectedItemList = [0, 0, 0, 0, 0];
 let itemAccuracy = 0;
 let isKira = false;
+let isItemOpen = false;
 
 $(function () {
     $("#create-myfleet, #myfleet-img, #myfleet-name").on("click", function () {
@@ -227,9 +228,13 @@ $(function () {
             $(".item-list .table tr").remove();
             let targetTabId;
             const slotButtonId = this.id;
+            const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
             let isExpansionSlot = selectedMyFleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
+            isItemOpen = true;
+            selectedItemList[slotNumber] = 0;
+            const t = getMultiBonus(selectedItemList);
             for (let index = 0; index < ITEM_DATA.length; index++) {
-                const item = Object.assign({}, ITEM_DATA[index]);
+                const item = $.extend(true, {}, ITEM_DATA[index]);
                 let isException = false;
                 let isSpecial = false;
                 let isExpansion = false;
@@ -262,7 +267,6 @@ $(function () {
                     ) : false;
                 }
                 if ((canHave && !isException) || isSpecial) {
-                    //console.log(exist + item.type)
                     for (let index = 0; index < itemType.length; index++) {
                         if (itemType[index].id.indexOf(item.type) != -1) {
                             targetTabId = itemType[index].type;
@@ -270,13 +274,26 @@ $(function () {
                         }
                     }
 
-                    const title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
-                    const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" })
-                        .append($("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name }));
+                    let title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+                    let tip = $("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name })
+                    const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" }).append(tip);
+                    //装備マウスオーバー時の処理
+                    button.on("mouseover", function () {
+                        if(isItemOpen){
+                            
+                            const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
+                            const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
+                            selectedItemList[slotNumber] = item;
+                            const ta = getMultiBonus(selectedItemList);
+                            const bonusPower = (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
+                            const title = `${item.power ? `火力 ${item.power}` : `${bonusPower > 0 ? "火力 " : ""}`}${bonusPower > 0 ? `(+${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+                            $(this).children(".item-tooltip").attr("title", title).tooltip("fixTitle").tooltip("show");
+                            $('[data-toggle="tooltip"]').tooltip();
+                        }
+                    })
                     //装備選択時の処理
                     button.on("click", function () {
-                        const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
-                        selectedItemList[slotNumber] = item;
+                        isItemOpen = false;
                         setItem(slotNumber, item);
                     });
                     const tr = $("<tr>").append($("<td>").append(button))
@@ -309,11 +326,9 @@ const setItem = (slotNumber, item) => {
     itemAccuracy = 0;
     const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
     const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
-    const multiBonus = getMultiBonus(slotNumber);
-    //console.log("単体ボーナス: " + singleAddableBonus.power + "素火力" + selectedItemList[slotNumber].power)
+    const multiBonus = getMultiBonus(selectedItemList);
     selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
 
-    //console.log(multiBonus);
     selectedItemList.forEach((t) => {
         if (t != 0) {
             itemPower += t.power ? t.power : 0;
@@ -371,14 +386,13 @@ const getSingleBonus = (item, slotNum) => {
     return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
 }
 
-const getMultiBonus = (slotNum) => {
+const getMultiBonus = (itemList) => {
     let power = 0;
     let accuracy = 0;
     let torp = 0;
     let bomb = 0;
     for (let index = 0; index < selectedMyFleet.slot; index++) {
-        const item = selectedItemList[index];
-        //console.log("スロットindex: " + slotNum)
+        const item = itemList[index];
         if (item && item.multiBonus) {
             item.multiBonus.forEach((t) => {
                 if (t.isBonus(index)) {
