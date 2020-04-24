@@ -1566,7 +1566,7 @@ const ITEM_DATA = [
     { id: 235, type: 2, name: "15.5cm三連装砲改", power: 7, accuracy: 3 },
     { id: 236, type: 3, name: "41cm三連装砲改", power: 22, accuracy: 4 },
 
-    { id: 240, type: 14, name: "22号対水上電探改四(後期調整型)", power: 1, accuracy: 9 },
+    { id: 240, type: 14, name: "22号対水上電探改四(後期調整型)", power: 1, accuracy: 9, isSurface: true, isAir: false },
 
     { id: 242, type: 8, name: "Swordfish", power: 2, torp: 3, accuracy: 1 },
     { id: 243, type: 8, name: "Swordfish Mk.II(熟練)", power: 3, torp: 5, accuracy: 3 },
