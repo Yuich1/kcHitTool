@@ -53,7 +53,7 @@ const SHIP_DATA = [
             { id: 78, state: "未改造", power: 89, torp: 0, luck: 12, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 209, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 149, state: "改二", power: 98, torp: 0, luck: 15, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
-            { id: 591, state: "改二丙", power: 98, torp: 42, luck: 18, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
+            { id: 591, state: "改二丙", power: 99, torp: 44, luck: 18, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
