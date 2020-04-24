@@ -57,10 +57,11 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 1, name: "比叡", main_id: 150, speed: "high", remodel: [
+        type: 1, name: "比叡", main_id: 592, speed: "high", remodel: [
             { id: 86, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 210, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
-            { id: 150, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
+            { id: 150, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
+            { id: 592, state: "改二丙", power: 98, torp: 47, luck: 15, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
@@ -1241,7 +1242,12 @@ const ITEM_DATA = [
     { id: 32, type: 15, name: "42号対空電探", accuracy: 4, isSurface: true, isAir: true },
     //{ id: 33, type: 25, name: "改良式艦本式タービン" },
     //{ id: 34, type: 24, name: "強化型艦本式缶" },
-    { id: 35, type: 17, name: "三式弾" },
+    {
+        id: 35, type: 17, name: "三式弾",
+        singleBonus: [
+            { power: 1, targetId: [149, 591, 592, 152] }
+        ]
+    },
     { id: 36, type: 16, name: "九一式徹甲弾", power: 8, accuracy: 1 },
     { id: 37, type: 18, name: "7.7mm機銃" },
     { id: 38, type: 18, name: "12.7mm単装機銃" },
@@ -2038,7 +2044,14 @@ const ITEM_DATA = [
             { power: 4, targetId: [444, 365] }
         ]
     },
-    { id: 317, type: 17, name: "三式弾改", power: 3, accuracy: 1 },
+    {
+        id: 317, type: 17, name: "三式弾改", power: 3, accuracy: 1,
+        singleBonus: [
+            { power: 3, targetId: [149, 591, 592, 152] },
+            { power: 2, targetId: [150, 151, 573] },
+            { power: 1, targetId: [78, 209, 86, 210, 79, 211, 85, 212, 541] }
+        ]
+    },
     {
         id: 318, type: 3, name: "41cm連装砲改二", power: 21, accuracy: 5,
         singleAddableBonus: [
@@ -2065,7 +2078,7 @@ const ITEM_DATA = [
     {
         id: 328, type: 3, name: "35.6cm連装砲改", power: 16, accuracy: 3,
         singleAddableBonus: [
-            { power: 3, targetId: [591] },
+            { power: 3, targetId: [591, 592] },
             { power: 2, targetId: [149, 150, 151, 152, 209, 210, 211, 212] },
             { power: 1, targetId: [78, 86, 79, 85, 26, 286, 411, 27, 287, 412, 77, 82, 553, 87, 88, 554] }
         ]
@@ -2073,7 +2086,7 @@ const ITEM_DATA = [
     {
         id: 329, type: 3, name: "35.6cm連装砲改二", power: 17, accuracy: 5,
         singleAddableBonus: [
-            { power: 4, targetId: [591] },
+            { power: 4, targetId: [591, 592] },
             { power: 3, targetId: [149, 150, 151, 152] },
             { power: 2, targetId: [209, 210, 211, 212] },
             { power: 1, targetId: [78, 86, 79, 85, 26, 286, 411, 27, 287, 412, 77, 82, 553, 87, 88, 554] },
@@ -2157,7 +2170,14 @@ const ITEM_DATA = [
     { id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2 },
     { id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6 },
 
-    { id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2 },
+    {
+        id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2,
+        singleBonus: [
+            { power: 3, targetId: [591, 592] },
+            { power: 2, targetId: [136, 148, 546, 541, 573] },
+            { power: 1, targetId: [78, 209, 86, 210, 79, 211, 85, 212, 26, 286, 411, 27, 287, 412, 77, 82, 553, 87, 88, 554, 80, 81, 131, 143] }
+        ]
+    },
     {
         id: 366, type: 1, name: "12.7cm連装砲D型改三", power: 3, accuracy: 2,
         singleAddableBonus: [
