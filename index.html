@@ -109,12 +109,15 @@
                                             </select>
                                         </div>
                                     </td>
-                                    <td>クリティカル</td>
+                                    <td>
+                                        <div class="hasTooltip" data-toggle="tooltip" title="CL1:通常, CL2:クリティカル, 自動:CL2率を計算(乱数により振れ幅が生じます)">クリティカル</div>
+                                    </td>
                                     <td>
                                         <div class="form-group">
                                             <select class="form-control critical" name="critical">
-                                                <option value="1">なし</option>
-                                                <option value="1.5">あり</option>
+                                                <option value="1">CL1</option>
+                                                <option value="2">CL2</option>
+                                                <option value="3" selected>自動</option>
                                             </select>
                                         </div>
                                     </td>
@@ -181,6 +184,7 @@
                         <div id="hitTerm"></div>
                         <div id="avoidanceTerm"></div>
                         <div id="finalAccuracy"></div>
+                        <div id="critical"></div>
                         <div id="damage"></div>
                     </div>
                 </div>
@@ -195,7 +199,7 @@
                 v1.12 装備解除ボタン、補強増設の装備制限、命中率計算式の修正、撃破率計算式の修正をしました。<br>
                 v1.13 比叡改二丙を追加、金剛改二丙ステータス上昇、装備ボーナスの可視化、熟練見張員に装備ボーナスを追加。<br>
                 更新情報は<a href="https://twitter.com/2qrbgxpsaWEziml?s=20" target="_blank">こちらのtwitterから。</a><br>
-                不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank">こちらの質問箱へお願いします。</a> 
+                不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank">こちらの質問箱へお願いします。</a>
             </p>
             <h2 class="title">知的財産権</h2>
             <p>当サイトは著作権法第32条に基づき画像を引用しており、画像の著作権は権利者様(<a href="http://www.dmm.com/netgame/feature/kancolle.html"
@@ -409,4 +413,9 @@
         </div>
 
     </div>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
