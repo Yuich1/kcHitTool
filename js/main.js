@@ -441,13 +441,10 @@ const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCo
     if (attack > 150) {
         attack = 150 + Math.sqrt(attack - 150);
     }
-    return attack * criticalCoef;
+    return Math.floor(Math.floor(attack) * criticalCoef);
 }
 
 const getResultData = () => {
-    let power = parseInt($(".myfleet .power").text());
-    const armor = parseInt($(".enemy .armor").text());
-
     let sink = 0;
     let taiha = 0;
     let tyuha = 0;
@@ -457,6 +454,28 @@ const getResultData = () => {
     const formationDamageCoef = FORMATION_DAMAGE_COEF[parseInt($(".my-formation").val())];
     const engagementDamageCoef = parseFloat($(".engagement").val());
     const criticalCoef = parseFloat($(".critical").val());
+    const support_const = 64;
+    let cond_coef = 1.0;
+    let formation_coef = FORMATION_ACC_COEF[parseInt($(".my-formation").val())];
+    let luck = 0;
+    let lv = 1;
+    lv = $(".myfleet .lv").val();
+    luck = $(".myfleet .luck").val();
+    if (isKira) {
+        cond_coef = 1.2;
+    }
+    let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
+    $("#hitTerm").html(`命中項 ${hitTerm}`);
+
+    let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").text()), parseInt($(".enemy .luck").text()));
+    $("#avoidanceTerm").html(`基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "(不明)" : avoidanceTerm}`);
+
+    let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
+    $("#finalAccuracy").html(`最終命中率 ${finalAccuracy}%`);
+
+    let power = parseInt($(".myfleet .power").text());
+    const armor = parseInt($(".enemy .armor").text());
+
     const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef, criticalCoef));
     const trialNumber = 100;
 
@@ -490,28 +509,6 @@ const getResultData = () => {
         小破 ${shohaProb}%<br>
         小破未満 ${fineProb}%`
     );
-
-    const support_const = 64;
-    let cond_coef = 1.0;
-    let formation_coef = FORMATION_ACC_COEF[parseInt($(".my-formation").val())];
-    let luck = 0;
-    let lv = 1;
-    lv = $(".myfleet .lv").val();
-    luck = $(".myfleet .luck").val();
-    if (isKira) {
-        cond_coef = 1.2;
-    }
-
-    let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
-    //hitTerm = Math.round(hitTerm * 10) / 10;
-    $("#hitTerm").html(`命中項 ${hitTerm}`);
-
-    let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").text()), parseInt($(".enemy .luck").text()));
-    $("#avoidanceTerm").html(`基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "(不明)" : avoidanceTerm}`);
-
-    let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
-    //finalAccuracy = Math.round(finalAccuracy * 10) / 10;
-    $("#finalAccuracy").html(`最終命中率 ${finalAccuracy}%`);
 
     $(".result .progress-bar-miss").attr("style", `width:${100 - finalAccuracy}%`);
     $(".result .progress-bar-miss").html(`miss ${Math.floor((100 - finalAccuracy) * 10) / 10}%`);
