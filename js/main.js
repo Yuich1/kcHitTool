@@ -340,6 +340,8 @@ const setItem = (slotNumber, item) => {
         //空母用計算式
         if (selectedMyFleet.type == 2) {
             power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
+        } else {
+            power += 4;
         }
     })
     power += multiBonus.power ? multiBonus.power : 0;
@@ -435,7 +437,7 @@ const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
 }
 
 const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCoef) => {
-    attack = (attack + 4) * formationDamageCoef * engagementDamageCoef;
+    attack = attack * formationDamageCoef * engagementDamageCoef;
     if (attack > 150) {
         attack = 150 + Math.sqrt(attack - 150);
     }
