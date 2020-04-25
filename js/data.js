@@ -215,7 +215,7 @@ const SHIP_DATA = [
         type: 2, name: "飛龍", main_id: 196, remodel: [
             { id: 91, state: "未改造", power: 29, torp: 0, luck: 35, slot: 4, cantHaveItemId: [151] },
             { id: 280, state: "改", power: 39, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
-            { id: 196, state: "改二", power: 64, torp: 0, luck: 50, slot: 4, cantHaveItemId: [151] },
+            { id: 196, state: "改二", power: 65, torp: 0, luck: 50, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
