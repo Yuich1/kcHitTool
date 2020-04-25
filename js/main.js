@@ -279,8 +279,8 @@ $(function () {
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" }).append(tip);
                     //装備マウスオーバー時の処理
                     button.on("mouseover", function () {
-                        if(isItemOpen){
-                            
+                        if (isItemOpen) {
+
                             const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
                             const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
                             selectedItemList[slotNumber] = item;
@@ -435,7 +435,7 @@ const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
 }
 
 const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCoef) => {
-    attack = attack * formationDamageCoef * engagementDamageCoef + 4;
+    attack = (attack + 4) * formationDamageCoef * engagementDamageCoef;
     if (attack > 150) {
         attack = 150 + Math.sqrt(attack - 150);
     }
@@ -480,7 +480,7 @@ const getResultData = () => {
     const sinkProb = Math.floor(sink / trialNumber * 1000) / 10;
     const isDamageCap = cappedAttack >= 151;
     $("#damage").html(`<br>
-        攻撃キャップ ${isDamageCap ? `到達(キャップ後 ${cappedAttack})` : "未到達"}<br>
+        最終攻撃力 ${cappedAttack}${isDamageCap ? "(キャップ到達)" : ""}<br>
         命中時撃破率<br>
         撃沈 ${sinkProb}%<br>
         大破 ${taihaProb}%<br>
