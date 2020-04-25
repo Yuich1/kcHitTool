@@ -170,7 +170,7 @@ $(function () {
             $(".enemy .avoidance").html(selectedFleet.avoidance + selectedFleet.avoidance_item);
             $(".enemy .luck").html(luck);
         } else {
-            const power = selectedMyFleet.type == 2 ? Math.floor((selectedMyFleet.power - 1) * 1.5) + 55 : selectedMyFleet.power;
+            const power = selectedMyFleet.type == 2 ? Math.floor((selectedMyFleet.power - 1) * 1.5) + 55 : selectedMyFleet.power + 4;
             $(`.myfleet .fleet-name`).html(setName);
             $(".myfleet .fleet-img").attr("src", src);
             $(".myfleet .luck").val(luck);
@@ -436,12 +436,12 @@ const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
     return finalAccuracy;
 }
 
-const getAttack = (attack, formationDamageCoef, engagementDamageCoef, criticalCoef) => {
+const getAttack = (attack, formationDamageCoef, engagementDamageCoef) => {
     attack = attack * formationDamageCoef * engagementDamageCoef;
     if (attack > 150) {
         attack = 150 + Math.sqrt(attack - 150);
     }
-    return Math.floor(Math.floor(attack) * criticalCoef);
+    return Math.floor(attack);
 }
 
 const getResultData = () => {
@@ -453,7 +453,7 @@ const getResultData = () => {
     const hp = $(".enemy .hp").text();
     const formationDamageCoef = FORMATION_DAMAGE_COEF[parseInt($(".my-formation").val())];
     const engagementDamageCoef = parseFloat($(".engagement").val());
-    const criticalCoef = parseFloat($(".critical").val());
+    const criticalFlag = parseFloat($(".critical").val());
     const support_const = 64;
     let cond_coef = 1.0;
     let formation_coef = FORMATION_ACC_COEF[parseInt($(".my-formation").val())];
@@ -476,12 +476,22 @@ const getResultData = () => {
     let power = parseInt($(".myfleet .power").text());
     const armor = parseInt($(".enemy .armor").text());
 
-    const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef, criticalCoef));
-    const trialNumber = 100;
-
+    const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
+    let trialNumber = 100;
+    let criticalCoef = criticalFlag == 2 ? 1.5 : 1.0;
+    let criticalTerm = criticalFlag == 2 ? 100 : 0;
+    if(criticalFlag == 3){
+        criticalTerm = Math.floor(Math.sqrt(finalAccuracy)) + 1;
+        trialNumber = 5000;
+    }
+    $("#critical").html(`(CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%`);
     for (let index = 0; index < trialNumber; index++) {
-        const randArmor = index / 100 * (armor - 1);
-        const damage = Math.floor(cappedAttack - (armor * 0.7 + randArmor * 0.6));
+        const randArmor = index / trialNumber * (armor - 1);
+        if(criticalFlag == 3){
+            criticalCoef = Math.random() * 100 < criticalTerm ? 1.5 : 1.0;
+        }
+        const finalAttack = Math.floor(cappedAttack * criticalCoef);
+        const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
         if (damage >= hp) {
             sink++;
         } else if (damage > hp * 0.75) {
@@ -501,7 +511,7 @@ const getResultData = () => {
     const sinkProb = Math.floor(sink / trialNumber * 1000) / 10;
     const isDamageCap = cappedAttack >= 151;
     $("#damage").html(`<br>
-        最終攻撃力 ${cappedAttack}${isDamageCap ? "(キャップ到達)" : ""}<br>
+        最終攻撃力 ${criticalFlag == 3 ? `(CL1) ${Math.floor(cappedAttack * 1.0)}, (CL2) ${Math.floor(cappedAttack * 1.5)}` : Math.floor(cappedAttack * criticalCoef)}${isDamageCap ? "(キャップ到達)" : ""}<br>
         命中時撃破率<br>
         撃沈 ${sinkProb}%<br>
         大破 ${taihaProb}%<br>

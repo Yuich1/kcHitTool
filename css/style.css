@@ -53,7 +53,8 @@ body{
 }
 .box-title::after,
 .myfleet .fleet-name::after,
-.enemy .fleet-name::after{
+.enemy .fleet-name::after,
+.hasTooltip{
     display: block;
     content: "";
     border-bottom: 1px solid rgb(161, 161, 161);
@@ -124,6 +125,9 @@ body{
 .status tr td:nth-of-type(even){
     width: 40px;
     padding-left: 4px;
+}
+.hasTooltip{
+    cursor: default;
 }
 .items{
     margin-top: 16px;
