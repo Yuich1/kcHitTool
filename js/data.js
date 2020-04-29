@@ -717,13 +717,13 @@ const SHIP_DATA = [
             { id: 604, state: "未改造", power: 50, torp: 50, luck: 9, slot: 3 },
             { id: 609, state: "改", power: 70, torp: 60, luck: 10, slot: 3 },
         ]
-    }, 
+    },
     {
         type: 4, name: "Perth", main_id: 618, remodel: [
             { id: 613, state: "未改造", power: 58, torp: 54, luck: 12, slot: 3 },
             { id: 618, state: "改", power: 72, torp: 72, luck: 22, slot: 3 },
         ]
-    },   
+    },
 
     {
         type: 5, name: "神風", main_id: 476, remodel: [
@@ -1761,7 +1761,34 @@ const ITEM_DATA = [
     { id: 219, type: 9, name: "零式艦戦63型(爆戦)", bomb: 5 },
     { id: 220, type: 4, name: "8cm高角砲改 + 増設機銃", power: 1, accuracy: 2 },
 
-    { id: 229, type: 1, name: "12.7cm単装高角砲(後期型)", power: 1, accuracy: 1 },
+    {
+        id: 229, type: 1, name: "12.7cm単装高角砲(後期型)", power: 1, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [488, 487] },
+            { power: 1, targetId: [622, 263, 624, 471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261] },
+        ],
+        multiBonus: [
+            {
+                power: 1, targetId: [622, 623, 624], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 229) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
 
     { id: 231, type: 3, name: "30.5cm三連装砲", power: 16, accuracy: 1 },
     { id: 232, type: 3, name: "30.5cm三連装砲改", power: 17, accuracy: 3 },
@@ -2203,7 +2230,12 @@ const ITEM_DATA = [
     },
     { id: 301, type: 18, name: "20連装7inch UP Rocket Launchers" },
     { id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2 },
-    { id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3 },
+    {
+        id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3,
+        singleAddableBonus: [
+            { power: 1, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 574, 579, 630] }
+        ]
+    },
 
     {
         id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2,
@@ -2226,7 +2258,34 @@ const ITEM_DATA = [
         ],
     },
 
-    { id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3 },
+    {
+        id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3,
+        singleAddableBonus: [
+            { power: 4, targetId: [622, 623, 624] },
+            { power: 2, targetId: [115, 293, 154, 343, 465, 356] },
+        ],
+        multiBonus: [
+            {
+                power: 3, targetId: [622, 623, 624], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 310) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
 
     {
         id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2,
@@ -2312,8 +2371,19 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1 },
-    { id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2 },
+    {
+        id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1,
+        singleAddableBonus: [
+            { power: 1, targetId: [589, 693, 590, 691] },
+        ]
+    },
+    {
+        id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [589, 693, 590, 691] },
+            { power: 1, targetId: [574, 579, 630] },
+        ]
+    },
     {
         id: 342, type: 8, name: "流星改(一航戦)", torp: 14, accuracy: 1,
         singleAddableBonus: [
@@ -2362,11 +2432,43 @@ const ITEM_DATA = [
         ]
     },
     { id: 358, type: 4, name: "5inch 単装高角砲群", power: 2, accuracy: 1 },
-    { id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2 },
-    { id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3 },
-    { id: 361, type: 2, name: "Bofors 15cm連装速射砲 Mk.9改 + 単装速射砲 Mk.10改 Model 1938", power: 7, accuracy: 3 },
-    { id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2 },
-    { id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6 },
+    {
+        id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [613, 618, 622, 623, 624] },
+            { power: 1, targetId: [115, 293] }
+        ]
+    },
+    {
+        id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3,
+        singleAddableBonus: [
+            { power: 2, targetId: [604, 609, 574, 579, 630] },
+            { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+        ]
+    },
+    {
+        id: 361, type: 2, name: "Bofors 15cm連装速射砲 Mk.9改 + 単装速射砲 Mk.10改 Model 1938", power: 7, accuracy: 3,
+        singleAddableBonus: [
+            { power: 2, targetId: [604, 609, 574, 579, 630] },
+            { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+        ]
+    },
+    {
+        id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2,
+        singleAddableBonus: [
+            { power: 1, targetId: [597, 696] },
+            { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
+            { power: -3, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 51, 213, 477, 52, 214, 478, 115, 193, 622, 623, 624] },
+        ]
+    },
+    {
+        id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6,
+        singleAddableBonus: [
+            { power: 1, targetId: [597, 696] },
+            { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
+            { power: -3, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 51, 213, 477, 52, 214, 478, 115, 193, 622, 623, 624] },
+        ]
+    },
 
     {
         id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2,
