@@ -28,6 +28,9 @@ $(function () {
     $("#ca-tab").on("click", function () {
         setFleetList(3, false);
     });
+    $("#cl-tab").on("click", function () {
+        setFleetList(4, false);
+    });
     $("#dd-tab").on("click", function () {
         setFleetList(5, false);
     })
