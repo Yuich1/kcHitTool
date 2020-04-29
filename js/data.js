@@ -528,6 +528,204 @@ const SHIP_DATA = [
         ]
     },
     {
+        type: 4, name: "天龍", main_id: 477, remodel: [
+            { id: 51, state: "未改造", power: 39, torp: 59, luck: 17, slot: 2 },
+            { id: 213, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 477, state: "改二", power: 64, torp: 78, luck: 17, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "龍田", main_id: 478, remodel: [
+            { id: 52, state: "未改造", power: 39, torp: 59, luck: 17, slot: 2 },
+            { id: 214, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 478, state: "改二", power: 50, torp: 80, luck: 18, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "球磨", main_id: 215, remodel: [
+            { id: 99, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
+            { id: 215, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "多摩", main_id: 547, remodel: [
+            { id: 100, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 216, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 547, state: "改二", power: 60, torp: 91, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "北上", main_id: 119, remodel: [
+            { id: 25, state: "未改造", power: 39, torp: 79, luck: 15, slot: 2 },
+            { id: 58, state: "改", power: 39, torp: 99, luck: 15, slot: 2 },
+            { id: 119, state: "改二", power: 63, torp: 139, luck: 30, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "大井", main_id: 118, remodel: [
+            { id: 24, state: "未改造", power: 49, torp: 89, luck: 17, slot: 2 },
+            { id: 57, state: "改", power: 39, torp: 99, luck: 10, slot: 2 },
+            { id: 118, state: "改二", power: 63, torp: 139, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "木曾", main_id: 146, remodel: [
+            { id: 101, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 217, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 146, state: "改二", power: 65, torp: 111, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "長良", main_id: 218, remodel: [
+            { id: 21, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
+            { id: 218, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "五十鈴", main_id: 141, remodel: [
+            { id: 22, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 219, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 141, state: "改二", power: 61, torp: 79, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "名取", main_id: 221, remodel: [
+            { id: 53, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 221, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "由良", main_id: 488, remodel: [
+            { id: 23, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 220, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 488, state: "改二", power: 56, torp: 80, luck: 16, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "鬼怒", main_id: 487, remodel: [
+            { id: 113, state: "未改造", power: 39, torp: 79, luck: 12, slot: 2 },
+            { id: 289, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 487, state: "改二", power: 57, torp: 84, luck: 17, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "阿武隈", main_id: 200, remodel: [
+            { id: 114, state: "未改造", power: 39, torp: 79, luck: 12, slot: 2 },
+            { id: 290, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 200, state: "改二", power: 56, torp: 94, luck: 20, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "夕張", main_id: 622, remodel: [
+            { id: 115, state: "未改造", power: 42, torp: 69, luck: 12, slot: 3 },
+            { id: 293, state: "改", power: 63, torp: 79, luck: 17, slot: 4 },
+            { id: 622, state: "改二", power: 56, torp: 80, luck: 30, slot: 5 },
+            { id: 623, state: "改二特", power: 56, torp: 88, luck: 30, slot: 5 },
+            { id: 624, state: "改二丁", power: 56, torp: 80, luck: 30, slot: 5 },
+        ]
+    },
+    {
+        type: 4, name: "川内", main_id: 158, remodel: [
+            { id: 54, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
+            { id: 222, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 158, state: "改二", power: 68, torp: 89, luck: 14, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "神通", main_id: 159, remodel: [
+            { id: 55, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 223, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 159, state: "改二", power: 73, torp: 98, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "那珂", main_id: 160, remodel: [
+            { id: 56, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
+            { id: 224, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
+            { id: 160, state: "改二", power: 69, torp: 84, luck: 13, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "阿賀野", main_id: 305, remodel: [
+            { id: 137, state: "未改造", power: 42, torp: 72, luck: 10, slot: 3 },
+            { id: 305, state: "改", power: 67, torp: 79, luck: 10, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "能代", main_id: 306, remodel: [
+            { id: 138, state: "未改造", power: 42, torp: 72, luck: 10, slot: 3 },
+            { id: 306, state: "改", power: 68, torp: 79, luck: 10, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "矢矧", main_id: 307, remodel: [
+            { id: 139, state: "未改造", power: 42, torp: 72, luck: 13, slot: 3 },
+            { id: 307, state: "改", power: 70, torp: 79, luck: 14, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "酒匂", main_id: 314, remodel: [
+            { id: 140, state: "未改造", power: 41, torp: 71, luck: 20, slot: 3 },
+            { id: 314, state: "改", power: 65, torp: 78, luck: 30, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "大淀", main_id: 321, remodel: [
+            { id: 183, state: "未改造", power: 48, torp: 39, luck: 24, slot: 3 },
+            { id: 321, state: "改", power: 70, torp: 49, luck: 30, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "香取", main_id: 343, remodel: [
+            { id: 154, state: "未改造", power: 28, torp: 28, luck: 10, slot: 3 },
+            { id: 343, state: "改", power: 36, torp: 40, luck: 12, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "鹿島", main_id: 356, remodel: [
+            { id: 465, state: "未改造", power: 27, torp: 24, luck: 20, slot: 3 },
+            { id: 356, state: "改", power: 34, torp: 39, luck: 20, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "L.d.S.D.d.Abruzzi", main_id: 693, remodel: [
+            { id: 589, state: "未改造", power: 51, torp: 66, luck: 20, slot: 3 },
+            { id: 693, state: "改", power: 73, torp: 70, luck: 30, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "G.Garibaldi", main_id: 691, remodel: [
+            { id: 590, state: "未改造", power: 50, torp: 66, luck: 20, slot: 3 },
+            { id: 691, state: "改", power: 72, torp: 70, luck: 30, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "Atlanta", main_id: 696, remodel: [
+            { id: 597, state: "未改造", power: 38, torp: 66, luck: 17, slot: 3 },
+            { id: 696, state: "改", power: 64, torp: 70, luck: 18, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "Gotland", main_id: 630, remodel: [
+            { id: 574, state: "未改造", power: 48, torp: 68, luck: 20, slot: 3 },
+            { id: 579, state: "改", power: 62, torp: 70, luck: 24, slot: 4 },
+            { id: 630, state: "andra", power: 60, torp: 73, luck: 26, slot: 4 },
+        ]
+    },
+    {
+        type: 4, name: "De Ruyter", main_id: 609, remodel: [
+            { id: 604, state: "未改造", power: 50, torp: 50, luck: 9, slot: 3 },
+            { id: 609, state: "改", power: 70, torp: 60, luck: 10, slot: 3 },
+        ]
+    },
+    {
+        type: 4, name: "Perth", main_id: 618, remodel: [
+            { id: 613, state: "未改造", power: 58, torp: 54, luck: 12, slot: 3 },
+            { id: 618, state: "改", power: 72, torp: 72, luck: 22, slot: 3 },
+        ]
+    },
+
+    {
         type: 5, name: "神風", main_id: 476, remodel: [
             { id: 471, state: "未改造", power: 28, torp: 36, luck: 30, slot: 2 },
             { id: 476, state: "改", power: 41, torp: 68, luck: 40, slot: 3 },
@@ -1563,7 +1761,34 @@ const ITEM_DATA = [
     { id: 219, type: 9, name: "零式艦戦63型(爆戦)", bomb: 5 },
     { id: 220, type: 4, name: "8cm高角砲改 + 増設機銃", power: 1, accuracy: 2 },
 
-    { id: 229, type: 1, name: "12.7cm単装高角砲(後期型)", power: 1, accuracy: 1 },
+    {
+        id: 229, type: 1, name: "12.7cm単装高角砲(後期型)", power: 1, accuracy: 1,
+        singleAddableBonus: [
+            { power: 2, targetId: [488, 487] },
+            { power: 1, targetId: [622, 263, 624, 471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261] },
+        ],
+        multiBonus: [
+            {
+                power: 1, targetId: [622, 623, 624], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 229) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
 
     { id: 231, type: 3, name: "30.5cm三連装砲", power: 16, accuracy: 1 },
     { id: 232, type: 3, name: "30.5cm三連装砲改", power: 17, accuracy: 3 },
@@ -2005,7 +2230,12 @@ const ITEM_DATA = [
     },
     { id: 301, type: 18, name: "20連装7inch UP Rocket Launchers" },
     { id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2 },
-    { id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3 },
+    {
+        id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3,
+        singleAddableBonus: [
+            { power: 1, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 574, 579, 630] }
+        ]
+    },
 
     {
         id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2,
@@ -2028,7 +2258,34 @@ const ITEM_DATA = [
         ],
     },
 
-    { id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3 },
+    {
+        id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3,
+        singleAddableBonus: [
+            { power: 4, targetId: [622, 623, 624] },
+            { power: 2, targetId: [115, 293, 154, 343, 465, 356] },
+        ],
+        multiBonus: [
+            {
+                power: 3, targetId: [622, 623, 624], isBonus: function (slotNumber) {
+                    let c = 0;
+                    let isSurface = false;
+                    for (let index = 0; index < selectedItemList.length; index++) {
+                        const item = selectedItemList[index];
+                        if (item.isSurface) {
+                            isSurface = true;
+                        }
+                    }
+                    for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.id == 310) {
+                            c++;
+                        }
+                    }
+                    return isSurface && c == 1;
+                }
+            }
+        ]
+    },
 
     {
         id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2,
@@ -2114,8 +2371,19 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1 },
-    { id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2 },
+    {
+        id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1,
+        singleAddableBonus: [
+            { power: 1, targetId: [589, 693, 590, 691] },
+        ]
+    },
+    {
+        id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [589, 693, 590, 691] },
+            { power: 1, targetId: [574, 579, 630] },
+        ]
+    },
     {
         id: 342, type: 8, name: "流星改(一航戦)", torp: 14, accuracy: 1,
         singleAddableBonus: [
@@ -2164,11 +2432,43 @@ const ITEM_DATA = [
         ]
     },
     { id: 358, type: 4, name: "5inch 単装高角砲群", power: 2, accuracy: 1 },
-    { id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2 },
-    { id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3 },
-    { id: 361, type: 2, name: "Bofors 15cm連装速射砲 Mk.9改 + 単装速射砲 Mk.10改 Model 1938", power: 7, accuracy: 3 },
-    { id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2 },
-    { id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6 },
+    {
+        id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2,
+        singleAddableBonus: [
+            { power: 2, targetId: [613, 618, 622, 623, 624] },
+            { power: 1, targetId: [115, 293] }
+        ]
+    },
+    {
+        id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3,
+        singleAddableBonus: [
+            { power: 2, targetId: [604, 609, 574, 579, 630] },
+            { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+        ]
+    },
+    {
+        id: 361, type: 2, name: "Bofors 15cm連装速射砲 Mk.9改 + 単装速射砲 Mk.10改 Model 1938", power: 7, accuracy: 3,
+        singleAddableBonus: [
+            { power: 2, targetId: [604, 609, 574, 579, 630] },
+            { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+        ]
+    },
+    {
+        id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2,
+        singleAddableBonus: [
+            { power: 1, targetId: [597, 696] },
+            { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
+            { power: -3, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 51, 213, 477, 52, 214, 478, 115, 193, 622, 623, 624] },
+        ]
+    },
+    {
+        id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6,
+        singleAddableBonus: [
+            { power: 1, targetId: [597, 696] },
+            { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
+            { power: -3, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 51, 213, 477, 52, 214, 478, 115, 193, 622, 623, 624] },
+        ]
+    },
 
     {
         id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2,

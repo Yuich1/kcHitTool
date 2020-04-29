@@ -28,6 +28,9 @@ $(function () {
     $("#ca-tab").on("click", function () {
         setFleetList(3, false);
     });
+    $("#cl-tab").on("click", function () {
+        setFleetList(4, false);
+    });
     $("#dd-tab").on("click", function () {
         setFleetList(5, false);
     })
@@ -286,7 +289,7 @@ $(function () {
                             selectedItemList[slotNumber] = item;
                             const ta = getMultiBonus(selectedItemList);
                             const bonusPower = (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
-                            const title = `${item.power ? `火力 ${item.power}` : `${bonusPower > 0 ? "火力 " : ""}`}${bonusPower > 0 ? `(+${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+                            const title = `${item.power ? `火力 ${item.power}` : `${bonusPower != 0 ? "火力 " : ""}`}${bonusPower != 0 ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                             $(this).children(".item-tooltip").attr("title", title).tooltip("fixTitle").tooltip("show");
                             $('[data-toggle="tooltip"]').tooltip();
                         }
@@ -477,41 +480,52 @@ const getResultData = () => {
     const armor = parseInt($(".enemy .armor").text());
 
     const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
-    let trialNumber = 100;
-    let criticalCoef = criticalFlag == 2 ? 1.5 : 1.0;
+    const trialNumber = 100;
     let criticalTerm = criticalFlag == 2 ? 100 : 0;
-    if(criticalFlag == 3){
+    if (criticalFlag == 3) {
         criticalTerm = Math.floor(Math.sqrt(finalAccuracy)) + 1;
-        trialNumber = 5000;
     }
     $("#critical").html(`(CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%`);
-    for (let index = 0; index < trialNumber; index++) {
-        const randArmor = index / trialNumber * (armor - 1);
-        if(criticalFlag == 3){
-            criticalCoef = Math.random() * 100 < criticalTerm ? 1.5 : 1.0;
+    const criticalCoef = [1.0, 1.5];
+    const criticalTerms = [100 - criticalTerm, criticalTerm];
+    let fineProb = 0;
+    let shohaProb = 0;
+    let tyuhaProb = 0;
+    let taihaProb = 0;
+    let sinkProb = 0;
+    for (let i = 0; i < 2; i++) {
+        sink = 0;
+        taiha = 0;
+        tyuha = 0;
+        shoha = 0;
+        fine = 0;
+        for (let index = 0; index < trialNumber; index++) {
+            const randArmor = index / trialNumber * (armor - 1);
+            const finalAttack = Math.floor(cappedAttack * criticalCoef[i]);
+            const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
+            if (damage >= hp) {
+                sink++;
+            } else if (damage > hp * 0.75) {
+                taiha++;
+            } else if (damage > hp * 0.5) {
+                tyuha++;
+            } else if (damage > hp * 0.25) {
+                shoha++;
+            } else {
+                fine++;
+            }
         }
-        const finalAttack = Math.floor(cappedAttack * criticalCoef);
-        const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
-        if (damage >= hp) {
-            sink++;
-        } else if (damage > hp * 0.75) {
-            taiha++;
-        } else if (damage > hp * 0.5) {
-            tyuha++;
-        } else if (damage > hp * 0.25) {
-            shoha++;
-        } else {
-            fine++;
-        }
+        fineProb += Math.floor(fine * criticalTerms[i] / trialNumber * 10) / 10;
+        shohaProb += Math.floor(shoha * criticalTerms[i] / trialNumber * 10) / 10;
+        tyuhaProb += Math.floor(tyuha * criticalTerms[i] / trialNumber * 10) / 10;
+        taihaProb += Math.floor(taiha * criticalTerms[i] / trialNumber * 10) / 10;
+        sinkProb += Math.floor(sink * criticalTerms[i] / trialNumber * 10) / 10;
     }
-    const fineProb = Math.floor(fine / trialNumber * 1000) / 10;
-    const shohaProb = Math.floor(shoha / trialNumber * 1000) / 10;
-    const tyuhaProb = Math.floor(tyuha / trialNumber * 1000) / 10;
-    const taihaProb = Math.floor(taiha / trialNumber * 1000) / 10;
-    const sinkProb = Math.floor(sink / trialNumber * 1000) / 10;
-    const isDamageCap = cappedAttack >= 151;
+
+
+    let isDamageCap = cappedAttack >= 151;
     $("#damage").html(`<br>
-        最終攻撃力 ${criticalFlag == 3 ? `(CL1) ${Math.floor(cappedAttack * 1.0)}, (CL2) ${Math.floor(cappedAttack * 1.5)}` : Math.floor(cappedAttack * criticalCoef)}${isDamageCap ? "(キャップ到達)" : ""}<br>
+        最終攻撃力 ${criticalFlag == 3 ? `(CL1) ${Math.floor(cappedAttack * 1.0)}, (CL2) ${Math.floor(cappedAttack * 1.5)}` : Math.floor(cappedAttack * criticalCoef[criticalFlag - 1])}${isDamageCap ? "(キャップ到達)" : ""}<br>
         命中時撃破率<br>
         撃沈 ${sinkProb}%<br>
         大破 ${taihaProb}%<br>
