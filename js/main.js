@@ -33,7 +33,7 @@ $(function () {
     })
     $("#create-myfleet, #myfleet-img, #myfleet-name").on("click", function () {
         $(".search-fleet").val("");
-        $("#select-myfleet .fleet-name").parent().css("display", "inline-block");
+        $("#select-myfleet .fleet-name").parent().css("display", "block");
         setFleetList(1, false);
     });
     $("#cv-tab").on("click", function () {
@@ -587,7 +587,7 @@ const search = (targetSelector, searchText) => {
         return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
     });
     t = t.toLowerCase();
-    $(targetSelector).parent().css("display", "inline-block");
+    $(targetSelector).parent().css("display", "block");
     $(targetSelector).each(function () {
         if ($(this).text().indexOf(t) == -1) {
             $(this).parent().css("display", "none");
