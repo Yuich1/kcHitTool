@@ -19,7 +19,21 @@ let isKira = false;
 let isItemOpen = false;
 
 $(function () {
+    $("#select-myfleet").on("shown.bs.modal", function () {
+        $(".search-fleet").focus();
+    })
+    $("#select-myitem").on("shown.bs.modal", function () {
+        $(".search-item").focus();
+    })
+    $(".focus-fleet").on("click", function () {
+        $(".search-fleet").focus();
+    })
+    $(".focus-item").on("click", function () {
+        $(".search-item").focus();
+    })
     $("#create-myfleet, #myfleet-img, #myfleet-name").on("click", function () {
+        $(".search-fleet").val("");
+        $("#select-myfleet .fleet-name").parent().css("display", "inline-block");
         setFleetList(1, false);
     });
     $("#cv-tab").on("click", function () {
@@ -69,6 +83,13 @@ $(function () {
     $(".myfleet .lv, .myfleet .luck, .my-formation, .enemy-formation, .engagement, .critical").on("change", function () {
         getResultData();
     })
+    $(".search-fleet").on("input", function () {
+        search("#select-myfleet .fleet-name", $(this).val());
+    })
+    $(".search-item").on("input", function () {
+        $(".search-item").focus();
+        search(".item-list .item", $(this).val());
+    })
 
     //艦娘の選択モーダルを構成する
     const setFleetList = (shipType, isEnemy) => {
@@ -98,8 +119,9 @@ $(function () {
                 const td = $("<td>");
                 const img = $("<img>", { class: "banner", src: `./images/ships/${main_id}.png`, alt: `${name}`, "data-dismiss": "modal", "data-id": `${main_id}`, "data-main_id": `${main_id}` });
                 const span = $("<span>", { class: "fleet-name", text: `${name}` });
+                const yomi = $("<span>", { class: "my-hidden fleet-yomi", text: `${ship.yomi}` });
                 let selectedFleet;
-                td.append(img).append(span);
+                td.append(img).append(span.append(yomi));
                 tr.append(td);
                 for (let index = 0; index < ship.remodel.length; index++) {
                     selectedFleet = Object.assign({}, ship.remodel[index]);
@@ -193,6 +215,9 @@ $(function () {
         $(".myfleet .items tr").remove();
         for (let index = 0; index < selectedMyFleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
+            button.on("click", function () {
+                $(".search-item").val("");
+            })
             const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
             remove.on("click", function () { setItem(index, 0) });
             const tr = $("<tr>").append($("<td>")
@@ -202,10 +227,15 @@ $(function () {
                 )
             $(".myfleet .items tbody").append(tr);
         }
+        const button = $("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" });
+        button.on("click", function () {
+            $(".search-item").val("");
+            $(".search-item").focus();
+        })
         const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
         remove.on("click", function () { setItem(selectedMyFleet.slot, 0) });
         const tr = $("<tr>").append($("<td>")
-            .append($("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" })))
+            .append(button))
             .append(remove)
             .append($("<td>")
             )
@@ -256,7 +286,7 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isException = isExceptionId || isExceptionType;
-                } else if (isExpansion) {
+                } else if (!isExpansion) {
                     const isSpecialId = selectedMyFleet.specialCanHaveItemId ? selectedMyFleet.specialCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
@@ -280,6 +310,8 @@ $(function () {
                     let title = `${item.power ? `火力 ${item.power}, ` : ""}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}, ` : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                     let tip = $("<div>", { "class": "item-tooltip", "data-toggle": "tooltip", title: title, text: item.name })
                     const button = $("<button>", { type: "button", class: "btn btn-default item", "data-toggle": "modal", "data-target": "#select-myitem" }).append(tip);
+                    const yomi = $("<span>", { class: "my-hidden item-yomi", text: `${item.yomi}` });
+                    button.append(yomi);
                     //装備マウスオーバー時の処理
                     button.on("mouseover", function () {
                         if (isItemOpen) {
@@ -548,4 +580,17 @@ const getResultData = () => {
     $(".result .progress-bar-taiha").html(`大破 ${Math.floor(taihaProb * finalAccuracy / 10) / 10}%`);
     $(".result .progress-bar-sink").attr("style", `width:${sinkProb * finalAccuracy / 100}%`);
     $(".result .progress-bar-sink").html(`撃沈 ${Math.floor(sinkProb * finalAccuracy / 10) / 10}%`);
+}
+
+const search = (targetSelector, searchText) => {
+    let t = searchText.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    });
+    t = t.toLowerCase();
+    $(targetSelector).parent().css("display", "inline-block");
+    $(targetSelector).each(function () {
+        if ($(this).text().indexOf(t) == -1) {
+            $(this).parent().css("display", "none");
+        }
+    })
 }

@@ -220,14 +220,15 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">艦娘選択</h4>
+                    <div class="search">検索 <input type="text" class="form-control search-fleet" name="name" size="20" autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
-                        <li><a data-toggle="tab" href="#cv" id="cv-tab">航空母艦</a></li>
-                        <li><a data-toggle="tab" href="#ca" id="ca-tab">重巡</a></li>
-                        <li><a data-toggle="tab" href="#cl" id="cl-tab">軽巡</a></li>
-                        <li><a data-toggle="tab" href="#dd" id="dd-tab">駆逐</a></li>
+                        <li class="active"><a class="focus-fleet"  data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#cv" id="cv-tab">航空母艦</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#ca" id="ca-tab">重巡</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#cl" id="cl-tab">軽巡</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#dd" id="dd-tab">駆逐</a></li>
                         <li><a data-toggle="tab" href="#de" id="de-tab">海防</a></li>
                         <li><a data-toggle="tab" href="#ss" id="ss-tab">潜水</a></li>
                         <li><a data-toggle="tab" href="#av" id="av-tab">補助艦艇</a></li>
@@ -285,7 +286,7 @@
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#bb-enemy" id="bb-tab-enemy">戦艦</a></li>
+                        <li class="active "><a data-toggle="tab" href="#bb-enemy" id="bb-tab-enemy">戦艦</a></li>
                         <li><a data-toggle="tab" href="#cv-enemy" id="cv-tab-enemy">航空母艦</a></li>
                         <li><a data-toggle="tab" href="#ca-enemy" id="ca-tab-enemy">重巡</a></li>
                         <li><a data-toggle="tab" href="#cl-enemy" id="cl-tab-enemy">軽巡</a></li>
@@ -338,21 +339,22 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">装備選択</h4>
+                    <div class="search">検索 <input type="text" class="form-control search-item" name="name" size="20" autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
-                        <li><a data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
-                        <li><a data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
-                        <li><a data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
-                        <li><a data-toggle="tab" href="#other" id="other-tab">その他</a></li>
+                        <li class="active"><a class="focus-item" data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#other" id="other-tab">その他</a></li>
                     </ul>
                     <div class="tab-content item-list">
                         <div id="gun" class="tab-pane fade in active">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
-                                <li><a data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
-                                <li><a data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
                             </ul>
                             <div class="tab-content item-list">
                                 <div id="l-gun" class="tab-pane fade in active">
@@ -379,8 +381,8 @@
                         </div>
                         <div id="plane" class="tab-pane fade">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#attacker" id="attacker-tab">艦攻</a></li>
-                                <li><a data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#attacker" id="attacker-tab">艦攻</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a></li>
                             </ul>
                             <div class="tab-content item-list">
                                 <div id="attacker" class="tab-pane fade in active">
