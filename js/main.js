@@ -20,16 +20,32 @@ let isItemOpen = false;
 
 $(function () {
     $("#select-myfleet").on("shown.bs.modal", function () {
-        $(".search-fleet").focus();
+        var ua = navigator.userAgent;
+        if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        } else {
+            $(".search-fleet").focus();
+        }
     })
     $("#select-myitem").on("shown.bs.modal", function () {
-        $(".search-item").focus();
+        var ua = navigator.userAgent;
+        if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        } else {
+            $(".search-item").focus();
+        }
     })
     $(".focus-fleet").on("click", function () {
-        $(".search-fleet").focus();
+        var ua = navigator.userAgent;
+        if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        } else {
+            $(".search-fleet").focus();
+        }
     })
     $(".focus-item").on("click", function () {
-        $(".search-item").focus();
+        var ua = navigator.userAgent;
+        if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        } else {
+            $(".search-item").focus();
+        }
     })
     $("#create-myfleet, #myfleet-img, #myfleet-name").on("click", function () {
         $(".search-fleet").val("");
