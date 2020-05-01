@@ -2531,18 +2531,18 @@ const ITEM_DATA = [
     {
         id: 373, type: 8, name: "天山一二型甲改(空六号電探改装備機)", torp: 11, accuracy: 1,
         singleBonus: [
-            { power: 2, torp: 2, targetId: [288] },
-            { power: 1, torp: 2, targetId: [466, 156, 508, 509] },
-            { power: 1, torp: 1, targetId: [555, 560, 318, 282, 283, 408, 296, 297] },
+            { power: 2, /* torp: 2,*/ targetId: [288] },
+            { power: 1, /* torp: 2,*/ targetId: [466, 156, 508, 509] },
+            { power: 1, /* torp: 1,*/ targetId: [555, 560, 318, 282, 283, 408, 296, 297] },
         ]
     },
     {
         id: 374, type: 8, name: "天山一二型甲改(熟練/空六号電探改装備機)", torp: 13, accuracy: 2,
         singleBonus: [
-            { power: 3, torp: 3, targetId: [466] },
-            { power: 2, torp: 3, targetId: [467, 156] },
-            { power: 1, torp: 2, targetId: [508, 509, 283, 408] },
-            { power: 1, torp: 1, targetId: [555, 560, 318, 296, 297] },
+            { power: 3, /* torp: 3,*/ targetId: [466] },
+            { power: 2, /* torp: 3,*/ targetId: [467, 156] },
+            { power: 1, /* torp: 2,*/ targetId: [508, 509, 283, 408] },
+            { power: 1, /* torp: 1,*/ targetId: [555, 560, 318, 296, 297] },
         ]
     }
 
