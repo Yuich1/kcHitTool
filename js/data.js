@@ -49,7 +49,9 @@ const ENGAGEMENT_DAMAGE_COEF = [1.2, 1.0, 0.8, 0.6];
 
 const SHIP_DATA = [
     {
-        type: 1, name: "金剛", main_id: 591, speed: "high", remodel: [
+        type: 1, name: "金剛", main_id: 591, speed: "high",
+        yomi: "こんごう kongou",
+        remodel: [
             { id: 78, state: "未改造", power: 89, torp: 0, luck: 12, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 209, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 149, state: "改二", power: 98, torp: 0, luck: 15, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
@@ -57,7 +59,9 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 1, name: "比叡", main_id: 592, speed: "high", remodel: [
+        type: 1, name: "比叡", main_id: 592, speed: "high",
+        yomi: "ひえい hiei",
+        remodel: [
             { id: 86, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 210, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 150, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
@@ -65,76 +69,98 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 1, name: "榛名", main_id: 151, speed: "high", remodel: [
+        type: 1, name: "榛名", main_id: 151, speed: "high",
+        yomi: "はるな haruna",
+        remodel: [
             { id: 79, state: "未改造", power: 89, torp: 0, luck: 15, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 211, state: "改", power: 94, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 151, state: "改二", power: 96, torp: 0, luck: 41, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "霧島", main_id: 152, speed: "high", remodel: [
+        type: 1, name: "霧島", main_id: 152, speed: "high",
+        yomi: "霧島 kirishima",
+        remodel: [
             { id: 85, state: "未改造", power: 89, torp: 0, luck: 10, slot: 3, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 212, state: "改", power: 94, torp: 0, luck: 12, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 152, state: "改二", power: 104, torp: 0, luck: 14, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "扶桑", main_id: 411, speed: "low", remodel: [
+        type: 1, name: "扶桑", main_id: 411, speed: "low",
+        yomi: "ふそう fusou",
+        remodel: [
             { id: 26, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128, 281] },
             { id: 286, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128, 281] },
             { id: 411, state: "改二", power: 99, torp: 0, luck: 13, slot: 4, cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "山城", main_id: 412, speed: "low", remodel: [
+        type: 1, name: "山城", main_id: 412, speed: "low",
+        yomi: "やましろ yamashiro",
+        remodel: [
             { id: 27, state: "未改造", power: 94, torp: 0, luck: 5, slot: 4, cantHaveItemId: [128, 281] },
             { id: 287, state: "改", power: 79, torp: 0, luck: 10, slot: 4, cantHaveItemId: [128, 281] },
             { id: 412, state: "改二", power: 98, torp: 0, luck: 14, slot: 4, cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "伊勢", main_id: 553, speed: "low", remodel: [
+        type: 1, name: "伊勢", main_id: 553, speed: "low",
+        yomi: "いせ ise",
+        remodel: [
             { id: 77, state: "未改造", power: 89, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128, 281] },
             { id: 82, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
             { id: 553, state: "改二", power: 88, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "日向", main_id: 554, speed: "low", remodel: [
+        type: 1, name: "日向", main_id: 554, speed: "low",
+        yomi: "ひゅうが hyuuga",
+        remodel: [
             { id: 87, state: "未改造", power: 94, torp: 0, luck: 15, slot: 4, cantHaveItemId: [128, 281] },
             { id: 88, state: "改", power: 86, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
             { id: 554, state: "改二", power: 86, torp: 0, luck: 40, slot: 5, specialCanHaveItemType: [9], cantHaveItemId: [128, 281] }
         ]
     },
     {
-        type: 1, name: "長門", main_id: 541, speed: "low", remodel: [
+        type: 1, name: "長門", main_id: 541, speed: "low",
+        yomi: "ながと nagato",
+        remodel: [
             { id: 80, state: "未改造", power: 99, torp: 0, luck: 20, slot: 4, cantHaveItemId: [128, 281] },
             { id: 275, state: "改", power: 99, torp: 0, luck: 32, slot: 4 },
             { id: 541, state: "改二", power: 118, torp: 0, luck: 40, slot: 4, specialCanHaveItemType: [1] }
         ]
     },
     {
-        type: 1, name: "陸奥", main_id: 573, speed: "low", remodel: [
+        type: 1, name: "陸奥", main_id: 573, speed: "low",
+        yomi: "むつ mutsu",
+        remodel: [
             { id: 81, state: "未改造", power: 99, torp: 0, luck: 3, slot: 4, cantHaveItemId: [128, 281] },
             { id: 276, state: "改", power: 99, torp: 0, luck: 6, slot: 4 },
             { id: 573, state: "改二", power: 118, torp: 0, luck: 16, slot: 4 }
         ]
     },
     {
-        type: 1, name: "大和", main_id: 136, speed: "low", remodel: [
+        type: 1, name: "大和", main_id: 136, speed: "low",
+        yomi: "やまと yamato",
+        remodel: [
             { id: 131, state: "未改造", power: 129, torp: 0, luck: 12, slot: 4 },
             { id: 136, state: "改", power: 139, torp: 0, luck: 13, slot: 4, expansionCanHaveItemId: [71, 275] }
         ]
     },
     {
-        type: 1, name: "武蔵", main_id: 546, speed: "low", remodel: [
+        type: 1, name: "武蔵", main_id: 546, speed: "low",
+        yomi: "むさし musashi",
+        remodel: [
             { id: 143, state: "未改造", power: 129, torp: 0, luck: 10, slot: 4 },
             { id: 148, state: "改", power: 139, torp: 0, luck: 9, slot: 4, expansionCanHaveItemId: [71, 275] },
             { id: 546, state: "改二", power: 145, torp: 0, luck: 10, slot: 5, expansionCanHaveItemId: [71, 275] }
         ]
     },
     {
-        type: 1, name: "Bismarck", main_id: 178, speed: "high", remodel: [
+        type: 1, name: "Bismarck", main_id: 178, speed: "high",
+        yomi: "びすまるく bismarck",
+        remodel: [
             { id: 171, state: "未改造", power: 88, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 172, state: "改", power: 93, torp: 0, luck: 10, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 173, state: "zwei", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
@@ -142,56 +168,74 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 1, name: "Italia", main_id: 446, speed: "high", remodel: [
+        type: 1, name: "Italia", main_id: 446, speed: "high",
+        yomi: "いたりあ italia りっとりお littorio",
+        remodel: [
             { id: 441, state: "Littorio", power: 97, torp: 0, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 446, state: "Italia", power: 102, torp: 0, luck: 30, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Roma", main_id: 447, speed: "high", remodel: [
+        type: 1, name: "Roma", main_id: 447, speed: "high",
+        yomi: "ろーま roma",
+        remodel: [
             { id: 442, state: "未改造", power: 98, torp: 0, luck: 6, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 447, state: "改", power: 105, torp: 0, luck: 8, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Iowa", main_id: 360, speed: "high", remodel: [
+        type: 1, name: "Iowa", main_id: 360, speed: "high",
+        yomi: "あいおわ iowa",
+        remodel: [
             { id: 440, state: "未改造", power: 150, torp: 0, luck: 35, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 360, state: "改", power: 115, torp: 0, luck: 40, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Colorado", main_id: 1496, speed: "low", remodel: [
+        type: 1, name: "Colorado", main_id: 1496, speed: "low",
+        yomi: "ころらど colorado",
+        remodel: [
             { id: 601, state: "未改造", power: 96, torp: 0, luck: 30, slot: 4, cantHaveItemId: [128, 281] },
             { id: 1496, state: "改", power: 105, torp: 0, luck: 40, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Warspite", main_id: 364, speed: "low", remodel: [
+        type: 1, name: "Warspite", main_id: 364, speed: "low",
+        yomi: "うぉーすぱいと をーすぱいと warspite",
+        remodel: [
             { id: 439, state: "未改造", power: 92, torp: 0, luck: 55, slot: 4, cantHaveItemId: [128, 281] },
             { id: 364, state: "改", power: 106, torp: 0, luck: 70, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Nelson", main_id: 576, speed: "low", remodel: [
+        type: 1, name: "Nelson", main_id: 576, speed: "low",
+        yomi: "ねるそん nelson",
+        remodel: [
             { id: 571, state: "未改造", power: 102, torp: 0, luck: 24, slot: 4, cantHaveItemId: [128, 281] },
             { id: 576, state: "改", power: 114, torp: 0, luck: 28, slot: 4, cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Richelieu", main_id: 392, speed: "high", remodel: [
+        type: 1, name: "Richelieu", main_id: 392, speed: "high",
+        yomi: "りしゅりゅー richelieu",
+        remodel: [
             { id: 492, state: "未改造", power: 94, torp: 0, luck: 22, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 392, state: "改", power: 96, torp: 0, luck: 24, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 1, name: "Гангут", main_id: 513, speed: "low", remodel: [
+        type: 1, name: "Гангут", main_id: 513, speed: "low",
+        yomi: "がんぐーと おくちゃぶりすかやれヴぉりゅーつぃや gangut",
+        remodel: [
             { id: 511, state: "未改造", power: 78, torp: 28, luck: 20, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 512, state: "Октябрьская революция", power: 89, torp: 0, luck: 30, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
             { id: 513, state: "Гангут два", power: 90, torp: 32, luck: 35, slot: 4, cantHaveItemType: [2], cantHaveItemId: [128, 281] },
         ]
     },
     {
-        type: 2, name: "赤城", main_id: 599, remodel: [
+        type: 2, name: "赤城", main_id: 599,
+        yomi: "あかぎ akagi",
+        remodel: [
             { id: 83, state: "未改造", power: 39, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 277, state: "改", power: 55, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 594, state: "改二", power: 60, torp: 0, luck: 20, slot: 5, cantHaveItemId: [151] },
@@ -199,27 +243,35 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "加賀", main_id: 278, remodel: [
+        type: 2, name: "加賀", main_id: 278,
+        yomi: "かが kaga",
+        remodel: [
             { id: 84, state: "未改造", power: 39, torp: 0, luck: 10, slot: 4, cantHaveItemId: [151] },
             { id: 278, state: "改", power: 50, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "蒼龍", main_id: 197, remodel: [
+        type: 2, name: "蒼龍", main_id: 197,
+        yomi: "そうりゅう souryu",
+        remodel: [
             { id: 90, state: "未改造", power: 29, torp: 0, luck: 10, slot: 4, cantHaveItemId: [151] },
             { id: 279, state: "改", power: 39, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 197, state: "改二", power: 62, torp: 0, luck: 15, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "飛龍", main_id: 196, remodel: [
+        type: 2, name: "飛龍", main_id: 196,
+        yomi: "ひりゅう hiryu",
+        remodel: [
             { id: 91, state: "未改造", power: 29, torp: 0, luck: 35, slot: 4, cantHaveItemId: [151] },
             { id: 280, state: "改", power: 39, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
             { id: 196, state: "改二", power: 65, torp: 0, luck: 50, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "翔鶴", main_id: 466, remodel: [
+        type: 2, name: "翔鶴", main_id: 466,
+        yomi: "しょうかく syoukaku",
+        remodel: [
             { id: 110, state: "未改造", power: 39, torp: 0, luck: 10, slot: 4, cantHaveItemId: [151] },
             { id: 288, state: "改", power: 39, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 461, state: "改二", power: 63, torp: 0, luck: 20, slot: 4, cantHaveItemId: [151] },
@@ -227,7 +279,9 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "瑞鶴", main_id: 467, remodel: [
+        type: 2, name: "瑞鶴", main_id: 467,
+        yomi: "ずいかく zuikaku",
+        remodel: [
             { id: 111, state: "未改造", power: 39, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
             { id: 112, state: "改", power: 39, torp: 0, luck: 42, slot: 4, cantHaveItemId: [151] },
             { id: 462, state: "改二", power: 56, torp: 0, luck: 50, slot: 4, cantHaveItemId: [151] },
@@ -235,56 +289,74 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "雲龍", main_id: 406, remodel: [
+        type: 2, name: "雲龍", main_id: 406,
+        yomi: "うんりゅう unryuu",
+        remodel: [
             { id: 404, state: "未改造", power: 27, torp: 0, luck: 10, slot: 4, cantHaveItemId: [151] },
             { id: 406, state: "改", power: 48, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "天城", main_id: 429, remodel: [
+        type: 2, name: "天城", main_id: 429,
+        yomi: "あまぎ amagi",
+        remodel: [
             { id: 331, state: "未改造", power: 25, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
             { id: 429, state: "改", power: 45, torp: 0, luck: 17, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "葛城", main_id: 430, remodel: [
+        type: 2, name: "葛城", main_id: 430,
+        yomi: "かつらぎ katsuragi",
+        remodel: [
             { id: 332, state: "未改造", power: 25, torp: 0, luck: 20, slot: 4, cantHaveItemId: [151] },
             { id: 430, state: "改", power: 45, torp: 0, luck: 30, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "大鳳", main_id: 156, remodel: [
+        type: 2, name: "大鳳", main_id: 156,
+        yomi: "たいほう taihou たうい",
+        remodel: [
             { id: 153, state: "未改造", power: 49, torp: 0, luck: 2, slot: 4, expansionCanHaveItemId: [71, 275] },
             { id: 156, state: "改", power: 59, torp: 0, luck: 4, slot: 4, expansionCanHaveItemId: [71, 275] },
         ]
     },
     {
-        type: 2, name: "鳳翔", main_id: 285, remodel: [
+        type: 2, name: "鳳翔", main_id: 285,
+        yomi: "ほうしょう houshou おかん",
+        remodel: [
             { id: 89, state: "未改造", power: 19, torp: 0, luck: 20, slot: 2, cantHaveItemId: [151] },
             { id: 285, state: "改", power: 29, torp: 0, luck: 30, slot: 3, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "龍驤", main_id: 157, remodel: [
+        type: 2, name: "龍驤", main_id: 157,
+        yomi: "りゅうじょう ryuujou rj",
+        remodel: [
             { id: 76, state: "未改造", power: 19, torp: 0, luck: 10, slot: 3, cantHaveItemId: [151] },
             { id: 281, state: "改", power: 29, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 157, state: "改", power: 40, torp: 0, luck: 15, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "龍鳳", main_id: 318, remodel: [
+        type: 2, name: "龍鳳", main_id: 318,
+        yomi: "りゅうほう ryuuhou",
+        remodel: [
             { id: 185, state: "未改造", power: 20, torp: 0, luck: 20, slot: 3, cantHaveItemId: [151] },
             { id: 318, state: "改", power: 32, torp: 0, luck: 24, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "祥鳳", main_id: 282, remodel: [
+        type: 2, name: "祥鳳", main_id: 282,
+        yomi: "しょうほう shouhou",
+        remodel: [
             { id: 74, state: "未改造", power: 19, torp: 0, luck: 10, slot: 3, cantHaveItemId: [151] },
             { id: 282, state: "改", power: 29, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "瑞鳳", main_id: 560, remodel: [
+        type: 2, name: "瑞鳳", main_id: 560,
+        yomi: "ずいほう zuihou",
+        remodel: [
             { id: 116, state: "未改造", power: 19, torp: 0, luck: 30, slot: 3, cantHaveItemId: [151] },
             { id: 117, state: "改", power: 29, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
             { id: 555, state: "改二", power: 46, torp: 0, luck: 42, slot: 4, cantHaveItemId: [151] },
@@ -292,34 +364,44 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "飛鷹", main_id: 283, remodel: [
+        type: 2, name: "飛鷹", main_id: 283,
+        yomi: "ひよう hiyou",
+        remodel: [
             { id: 75, state: "未改造", power: 19, torp: 0, luck: 10, slot: 4, cantHaveItemId: [151] },
             { id: 283, state: "改", power: 29, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "隼鷹", main_id: 408, remodel: [
+        type: 2, name: "隼鷹", main_id: 408,
+        yomi: "じゅんよう junyou",
+        remodel: [
             { id: 92, state: "未改造", power: 19, torp: 0, luck: 20, slot: 4, cantHaveItemId: [151] },
             { id: 284, state: "改", power: 29, torp: 0, luck: 30, slot: 4, cantHaveItemId: [151] },
             { id: 408, state: "改二", power: 40, torp: 0, luck: 41, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "千歳", main_id: 296, remodel: [
+        type: 2, name: "千歳", main_id: 296,
+        yomi: "ちとせ chitose",
+        remodel: [
             { id: 108, state: "航", power: 19, torp: 0, luck: 10, slot: 3, cantHaveItemId: [151] },
             { id: 291, state: "航改", power: 34, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 296, state: "航改二", power: 34, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "千代田", main_id: 297, remodel: [
+        type: 2, name: "千代田", main_id: 297,
+        yomi: "ちよだ chiyoda",
+        remodel: [
             { id: 109, state: "航", power: 19, torp: 0, luck: 10, slot: 3, cantHaveItemId: [151] },
             { id: 292, state: "航改", power: 34, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151] },
             { id: 297, state: "航改二", power: 34, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "大鷹", main_id: 529, remodel: [
+        type: 2, name: "大鷹", main_id: 529,
+        yomi: "たいよう taiyou",
+        remodel: [
             { id: 521, state: "春日丸", power: 9, torp: 0, luck: 5, slot: 2, cantHaveItemId: [151] },
             { id: 526, state: "無改造", power: 12, torp: 0, luck: 6, slot: 3, cantHaveItemId: [151] },
             { id: 380, state: "改", power: 23, torp: 0, luck: 9, slot: 4, cantHaveItemId: [151] },
@@ -327,36 +409,48 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "神鷹", main_id: 536, remodel: [
+        type: 2, name: "神鷹", main_id: 536,
+        yomi: "しんよう sinyou",
+        remodel: [
             { id: 534, state: "無改造", power: 14, torp: 0, luck: 9, slot: 3, cantHaveItemId: [151] },
             { id: 381, state: "改", power: 24, torp: 0, luck: 11, slot: 4, cantHaveItemId: [151] },
             { id: 536, state: "改二", power: 37, torp: 0, luck: 15, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "鈴谷", main_id: 508, remodel: [
+        type: 2, name: "鈴谷", main_id: 508,
+        yomi: "すずや suzuya",
+        remodel: [
             { id: 508, state: "航改二", power: 56, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
-        type: 2, name: "熊野", main_id: 509, remodel: [
+        type: 2, name: "熊野", main_id: 509,
+        yomi: "くまの kumano",
+        remodel: [
             { id: 509, state: "航改二", power: 55, torp: 0, luck: 12, slot: 4, cantHaveItemId: [151], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
-        type: 2, name: "Graf Zeppelin", main_id: 353, remodel: [
+        type: 2, name: "Graf Zeppelin", main_id: 353,
+        yomi: "ぐらーふつぇっぺりん graf zeppelin",
+        remodel: [
             { id: 432, state: "未改造", power: 40, torp: 0, luck: 4, slot: 3, cantHaveItemId: [151] },
             { id: 353, state: "改", power: 50, torp: 0, luck: 7, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "Aquila", main_id: 365, remodel: [
+        type: 2, name: "Aquila", main_id: 365,
+        yomi: "あくいら あくぃら aquila",
+        remodel: [
             { id: 444, state: "未改造", power: 14, torp: 0, luck: 5, slot: 3, cantHaveItemId: [151] },
             { id: 365, state: "改", power: 28, torp: 0, luck: 7, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "Saratoga", main_id: 550, remodel: [
+        type: 2, name: "Saratoga", main_id: 550,
+        yomi: "さらとが saratoga",
+        remodel: [
             { id: 433, state: "無改造", power: 45, torp: 0, luck: 25, slot: 4, cantHaveItemId: [151] },
             { id: 438, state: "改", power: 53, torp: 0, luck: 35, slot: 4, cantHaveItemId: [151] },
             { id: 545, state: "Mk.II", power: 68, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
@@ -364,259 +458,336 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 2, name: "Intrepid", main_id: 397, remodel: [
+        type: 2, name: "Intrepid", main_id: 397,
+        yomi: "いんとれぴっど intrepid",
+        remodel: [
             { id: 549, state: "未改造", power: 55, torp: 0, luck: 45, slot: 4, cantHaveItemId: [151] },
             { id: 397, state: "改", power: 58, torp: 0, luck: 50, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "Gambier Bay", main_id: 396, remodel: [
+        type: 2, name: "Gambier Bay", main_id: 396,
+        yomi: "がんびあべい gambier bay",
+        remodel: [
             { id: 544, state: "未改造", power: 15, torp: 0, luck: 12, slot: 2, cantHaveItemId: [151] },
             { id: 396, state: "改", power: 32, torp: 0, luck: 15, slot: 3, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 2, name: "Ark Royal", main_id: 393, remodel: [
+        type: 2, name: "Ark Royal", main_id: 393,
+        yomi: "あーくろいやる ark royal",
+        remodel: [
             { id: 515, state: "未改造", power: 27, torp: 0, luck: 8, slot: 4, cantHaveItemId: [151] },
             { id: 393, state: "改", power: 50, torp: 0, luck: 13, slot: 4, cantHaveItemId: [151] },
         ]
     },
     {
-        type: 3, name: "古鷹", main_id: 416, remodel: [
+        type: 3, name: "古鷹", main_id: 416,
+        yomi: "ふるたか fututaka",
+        remodel: [
             { id: 59, state: "未改造", power: 54, torp: 59, luck: 10, slot: 3 },
             { id: 262, state: "改", power: 70, torp: 59, luck: 10, slot: 4 },
             { id: 416, state: "改二", power: 77, torp: 75, luck: 14, slot: 4 },
         ]
     },
     {
-        type: 3, name: "加古", main_id: 417, remodel: [
+        type: 3, name: "加古", main_id: 417,
+        yomi: "かこ kako",
+        remodel: [
             { id: 60, state: "未改造", power: 49, torp: 49, luck: 10, slot: 3 },
             { id: 263, state: "改", power: 70, torp: 59, luck: 10, slot: 4 },
             { id: 417, state: "改二", power: 78, torp: 77, luck: 12, slot: 4 },
         ]
     },
     {
-        type: 3, name: "青葉", main_id: 264, remodel: [
+        type: 3, name: "青葉", main_id: 264,
+        yomi: "あおば aoba",
+        remodel: [
             { id: 61, state: "未改造", power: 54, torp: 59, luck: 20, slot: 3 },
             { id: 264, state: "改", power: 72, torp: 59, luck: 30, slot: 4 },
         ]
     },
     {
-        type: 3, name: "衣笠", main_id: 142, remodel: [
+        type: 3, name: "衣笠", main_id: 142,
+        yomi: "きぬがさ kinugasa",
+        remodel: [
             { id: 123, state: "未改造", power: 54, torp: 59, luck: 20, slot: 3 },
             { id: 295, state: "改", power: 66, torp: 59, luck: 10, slot: 4 },
             { id: 142, state: "改二", power: 78, torp: 74, luck: 13, slot: 4 },
         ]
     },
     {
-        type: 3, name: "妙高", main_id: 319, remodel: [
+        type: 3, name: "妙高", main_id: 319,
+        yomi: "みょうこう myoukou",
+        remodel: [
             { id: 62, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 265, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
             { id: 319, state: "改二", power: 80, torp: 88, luck: 32, slot: 4 },
         ]
     },
     {
-        type: 3, name: "那智", main_id: 192, remodel: [
+        type: 3, name: "那智", main_id: 192,
+        yomi: "なち nachi",
+        remodel: [
             { id: 63, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
             { id: 266, state: "改", power: 76, torp: 69, luck: 10, slot: 4 },
             { id: 192, state: "改二", power: 80, torp: 84, luck: 18, slot: 4 },
         ]
     },
     {
-        type: 3, name: "足柄", main_id: 193, remodel: [
+        type: 3, name: "足柄", main_id: 193,
+        yomi: "あしがら ashigara",
+        remodel: [
             { id: 64, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
             { id: 267, state: "改", power: 77, torp: 69, luck: 10, slot: 4 },
             { id: 193, state: "改二", power: 82, torp: 84, luck: 20, slot: 4 },
         ]
     },
     {
-        type: 3, name: "羽黒", main_id: 194, remodel: [
+        type: 3, name: "羽黒", main_id: 194,
+        yomi: "はぐろ haguro",
+        remodel: [
             { id: 65, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
             { id: 268, state: "改", power: 77, torp: 69, luck: 10, slot: 4 },
             { id: 194, state: "改二", power: 84, torp: 84, luck: 19, slot: 4 },
         ]
     },
     {
-        type: 3, name: "高雄", main_id: 269, remodel: [
+        type: 3, name: "高雄", main_id: 269,
+        yomi: "たかお takao",
+        remodel: [
             { id: 66, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 269, state: "改", power: 77, torp: 79, luck: 10, slot: 4 },
         ]
     },
     {
-        type: 3, name: "愛宕", main_id: 270, remodel: [
+        type: 3, name: "愛宕", main_id: 270,
+        yomi: "あたご atago",
+        remodel: [
             { id: 67, state: "未改造", power: 54, torp: 59, luck: 10, slot: 3 },
             { id: 270, state: "改", power: 77, torp: 79, luck: 10, slot: 4 },
         ]
     },
     {
-        type: 3, name: "摩耶", main_id: 428, remodel: [
+        type: 3, name: "摩耶", main_id: 428,
+        yomi: "まや maya",
+        remodel: [
             { id: 68, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
             { id: 271, state: "改", power: 78, torp: 69, luck: 10, slot: 4 },
             { id: 428, state: "改二", power: 77, torp: 84, luck: 14, slot: 4 },
         ]
     },
     {
-        type: 3, name: "鳥海", main_id: 427, remodel: [
+        type: 3, name: "鳥海", main_id: 427,
+        yomi: "ちょうかい choukai",
+        remodel: [
             { id: 69, state: "未改造", power: 54, torp: 49, luck: 10, slot: 3 },
             { id: 272, state: "改", power: 78, torp: 69, luck: 10, slot: 4 },
             { id: 427, state: "改二", power: 86, torp: 86, luck: 19, slot: 4 },
         ]
     },
     {
-        type: 3, name: "最上", main_id: 73, remodel: [
+        type: 3, name: "最上", main_id: 73,
+        yomi: "もがみ mogami",
+        remodel: [
             { id: 70, state: "未改造", power: 59, torp: 69, luck: 10, slot: 3 },
             { id: 73, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
         ]
     },
     {
-        type: 3, name: "三隈", main_id: 121, remodel: [
+        type: 3, name: "三隈", main_id: 121,
+        yomi: "みくま mikuma",
+        remodel: [
             { id: 120, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
             { id: 121, state: "改", power: 76, torp: 69, luck: 10, slot: 4 },
         ]
     },
     {
-        type: 3, name: "鈴谷", main_id: 503, remodel: [
+        type: 3, name: "鈴谷", main_id: 503,
+        yomi: "すずや suzuya",
+        remodel: [
             { id: 124, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
             { id: 129, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
             { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4, expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
-        type: 3, name: "熊野", main_id: 504, remodel: [
+        type: 3, name: "熊野", main_id: 504,
+        yomi: "くまの kumano",
+        remodel: [
             { id: 125, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
             { id: 130, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
             { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4, expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
-        type: 3, name: "利根", main_id: 188, remodel: [
+        type: 3, name: "利根", main_id: 188,
+        yomi: "とね tone",
+        remodel: [
             { id: 71, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 273, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
             { id: 188, state: "改二", power: 77, torp: 82, luck: 15, slot: 4 },
         ]
     },
     {
-        type: 3, name: "筑摩", main_id: 189, remodel: [
+        type: 3, name: "筑摩", main_id: 189,
+        yomi: "ちくま chikuma",
+        remodel: [
             { id: 72, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 274, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
             { id: 189, state: "改二", power: 77, torp: 83, luck: 14, slot: 4 },
         ]
     },
     {
-        type: 3, name: "Prinz Eugen", main_id: 177, remodel: [
+        type: 3, name: "Prinz Eugen", main_id: 177,
+        yomi: "ぷりんつおいげん prinz eugen",
+        remodel: [
             { id: 176, state: "未改造", power: 56, torp: 64, luck: 30, slot: 3 },
             { id: 177, state: "改", power: 75, torp: 84, luck: 40, slot: 4 },
         ]
     },
     {
-        type: 3, name: "Zara", main_id: 496, remodel: [
+        type: 3, name: "Zara", main_id: 496,
+        yomi: "ざら zara",
+        remodel: [
             { id: 448, state: "未改造", power: 58, torp: 28, luck: 10, slot: 3 },
             { id: 358, state: "改", power: 75, torp: 40, luck: 12, slot: 4 },
             { id: 496, state: "due", power: 87, torp: 48, luck: 17, slot: 4 },
         ]
     },
     {
-        type: 3, name: "Pola", main_id: 361, remodel: [
+        type: 3, name: "Pola", main_id: 361,
+        yomi: "ぽーら pola",
+        remodel: [
             { id: 449, state: "未改造", power: 59, torp: 32, luck: 9, slot: 3 },
             { id: 361, state: "改", power: 77, torp: 44, luck: 11, slot: 4 },
         ]
     },
     {
-        type: 3, name: "Houston", main_id: 600, remodel: [
+        type: 3, name: "Houston", main_id: 600,
+        yomi: "ひゅーすとん houston",
+        remodel: [
             { id: 595, state: "未改造", power: 52, torp: 40, luck: 12, slot: 3 },
             { id: 600, state: "改", power: 76, torp: 60, luck: 20, slot: 4 },
         ]
     },
     {
-        type: 4, name: "天龍", main_id: 477, remodel: [
+        type: 4, name: "天龍", main_id: 477,
+        yomi: "てんりゅう tenryuu", remodel: [
             { id: 51, state: "未改造", power: 39, torp: 59, luck: 17, slot: 2 },
             { id: 213, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 477, state: "改二", power: 64, torp: 78, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 4, name: "龍田", main_id: 478, remodel: [
+        type: 4, name: "龍田", main_id: 478,
+        yomi: "たつた tatsuta",
+        remodel: [
             { id: 52, state: "未改造", power: 39, torp: 59, luck: 17, slot: 2 },
             { id: 214, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 478, state: "改二", power: 50, torp: 80, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 4, name: "球磨", main_id: 215, remodel: [
+        type: 4, name: "球磨", main_id: 215,
+        yomi: "くま kuma",
+        remodel: [
             { id: 99, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
             { id: 215, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 4, name: "多摩", main_id: 547, remodel: [
+        type: 4, name: "多摩", main_id: 547,
+        yomi: "たま tama",
+        remodel: [
             { id: 100, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 216, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 547, state: "改二", power: 60, torp: 91, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "北上", main_id: 119, remodel: [
+        type: 4, name: "北上", main_id: 119,
+        yomi: "きたかみ kitakami",
+        remodel: [
             { id: 25, state: "未改造", power: 39, torp: 79, luck: 15, slot: 2 },
             { id: 58, state: "改", power: 39, torp: 99, luck: 15, slot: 2 },
             { id: 119, state: "改二", power: 63, torp: 139, luck: 30, slot: 3 },
         ]
     },
     {
-        type: 4, name: "大井", main_id: 118, remodel: [
+        type: 4, name: "大井", main_id: 118,
+        yomi: "おおい ooi",
+        remodel: [
             { id: 24, state: "未改造", power: 49, torp: 89, luck: 17, slot: 2 },
             { id: 57, state: "改", power: 39, torp: 99, luck: 10, slot: 2 },
             { id: 118, state: "改二", power: 63, torp: 139, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "木曾", main_id: 146, remodel: [
+        type: 4, name: "木曾", main_id: 146,
+        yomi: "きそ kiso",
+        remodel: [
             { id: 101, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 217, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 146, state: "改二", power: 65, torp: 111, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "長良", main_id: 218, remodel: [
+        type: 4, name: "長良", main_id: 218,
+        yomi: "ながら nagara",
+        remodel: [
             { id: 21, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
             { id: 218, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 4, name: "五十鈴", main_id: 141, remodel: [
+        type: 4, name: "五十鈴", main_id: 141,
+        yomi: "いすず isuzu",
+        remodel: [
             { id: 22, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 219, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 141, state: "改二", power: 61, torp: 79, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "名取", main_id: 221, remodel: [
+        type: 4, name: "名取", main_id: 221,
+        yomi: "なとり natori",
+        remodel: [
             { id: 53, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 221, state: "改", power: 69, torp: 89, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 4, name: "由良", main_id: 488, remodel: [
+        type: 4, name: "由良", main_id: 488,
+        yomi: "ゆら yura",
+        remodel: [
             { id: 23, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 220, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 488, state: "改二", power: 56, torp: 80, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 4, name: "鬼怒", main_id: 487, remodel: [
+        type: 4, name: "鬼怒", main_id: 487,
+        yomi: "きぬ kinu",
+        remodel: [
             { id: 113, state: "未改造", power: 39, torp: 79, luck: 12, slot: 2 },
             { id: 289, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 487, state: "改二", power: 57, torp: 84, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 4, name: "阿武隈", main_id: 200, remodel: [
+        type: 4, name: "阿武隈", main_id: 200,
+        yomi: "あぶくま abukuma",
+        remodel: [
             { id: 114, state: "未改造", power: 39, torp: 79, luck: 12, slot: 2 },
             { id: 290, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 200, state: "改二", power: 56, torp: 94, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 4, name: "夕張", main_id: 622, remodel: [
+        type: 4, name: "夕張", main_id: 622,
+        yomi: "ゆうばり yuubari",
+        remodel: [
             { id: 115, state: "未改造", power: 42, torp: 69, luck: 12, slot: 3 },
             { id: 293, state: "改", power: 63, torp: 79, luck: 17, slot: 4 },
             { id: 622, state: "改二", power: 56, torp: 80, luck: 30, slot: 5 },
@@ -625,421 +796,553 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 4, name: "川内", main_id: 158, remodel: [
+        type: 4, name: "川内", main_id: 158,
+        yomi: "せんだい sendai",
+        remodel: [
             { id: 54, state: "未改造", power: 49, torp: 89, luck: 12, slot: 2 },
             { id: 222, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 158, state: "改二", power: 68, torp: 89, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 4, name: "神通", main_id: 159, remodel: [
+        type: 4, name: "神通", main_id: 159,
+        yomi: "じんつう jintsuu",
+        remodel: [
             { id: 55, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 223, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 159, state: "改二", power: 73, torp: 98, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "那珂", main_id: 160, remodel: [
+        type: 4, name: "那珂", main_id: 160,
+        yomi: "なか naka",
+        remodel: [
             { id: 56, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 224, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
             { id: 160, state: "改二", power: 69, torp: 84, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 4, name: "阿賀野", main_id: 305, remodel: [
+        type: 4, name: "阿賀野", main_id: 305,
+        yomi: "あがの agano",
+        remodel: [
             { id: 137, state: "未改造", power: 42, torp: 72, luck: 10, slot: 3 },
             { id: 305, state: "改", power: 67, torp: 79, luck: 10, slot: 3 },
         ]
     },
     {
-        type: 4, name: "能代", main_id: 306, remodel: [
+        type: 4, name: "能代", main_id: 306,
+        yomi: "のしろ noshiro",
+        remodel: [
             { id: 138, state: "未改造", power: 42, torp: 72, luck: 10, slot: 3 },
             { id: 306, state: "改", power: 68, torp: 79, luck: 10, slot: 3 },
         ]
     },
     {
-        type: 4, name: "矢矧", main_id: 307, remodel: [
+        type: 4, name: "矢矧", main_id: 307,
+        yomi: "やはぎ yahagi",
+        remodel: [
             { id: 139, state: "未改造", power: 42, torp: 72, luck: 13, slot: 3 },
             { id: 307, state: "改", power: 70, torp: 79, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 4, name: "酒匂", main_id: 314, remodel: [
+        type: 4, name: "酒匂", main_id: 314,
+        yomi: "さかわ sakawa",
+        remodel: [
             { id: 140, state: "未改造", power: 41, torp: 71, luck: 20, slot: 3 },
             { id: 314, state: "改", power: 65, torp: 78, luck: 30, slot: 3 },
         ]
     },
     {
-        type: 4, name: "大淀", main_id: 321, remodel: [
+        type: 4, name: "大淀", main_id: 321,
+        yomi: "おおよど ooyodo",
+        remodel: [
             { id: 183, state: "未改造", power: 48, torp: 39, luck: 24, slot: 3 },
             { id: 321, state: "改", power: 70, torp: 49, luck: 30, slot: 4 },
         ]
     },
     {
-        type: 4, name: "香取", main_id: 343, remodel: [
+        type: 4, name: "香取", main_id: 343,
+        yomi: "かとり katori",
+        remodel: [
             { id: 154, state: "未改造", power: 28, torp: 28, luck: 10, slot: 3 },
             { id: 343, state: "改", power: 36, torp: 40, luck: 12, slot: 4 },
         ]
     },
     {
-        type: 4, name: "鹿島", main_id: 356, remodel: [
+        type: 4, name: "鹿島", main_id: 356,
+        yomi: "かしま kashima",
+        remodel: [
             { id: 465, state: "未改造", power: 27, torp: 24, luck: 20, slot: 3 },
             { id: 356, state: "改", power: 34, torp: 39, luck: 20, slot: 4 },
         ]
     },
     {
-        type: 4, name: "L.d.S.D.d.Abruzzi", main_id: 693, remodel: [
+        type: 4, name: "L.d.S.D.d.Abruzzi", main_id: 693,
+        yomi: "るいーじでぃさぼいあどぅーかでっりあぶるっつぃ luigi di savoia duca degli abruzzi",
+        remodel: [
             { id: 589, state: "未改造", power: 51, torp: 66, luck: 20, slot: 3 },
             { id: 693, state: "改", power: 73, torp: 70, luck: 30, slot: 4 },
         ]
     },
     {
-        type: 4, name: "G.Garibaldi", main_id: 691, remodel: [
+        type: 4, name: "G.Garibaldi", main_id: 691,
+        yomi: "じゅぜっぺがりばるでぃ がるばるでぃ giuseppe garibaldi",
+        remodel: [
             { id: 590, state: "未改造", power: 50, torp: 66, luck: 20, slot: 3 },
             { id: 691, state: "改", power: 72, torp: 70, luck: 30, slot: 4 },
         ]
     },
     {
-        type: 4, name: "Atlanta", main_id: 696, remodel: [
+        type: 4, name: "Atlanta", main_id: 696,
+        yomi: "あとらんた atlanta",
+        remodel: [
             { id: 597, state: "未改造", power: 38, torp: 66, luck: 17, slot: 3 },
             { id: 696, state: "改", power: 64, torp: 70, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 4, name: "Gotland", main_id: 630, remodel: [
+        type: 4, name: "Gotland", main_id: 630,
+        yomi: "ごとらんど gotland",
+        remodel: [
             { id: 574, state: "未改造", power: 48, torp: 68, luck: 20, slot: 3 },
             { id: 579, state: "改", power: 62, torp: 70, luck: 24, slot: 4 },
             { id: 630, state: "andra", power: 60, torp: 73, luck: 26, slot: 4 },
         ]
     },
     {
-        type: 4, name: "De Ruyter", main_id: 609, remodel: [
+        type: 4, name: "De Ruyter", main_id: 609,
+        yomi: "でろいてる de ruyter",
+        remodel: [
             { id: 604, state: "未改造", power: 50, torp: 50, luck: 9, slot: 3 },
             { id: 609, state: "改", power: 70, torp: 60, luck: 10, slot: 3 },
         ]
     },
     {
-        type: 4, name: "Perth", main_id: 618, remodel: [
+        type: 4, name: "Perth", main_id: 618,
+        yomi: "ぱーす perth",
+        remodel: [
             { id: 613, state: "未改造", power: 58, torp: 54, luck: 12, slot: 3 },
             { id: 618, state: "改", power: 72, torp: 72, luck: 22, slot: 3 },
         ]
     },
 
     {
-        type: 5, name: "神風", main_id: 476, remodel: [
+        type: 5, name: "神風", main_id: 476,
+        yomi: "かみかぜ kamikaze",
+        remodel: [
             { id: 471, state: "未改造", power: 28, torp: 36, luck: 30, slot: 2 },
             { id: 476, state: "改", power: 41, torp: 68, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "朝風", main_id: 370, remodel: [
+        type: 5, name: "朝風", main_id: 370,
+        yomi: "あさかぜ asakaze",
+        remodel: [
             { id: 472, state: "未改造", power: 29, torp: 37, luck: 13, slot: 2 },
             { id: 370, state: "改", power: 42, torp: 69, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 5, name: "春風", main_id: 363, remodel: [
+        type: 5, name: "春風", main_id: 363,
+        yomi: "はるかぜ harukaze",
+        remodel: [
             { id: 473, state: "未改造", power: 27, torp: 36, luck: 25, slot: 2 },
             { id: 363, state: "改", power: 38, torp: 68, luck: 30, slot: 3 },
         ]
     },
     {
-        type: 5, name: "松風", main_id: 371, remodel: [
+        type: 5, name: "松風", main_id: 371,
+        yomi: "まつかぜ matsukaze",
+        remodel: [
             { id: 474, state: "未改造", power: 28, torp: 38, luck: 12, slot: 2 },
             { id: 371, state: "改", power: 39, torp: 68, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "旗風", main_id: 387, remodel: [
+        type: 5, name: "旗風", main_id: 387,
+        yomi: "はたかぜ hatakaze",
+        remodel: [
             { id: 475, state: "未改造", power: 29, torp: 36, luck: 17, slot: 2 },
             { id: 387, state: "改", power: 40, torp: 68, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 5, name: "睦月", main_id: 434, remodel: [
+        type: 5, name: "睦月", main_id: 434,
+        yomi: "むつき mutsuki",
+        remodel: [
             { id: 1, state: "未改造", power: 29, torp: 59, luck: 12, slot: 2 },
             { id: 254, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
             { id: 434, state: "改二", power: 45, torp: 79, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 5, name: "如月", main_id: 435, remodel: [
+        type: 5, name: "如月", main_id: 435,
+        yomi: "きさらぎ kisaragi",
+        remodel: [
             { id: 2, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 255, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
             { id: 435, state: "改二", power: 46, torp: 80, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 5, name: "弥生", main_id: 308, remodel: [
+        type: 5, name: "弥生", main_id: 308,
+        yomi: "やよい yayoi",
+        remodel: [
             { id: 164, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 308, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "卯月", main_id: 309, remodel: [
+        type: 5, name: "卯月", main_id: 309,
+        yomi: "うづき uzuki",
+        remodel: [
             { id: 165, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 309, state: "改", power: 34, torp: 69, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 5, name: "皐月", main_id: 418, remodel: [
+        type: 5, name: "皐月", main_id: 418,
+        yomi: "さつき satsuki",
+        remodel: [
             { id: 28, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 256, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
             { id: 418, state: "改二", power: 42, torp: 78, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "水無月", main_id: 366, remodel: [
+        type: 5, name: "水無月", main_id: 366,
+        yomi: "みなづき minazuki",
+        remodel: [
             { id: 481, state: "未改造", power: 29, torp: 49, luck: 13, slot: 2 },
             { id: 366, state: "改", power: 39, torp: 69, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 5, name: "文月", main_id: 548, remodel: [
+        type: 5, name: "文月", main_id: 548,
+        yomi: "ふみづき fumizuki",
+        remodel: [
             { id: 29, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 257, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
             { id: 548, state: "改二", power: 45, torp: 77, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "長月", main_id: 258, remodel: [
+        type: 5, name: "長月", main_id: 258,
+        yomi: "ながつき nagatsuki",
+        remodel: [
             { id: 6, state: "未改造", power: 29, torp: 49, luck: 15, slot: 2 },
             { id: 258, state: "改", power: 39, torp: 69, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "菊月", main_id: 259, remodel: [
+        type: 5, name: "菊月", main_id: 259,
+        yomi: "きくづき kikuzuki",
+        remodel: [
             { id: 30, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 259, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "三日月", main_id: 260, remodel: [
+        type: 5, name: "三日月", main_id: 260,
+        yomi: "みかづき mikazuki",
+        remodel: [
             { id: 7, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 260, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "望月", main_id: 261, remodel: [
+        type: 5, name: "望月", main_id: 261,
+        yomi: "もちづき mochizuki",
+        remodel: [
             { id: 31, state: "未改造", power: 29, torp: 49, luck: 10, slot: 2 },
             { id: 261, state: "改", power: 39, torp: 69, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "吹雪", main_id: 426, remodel: [
+        type: 5, name: "吹雪", main_id: 426,
+        yomi: "ふぶき fubuki",
+        remodel: [
             { id: 9, state: "未改造", power: 29, torp: 79, luck: 17, slot: 2 },
             { id: 201, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 426, state: "改二", power: 59, torp: 88, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "白雪", main_id: 202, remodel: [
+        type: 5, name: "白雪", main_id: 202,
+        yomi: "しらゆき shirayuki",
+        remodel: [
             { id: 10, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 202, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "初雪", main_id: 203, remodel: [
+        type: 5, name: "初雪", main_id: 203,
+        yomi: "はつゆき hatsuyuki",
+        remodel: [
             { id: 32, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 203, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "深雪", main_id: 204, remodel: [
+        type: 5, name: "深雪", main_id: 204,
+        yomi: "みゆき miyuki",
+        remodel: [
             { id: 11, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 204, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "叢雲", main_id: 420, remodel: [
+        type: 5, name: "叢雲", main_id: 420,
+        yomi: "むらくも murakumo",
+        remodel: [
             { id: 33, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 205, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 420, state: "改二", power: 57, torp: 89, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "磯波", main_id: 206, remodel: [
+        type: 5, name: "磯波", main_id: 206,
+        yomi: "いそなみ isonami",
+        remodel: [
             { id: 12, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 206, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "浦波", main_id: 368, remodel: [
+        type: 5, name: "浦波", main_id: 368,
+        yomi: "うらなみ uranami",
+        remodel: [
             { id: 486, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
             { id: 368, state: "改", power: 49, torp: 79, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "綾波", main_id: 195, remodel: [
+        type: 5, name: "綾波", main_id: 195,
+        yomi: "あやなみ ayanami",
+        remodel: [
             { id: 13, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 207, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 195, state: "改二", power: 74, torp: 88, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "敷波", main_id: 627, remodel: [
+        type: 5, name: "敷波", main_id: 627,
+        yomi: "しきなみ shikinami",
+        remodel: [
             { id: 14, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 208, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 627, state: "改二", power: 61, torp: 88, luck: 30, slot: 3 },
         ]
     },
     {
-        type: 5, name: "天霧", main_id: 390, remodel: [
+        type: 5, name: "天霧", main_id: 390,
+        yomi: "あまぎり amagiri",
+        remodel: [
             { id: 479, state: "未改造", power: 30, torp: 70, luck: 11, slot: 2 },
             { id: 390, state: "改", power: 52, torp: 80, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "狭霧", main_id: 391, remodel: [
+        type: 5, name: "狭霧", main_id: 391,
+        yomi: "さぎり sagiri",
+        remodel: [
             { id: 480, state: "未改造", power: 29, torp: 69, luck: 6, slot: 2 },
             { id: 391, state: "改", power: 50, torp: 82, luck: 7, slot: 3 },
         ]
     },
     {
-        type: 5, name: "朧", main_id: 230, remodel: [
+        type: 5, name: "朧", main_id: 230,
+        yomi: "おぼろ oboro",
+        remodel: [
             { id: 93, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 230, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "曙", main_id: 231, remodel: [
+        type: 5, name: "曙", main_id: 231,
+        yomi: "あけぼの akebono",
+        remodel: [
             { id: 15, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 231, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "漣", main_id: 232, remodel: [
+        type: 5, name: "漣", main_id: 232,
+        yomi: "さざなみ sazanami",
+        remodel: [
             { id: 94, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 232, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "潮", main_id: 407, remodel: [
+        type: 5, name: "潮", main_id: 407,
+        yomi: "うしお ushio",
+        remodel: [
             { id: 16, state: "未改造", power: 29, torp: 69, luck: 20, slot: 2 },
             { id: 233, state: "改", power: 49, torp: 79, luck: 20, slot: 3 },
             { id: 407, state: "改二", power: 58, torp: 80, luck: 32, slot: 3 },
         ]
     },
     {
-        type: 5, name: "暁", main_id: 437, remodel: [
+        type: 5, name: "暁", main_id: 437,
+        yomi: "あかつき akatsuki",
+        remodel: [
             { id: 34, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 234, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 437, state: "改二", power: 62, torp: 90, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "響", main_id: 147, remodel: [
+        type: 5, name: "響", main_id: 147,
+        yomi: "ひびき べーるぬい ヴぇーるぬい べるぬい hibiki verniy",
+        remodel: [
             { id: 35, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 235, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 147, state: "Верный", power: 58, torp: 89, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "雷", main_id: 236, remodel: [
+        type: 5, name: "雷", main_id: 236,
+        yomi: "いかづち ikazuchi",
+        remodel: [
             { id: 36, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 236, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "電", main_id: 237, remodel: [
+        type: 5, name: "電", main_id: 237,
+        yomi: "いなづま inazuma",
+        remodel: [
             { id: 37, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 237, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "初春", main_id: 326, remodel: [
+        type: 5, name: "初春", main_id: 326,
+        yomi: "はつはる hatsuharu",
+        remodel: [
             { id: 38, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 238, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 326, state: "改二", power: 55, torp: 90, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 5, name: "子日", main_id: 239, remodel: [
+        type: 5, name: "子日", main_id: 239,
+        yomi: "ねのひ nenohi",
+        remodel: [
             { id: 39, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 239, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "若葉", main_id: 240, remodel: [
+        type: 5, name: "若葉", main_id: 240,
+        yomi: "わかば wakaba",
+        remodel: [
             { id: 40, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 240, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "初霜", main_id: 419, remodel: [
+        type: 5, name: "初霜", main_id: 419,
+        yomi: "はつしも hatsushimo",
+        remodel: [
             { id: 41, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 241, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 419, state: "改二", power: 59, torp: 85, luck: 53, slot: 3 },
         ]
     },
     {
-        type: 5, name: "白露", main_id: 497, remodel: [
+        type: 5, name: "白露", main_id: 497,
+        yomi: "しらつゆ shiratsuyu",
+        remodel: [
             { id: 42, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 242, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 497, state: "改二", power: 69, torp: 87, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 5, name: "時雨", main_id: 145, remodel: [
+        type: 5, name: "時雨", main_id: 145,
+        yomi: "しぐれ shigure",
+        remodel: [
             { id: 43, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 243, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 145, state: "改二", power: 60, torp: 86, luck: 50, slot: 3 },
         ]
     },
     {
-        type: 5, name: "村雨", main_id: 498, remodel: [
+        type: 5, name: "村雨", main_id: 498,
+        yomi: "むらさめ murasame",
+        remodel: [
             { id: 44, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 244, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 498, state: "改二", power: 68, torp: 88, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "夕立", main_id: 144, remodel: [
+        type: 5, name: "夕立", main_id: 144,
+        yomi: "ゆうだち ぽい yuudachi poi",
+        remodel: [
             { id: 45, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 245, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 144, state: "改二", power: 73, torp: 93, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "春雨", main_id: 323, remodel: [
+        type: 5, name: "春雨", main_id: 323,
+        yomi: "はるさめ harusame",
+        remodel: [
             { id: 405, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 323, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "五月雨", main_id: 246, remodel: [
+        type: 5, name: "五月雨", main_id: 246,
+        yomi: "さみだれ samidare",
+        remodel: [
             { id: 46, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 246, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "海風", main_id: 587, remodel: [
+        type: 5, name: "海風", main_id: 587,
+        yomi: "うみかぜ umikaze",
+        remodel: [
             { id: 458, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 350, state: "改", power: 49, torp: 79, luck: 13, slot: 3 },
             { id: 587, state: "改二", power: 61, torp: 93, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "山風", main_id: 369, remodel: [
+        type: 5, name: "山風", main_id: 369,
+        yomi: "やまかぜ yamakaze",
+        remodel: [
             { id: 457, state: "未改造", power: 31, torp: 69, luck: 6, slot: 2 },
             { id: 369, state: "改", power: 51, torp: 82, luck: 8, slot: 3 },
         ]
     },
     {
-        type: 5, name: "江風", main_id: 469, remodel: [
+        type: 5, name: "江風", main_id: 469,
+        yomi: "かわかぜ kawakaze",
+        remodel: [
             { id: 459, state: "未改造", power: 29, torp: 70, luck: 10, slot: 2 },
             { id: 351, state: "改", power: 49, torp: 80, luck: 12, slot: 3 },
             { id: 469, state: "改二", power: 62, torp: 96, luck: 19, slot: 3 },
         ]
     },
     {
-        type: 5, name: "涼風", main_id: 247, remodel: [
+        type: 5, name: "涼風", main_id: 247,
+        yomi: "すずかぜ suzukaze",
+        remodel: [
             { id: 47, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 247, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "朝潮", main_id: 468, remodel: [
+        type: 5, name: "朝潮", main_id: 468,
+        yomi: "あさしお asashio",
+        remodel: [
             { id: 95, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 248, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 463, state: "改二", power: 68, torp: 92, luck: 17, slot: 3 },
@@ -1047,53 +1350,69 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 5, name: "大潮", main_id: 199, remodel: [
+        type: 5, name: "大潮", main_id: 199,
+        yomi: "おおしお ooshio",
+        remodel: [
             { id: 96, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 249, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 199, state: "改二", power: 67, torp: 90, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "満潮", main_id: 489, remodel: [
+        type: 5, name: "満潮", main_id: 489,
+        yomi: "みちしお michishio",
+        remodel: [
             { id: 97, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 250, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 489, state: "改二", power: 68, torp: 89, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 5, name: "荒潮", main_id: 490, remodel: [
+        type: 5, name: "荒潮", main_id: 490,
+        yomi: "あらしお arashio",
+        remodel: [
             { id: 98, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 251, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 490, state: "改二", power: 69, torp: 88, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "朝雲", main_id: 327, remodel: [
+        type: 5, name: "朝雲", main_id: 327,
+        yomi: "あらぐも asagumo",
+        remodel: [
             { id: 413, state: "未改造", power: 29, torp: 69, luck: 8, slot: 2 },
             { id: 327, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "山雲", main_id: 328, remodel: [
+        type: 5, name: "山雲", main_id: 328,
+        yomi: "やまぐも yamagumo",
+        remodel: [
             { id: 414, state: "未改造", power: 29, torp: 69, luck: 7, slot: 2 },
             { id: 328, state: "改", power: 49, torp: 79, luck: 11, slot: 3 },
         ]
     },
     {
-        type: 5, name: "峯雲", main_id: 687, remodel: [
+        type: 5, name: "峯雲", main_id: 687,
+        yomi: "みねぐも minegumo",
+        remodel: [
             { id: 583, state: "未改造", power: 30, torp: 69, luck: 6, slot: 2 },
             { id: 687, state: "改", power: 51, torp: 79, luck: 9, slot: 3 },
         ]
     },
     {
-        type: 5, name: "霰", main_id: 198, remodel: [
+        type: 5, name: "霰", main_id: 198,
+        yomi: "あられ arare",
+        remodel: [
             { id: 48, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 252, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 198, state: "改二", power: 66, torp: 87, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "霞", main_id: 470, remodel: [
+        type: 5, name: "霞", main_id: 470,
+        yomi: "かすみ kasumi",
+        remodel: [
             { id: 49, state: "未改造", power: 29, torp: 69, luck: 15, slot: 2 },
             { id: 253, state: "改", power: 49, torp: 79, luck: 20, slot: 3 },
             { id: 464, state: "改二", power: 65, torp: 92, luck: 37, slot: 3 },
@@ -1101,298 +1420,391 @@ const SHIP_DATA = [
         ]
     },
     {
-        type: 5, name: "陽炎", main_id: 566, remodel: [
+        type: 5, name: "陽炎", main_id: 566,
+        yomi: "かげろう kagerou",
+        remodel: [
             { id: 17, state: "未改造", power: 29, torp: 79, luck: 12, slot: 2 },
             { id: 225, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 566, state: "改二", power: 68, torp: 90, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "不知火", main_id: 567, remodel: [
+        type: 5, name: "不知火", main_id: 567,
+        yomi: "しらぬい shiranui",
+        remodel: [
             { id: 18, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 226, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 567, state: "改二", power: 67, torp: 91, luck: 24, slot: 3 },
         ]
     },
     {
-        type: 5, name: "黒潮", main_id: 568, remodel: [
+        type: 5, name: "黒潮", main_id: 568,
+        yomi: "くろしお kuroshio",
+        remodel: [
             { id: 19, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 227, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
             { id: 568, state: "改二", power: 69, torp: 88, luck: 22, slot: 3 },
         ]
     },
     {
-        type: 5, name: "親潮", main_id: 362, remodel: [
+        type: 5, name: "親潮", main_id: 362,
+        yomi: "おやしお oyashio",
+        remodel: [
             { id: 456, state: "未改造", power: 30, torp: 68, luck: 13, slot: 2 },
             { id: 362, state: "改", power: 50, torp: 78, luck: 14, slot: 3 },
         ]
     },
     {
-        type: 5, name: "初風", main_id: 300, remodel: [
+        type: 5, name: "初風", main_id: 300,
+        yomi: "はつかぜ hatsukaze",
+        remodel: [
             { id: 190, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 300, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "雪風", main_id: 228, remodel: [
+        type: 5, name: "雪風", main_id: 228,
+        yomi: "ゆきかぜ yukikaze",
+        remodel: [
             { id: 20, state: "未改造", power: 29, torp: 79, luck: 50, slot: 2 },
             { id: 228, state: "改", power: 59, torp: 89, luck: 60, slot: 3 },
         ]
     },
     {
-        type: 5, name: "天津風", main_id: 316, remodel: [
+        type: 5, name: "天津風", main_id: 316,
+        yomi: "あまつかぜ amatsukaze",
+        remodel: [
             { id: 181, state: "未改造", power: 29, torp: 79, luck: 18, slot: 2 },
             { id: 316, state: "改", power: 49, torp: 84, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "時津風", main_id: 322, remodel: [
+        type: 5, name: "時津風", main_id: 322,
+        yomi: "ときつかぜ tokitsukaze",
+        remodel: [
             { id: 186, state: "未改造", power: 29, torp: 69, luck: 13, slot: 2 },
             { id: 322, state: "改", power: 48, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "浦風", main_id: 556, remodel: [
+        type: 5, name: "浦風", main_id: 556,
+        yomi: "うらかぜ urakaze",
+        remodel: [
             { id: 168, state: "未改造", power: 29, torp: 69, luck: 13, slot: 2 },
             { id: 317, state: "改", power: 48, torp: 79, luck: 13, slot: 3 },
             { id: 556, state: "丁改", power: 62, torp: 80, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 5, name: "磯風", main_id: 557, remodel: [
+        type: 5, name: "磯風", main_id: 557,
+        yomi: "いそかぜ isokaze",
+        remodel: [
             { id: 167, state: "未改造", power: 29, torp: 69, luck: 16, slot: 2 },
             { id: 320, state: "改", power: 48, torp: 79, luck: 18, slot: 3 },
             { id: 557, state: "乙改", power: 61, torp: 82, luck: 24, slot: 3 },
         ]
     },
     {
-        type: 5, name: "浜風", main_id: 558, remodel: [
+        type: 5, name: "浜風", main_id: 558,
+        yomi: "はまかぜ hamakaze",
+        remodel: [
             { id: 170, state: "未改造", power: 29, torp: 69, luck: 15, slot: 2 },
             { id: 312, state: "改", power: 48, torp: 79, luck: 17, slot: 3 },
             { id: 558, state: "乙改", power: 58, torp: 83, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "谷風", main_id: 559, remodel: [
+        type: 5, name: "谷風", main_id: 559,
+        yomi: "たにかぜ tanikaze",
+        remodel: [
             { id: 169, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
             { id: 313, state: "改", power: 48, torp: 79, luck: 16, slot: 3 },
             { id: 559, state: "改二", power: 59, torp: 84, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "野分", main_id: 329, remodel: [
+        type: 5, name: "野分", main_id: 329,
+        yomi: "のわき nowaki",
+        remodel: [
             { id: 415, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
             { id: 329, state: "改", power: 48, torp: 79, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 5, name: "嵐", main_id: 354, remodel: [
+        type: 5, name: "嵐", main_id: 354,
+        yomi: "あらし arashi",
+        remodel: [
             { id: 454, state: "未改造", power: 29, torp: 69, luck: 11, slot: 2 },
             { id: 354, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "萩風", main_id: 355, remodel: [
+        type: 5, name: "萩風", main_id: 355,
+        yomi: "はぎかぜ hagikaze",
+        remodel: [
             { id: 455, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
             { id: 355, state: "改", power: 50, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "舞風", main_id: 294, remodel: [
+        type: 5, name: "舞風", main_id: 294,
+        yomi: "まいかぜ maikaze",
+        remodel: [
             { id: 122, state: "未改造", power: 29, torp: 69, luck: 10, slot: 2 },
             { id: 294, state: "改", power: 49, torp: 79, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "秋雲", main_id: 301, remodel: [
+        type: 5, name: "秋雲", main_id: 301,
+        yomi: "あきぐも akigumo",
+        remodel: [
             { id: 132, state: "未改造", power: 29, torp: 69, luck: 14, slot: 2 },
             { id: 301, state: "改", power: 44, torp: 79, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "夕雲", main_id: 542, remodel: [
+        type: 5, name: "夕雲", main_id: 542,
+        yomi: "ゆうぐも yuugumo",
+        remodel: [
             { id: 133, state: "未改造", power: 30, torp: 69, luck: 12, slot: 2 },
             { id: 302, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
             { id: 542, state: "改二", power: 67, torp: 87, luck: 18, slot: 3 },
         ]
     },
     {
-        type: 5, name: "巻雲", main_id: 563, remodel: [
+        type: 5, name: "巻雲", main_id: 563,
+        yomi: "まきぐも makigumo",
+        remodel: [
             { id: 134, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
             { id: 303, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
             { id: 563, state: "改二", power: 64, torp: 90, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 5, name: "風雲", main_id: 564, remodel: [
+        type: 5, name: "風雲", main_id: 564,
+        yomi: "かざぐも kazagumo",
+        remodel: [
             { id: 453, state: "未改造", power: 30, torp: 70, luck: 13, slot: 2 },
             { id: 349, state: "改", power: 50, torp: 81, luck: 14, slot: 3 },
             { id: 564, state: "改二", power: 66, torp: 89, luck: 20, slot: 3 },
         ]
     },
     {
-        type: 5, name: "長波", main_id: 543, remodel: [
+        type: 5, name: "長波", main_id: 543,
+        yomi: "ながなみ naganami",
+        remodel: [
             { id: 135, state: "未改造", power: 30, torp: 69, luck: 13, slot: 2 },
             { id: 304, state: "改", power: 50, torp: 80, luck: 14, slot: 3 },
             { id: 543, state: "改二", power: 69, torp: 89, luck: 30, slot: 3 },
         ]
     },
     {
-        type: 5, name: "高波", main_id: 345, remodel: [
+        type: 5, name: "高波", main_id: 345,
+        yomi: "たかなみ takanami",
+        remodel: [
             { id: 424, state: "未改造", power: 30, torp: 69, luck: 8, slot: 2 },
             { id: 345, state: "改", power: 51, torp: 80, luck: 10, slot: 3 },
         ]
     },
     {
-        type: 5, name: "藤波", main_id: 373, remodel: [
+        type: 5, name: "藤波", main_id: 373,
+        yomi: "ふじなみ fujinami",
+        remodel: [
             { id: 485, state: "未改造", power: 31, torp: 69, luck: 9, slot: 2 },
             { id: 373, state: "改", power: 52, torp: 79, luck: 11, slot: 3 },
         ]
     },
     {
-        type: 5, name: "早波", main_id: 688, remodel: [
+        type: 5, name: "早波", main_id: 688,
+        yomi: "はやなみ hayanami",
+        remodel: [
             { id: 528, state: "未改造", power: 30, torp: 68, luck: 9, slot: 2 },
             { id: 688, state: "改", power: 51, torp: 80, luck: 10, slot: 3 },
         ]
     },
     {
-        type: 5, name: "浜波", main_id: 680, remodel: [
+        type: 5, name: "浜波", main_id: 680,
+        yomi: "はまなみ hamanami",
+        remodel: [
             { id: 484, state: "未改造", power: 31, torp: 68, luck: 10, slot: 2 },
             { id: 680, state: "改", power: 52, torp: 78, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "沖波", main_id: 569, remodel: [
+        type: 5, name: "沖波", main_id: 569,
+        yomi: "おきなみ okinami",
+        remodel: [
             { id: 452, state: "未改造", power: 30, torp: 69, luck: 10, slot: 2 },
             { id: 359, state: "改", power: 50, torp: 81, luck: 12, slot: 3 },
             { id: 569, state: "改二", power: 65, torp: 87, luck: 22, slot: 3 },
         ]
     },
     {
-        type: 5, name: "岸波", main_id: 686, remodel: [
+        type: 5, name: "岸波", main_id: 686,
+        yomi: "きしなみ kishinami",
+        remodel: [
             { id: 527, state: "未改造", power: 31, torp: 68, luck: 10, slot: 2 },
             { id: 686, state: "改", power: 50, torp: 80, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 5, name: "朝霜", main_id: 578, remodel: [
+        type: 5, name: "朝霜", main_id: 578,
+        yomi: "あさしも asashimo",
+        remodel: [
             { id: 425, state: "未改造", power: 29, torp: 68, luck: 16, slot: 2 },
             { id: 344, state: "改", power: 50, torp: 78, luck: 18, slot: 3 },
             { id: 578, state: "改二", power: 68, torp: 88, luck: 28, slot: 3 },
         ]
     },
     {
-        type: 5, name: "早霜", main_id: 324, remodel: [
+        type: 5, name: "早霜", main_id: 324,
+        yomi: "はやしも hayashimo",
+        remodel: [
             { id: 409, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
             { id: 324, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "秋霜", main_id: 695, remodel: [
+        type: 5, name: "秋霜", main_id: 695,
+        yomi: "あきしも akishimo",
+        remodel: [
             { id: 625, state: "未改造", power: 30, torp: 69, luck: 11, slot: 2 },
             { id: 695, state: "改", power: 50, torp: 80, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "清霜", main_id: 325, remodel: [
+        type: 5, name: "清霜", main_id: 325,
+        yomi: "きよしも kiyoshimo",
+        remodel: [
             { id: 410, state: "未改造", power: 30, torp: 69, luck: 12, slot: 2 },
             { id: 325, state: "改", power: 50, torp: 80, luck: 13, slot: 3 },
         ]
     },
     {
-        type: 5, name: "秋月", main_id: 330, remodel: [
+        type: 5, name: "秋月", main_id: 330,
+        yomi: "あきづき akizuki",
+        remodel: [
             { id: 421, state: "未改造", power: 48, torp: 48, luck: 10, slot: 2 },
             { id: 330, state: "改", power: 57, torp: 54, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "照月", main_id: 346, remodel: [
+        type: 5, name: "照月", main_id: 346,
+        yomi: "てるづき teruzuki",
+        remodel: [
             { id: 422, state: "未改造", power: 49, torp: 49, luck: 9, slot: 2 },
             { id: 346, state: "改", power: 58, torp: 56, luck: 11, slot: 3 },
         ]
     },
     {
-        type: 5, name: "涼月", main_id: 537, remodel: [
+        type: 5, name: "涼月", main_id: 537,
+        yomi: "すずつき suzutsuki",
+        remodel: [
             { id: 532, state: "未改造", power: 47, torp: 46, luck: 27, slot: 2 },
             { id: 537, state: "改", power: 56, torp: 52, luck: 37, slot: 3 },
         ]
     },
     {
-        type: 5, name: "初月", main_id: 357, remodel: [
+        type: 5, name: "初月", main_id: 357,
+        yomi: "はつづき hatsuzuki",
+        remodel: [
             { id: 423, state: "未改造", power: 50, torp: 47, luck: 7, slot: 2 },
             { id: 357, state: "改", power: 60, torp: 54, luck: 8, slot: 3 },
         ]
     },
     {
-        type: 5, name: "島風", main_id: 229, remodel: [
+        type: 5, name: "島風", main_id: 229,
+        yomi: "しまかぜ shimakaze",
+        remodel: [
             { id: 50, state: "未改造", power: 29, torp: 89, luck: 10, slot: 2 },
             { id: 229, state: "改", power: 59, torp: 99, luck: 12, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Z1", main_id: 179, remodel: [
+        type: 5, name: "Z1", main_id: 179,
+        yomi: "れーべひとまーす leberecht maass z1",
+        remodel: [
             { id: 174, state: "未改造", power: 26, torp: 60, luck: 6, slot: 2 },
             { id: 310, state: "改", power: 45, torp: 70, luck: 12, slot: 3 },
             { id: 179, state: "zwei", power: 49, torp: 71, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Z3", main_id: 180, remodel: [
+        type: 5, name: "Z3", main_id: 180,
+        yomi: "まっくすしゅるつ max schultz z3",
+        remodel: [
             { id: 175, state: "未改造", power: 26, torp: 60, luck: 6, slot: 2 },
             { id: 311, state: "改", power: 45, torp: 70, luck: 12, slot: 3 },
             { id: 180, state: "zwei", power: 47, torp: 71, luck: 15, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Maestrale", main_id: 580, remodel: [
+        type: 5, name: "Maestrale", main_id: 580,
+        yomi: "まえすとらーれ maestrale",
+        remodel: [
             { id: 575, state: "未改造", power: 27, torp: 58, luck: 14, slot: 2 },
             { id: 580, state: "改", power: 54, torp: 72, luck: 17, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Grecale", main_id: 619, remodel: [
+        type: 5, name: "Grecale", main_id: 619,
+        yomi: "ぐれかーれ grecale",
+        remodel: [
             { id: 614, state: "未改造", power: 26, torp: 57, luck: 14, slot: 2 },
             { id: 619, state: "改", power: 55, torp: 68, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Libeccio", main_id: 347, remodel: [
+        type: 5, name: "Libeccio", main_id: 347,
+        yomi: "りべっちお libeccio",
+        remodel: [
             { id: 443, state: "未改造", power: 27, torp: 58, luck: 12, slot: 2 },
             { id: 347, state: "改", power: 48, torp: 72, luck: 16, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Samuel B.Roberts", main_id: 681, remodel: [
+        type: 5, name: "Samuel B.Roberts", main_id: 681,
+        yomi: "さみゅえるびーろばーつ samuel b roberts",
+        remodel: [
             { id: 561, state: "未改造", power: 24, torp: 38, luck: 30, slot: 2 },
             { id: 681, state: "改", power: 50, torp: 70, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Fletcher", main_id: 692, remodel: [
+        type: 5, name: "Fletcher", main_id: 692,
+        yomi: "ふれっちゃー fletcher",
+        remodel: [
             { id: 596, state: "未改造", power: 31, torp: 60, luck: 30, slot: 2 },
             { id: 692, state: "改", power: 54, torp: 72, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Johnston", main_id: 689, remodel: [
+        type: 5, name: "Johnston", main_id: 689,
+        yomi: "じょんすとん johnston",
+        remodel: [
             { id: 562, state: "未改造", power: 32, torp: 60, luck: 17, slot: 2 },
             { id: 689, state: "改", power: 55, torp: 72, luck: 40, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Jervis", main_id: 394, remodel: [
+        type: 5, name: "Jervis", main_id: 394,
+        yomi: "じゃーびす jervis",
+        remodel: [
             { id: 519, state: "未改造", power: 32, torp: 82, luck: 50, slot: 2 },
             { id: 394, state: "改", power: 52, torp: 90, luck: 55, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Janus", main_id: 893, remodel: [
+        type: 5, name: "Janus", main_id: 893,
+        yomi: "じぇーなす janus",
+        remodel: [
             { id: 520, state: "未改造", power: 33, torp: 82, luck: 17, slot: 2 },
             { id: 893, state: "改", power: 53, torp: 90, luck: 22, slot: 3 },
         ]
     },
     {
-        type: 5, name: "Ташкент", main_id: 395, remodel: [
+        type: 5, name: "Ташкент", main_id: 395,
+        yomi: "たしゅけんと tashkent", remodel: [
             { id: 516, state: "未改造", power: 50, torp: 48, luck: 40, slot: 3 },
             { id: 395, state: "改", power: 66, torp: 68, luck: 43, slot: 4 },
         ]
@@ -1400,25 +1812,68 @@ const SHIP_DATA = [
 ];
 
 const ITEM_DATA = [
-    { id: 1, type: 1, name: "12cm単装砲", power: 1 },
-    { id: 2, type: 1, name: "12.7cm連装砲", power: 2 },
-    { id: 3, type: 1, name: "10cm連装高角砲", power: 2 },
-    { id: 4, type: 2, name: "14cm単装砲", power: 2, accuracy: 1 },
-    { id: 5, type: 2, name: "15.5cm三連装砲", power: 7, accuracy: 1 },
-    { id: 6, type: 2, name: "20.3cm連装砲", power: 8 },
-    { id: 7, type: 3, name: "35.6cm連装砲", power: 15 },
-    { id: 8, type: 3, name: "41cm連装砲", power: 20 },
-    { id: 9, type: 3, name: "46cm三連装砲", power: 26 },
-    { id: 10, type: 1, name: "12.7cm連装高角砲", power: 2, accuracy: 1 },
-    { id: 11, type: 2, name: "15.2cm単装砲", power: 2, accuracy: 1 },
-    { id: 12, type: 4, name: "15.5cm三連装副砲", power: 7, accuracy: 2 },
+    {
+        id: 1, type: 1, name: "12cm単装砲", power: 1,
+        yomi: "12せんちたんそうほう",
+    },
+    {
+        id: 2, type: 1, name: "12.7cm連装砲", power: 2,
+        yomi: "12せんちれんそうほう"
+    },
+    {
+        id: 3, type: 1, name: "10cm連装高角砲", power: 2,
+        yomi: "10せんちれんそうほうかくほう"
+    },
+    {
+        id: 4, type: 2, name: "14cm単装砲", power: 2, accuracy: 1,
+        yomi: "14せんちたんそうほう"
+    },
+    {
+        id: 5, type: 2, name: "15.5cm三連装砲", power: 7, accuracy: 1,
+        yomi: "15.5せんちさんれんそうほう"
+    },
+    {
+        id: 6, type: 2, name: "20.3cm連装砲", power: 8,
+        yomi: "20.3せんちれんそうほう"
+    },
+    {
+        id: 7, type: 3, name: "35.6cm連装砲", power: 15,
+        yomi: "35.6せんちれんそうほう"
+    },
+    {
+        id: 8, type: 3, name: "41cm連装砲", power: 20,
+        yomi: "41せんちれんそうほう"
+    },
+    {
+        id: 9, type: 3, name: "46cm三連装砲", power: 26,
+        yomi: "46せんちさんれんそうほう"
+    },
+    {
+        id: 10, type: 1, name: "12.7cm連装高角砲", power: 2, accuracy: 1,
+        yomi: "12.7せんちれんそうこうかくほう"
+    },
+    {
+        id: 11, type: 2, name: "15.2cm単装砲", power: 2, accuracy: 1,
+        yomi: "15.2せんちたんそうほう"
+    },
+    {
+        id: 12, type: 4, name: "15.5cm三連装副砲", power: 7, accuracy: 2,
+        yomi: "15.5せんちさんれんそうふくほう"
+    },
     //{ id: 13, type: 5, name: "61cm三連装魚雷", torp: 5 },
     //{ id: 14, type: 5, name: "61cm四連装魚雷", torp: 7 },
     //{ id: 15, type: 5, name: "61cm四連装(酸素)魚雷", torp: 10 },
-    { id: 16, type: 8, name: "九七式艦攻", torp: 5 },
-    { id: 17, type: 8, name: "天山", torp: 7 },
+    {
+        id: 16, type: 8, name: "九七式艦攻", torp: 5,
+        yomi: "きゅうななしきかんこう"
+    },
+    {
+        id: 17, type: 8, name: "天山", torp: 7,
+        yomi: "てんざん"
+    },
     {
         id: 18, type: 8, name: "流星", torp: 10,
+        yomi: "りゅうせい",
         singleAddableBonus: [
             { power: 2, targetId: [277, 278, 156, 594] },
             { power: 1, targetId: [599] },
@@ -1428,29 +1883,69 @@ const ITEM_DATA = [
     //{ id: 20, type: 7, name: "零式艦戦21型", power: 0, torp: 0, accuracy: 0 },
     //{ id: 21, type: 7, name: "零式艦戦52型", power: 0, torp: 0, accuracy: 0 },
     //{ id: 22, type: 7, name: "試製烈風 後期型", power: 0, torp: 0, accuracy: 0 },
-    { id: 23, type: 9, name: "九九式艦爆", bomb: 5 },
-    { id: 24, type: 9, name: "彗星", bomb: 8 },
+    {
+        id: 23, type: 9, name: "九九式艦爆", bomb: 5,
+        yomi: "きゅうきゅうしきかんばく",
+    },
+    {
+        id: 24, type: 9, name: "彗星", bomb: 8,
+        yomi: "すいせい",
+    },
     //{ id: 25, type: 11, name: "零式水上偵察機", power: 0, torp: 0, accuracy: 1 },
     //{ id: 26, type: 12, name: "瑞雲", power: 0, torp: 0, accuracy: 1 },
-    { id: 27, type: 14, name: "13号対空電探", accuracy: 1, isSurface: false, isAir: true },
-    { id: 28, type: 14, name: "22号対水上電探", accuracy: 3, isSurface: true, isAir: false },
-    { id: 29, type: 14, name: "33号対水上電探", accuracy: 5, isSurface: true, isAir: false },
-    { id: 30, type: 15, name: "21号対空電探", accuracy: 2, isSurface: false, isAir: true },
-    { id: 31, type: 15, name: "32号対水上電探", accuracy: 8, isSurface: true, isAir: false },
-    { id: 32, type: 15, name: "42号対空電探", accuracy: 4, isSurface: true, isAir: true },
+    {
+        id: 27, type: 14, name: "13号対空電探", accuracy: 1, isSurface: false, isAir: true,
+        yomi: "13ごうたいくうでんたん",
+    },
+    {
+        id: 28, type: 14, name: "22号対水上電探", accuracy: 3, isSurface: true, isAir: false,
+        yomi: "22ごうたいすいじょうでんたん",
+    },
+    {
+        id: 29, type: 14, name: "33号対水上電探", accuracy: 5, isSurface: true, isAir: false,
+        yomi: "33ごうたいすいじょうでんたん",
+    },
+    {
+        id: 30, type: 15, name: "21号対空電探", accuracy: 2, isSurface: false, isAir: true,
+        yomi: "21ごうたいくうでんたん",
+    },
+    {
+        id: 31, type: 15, name: "32号対水上電探", accuracy: 8, isSurface: true, isAir: false,
+        yomi: "32ごうたいすいじょうでんたん",
+    },
+    {
+        id: 32, type: 15, name: "42号対空電探", accuracy: 4, isSurface: true, isAir: true,
+        yomi: "42ごうたいくうでんたん",
+    },
     //{ id: 33, type: 25, name: "改良式艦本式タービン" },
     //{ id: 34, type: 24, name: "強化型艦本式缶" },
     {
         id: 35, type: 17, name: "三式弾",
+        yomi: "さんしきだん",
         singleBonus: [
             { power: 1, targetId: [149, 591, 592, 152] }
         ]
     },
-    { id: 36, type: 16, name: "九一式徹甲弾", power: 8, accuracy: 1 },
-    { id: 37, type: 18, name: "7.7mm機銃" },
-    { id: 38, type: 18, name: "12.7mm単装機銃" },
-    { id: 39, type: 18, name: "25mm連装機銃" },
-    { id: 40, type: 18, name: "25mm三連装機銃" },
+    {
+        id: 36, type: 16, name: "九一式徹甲弾", power: 8, accuracy: 1,
+        yomi: "きゅういちしきてっこうだん",
+    },
+    {
+        id: 37, type: 18, name: "7.7mm機銃",
+        yomi: "7.7みりきじゅう",
+    },
+    {
+        id: 38, type: 18, name: "12.7mm単装機銃",
+        yomi: "12.7みりたんそうきじゅう",
+    },
+    {
+        id: 39, type: 18, name: "25mm連装機銃",
+        yomi: "25みりれんそうきじゅう",
+    },
+    {
+        id: 40, type: 18, name: "25mm三連装機銃",
+        yomi: "25みりさんれんそうきじゅう",
+    },
     //{ id: 41, type: 23, name: "甲標的 甲型", power: 0, torp: 12, accuracy: 0 },
     //{ id: 42, type: 26, name: "応急修理要員", power: 0, torp: 0, accuracy: 0 },
     //{ id: 43, type: 26, name: "応急修理女神", power: 0, torp: 0, accuracy: 0 },
@@ -1458,10 +1953,17 @@ const ITEM_DATA = [
     //{ id: 45, type: 20, name: "三式爆雷投射機", power: 0, torp: 0, accuracy: 0 },
     //{ id: 46, type: 19, name: "九三式水中聴音機", power: 0, torp: 0, accuracy: 1 },
     //{ id: 47, type: 19, name: "三式水中聴音機", power: 0, torp: 0, accuracy: 2 },
-    { id: 48, type: 1, name: "12cm単装高角砲", power: 1 },
-    { id: 49, type: 18, name: "25mm単装機銃" },
+    {
+        id: 48, type: 1, name: "12cm単装高角砲", power: 1,
+        yomi: "12せんちたんそうこうかくほう",
+    },
+    {
+        id: 49, type: 18, name: "25mm単装機銃",
+        yomi: "25みりたんそうきじゅう",
+    },
     {
         id: 50, type: 2, name: "20.3cm(3号)連装砲", power: 10, accuracy: 1,
+        yomi: "20.3せんち3ごうれんそうほう 3ごうほう 3号砲",
         singleAddableBonus: [
             { power: 2, targetId: [62, 265, 319, 63, 266, 192, 64, 267, 193, 65, 268, 194, 66, 269, 67, 270] },
             { power: 1, targetId: [59, 262, 416, 60, 263, 417, 61, 264, 123, 295, 142] }
@@ -1539,54 +2041,112 @@ const ITEM_DATA = [
             },
         ]
     },
-    { id: 51, type: 18, name: "12cm30連装噴進砲" },
+    {
+        id: 51, type: 18, name: "12cm30連装噴進砲",
+        yomi: "12せんち30れんそうふんしんほう",
+    },
     {
         id: 52, type: 8, name: "流星改", torp: 13,
+        yomi: "りゅうせいかい",
         singleAddableBonus: [
             { power: 2, targetId: [277, 278, 156, 594] },
             { power: 1, targetId: [599] },
         ]
     },
     //{ id: 53, type: 7, name: "烈風 一一型", power: 0, torp: 0, accuracy: 2 },
-    { id: 54, type: 27, name: "彩雲", accuracy: 2 },
+    {
+        id: 54, type: 27, name: "彩雲", accuracy: 2,
+        yomi: "さいうん",
+    },
     //{ id: 55, type: 7, name: "紫電改二", power: 0, torp: 0, accuracy: 0 },
     //{ id: 56, type: 7, name: "震電改", power: 0, torp: 0, accuracy: 0 },
     {
         id: 57, type: 9, name: "彗星一二型甲", bomb: 10,
+        yomi: "すいせいいちにがたこう",
         singleAddableBonus: [
             { power: 2, targetId: [553, 554] }
         ]
     },
-    { id: 58, type: 5, name: "61cm五連装(酸素)魚雷", torp: 12, accuracy: 1 },
+    {
+        id: 58, type: 5, name: "61cm五連装(酸素)魚雷", torp: 12, accuracy: 1,
+        yomi: "61せんちごれんそうさんそぎょらい",
+    },
     //{ id: 59, type: 11, name: "零式水上観測機", power: 0, torp: 0, accuracy: 2 },
-    { id: 60, type: 9, name: "零式艦戦62型(爆戦)", bomb: 4 },
-    { id: 61, type: 27, name: "二式艦上偵察機", accuracy: 3 },
+    {
+        id: 60, type: 9, name: "零式艦戦62型(爆戦)", bomb: 4,
+        yomi: "れいしきかんせん62がたばくせん ぜろせん62がたばくせん",
+    },
+    {
+        id: 61, type: 27, name: "二式艦上偵察機", accuracy: 3,
+        yomi: "にしきかんじょうていさつき",
+    },
 
     {
         id: 63, type: 1, name: "12.7cm連装砲B型改二", power: 3,
+        yomi: "12.7せんちれんそうほうBがたかいに",
         singleAddableBonus: [
             { power: 1, targetId: [627, 145, 144, 245] },
         ]
     },
-    { id: 64, type: 9, name: "Ju87C改", bomb: 9, accuracy: 1 },
-    { id: 65, type: 2, name: "15.2cm連装砲", power: 5, accuracy: 3 },
-    { id: 66, type: 4, name: "8cm高角砲", power: 1, accuracy: 1 },
+    {
+        id: 64, type: 9, name: "Ju87C改", bomb: 9, accuracy: 1,
+        yomi: "すつーかCかい しゅとぅーかCかい",
+    },
+    {
+        id: 65, type: 2, name: "15.2cm連装砲", power: 5, accuracy: 3,
+        yomi: "15.2せんちれんそうほう",
+    },
+    {
+        id: 66, type: 4, name: "8cm高角砲", power: 1, accuracy: 1,
+        yomi: "8せんちこうかくほう",
+    },
 
-    { id: 71, type: 4, name: "10cm連装高角砲(砲架)", power: 1, accuracy: 1 },
+    {
+        id: 71, type: 4, name: "10cm連装高角砲(砲架)", power: 1, accuracy: 1,
+        yomi: "10せんちれんそうこうかくほうほうか",
+    },
 
-    { id: 76, type: 3, name: "38cm連装砲", power: 16, accuracy: 1 },
-    { id: 77, type: 4, name: "15cm連装副砲", power: 4, accuracy: 2 },
-    { id: 78, type: 1, name: "12.7cm単装砲", power: 2, accuracy: 1 },
+    {
+        id: 76, type: 3, name: "38cm連装砲", power: 16, accuracy: 1,
+        yomi: "38せんちれんそうほう",
+    },
+    {
+        id: 77, type: 4, name: "15cm連装副砲", power: 4, accuracy: 2,
+        yomi: "15せんちれんそうふくほう",
+    },
+    {
+        id: 78, type: 1, name: "12.7cm単装砲", power: 2, accuracy: 1,
+        yomi: "12.7せんちたんそうほう",
+    },
 
-    { id: 82, type: 8, name: "九七式艦攻(931空)", torp: 6 },
-    { id: 83, type: 8, name: "天山(931空)", torp: 9 },
-    { id: 84, type: 18, name: "2cm 四連装FlaK 38", accuracy: 1 },
-    { id: 85, type: 18, name: "3.7cm FlaK M42", power: 1, accuracy: 1 },
+    {
+        id: 82, type: 8, name: "九七式艦攻(931空)", torp: 6,
+        yomi: "きゅうななしきかんこう931くう",
+    },
+    {
+        id: 83, type: 8, name: "天山(931空)", torp: 9,
+        yomi: "てんざん931くう",
+    },
+    {
+        id: 84, type: 18, name: "2cm 四連装FlaK 38", accuracy: 1,
+        yomi: "2cm 四連装flak 38 2せんちよんれんそうflak38",
+    },
+    {
+        id: 85, type: 18, name: "3.7cm FlaK M42", power: 1, accuracy: 1,
+        yomi: "3.7cm flak m42 3.7せんちflakm42",
+    },
 
-    { id: 88, type: 14, name: "22号対水上電探改四", accuracy: 8, isSurface: true, isAir: false },
-    { id: 89, type: 15, name: "21号対空電探改", accuracy: 3, isSurface: true, isAir: true },
+    {
+        id: 88, type: 14, name: "22号対水上電探改四", accuracy: 8, isSurface: true, isAir: false,
+        yomi: "22ごうたいすいじょうでんたんかいよん",
+    },
+    {
+        id: 89, type: 15, name: "21号対空電探改", accuracy: 3, isSurface: true, isAir: true,
+        yomi: "21ごうたいくうでんたんかい",
+    },
     {
         id: 90, type: 2, name: "20.3cm(2号)連装砲", power: 9, accuracy: 1,
+        yomi: "20.3せんち2ごうれんそうほう 2ごうほう 2号砲",
         singleAddableBonus: [
             { power: 2, targetId: [416, 417, 295, 264] },
             { power: 3, targetId: [142] },
@@ -1614,10 +2174,17 @@ const ITEM_DATA = [
             }
         ]
     },
-    { id: 91, type: 1, name: "12.7cm連装高角砲(後期型)", power: 2, accuracy: 1 },
-    { id: 92, type: 18, name: "毘式40mm連装機銃" },
+    {
+        id: 91, type: 1, name: "12.7cm連装高角砲(後期型)", power: 2, accuracy: 1,
+        yomi: "12.7せんちれんそうこうかくほうこうきがた",
+    },
+    {
+        id: 92, type: 18, name: "毘式40mm連装機銃",
+        yomi: "びしき40みりれんそうきじゅう",
+    },
     {
         id: 93, type: 8, name: "九七式艦攻(友永隊)", torp: 11, accuracy: 3,
+        yomi: "きゅうななしきかんこうともながたい",
         singleBonus: [
             { power: 3, targetId: [91, 280, 196] },
             { power: 1, targetId: [90, 279, 197] },
@@ -1625,16 +2192,24 @@ const ITEM_DATA = [
     },
     {
         id: 94, type: 8, name: "天山一二型(友永隊)", torp: 14, accuracy: 3,
+        yomi: "てんざんいちにがたともながたい",
         singleBonus: [
             { power: 7, targetId: [196] },
             { power: 3, targetId: [197] },
         ]
     },
 
-    { id: 97, type: 9, name: "九九式艦爆(熟練)", bomb: 7, accuracy: 2 },
-    { id: 98, type: 8, name: "九七式艦攻(熟練)", torp: 8, accuracy: 2 },
+    {
+        id: 97, type: 9, name: "九九式艦爆(熟練)", bomb: 7, accuracy: 2,
+        yomi: "きゅうきゅうしきかんばくじゅくれん",
+    },
+    {
+        id: 98, type: 8, name: "九七式艦攻(熟練)", torp: 8, accuracy: 2,
+        yomi: "きゅうななしきかんこうじゅくれん",
+    },
     {
         id: 99, type: 9, name: "九九式艦爆(江草隊)", bomb: 10, accuracy: 4,
+        yomi: "きゅうきゅうしきかんばくえくさたい",
         singleBonus: [
             { power: 4, targetId: [90, 279, 197] },
             { power: 1, targetId: [91, 280, 196] },
@@ -1642,6 +2217,7 @@ const ITEM_DATA = [
     },
     {
         id: 100, type: 9, name: "彗星(江草隊)", bomb: 13, accuracy: 4,
+        yomi: "すいせいえくさたい",
         singleBonus: [
             { power: 6, targetId: [197] },
             { power: 4, targetId: [553, 554] },
@@ -1649,39 +2225,81 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 103, type: 3, name: "試製35.6cm連装砲", power: 18, accuracy: 2 },
+    {
+        id: 103, type: 3, name: "試製35.6cm連装砲", power: 18, accuracy: 2,
+        yomi: "しせい35.6せんちれんそうほう",
+    },
     {
         id: 104, type: 3, name: "35.6cm連装砲(ダズル迷彩)", power: 15, accuracy: 1,
+        yomi: "35.6せんちれんそうほうだずるめいさい",
         singleAddableBonus: [
             { power: 2, targetId: [149, 151] },
             { power: 1, targetId: [150, 152] },
         ],
     },
-    { id: 105, type: 3, name: "試製41cm三連装砲", power: 22, accuracy: 2 },
-    { id: 106, type: 14, name: "13号対空電探改", accuracy: 2, isSurface: false, isAir: true },
+    {
+        id: 105, type: 3, name: "試製41cm三連装砲", power: 22, accuracy: 2,
+        yomi: "しせい41せんちさんれんそうほう",
+    },
+    {
+        id: 106, type: 14, name: "13号対空電探改", accuracy: 2, isSurface: false, isAir: true,
+        yomi: "13ごうたいくうでんたんかい",
+    },
 
     {
         id: 111, type: 9, name: "彗星(六〇一空)", bomb: 11, accuracy: 1,
+        yomi: "すいせいろくまるいちくう",
         singleAddableBonus: [
             { power: 2, targetId: [553, 554] },
         ]
     },
-    { id: 112, type: 8, name: "天山(六〇一空)", torp: 10, accuracy: 1 },
-    { id: 113, type: 8, name: "流星(六〇一空)", torp: 13, accuracy: 1 },
-    { id: 114, type: 3, name: "38cm連装砲改", power: 17, accuracy: 3 },
+    {
+        id: 112, type: 8, name: "天山(六〇一空)", torp: 10, accuracy: 1,
+        yomi: "てんざんろくまるいちくう",
+    },
+    {
+        id: 113, type: 8, name: "流星(六〇一空)", torp: 13, accuracy: 1,
+        yomi: "りゅうせいろくまるいちくう",
+    },
+    {
+        id: 114, type: 3, name: "38cm連装砲改", power: 17, accuracy: 3,
+        yomi: "38せんちれんそうほうかい",
+    },
 
-    { id: 116, type: 16, name: "一式徹甲弾", power: 9, accuracy: 2 },
-    { id: 117, type: 3, name: "試製46cm連装砲", power: 23, accuracy: 1 },
+    {
+        id: 116, type: 16, name: "一式徹甲弾", power: 9, accuracy: 2,
+        yomi: "いっしきてっこうだん",
+    },
+    {
+        id: 117, type: 3, name: "試製46cm連装砲", power: 23, accuracy: 1,
+        yomi: "しせい46せんちれんそうほう",
+    },
 
-    { id: 119, type: 2, name: "14cm連装砲", power: 4, accuracy: 2 },
+    {
+        id: 119, type: 2, name: "14cm連装砲", power: 4, accuracy: 2,
+        yomi: "14せんちれんそうほう",
+    },
 
-    { id: 122, type: 1, name: "10cm高角砲+高射装置", power: 3, accuracy: 1 },
-    { id: 123, type: 2, name: "SKC34 20.3cm連装砲", power: 10, accuracy: 3 },
-    { id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10, isSurface: true, isAir: true },
+    {
+        id: 122, type: 1, name: "10cm高角砲+高射装置", power: 3, accuracy: 1,
+        yomi: "10せんちこうかくほうこうしゃそうち",
+    },
+    {
+        id: 123, type: 2, name: "SKC34 20.3cm連装砲", power: 10, accuracy: 3,
+        yomi: "skc34 20.3cm連装砲 skc34 20.3れんそうほう",
+    },
+    {
+        id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10, isSurface: true, isAir: true,
+        yomi: "fumo25れーだー",
+    },
 
-    { id: 128, type: 3, name: "試製51cm連装砲", power: 30, accuracy: 1 },
+    {
+        id: 128, type: 3, name: "試製51cm連装砲", power: 30, accuracy: 1,
+        yomi: "しせい51せんちれんそうほう",
+    },
     {
         id: 129, type: 28, name: "熟練見張員", accuracy: 2,
+        yomi: "じゅくれんみはりいん",
         singleAddableBonus: [
             {
                 power: 1, targetId: [
@@ -1692,21 +2310,49 @@ const ITEM_DATA = [
             },
         ],
     },
-    { id: 130, type: 4, name: "12.7cm高角砲 + 高射装置", power: 1, accuracy: 1 },
-    { id: 131, type: 18, name: "25mm三連装機銃 集中配備" },
+    {
+        id: 130, type: 4, name: "12.7cm高角砲 + 高射装置", power: 1, accuracy: 1,
+        yomi: "12.7せんちこうかくほうこうしゃそうち",
+    },
+    {
+        id: 131, type: 18, name: "25mm三連装機銃 集中配備",
+        yomi: "25みりさんれんそうきじゅうしゅうちゅうはいび",
+    },
 
-    { id: 133, type: 3, name: "381mm/50 三連装砲", power: 20, accuracy: -3 },
-    { id: 134, type: 4, name: "OTO 152mm三連装速射砲", power: 8, accuracy: 1 },
-    { id: 135, type: 4, name: "90mm単装高角砲", power: 1, accuracy: 1 },
+    {
+        id: 133, type: 3, name: "381mm/50 三連装砲", power: 20, accuracy: -3,
+        yomi: "381みり50さんれんそうほう",
+    },
+    {
+        id: 134, type: 4, name: "OTO 152mm三連装速射砲", power: 8, accuracy: 1,
+        yomi: "oto 152mm三連装速射砲 oto152みりさんれんそうそくしゃほう おと",
+    },
+    {
+        id: 135, type: 4, name: "90mm単装高角砲", power: 1, accuracy: 1,
+        yomi: "90みりたんそうこうかくほう",
+    },
 
-    { id: 137, type: 3, name: "381mm/50 三連装砲改", power: 21, accuracy: -1 },
+    {
+        id: 137, type: 3, name: "381mm/50 三連装砲改", power: 21, accuracy: -1,
+        yomi: "381みり50さんれんそうほうかい",
+    },
 
-    { id: 139, type: 2, name: "15.2cm連装砲改", power: 6, accuracy: 4 },
+    {
+        id: 139, type: 2, name: "15.2cm連装砲改", power: 6, accuracy: 4,
+        yomi: "15.2せんちれんそうほうかい",
+    },
 
-    { id: 141, type: 15, name: "32号対水上電探改", accuracy: 9, isSurface: true, isAir: false },
-    { id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9, isSurface: true, isAir: true },
+    {
+        id: 141, type: 15, name: "32号対水上電探改", accuracy: 9, isSurface: true, isAir: false,
+        yomi: "32ごうたいすいじょうでんたんかい",
+    },
+    {
+        id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9, isSurface: true, isAir: true,
+        yomi: "15めーとるにじゅうそっきょぎ 21ごうでんたんかいに",
+    },
     {
         id: 143, type: 8, name: "九七式艦攻(村田隊)", torp: 12, accuracy: 2,
+        yomi: "きゅうななしきかんこうむらたたい",
         singleBonus: [
             { power: 3, targetId: [277, 594] },
             { power: 2, targetId: [278, 110] },
@@ -1715,6 +2361,7 @@ const ITEM_DATA = [
     },
     {
         id: 144, type: 8, name: "天山一二型(村田隊)", torp: 15, accuracy: 2,
+        yomi: "てんざんいちにがたむらたたい",
         singleBonus: [
             { power: 4, targetId: [461, 466] },
             { power: 3, targetId: [277, 594, 599] },
@@ -1723,46 +2370,105 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 147, type: 1, name: "120mm連装砲", power: 3, accuracy: 1 },
-    { id: 148, type: 9, name: "試製南山", bomb: 11 },
+    {
+        id: 147, type: 1, name: "120mm連装砲", power: 3, accuracy: 1,
+        yomi: "120みりれんそうほう",
+    },
+    {
+        id: 148, type: 9, name: "試製南山", bomb: 11,
+        yomi: "しせいなんざん",
+    },
 
-    { id: 151, type: 27, name: "試製景雲(艦偵型)", power: 2, accuracy: 2 },
+    {
+        id: 151, type: 27, name: "試製景雲(艦偵型)", power: 2, accuracy: 2,
+        yomi: "しせいけいうんかんていがた",
+    },
 
-    { id: 154, type: 9, name: "零戦62型(爆戦/岩井隊)", bomb: 4, accuracy: 1 },
+    {
+        id: 154, type: 9, name: "零戦62型(爆戦/岩井隊)", bomb: 4, accuracy: 1,
+        yomi: "れいせん62がたばくせんいわいたい ぜろせん62がたばくせんいわいたい",
+    },
 
-    { id: 160, type: 4, name: "10.5cm連装砲", power: 3, accuracy: 2 },
-    { id: 161, type: 3, name: "16inch三連装砲 Mk.7", power: 24, accuracy: 4 },
+    {
+        id: 160, type: 4, name: "10.5cm連装砲", power: 3, accuracy: 2,
+        yomi: "10.5せんちれんそうほう",
+    },
+    {
+        id: 161, type: 3, name: "16inch三連装砲 Mk.7", power: 24, accuracy: 4,
+        yomi: "16inch三連装砲 mk.7 16いんちさんれんそうほう",
+    },
     { id: 162, type: 2, name: "203mm/53連装砲", power: 9, accuracy: -2 },
 
-    { id: 172, type: 4, name: "5inch連装砲 Mk.28 mod.2", power: 4, accuracy: 2 },
-    { id: 173, type: 18, name: "Bofors 40mm四連装機関砲", power: 1, accuracy: 1 },
+    {
+        id: 172, type: 4, name: "5inch連装砲 Mk.28 mod.2", power: 4, accuracy: 2,
+        yomi: "5inch連装砲 mk.28 mod.2 5いんちれんそうほう",
+    },
+    {
+        id: 173, type: 18, name: "Bofors 40mm四連装機関砲", power: 1, accuracy: 1,
+        yomi: "bofors 40mm四連装機関砲 ぼふぉーす 40みりよんれんそうきかんほう",
+    },
 
-    { id: 183, type: 3, name: "16inch三連装砲 Mk.7 + GFCS", power: 24, accuracy: 7 },
+    {
+        id: 183, type: 3, name: "16inch三連装砲 Mk.7 + GFCS", power: 24, accuracy: 7,
+        yomi: "16inchさんれんそうほう 16inch三連装砲 mk.7 + gfcs",
+    },
 
     {
         id: 188, type: 8, name: "Re2001 G改", power: 3, torp: 4,
+        yomi: "re2001 g改",
         singleAddableBonus: [
             { power: 3, targetId: [444, 365] },
         ]
     },
 
-    { id: 190, type: 3, name: "38.1cm Mk.I連装砲", power: 18, accuracy: 1 },
-    { id: 191, type: 18, name: "QF 2ポンド8連装ポンポン砲", power: 1 },
-    { id: 192, type: 3, name: "38.1cm Mk.I/N連装砲改", power: 19, accuracy: 2 },
+    {
+        id: 190, type: 3, name: "38.1cm Mk.I連装砲", power: 18, accuracy: 1,
+        yomi: "38.1cm mk.i連装砲",
+    },
+    {
+        id: 191, type: 18, name: "QF 2ポンド8連装ポンポン砲", power: 1,
+        yomi: "qf 2ポンド8連装ポンポン砲",
+    },
+    {
+        id: 192, type: 3, name: "38.1cm Mk.I/N連装砲改", power: 19, accuracy: 2,
+        yomi: "38.1cm mk.i/n連装砲改",
+    },
 
-    { id: 195, type: 9, name: "SBD", power: 1, bomb: 6, accuracy: 1 },
-    { id: 196, type: 8, name: "TBD", power: 1, torp: 5 },
+    {
+        id: 195, type: 9, name: "SBD", power: 1, bomb: 6, accuracy: 1,
+        yomi: "sbd",
+    },
+    {
+        id: 196, type: 8, name: "TBD", power: 1, torp: 5,
+        yomi: "tbd",
+    },
 
-    { id: 199, type: 10, name: "噴式景雲改", bomb: 15, accuracy: 1 },
-    { id: 200, type: 10, name: "橘花改", bomb: 11 },
+    {
+        id: 199, type: 10, name: "噴式景雲改", bomb: 15, accuracy: 1,
+        yomi: "ふんしきけいうんかい",
+    },
+    {
+        id: 200, type: 10, name: "橘花改", bomb: 11,
+        yomi: "きっかかい",
+    },
 
-    { id: 212, type: 27, name: "彩雲(東カロリン空)", power: 1, accuracy: 2 },
+    {
+        id: 212, type: 27, name: "彩雲(東カロリン空)", power: 1, accuracy: 2,
+        yomi: "さいうんひがしかろりんくう",
+    },
 
-    { id: 219, type: 9, name: "零式艦戦63型(爆戦)", bomb: 5 },
-    { id: 220, type: 4, name: "8cm高角砲改 + 増設機銃", power: 1, accuracy: 2 },
+    {
+        id: 219, type: 9, name: "零式艦戦63型(爆戦)", bomb: 5,
+        yomi: "れいしきかんせん63がたばくせん",
+    },
+    {
+        id: 220, type: 4, name: "8cm高角砲改 + 増設機銃", power: 1, accuracy: 2,
+        yomi: "8せんちこうかくほうかい ぞうせつきじゅう",
+    },
 
     {
         id: 229, type: 1, name: "12.7cm単装高角砲(後期型)", power: 1, accuracy: 1,
+        yomi: "12.7せんちたんそうこうかくほうこうきがた",
         singleAddableBonus: [
             { power: 2, targetId: [488, 487] },
             { power: 1, targetId: [622, 263, 624, 471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261] },
@@ -1790,28 +2496,74 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 231, type: 3, name: "30.5cm三連装砲", power: 16, accuracy: 1 },
-    { id: 232, type: 3, name: "30.5cm三連装砲改", power: 17, accuracy: 3 },
-    { id: 233, type: 9, name: "F4U-1F", power: 1, bomb: 7 },
-    { id: 234, type: 4, name: "15.5cm三連装副砲改", power: 7, accuracy: 4 },
-    { id: 235, type: 2, name: "15.5cm三連装砲改", power: 7, accuracy: 3 },
-    { id: 236, type: 3, name: "41cm三連装砲改", power: 22, accuracy: 4 },
+    {
+        id: 231, type: 3, name: "30.5cm三連装砲", power: 16, accuracy: 1,
+        yomi: "30.5せんちさんれんそうほう",
+    },
+    {
+        id: 232, type: 3, name: "30.5cm三連装砲改", power: 17, accuracy: 3,
+        yomi: "30.5せんちさんれんそうほうかい",
+    },
+    {
+        id: 233, type: 9, name: "F4U-1D", power: 1, bomb: 7,
+        yomi: "f4u-1d",
+    },
+    {
+        id: 234, type: 4, name: "15.5cm三連装副砲改", power: 7, accuracy: 4,
+        yomi: "15.5せんちさんれんそうふくほうかい",
+    },
+    {
+        id: 235, type: 2, name: "15.5cm三連装砲改", power: 7, accuracy: 3,
+        yomi: "15.5せんちさんれんそうほうかい",
+    },
+    {
+        id: 236, type: 3, name: "41cm三連装砲改", power: 22, accuracy: 4,
+        yomi: "41せんちさんれんそうほうかい",
+    },
 
-    { id: 240, type: 14, name: "22号対水上電探改四(後期調整型)", power: 1, accuracy: 9, isSurface: true, isAir: false },
+    {
+        id: 240, type: 14, name: "22号対水上電探改四(後期調整型)", power: 1, accuracy: 9, isSurface: true, isAir: false,
+        yomi: "22ごうたいすいじょうでんたんかいよんこうきちょうせいがた",
+    },
 
-    { id: 242, type: 8, name: "Swordfish", power: 2, torp: 3, accuracy: 1 },
-    { id: 243, type: 8, name: "Swordfish Mk.II(熟練)", power: 3, torp: 5, accuracy: 3 },
-    { id: 244, type: 8, name: "Swordfish Mk.III(熟練)", power: 4, torp: 8, accuracy: 4 },
-    { id: 245, type: 3, name: "38cm四連装砲", power: 21, accuracy: 1 },
+    {
+        id: 242, type: 8, name: "Swordfish", power: 2, torp: 3, accuracy: 1,
+        yomi: "swordfish そーどふぃっしゅ ソードフィッシュ ｿｰﾌｨ",
+    },
+    {
+        id: 243, type: 8, name: "Swordfish Mk.II(熟練)", power: 3, torp: 5, accuracy: 3,
+        yomi: "swordfish mk.ii(熟練) そーどふぃっしゅ ソードフィッシュ ｿｰﾌｨ",
+    },
+    {
+        id: 244, type: 8, name: "Swordfish Mk.III(熟練)", power: 4, torp: 8, accuracy: 4,
+        yomi: "swordfish mk.iii(熟練) そーどふぃっしゅ ソードフィッシュ ｿｰﾌｨ",
+    },
+    {
+        id: 245, type: 3, name: "38cm四連装砲", power: 21, accuracy: 1,
+        yomi: "38せんちよんれんそうほう",
+    },
     { id: 246, type: 3, name: "38cm四連装砲改", power: 22, accuracy: 3 },
-    { id: 247, type: 4, name: "15.2cm三連装砲", power: 6, accuracy: 3 },
-    { id: 248, type: 9, name: "Skua", bomb: 4 },
+    {
+        id: 247, type: 4, name: "15.2cm三連装砲", power: 6, accuracy: 3,
+        yomi: "15.2せんちさんれんそうほう",
+    },
+    {
+        id: 248, type: 9, name: "Skua", bomb: 4,
+        yomi: "skua",
+    },
 
-    { id: 256, type: 8, name: "TBF", power: 2, torp: 9 },
-    { id: 257, type: 8, name: "TBM-3D", power: 2, torp: 9, accuracy: 2 },
+    {
+        id: 256, type: 8, name: "TBF", power: 2, torp: 9,
+        yomi: "tbf",
+    },
+    {
+        id: 257, type: 8, name: "TBM-3D", power: 2, torp: 9, accuracy: 2,
+        yomi: "tbm-3d",
+    },
 
     {
         id: 266, type: 1, name: "12.7cm連装砲C型改二", power: 3, accuracy: 1,
+        yomi: "12.7cm連装砲c型改二 12.7せんちれんそうほうcがたかいに",
         singleAddableBonus: [
             { power: 1, targetId: [42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470, 17, 225, 18, 226, 19, 227, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301] },
         ],
@@ -1885,6 +2637,7 @@ const ITEM_DATA = [
     },
     {
         id: 267, type: 1, name: "12.7cm連装砲D型改二", power: 3, accuracy: 2,
+        yomi: "12.7cm連装砲d型改二 12.7せんちれんそうほうdがたかいに d砲改二",
         singleAddableBonus: [
             { power: 3, targetId: [542, 563, 564, 543, 578, 569] },
             { power: 2, targetId: [133, 302, 134, 303, 453, 349, 135, 304, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 527, 686, 425, 344, 409, 324, 625, 695, 410, 325, 50, 229] },
@@ -1964,26 +2717,58 @@ const ITEM_DATA = [
         ]
     },
 
-    { id: 273, type: 27, name: "彩雲(偵四)", accuracy: 2 },
-    { id: 274, type: 18, name: "12cm30連装噴進砲改二", accuracy: 1 },
-    { id: 275, type: 4, name: "10cm連装高角砲改 + 増設機銃", power: 2, accuracy: 2 },
-    { id: 276, type: 3, name: "46cm三連装砲改", power: 27, accuracy: 2 },
-    { id: 277, type: 9, name: "FM-2", power: 2, bomb: 2, accuracy: 2 },
-    { id: 278, type: 15, name: "SKレーダー", accuracy: 1, isSurface: true, isAir: true },
-    { id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4, isSurface: true, isAir: true },
-    { id: 280, type: 1, name: "QF 4.7inch砲 Mk.XII改", power: 3, accuracy: 1 },
-    { id: 281, type: 3, name: "51cm連装砲", power: 32, accuracy: 1 },
     {
-        id: 282, type: 1, name: "130m B-13連装砲", power: 4,
+        id: 273, type: 27, name: "彩雲(偵四)", accuracy: 2,
+        yomi: "さいうんていよん",
+    },
+    {
+        id: 274, type: 18, name: "12cm30連装噴進砲改二", accuracy: 1,
+        yomi: "12せんち30れんそうふんしんほうかいに",
+    },
+    {
+        id: 275, type: 4, name: "10cm連装高角砲改 + 増設機銃", power: 2, accuracy: 2,
+        yomi: "10せんちれんそうこうかくほうかい ぞうせつきじゅう",
+    },
+    {
+        id: 276, type: 3, name: "46cm三連装砲改", power: 27, accuracy: 2,
+        yomi: "46せんちさんれんそうほうかい",
+    },
+    {
+        id: 277, type: 9, name: "FM-2", power: 2, bomb: 2, accuracy: 2,
+        yomi: "fm-2",
+    },
+    {
+        id: 278, type: 15, name: "SKレーダー", accuracy: 1, isSurface: true, isAir: true,
+        yomi: "skレーダー",
+    },
+    {
+        id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4, isSurface: true, isAir: true,
+        yomi: "sk + sgレーダー",
+    },
+    {
+        id: 280, type: 1, name: "QF 4.7inch砲 Mk.XII改", power: 3, accuracy: 1,
+        yomi: "qf 4.7inch砲 mk.xii改",
+    },
+    {
+        id: 281, type: 3, name: "51cm連装砲", power: 32, accuracy: 1,
+        yomi: "51せんちれんそうほう",
+    },
+    {
+        id: 282, type: 1, name: "130mm B-13連装砲", power: 4,
+        yomi: "130mm b-13連装砲",
         singleAddableBonus: [
             { power: 2, targetId: [516, 395, 147, 115, 293, 622, 623, 624] },
         ]
     },
 
-    { id: 284, type: 1, name: "5inch単装砲 Mk.30", power: 2, accuracy: 1 },
+    {
+        id: 284, type: 1, name: "5inch単装砲 Mk.30", power: 2, accuracy: 1,
+        yomi: "5inchたんそうほう 5inch単装砲 mk.30",
+    },
 
     {
         id: 289, type: 3, name: "35.6cn三連装砲改(ダズル迷彩仕様)", power: 19, accuracy: 3,
+        yomi: "35.6せんちさんれんそうほうかいだずるめいさいしよう",
         singleAddableBonus: [
             { power: 2, targetId: [149, 151] },
             { power: 1, targetId: [150, 152] },
@@ -2012,6 +2797,7 @@ const ITEM_DATA = [
     },
     {
         id: 290, type: 3, name: "41cm三連装砲改二", power: 23, accuracy: 5,
+        yomi: "41せんちさんれんそうほうかいに",
         singleAddableBonus: [
             { power: 3, targetId: [553, 554] },
             { power: 2, targetId: [82, 88] },
@@ -2086,18 +2872,21 @@ const ITEM_DATA = [
     },
     {
         id: 291, type: 9, name: "彗星二二型(六三四空)", bomb: 11, accuracy: 2,
+        yomi: "すいせいににがたろくさんよんくう",
         singleAddableBonus: [
             { power: 6, targetId: [553, 554] },
         ]
     },
     {
         id: 292, type: 9, name: "彗星二二型(六三四空/熟練)", bomb: 12, accuracy: 3,
+        yomi: "すいせいににがたろくさんよんくうじゅくれん",
         singleAddableBonus: [
             { power: 8, targetId: [553, 554] },
         ]
     },
     {
         id: 293, type: 1, name: "12cm単装砲改二", power: 1, accuracy: 1,
+        yomi: "12せんちたんそうほうかいに",
         singleAddableBonus: [
             { power: 2, targetId: [471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261] },
         ],
@@ -2125,6 +2914,7 @@ const ITEM_DATA = [
     },
     {
         id: 294, type: 1, name: "12.7cm連装砲A型改二", power: 2, accuracy: 1,
+        yomi: "12.7cm連装砲a型改二 12.7せんちれんそうほうaがたかいに a砲改二",
         singleAddableBonus: [
             { power: 1, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237] },
         ],
@@ -2152,6 +2942,7 @@ const ITEM_DATA = [
     },
     {
         id: 295, type: 1, name: "12.7cm連装砲A型改三(戦時改修) + 高射装置", power: 2, accuracy: 1,
+        yomi: "12.7cm連装砲a型改三(戦時改修) + 高射装置 12.7せんちれんそうほうaがたかいさんせんじかいしゅう こうしゃそうち a砲改三",
         singleAddableBonus: [
             { power: 2, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237] }
         ],
@@ -2179,6 +2970,7 @@ const ITEM_DATA = [
     },
     {
         id: 296, type: 1, name: "12.7cm連装砲B型改四(戦時改修) + 高射装置", power: 3, accuracy: 1,
+        yomi: "12.7cm連装砲b型改四(戦時改修) + 高射装置 12.7せんちれんそうほうbがたかいよんせんじかいしゅう こうしゃそうち b砲改四",
         singleAddableBonus: [
             { power: 3, targetId: [627] },
             { power: 2, targetId: [497, 145, 144] },
@@ -2206,9 +2998,13 @@ const ITEM_DATA = [
             }
         ]
     },
-    { id: 297, type: 1, name: "12.7cm連装砲A型", power: 2 },
+    {
+        id: 297, type: 1, name: "12.7cm連装砲A型", power: 2,
+        yomi: "12.7cm連装砲a型 a砲 12.7せんちれんそうほうaがた",
+    },
     {
         id: 298, type: 3, name: "16inch Mk.I三連装砲", power: 21, accuracy: 2,
+        yomi: "16inch mk.i三連装砲",
         singleAddableBonus: [
             { power: 2, targetId: [571, 576, 439, 364] },
             { power: 1, targetId: [149, 150, 151, 152] },
@@ -2216,6 +3012,7 @@ const ITEM_DATA = [
     },
     {
         id: 299, type: 3, name: "16inch Mk.I三連装砲 + AFCT改", power: 22, accuracy: 4,
+        yomi: "16inch mk.i三連装砲 + afct改",
         singleAddableBonus: [
             { power: 2, targetId: [571, 576, 439, 364] },
             { power: 1, targetId: [149, 150, 151, 152] },
@@ -2223,15 +3020,23 @@ const ITEM_DATA = [
     },
     {
         id: 300, type: 3, name: "16inch Mk.I三連装砲改 + FCR type284", power: 23, accuracy: 6,
+        yomi: "16inch mk.i三連装砲改 + fcr type284",
         singleAddableBonus: [
             { power: 2, targetId: [571, 576, 439, 364] },
             { power: 1, targetId: [149, 150, 151, 152] },
         ]
     },
-    { id: 301, type: 18, name: "20連装7inch UP Rocket Launchers" },
-    { id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2 },
+    {
+        id: 301, type: 18, name: "20連装7inch UP Rocket Launchers",
+        yomi: "20連装7inch up rocket launchers",
+    },
+    {
+        id: 302, type: 8, name: "九七式艦攻(九三一空/熟練)", torp: 8, accuracy: 2,
+        yomi: "きゅうななしきかんこうきゅうさんいちくうじゅくれん",
+    },
     {
         id: 303, type: 2, name: "Bofors15.2cm連装砲 Model1930", power: 5, accuracy: 3,
+        yomi: "bofores15.2cm連装砲 model1930 ぼふぉーす15.2れんそうほう",
         singleAddableBonus: [
             { power: 1, targetId: [99, 215, 100, 216, 25, 58, 119, 24, 57, 118, 101, 217, 146, 21, 218, 22, 219, 141, 53, 221, 23, 220, 488, 113, 289, 487, 114, 290, 200, 54, 222, 158, 55, 223, 159, 56, 224, 160, 574, 579, 630] }
         ]
@@ -2239,19 +3044,25 @@ const ITEM_DATA = [
 
     {
         id: 305, type: 9, name: "Ju87C改二(KMX搭載機)", bomb: 9, accuracy: 2,
+        yomi: "ju87c改二(kmx搭載機) すつーか しゅとぅーか",
         singleAddableBonus: [
             { power: 1, targetId: [432, 353, 444, 365] }
         ]
     },
     {
         id: 306, type: 9, name: "Ju87C改二(KMX搭載機/熟練)", bomb: 10, accuracy: 3,
+        yomi: "ju87c改二(kmx搭載機/熟練) すつーか しゅとぅーか",
         singleBonus: [
             { power: 1, targetId: [432, 353, 444, 365] }
         ]
     },
-    { id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true },
+    {
+        id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true,
+        yomi: "gfcs mk.37",
+    },
     {
         id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6,
+        yomi: "5inch単装砲 mk.30改 + gfcs mk.37 5いんちたんそうほう",
         singleAddableBonus: [
             { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
             { power: 1, targetId: [597, 696, 471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261, 9, 201, 426, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237, 38, 238, 326, 39, 239, 40, 240, 41, 241, 419, 42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470, 17, 225, 566, 18, 226, 567, 19, 227, 568, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301, 133, 302, 542, 134, 303, 563, 453, 349, 564, 135, 304, 543, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 569, 527, 686, 425, 344, 578, 409, 324, 625, 695, 410, 325, 421, 330, 422, 346, 532, 537, 423, 357, 50, 229] },
@@ -2260,6 +3071,7 @@ const ITEM_DATA = [
 
     {
         id: 310, type: 2, name: "14cm連装砲改", power: 5, accuracy: 3,
+        yomi: "14せんちれんそうほうかい",
         singleAddableBonus: [
             { power: 4, targetId: [622, 623, 624] },
             { power: 2, targetId: [115, 293, 154, 343, 465, 356] },
@@ -2289,20 +3101,26 @@ const ITEM_DATA = [
 
     {
         id: 313, type: 1, name: "5inch単装速射砲 Mk.30改", power: 3, accuracy: 2,
+        yomi: "5inch単装速射砲 mk.30改 5いんちたんそうそくしゃほう",
         singleAddableBonus: [
             { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
         ]
     },
 
-    { id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true },
+    {
+        id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true,
+        yomi: "sgレーダー(初期型) sgレーダー初期型",
+    },
     {
         id: 316, type: 9, name: "Re.2001 CB改", power: 3, bomb: 6, accuracy: 1,
+        yomi: "re.2001 cb改",
         singleAddableBonus: [
             { power: 4, targetId: [444, 365] }
         ]
     },
     {
         id: 317, type: 17, name: "三式弾改", power: 3, accuracy: 1,
+        yomi: "さんしきだんかい",
         singleBonus: [
             { power: 3, targetId: [149, 591, 592, 152] },
             { power: 2, targetId: [150, 151, 573] },
@@ -2311,6 +3129,7 @@ const ITEM_DATA = [
     },
     {
         id: 318, type: 3, name: "41cm連装砲改二", power: 21, accuracy: 5,
+        yomi: "41せんちれんそうほうかいに",
         singleAddableBonus: [
             { power: 3, targetId: [541, 573, 554] },
             { power: 2, targetId: [553, 82, 88] },
@@ -2319,12 +3138,14 @@ const ITEM_DATA = [
     },
     {
         id: 319, type: 9, name: "彗星一二型(六三四空/三号爆弾搭載機)", bomb: 12, accuracy: 1,
+        yomi: "すいせいいちにがたろくさんよんくうさんごうばくだんとうさいき",
         singleBonus: [
             { power: 7, targetId: [553, 554] },
         ]
     },
     {
         id: 320, type: 9, name: "彗星一二型(三一号光電管爆弾搭載機)", bomb: 11, accuracy: 5,
+        yomi: "すいせいいちにがたさんいちごうこうでんかんばくだんとうさいき",
         singleBonus: [
             { power: 4, targetId: [508, 509, 554] },
             { power: 3, targetId: [196, 197] },
@@ -2334,6 +3155,7 @@ const ITEM_DATA = [
 
     {
         id: 328, type: 3, name: "35.6cm連装砲改", power: 16, accuracy: 3,
+        yomi: "35.6せんちれんそうほうかい",
         singleAddableBonus: [
             { power: 3, targetId: [591, 592] },
             { power: 2, targetId: [149, 150, 151, 152, 209, 210, 211, 212] },
@@ -2342,6 +3164,7 @@ const ITEM_DATA = [
     },
     {
         id: 329, type: 3, name: "35.6cm連装砲改二", power: 17, accuracy: 5,
+        yomi: "35.6せんちれんそうほうかいに",
         singleAddableBonus: [
             { power: 4, targetId: [591, 592] },
             { power: 3, targetId: [149, 150, 151, 152] },
@@ -2351,6 +3174,7 @@ const ITEM_DATA = [
     },
     {
         id: 330, type: 3, name: "16inch Mk.I連装砲", power: 20, accuracy: 1,
+        yomi: "16inch mk.i連装砲",
         singleAddableBonus: [
             { power: 2, targetId: [576, 541, 573] },
             { power: 1, targetId: [1496, 601, 275, 80, 81, 276] }
@@ -2358,6 +3182,7 @@ const ITEM_DATA = [
     },
     {
         id: 331, type: 3, name: "16inch Mk.V連装砲", power: 21, accuracy: 2,
+        yomi: "16inch mk.v連装砲",
         singleAddableBonus: [
             { power: 2, targetId: [1496, 576, 541, 573] },
             { power: 1, targetId: [275, 276] },
@@ -2365,6 +3190,7 @@ const ITEM_DATA = [
     },
     {
         id: 332, type: 3, name: "16inch Mk.VIII連装砲改", power: 21, accuracy: 4,
+        yomi: "16inch mk.viii連装砲改",
         singleAddableBonus: [
             { power: 2, targetId: [1496, 576, 541, 573] },
             { power: 1, targetId: [275, 276, 601] },
@@ -2373,12 +3199,14 @@ const ITEM_DATA = [
 
     {
         id: 340, type: 2, name: "152mm/55 三連装速射砲", power: 8, accuracy: 1,
+        yomi: "152みり55 さんれんそうそくしゃほう",
         singleAddableBonus: [
             { power: 1, targetId: [589, 693, 590, 691] },
         ]
     },
     {
         id: 341, type: 2, name: "152mm/55 三連装速射砲改", power: 9, accuracy: 2,
+        yomi: "152みり55 さんれんそうそくしゃほうかい",
         singleAddableBonus: [
             { power: 2, targetId: [589, 693, 590, 691] },
             { power: 1, targetId: [574, 579, 630] },
@@ -2386,6 +3214,7 @@ const ITEM_DATA = [
     },
     {
         id: 342, type: 8, name: "流星改(一航戦)", torp: 14, accuracy: 1,
+        yomi: "りゅうせいかいいっこうせん",
         singleAddableBonus: [
             { power: 3, targetId: [599] },
             { power: 2, targetId: [594] },
@@ -2394,6 +3223,7 @@ const ITEM_DATA = [
     },
     {
         id: 343, type: 8, name: "流星改(一航戦/熟練)", torp: 15, accuracy: 2,
+        yomi: "りゅうせいかいいっこうせんじゅくれん",
         singleAddableBonus: [
             { power: 5, targetId: [599] },
             { power: 3, targetId: [594] },
@@ -2403,6 +3233,7 @@ const ITEM_DATA = [
     },
     {
         id: 344, type: 8, name: "九七式艦攻改 試製三号戊型(空六号電探改装備機)", torp: 7, accuracy: 1,
+        yomi: "きゅうななしきかんこうかいしせいさんごうぼがたくうろくごうでんたんかいそうびき",
         singleAddableBonus: [
             { power: 4, targetId: [318] },
             { power: 3, targetId: [599] },
@@ -2411,6 +3242,7 @@ const ITEM_DATA = [
     },
     {
         id: 345, type: 8, name: "九七式艦攻改(熟練)試製三号戊型(空六号電探改装備機)", torp: 9, accuracy: 2,
+        yomi: "きゅうななしきかんこうかいじゅくれんしせいさんごうぼがたくうろくごうでんたんかいそうびき",
         singleAddableBonus: [
             { power: 5, targetId: [318] },
             { power: 3, targetId: [555, 560, 599, 282] },
@@ -2419,6 +3251,7 @@ const ITEM_DATA = [
 
     {
         id: 356, type: 2, name: "8inch三連装砲 Mk.9", power: 11,
+        yomi: "8inch三連装砲 mk.9 8いんちさんれんそうほう",
         singleAddableBonus: [
             { power: 2, targetId: [595, 600] },
             { power: 1, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504] },
@@ -2426,14 +3259,19 @@ const ITEM_DATA = [
     },
     {
         id: 357, type: 2, name: "8inch三連装砲 Mk.9 mod.2", power: 12, accuracy: 1,
+        yomi: "8inch三連装砲 mk.9 mod.2 8いんちさんれんそうほう",
         singleAddableBonus: [
             { power: 2, targetId: [595, 600] },
             { power: 1, targetId: [70, 73, 120, 121, 124, 129, 503, 125, 130, 504] },
         ]
     },
-    { id: 358, type: 4, name: "5inch 単装高角砲群", power: 2, accuracy: 1 },
+    {
+        id: 358, type: 4, name: "5inch 単装高角砲群", power: 2, accuracy: 1,
+        yomi: "5いんちたんそうこうかくほうぐん"
+    },
     {
         id: 359, type: 2, name: "6inch連装速射砲 Mk.XXI", power: 5, accuracy: 2,
+        yomi: "6いんちれんそうそくしゃほう 6inch連装速射砲 mk.xxi",
         singleAddableBonus: [
             { power: 2, targetId: [613, 618, 622, 623, 624] },
             { power: 1, targetId: [115, 293] }
@@ -2441,6 +3279,7 @@ const ITEM_DATA = [
     },
     {
         id: 360, type: 2, name: "Bofors 15cm連装速射砲 Mk.9 Model 1938", power: 6, accuracy: 3,
+        yomi: "bofors 15cm連装速射砲 Mk.9 Model 1938 ぼふぉーす15せんちれんそうそくしゃほう",
         singleAddableBonus: [
             { power: 2, targetId: [604, 609, 574, 579, 630] },
             { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
@@ -2448,6 +3287,7 @@ const ITEM_DATA = [
     },
     {
         id: 361, type: 2, name: "Bofors 15cm連装速射砲 Mk.9改 + 単装速射砲 Mk.10改 Model 1938", power: 7, accuracy: 3,
+        yomi: "bofors 15cm連装速射砲 mk.9改 + 単装速射砲 mk.10改 model 1938 ぼふぉーす15せんちれんそうそくしゃほう たんそうそくしゃほう",
         singleAddableBonus: [
             { power: 2, targetId: [604, 609, 574, 579, 630] },
             { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
@@ -2455,6 +3295,7 @@ const ITEM_DATA = [
     },
     {
         id: 362, type: 2, name: "5inch連装両用砲(集中配備)", power: 5, accuracy: 2,
+        yomi: "5いんちれんそうりょうようほうしゅうちゅうはいび",
         singleAddableBonus: [
             { power: 1, targetId: [597, 696] },
             { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
@@ -2463,6 +3304,7 @@ const ITEM_DATA = [
     },
     {
         id: 363, type: 2, name: "GFCS Mk.37 + 5inch連装両用砲(集中配備)", power: 6, accuracy: 6,
+        yomi: "gfcs mk.37 + 5いんちれんそうりょうようほうしゅうちゅうはいび ぐふかす",
         singleAddableBonus: [
             { power: 1, targetId: [597, 696] },
             { power: -2, targetId: [574, 579, 630, 154, 343, 465, 356] },
@@ -2472,6 +3314,7 @@ const ITEM_DATA = [
 
     {
         id: 365, type: 16, name: "一式徹甲弾改", power: 11, accuracy: 2,
+        yomi: "いっしきてっこうだんかい",
         singleBonus: [
             { power: 3, targetId: [591, 592] },
             { power: 2, targetId: [136, 148, 546, 541, 573] },
@@ -2480,6 +3323,7 @@ const ITEM_DATA = [
     },
     {
         id: 366, type: 1, name: "12.7cm連装砲D型改三", power: 3, accuracy: 2,
+        yomi: "12.7せんちれんそうほうdがたかいさん 12.7cm連装砲d型改三",
         singleAddableBonus: [
             { power: 4, targetId: [569] },
             { power: 3, targetId: [542, 563, 564, 543, 578] },
@@ -2530,6 +3374,7 @@ const ITEM_DATA = [
 
     {
         id: 373, type: 8, name: "天山一二型甲改(空六号電探改装備機)", torp: 11, accuracy: 1,
+        yomi: "てんざんいちにがたこうかいくうろくごうでんたんかいそうびき",
         singleBonus: [
             { power: 2, /* torp: 2,*/ targetId: [288] },
             { power: 1, /* torp: 2,*/ targetId: [466, 156, 508, 509] },
@@ -2538,6 +3383,7 @@ const ITEM_DATA = [
     },
     {
         id: 374, type: 8, name: "天山一二型甲改(熟練/空六号電探改装備機)", torp: 13, accuracy: 2,
+        yomi: "てんざんいちにがらこうかいじゅくれんくうろくごうでんたんかいそうびき",
         singleBonus: [
             { power: 3, /* torp: 3,*/ targetId: [466] },
             { power: 2, /* torp: 3,*/ targetId: [467, 156] },

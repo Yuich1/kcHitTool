@@ -17,7 +17,7 @@
     <meta name="description" content="艦これの砲撃支援を計算できるサイトです。命中率、撃破率、命中時撃破率などの計算が行えます。">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--  css更新時はverを変更する  -->
-    <link rel="stylesheet" href="./css/style.css?ver=1.15">
+    <link rel="stylesheet" href="./css/style.css?ver=1.16">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
@@ -28,7 +28,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">艦これ砲撃支援命中計算機 v1.15
+            <h1 class="title">艦これ砲撃支援命中計算機 v1.16
             </h1>
         </header>
         <div class="wrapper">
@@ -200,6 +200,7 @@
                 v1.13 比叡改二丙を追加、金剛改二丙ステータス上昇、装備ボーナスの可視化、熟練見張員に装備ボーナスを追加。<br>
                 v1.14 クリティカル発生率を考慮したダメージ計算を追加。<del>注：乱数によりダメージには振れ幅が生じます。</del><br>
                 v1.15 軽巡・軽巡関連装備ボーナスを追加。算出法を変更し、クリティカル自動時の乱数による結果のブレを無くしました。<br>
+                v1.16 艦娘・装備の検索機能を追加。<br>
                 更新情報は<a href="https://twitter.com/2qrbgxpsaWEziml?s=20" target="_blank">こちらのtwitterから。</a><br>
                 不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank">こちらの質問箱へお願いします。</a>
             </p>
@@ -220,51 +221,52 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">艦娘選択</h4>
+                    <div class="search">検索 <input type="text" class="form-control search-fleet" name="name" size="20" autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
-                        <li><a data-toggle="tab" href="#cv" id="cv-tab">航空母艦</a></li>
-                        <li><a data-toggle="tab" href="#ca" id="ca-tab">重巡</a></li>
-                        <li><a data-toggle="tab" href="#cl" id="cl-tab">軽巡</a></li>
-                        <li><a data-toggle="tab" href="#dd" id="dd-tab">駆逐</a></li>
+                        <li class="active"><a class="focus-fleet"  data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#cv" id="cv-tab">航空母艦</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#ca" id="ca-tab">重巡</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#cl" id="cl-tab">軽巡</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#dd" id="dd-tab">駆逐</a></li>
                         <li><a data-toggle="tab" href="#de" id="de-tab">海防</a></li>
                         <li><a data-toggle="tab" href="#ss" id="ss-tab">潜水</a></li>
                         <li><a data-toggle="tab" href="#av" id="av-tab">補助艦艇</a></li>
                     </ul>
                     <div class="tab-content fleet-list">
-                        <div id="bb" class="tab-pane fade in active">
+                        <div id="bb" class="tab-pane fade in active table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="cv" class="tab-pane fade">
+                        <div id="cv" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="ca" class="tab-pane fade">
+                        <div id="ca" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="cl" class="tab-pane fade">
+                        <div id="cl" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="dd" class="tab-pane fade">
+                        <div id="dd" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="de" class="tab-pane fade">
+                        <div id="de" class="tab-pane fade table-wrapper">
                             未実装
                         </div>
-                        <div id="ss" class="tab-pane fade">
+                        <div id="ss" class="tab-pane fade table-wrapper">
                             未実装
                         </div>
-                        <div id="av" class="tab-pane fade">
+                        <div id="av" class="tab-pane fade table-wrapper">
                             未実装
                         </div>
                     </div>
@@ -285,7 +287,7 @@
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#bb-enemy" id="bb-tab-enemy">戦艦</a></li>
+                        <li class="active "><a data-toggle="tab" href="#bb-enemy" id="bb-tab-enemy">戦艦</a></li>
                         <li><a data-toggle="tab" href="#cv-enemy" id="cv-tab-enemy">航空母艦</a></li>
                         <li><a data-toggle="tab" href="#ca-enemy" id="ca-tab-enemy">重巡</a></li>
                         <li><a data-toggle="tab" href="#cl-enemy" id="cl-tab-enemy">軽巡</a></li>
@@ -293,32 +295,32 @@
                         <li><a data-toggle="tab" href="#av-enemy" id="av-tab-enemy">補助艦艇</a></li>
                     </ul>
                     <div class="tab-content fleet-list">
-                        <div id="bb-enemy" class="tab-pane fade in active">
+                        <div id="bb-enemy" class="tab-pane fade in active table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="cv-enemy" class="tab-pane fade">
+                        <div id="cv-enemy" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="ca-enemy" class="tab-pane fade">
+                        <div id="ca-enemy" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="cl-enemy" class="tab-pane fade">
+                        <div id="cl-enemy" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="dd-enemy" class="tab-pane fade">
+                        <div id="dd-enemy" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="av-enemy" class="tab-pane fade">
+                        <div id="av-enemy" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
@@ -338,69 +340,70 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">装備選択</h4>
+                    <div class="search">検索 <input type="text" class="form-control search-item" name="name" size="20" autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
-                        <li><a data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
-                        <li><a data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
-                        <li><a data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
-                        <li><a data-toggle="tab" href="#other" id="other-tab">その他</a></li>
+                        <li class="active"><a class="focus-item" data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#other" id="other-tab">その他</a></li>
                     </ul>
                     <div class="tab-content item-list">
                         <div id="gun" class="tab-pane fade in active">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
-                                <li><a data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
-                                <li><a data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
                             </ul>
                             <div class="tab-content item-list">
-                                <div id="l-gun" class="tab-pane fade in active">
+                                <div id="l-gun" class="tab-pane fade in active table-wrapper">
                                     <table class="table">
                                         <tbody></tbody>
                                     </table>
                                 </div>
-                                <div id="m-gun" class="tab-pane fade">
+                                <div id="m-gun" class="tab-pane fade table-wrapper">
                                     <table class="table">
                                         <tbody></tbody>
                                     </table>
                                 </div>
-                                <div id="s-gun" class="tab-pane fade">
+                                <div id="s-gun" class="tab-pane fade table-wrapper">
                                     <table class="table">
                                         <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div id="secondaly-gun" class="tab-pane fade">
+                        <div id="secondaly-gun" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
                         <div id="plane" class="tab-pane fade">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#attacker" id="attacker-tab">艦攻</a></li>
-                                <li><a data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#attacker" id="attacker-tab">艦攻</a></li>
+                                <li><a class="focus-item" data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a></li>
                             </ul>
                             <div class="tab-content item-list">
-                                <div id="attacker" class="tab-pane fade in active">
+                                <div id="attacker" class="tab-pane fade in active table-wrapper">
                                     <table class="table">
                                         <tbody></tbody>
                                     </table>
                                 </div>
-                                <div id="bomber" class="tab-pane fade">
+                                <div id="bomber" class="tab-pane fade table-wrapper">
                                     <table class="table">
                                         <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div id="radar" class="tab-pane fade">
+                        <div id="radar" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
                         </div>
-                        <div id="other" class="tab-pane fade">
+                        <div id="other" class="tab-pane fade table-wrapper">
                             <table class="table">
                                 <tbody></tbody>
                             </table>
