@@ -290,7 +290,7 @@ $(function () {
                             const ta = getMultiBonus(selectedItemList);
                             const bonusPower = (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
                             const bonusTorp = (r.torp ? r.torp : 0) + (s.torp ? s.torp : 0) + (ta.torp ? ta.torp : 0) - (t.torp ? t.torp : 0);
-                            const title = `${item.power ? `火力 ${item.power}` : `${bonusPower != 0 ? "火力 " : ""}`}${bonusPower != 0 ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}` : ""}${bonusTorp != 0 ? `(+${bonusTorp}), ` : ", "}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+                            const title = `${item.power ? `火力 ${item.power}` : `${bonusPower != 0 ? "火力 " : ""}`}${bonusPower != 0 ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}` : ""}${bonusTorp != 0 ? `(+${bonusTorp})` : ""}${item.torp || bonusTorp != 0 ? ", " : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
                             $(this).children(".item-tooltip").attr("title", title).tooltip("fixTitle").tooltip("show");
                             $('[data-toggle="tooltip"]').tooltip();
                         }
