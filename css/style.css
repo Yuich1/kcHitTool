@@ -279,4 +279,10 @@ body{
         white-space: pre;
         content:"\A";
     }
+    .search{
+        margin-left: 15%;
+    }
+    .items .item{
+        width: 60vw;
+    }
 }
