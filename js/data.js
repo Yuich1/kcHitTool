@@ -412,7 +412,7 @@ const SHIP_DATA = [
         type: 2, name: "神鷹", main_id: 536,
         yomi: "しんよう sinyou",
         remodel: [
-            { id: 534, state: "無改造", power: 14, torp: 0, luck: 9, slot: 3, cantHaveItemId: [151] },
+            { id: 534, state: "未改造", power: 14, torp: 0, luck: 9, slot: 3, cantHaveItemId: [151] },
             { id: 381, state: "改", power: 24, torp: 0, luck: 11, slot: 4, cantHaveItemId: [151] },
             { id: 536, state: "改二", power: 37, torp: 0, luck: 15, slot: 4, cantHaveItemId: [151] },
         ]
@@ -451,7 +451,7 @@ const SHIP_DATA = [
         type: 2, name: "Saratoga", main_id: 550,
         yomi: "さらとが saratoga",
         remodel: [
-            { id: 433, state: "無改造", power: 45, torp: 0, luck: 25, slot: 4, cantHaveItemId: [151] },
+            { id: 433, state: "未改造", power: 45, torp: 0, luck: 25, slot: 4, cantHaveItemId: [151] },
             { id: 438, state: "改", power: 53, torp: 0, luck: 35, slot: 4, cantHaveItemId: [151] },
             { id: 545, state: "Mk.II", power: 68, torp: 0, luck: 40, slot: 4, cantHaveItemId: [151] },
             { id: 550, state: "Mod.2", power: 58, torp: 0, luck: 40, slot: 4 },
