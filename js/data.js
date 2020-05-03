@@ -2350,7 +2350,7 @@ const ITEM_DATA = [
     },
     {
         id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10, isSurface: true, isAir: true,
-        yomi: "fumo25れーだー",
+        yomi: "fumo25れーだー ふも",
         multiBonus: [
             {
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
@@ -3166,7 +3166,7 @@ const ITEM_DATA = [
     },
     {
         id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true,
-        yomi: "gfcs mk.37",
+        yomi: "gfcs mk.37 ぐふかす",
         multiBonus: [
             {
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
