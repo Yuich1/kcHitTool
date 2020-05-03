@@ -1896,6 +1896,18 @@ const ITEM_DATA = [
     {
         id: 27, type: 14, name: "13号対空電探", accuracy: 1, isSurface: false, isAir: true,
         yomi: "13ごうたいくうでんたん",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 28, type: 14, name: "22号対水上電探", accuracy: 3, isSurface: true, isAir: false,
@@ -1908,6 +1920,18 @@ const ITEM_DATA = [
     {
         id: 30, type: 15, name: "21号対空電探", accuracy: 2, isSurface: false, isAir: true,
         yomi: "21ごうたいくうでんたん",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 31, type: 15, name: "32号対水上電探", accuracy: 8, isSurface: true, isAir: false,
@@ -1916,6 +1940,18 @@ const ITEM_DATA = [
     {
         id: 32, type: 15, name: "42号対空電探", accuracy: 4, isSurface: true, isAir: true,
         yomi: "42ごうたいくうでんたん",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     //{ id: 33, type: 25, name: "改良式艦本式タービン" },
     //{ id: 34, type: 24, name: "強化型艦本式缶" },
@@ -2143,6 +2179,18 @@ const ITEM_DATA = [
     {
         id: 89, type: 15, name: "21号対空電探改", accuracy: 3, isSurface: true, isAir: true,
         yomi: "21ごうたいくうでんたんかい",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 90, type: 2, name: "20.3cm(2号)連装砲", power: 9, accuracy: 1,
@@ -2244,6 +2292,18 @@ const ITEM_DATA = [
     {
         id: 106, type: 14, name: "13号対空電探改", accuracy: 2, isSurface: false, isAir: true,
         yomi: "13ごうたいくうでんたんかい",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
 
     {
@@ -2291,6 +2351,18 @@ const ITEM_DATA = [
     {
         id: 124, type: 15, name: "FuMo25 レーダー", power: 3, accuracy: 10, isSurface: true, isAir: true,
         yomi: "fumo25れーだー",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
 
     {
@@ -2349,6 +2421,18 @@ const ITEM_DATA = [
     {
         id: 142, type: 15, name: "15m二重測距儀 + 21号電探改二", power: 1, accuracy: 9, isSurface: true, isAir: true,
         yomi: "15めーとるにじゅうそっきょぎ 21ごうでんたんかいに",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 143, type: 8, name: "九七式艦攻(村田隊)", torp: 12, accuracy: 2,
@@ -2740,10 +2824,34 @@ const ITEM_DATA = [
     {
         id: 278, type: 15, name: "SKレーダー", accuracy: 1, isSurface: true, isAir: true,
         yomi: "skレーダー",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 279, type: 15, name: "SK + SGレーダー", power: 1, accuracy: 4, isSurface: true, isAir: true,
         yomi: "sk + sgレーダー",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 280, type: 1, name: "QF 4.7inch砲 Mk.XII改", power: 3, accuracy: 1,
@@ -3059,6 +3167,18 @@ const ITEM_DATA = [
     {
         id: 307, type: 14, name: "GFCS Mk.37", power: 2, accuracy: 9, isSurface: true, isAir: true,
         yomi: "gfcs mk.37",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 308, type: 1, name: "5inch単装砲 Mk.30改 + GFCS Mk.37", power: 3, accuracy: 6,
@@ -3110,6 +3230,18 @@ const ITEM_DATA = [
     {
         id: 315, type: 14, name: "SGレーダー(初期型)", power: 1, accuracy: 8, isSurface: true, isAir: true,
         yomi: "sgレーダー(初期型) sgレーダー初期型",
+        multiBonus: [
+            {
+                power: 1, targetId: [569], isBonus: function (slotNumber) {
+                    let c = 0;
+                    for (let index = 0; index < slotNumber; index++) {
+                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        if (item.isAir) c++;
+                    }
+                    return c == 0;
+                }
+            }
+        ]
     },
     {
         id: 316, type: 9, name: "Re.2001 CB改", power: 3, bomb: 6, accuracy: 1,
