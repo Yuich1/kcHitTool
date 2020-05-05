@@ -1901,7 +1901,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -1925,7 +1925,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -1945,7 +1945,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2015,7 +2015,7 @@ const ITEM_DATA = [
                         return false;
                     }
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 50) c++;
                     }
                     return c == 1;
@@ -2028,7 +2028,7 @@ const ITEM_DATA = [
                         return false;
                     }
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 50) c++;
                     }
                     return c == 2 || c == 3;
@@ -2039,8 +2039,8 @@ const ITEM_DATA = [
                     let c = 0;
                     let isSurface = false;
                     const furutakaType = [59, 262, 416, 60, 263, 417];
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.id == 90 && furutakaType.some(c => c == selectedMyFleet.id)) {
                             return false; //2号があれば2号電探を優先
                         }
@@ -2049,7 +2049,7 @@ const ITEM_DATA = [
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 50) {
                             c++;
                         }
@@ -2061,13 +2061,13 @@ const ITEM_DATA = [
                 power: 3, targetId: [62, 265, 319, 63, 266, 192, 64, 267, 193, 65, 268, 194, 66, 269, 67, 270, 68, 271, 428, 69, 272, 427, 70, 73, 120, 121, 124, 129, 503, 125, 130, 504, 71, 273, 188, 72, 274, 189], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 50) {
                             c++;
                         }
@@ -2119,7 +2119,7 @@ const ITEM_DATA = [
 
     {
         id: 63, type: 1, name: "12.7cm連装砲B型改二", power: 3,
-        yomi: "12.7せんちれんそうほうBがたかいに",
+        yomi: "12.7せんちれんそうほうbがたかいに",
         singleAddableBonus: [
             { power: 1, targetId: [627, 145, 144, 245] },
         ]
@@ -2184,7 +2184,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2205,14 +2205,14 @@ const ITEM_DATA = [
                 power: 3, targetId: [59, 262, 416, 60, 263, 417, 61, 264, 123, 295, 142], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 90) {
                             c++;
                         }
@@ -2297,7 +2297,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2356,7 +2356,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2426,7 +2426,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2562,14 +2562,14 @@ const ITEM_DATA = [
                 power: 1, targetId: [622, 623, 624], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 229) {
                             c++;
                         }
@@ -2662,7 +2662,7 @@ const ITEM_DATA = [
                         return false;
                     }
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 266) c++;
                     }
                     return c == 1;
@@ -2675,7 +2675,7 @@ const ITEM_DATA = [
                         return false;
                     }
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 266) c++;
                     }
                     return c == 2;
@@ -2685,13 +2685,13 @@ const ITEM_DATA = [
                 power: 1, targetId: [42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247, 95, 248, 463, 468, 96, 249, 199, 97, 250, 489, 98, 251, 490, 413, 327, 414, 328, 583, 687, 48, 252, 198, 49, 253, 464, 470], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 266) {
                             c++;
                         }
@@ -2703,13 +2703,13 @@ const ITEM_DATA = [
                 power: 2, targetId: [17, 225, 566, 18, 226, 567, 19, 227, 568, 456, 362, 190, 300, 20, 228, 181, 316, 186, 322, 168, 317, 556, 167, 320, 557, 170, 312, 558, 169, 313, 559, 415, 329, 454, 354, 455, 355, 122, 294, 132, 301], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 266) {
                             c++;
                         }
@@ -2738,7 +2738,7 @@ const ITEM_DATA = [
                         return false;
                     }
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 267) c++;
                     }
                     return c == 1 || c == 2;
@@ -2748,13 +2748,13 @@ const ITEM_DATA = [
                 power: 3, targetId: [542, 563, 564, 543, 578, 569], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 267) {
                             c++;
                         }
@@ -2766,13 +2766,13 @@ const ITEM_DATA = [
                 power: 2, targetId: [133, 302, 134, 303, 453, 349, 135, 304, 424, 345, 485, 373, 528, 688, 484, 680, 452, 359, 527, 686, 425, 344, 409, 324, 625, 695, 410, 325], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 267) {
                             c++;
                         }
@@ -2784,13 +2784,13 @@ const ITEM_DATA = [
                 power: 1, targetId: [229], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    selectedItemList.forEach((t) => {
+                    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
                         if (t.isSurface) {
                             isSurface = true;
                         }
                     })
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 267) {
                             c++;
                         }
@@ -2829,7 +2829,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2845,7 +2845,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -2886,14 +2886,14 @@ const ITEM_DATA = [
                 power: 2, targetId: [149, 151], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 289) {
                             c++;
                         }
@@ -2916,14 +2916,14 @@ const ITEM_DATA = [
                 power: 2, targetId: [541, 573], isBonus: function (slotNumber) {
                     let c = 0;
                     let is41TwinGun = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.id == 318) {
                             is41TwinGun = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 290) {
                             c++;
                         }
@@ -2935,14 +2935,14 @@ const ITEM_DATA = [
                 power: 1, targetId: [554], isBonus: function (slotNumber) {
                     let c = 0;
                     let is41TwinGun = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.id == 318) {
                             is41TwinGun = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 290) {
                             c++;
                         }
@@ -2955,20 +2955,20 @@ const ITEM_DATA = [
                     let c = 0;
                     let isAir = false;
                     let is41TwinGun = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.id == 318) {
                             is41TwinGun = true;
                         }
                     }
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isAir) {
                             isAir = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 290) {
                             c++;
                         }
@@ -3003,14 +3003,14 @@ const ITEM_DATA = [
                 power: 2, targetId: [471, 476, 472, 370, 473, 363, 474, 371, 475, 387, 1, 254, 434, 2, 255, 435, 164, 308, 165, 309, 28, 256, 418, 481, 366, 29, 257, 548, 6, 258, 30, 259, 7, 260, 31, 261], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 293) {
                             c++;
                         }
@@ -3031,14 +3031,14 @@ const ITEM_DATA = [
                 power: 3, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 294) {
                             c++;
                         }
@@ -3059,14 +3059,14 @@ const ITEM_DATA = [
                 power: 3, targetId: [9, 201, 436, 10, 202, 32, 203, 11, 204, 33, 205, 420, 12, 206, 486, 368, 13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 295) {
                             c++;
                         }
@@ -3089,14 +3089,14 @@ const ITEM_DATA = [
                 power: 1, targetId: [13, 207, 195, 14, 208, 627, 479, 390, 480, 391, 93, 230, 15, 231, 94, 232, 16, 233, 407, 34, 234, 437, 35, 235, 147, 36, 236, 37, 237, 38, 238, 326, 39, 239, 40, 240, 41, 241, 419, 42, 242, 497, 43, 243, 145, 44, 244, 498, 45, 245, 144, 405, 323, 46, 246, 458, 350, 587, 457, 369, 459, 351, 469, 47, 247], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 296) {
                             c++;
                         }
@@ -3172,7 +3172,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -3201,14 +3201,14 @@ const ITEM_DATA = [
                 power: 3, targetId: [622, 623, 624], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 310) {
                             c++;
                         }
@@ -3235,7 +3235,7 @@ const ITEM_DATA = [
                 power: 1, targetId: [569], isBonus: function (slotNumber) {
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.isAir) c++;
                     }
                     return c == 0;
@@ -3467,14 +3467,14 @@ const ITEM_DATA = [
                 power: 2, targetId: [542, 563, 564, 543, 578, 569, 229], isBonus: function (slotNumber) {
                     let c = 0;
                     let isSurface = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isSurface) {
                             isSurface = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 366) {
                             c++;
                         }
@@ -3486,14 +3486,14 @@ const ITEM_DATA = [
                 power: 1, targetId: [542, 563, 564, 543, 578, 569, 229], isBonus: function (slotNumber) {
                     let c = 0;
                     let isAir = false;
-                    for (let index = 0; index < selectedItemList.length; index++) {
-                        const item = selectedItemList[index];
+                    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+                        const item = selectedMyFleetList[selectedFleetNum].item[index];
                         if (item.isAir) {
                             isAir = true;
                         }
                     }
                     for (let index = 0; index < (parseInt(slotNumber) + 1); index++) {
-                        const item = selectedItemList[index] ? selectedItemList[index] : 0;
+                        const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
                         if (item.id == 366) {
                             c++;
                         }
