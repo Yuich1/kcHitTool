@@ -17,7 +17,7 @@
     <meta name="description" content="艦これの砲撃支援を計算できるサイトです。命中率、撃破率、命中時撃破率などの計算が行えます。">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--  css更新時はverを変更する  -->
-    <link rel="stylesheet" href="./css/style.css?ver=1.16">
+    <link rel="stylesheet" href="./css/style.css?ver=1.2">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
@@ -28,14 +28,26 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">艦これ砲撃支援命中計算機 v1.16
+            <h1 class="title">艦これ砲撃支援命中計算機 v1.2
             </h1>
         </header>
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-6">
                     <div class="myfleet box">
-                        <h2 class="box-title">艦娘</h2>
+                        <div class="box-header">
+                            <ul class="nav nav-tabs">
+                                <li>
+                                    <h2 class="myfleet-title">艦娘</h2>
+                                </li>
+                                <li class="fleet-select active"><a href="#">1</a></li>
+                                <li class="fleet-select"><a href="#">2</a></li>
+                                <li class="fleet-select"><a href="#">3</a></li>
+                                <li class="fleet-select"><a href="#">4</a></li>
+                                <li class="fleet-select"><a href="#">5</a></li>
+                                <li class="fleet-select"><a href="#">6</a></li>
+                            </ul>
+                        </div>
                         <p class="fleet-name" id="myfleet-name" data-toggle="modal" data-target="#select-myfleet">未選択
                         </p><br>
                         <img class="fleet-img" id="myfleet-img" src="./images/ships/0.png" alt="艦娘" data-toggle="modal"
@@ -50,7 +62,10 @@
                         <table class="status">
                             <tbody>
                                 <tr>
-                                    <td><div class="hasTooltip" data-toggle="tooltip" data-placement="right" title="火力 + 4(支援艦隊定数)">支援火力</div></td>
+                                    <td>
+                                        <div class="hasTooltip" data-toggle="tooltip" data-placement="right"
+                                            title="火力 + 4(支援艦隊定数)">支援火力</div>
+                                    </td>
                                     <td class="power"></td>
                                     <td>装備命中</td>
                                     <td class="accuracy"></td>
@@ -110,7 +125,8 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="hasTooltip" data-toggle="tooltip" title="CL1:通常, CL2:クリティカル, 自動:CL2率を計算">クリティカル</div>
+                                        <div class="hasTooltip" data-toggle="tooltip"
+                                            title="CL1:通常, CL2:クリティカル, 自動:CL2率を計算">クリティカル</div>
                                     </td>
                                     <td>
                                         <div class="form-group">
@@ -135,6 +151,11 @@
                                                 <option value="5">警戒陣</option>
                                             </select>
                                         </div>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-info share" data-toggle="modal"
+                                            data-target="#share">共有</button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -201,6 +222,7 @@
                 v1.14 クリティカル発生率を考慮したダメージ計算を追加。<del>注：乱数によりダメージには振れ幅が生じます。</del><br>
                 v1.15 軽巡・軽巡関連装備ボーナスを追加。算出法を変更し、クリティカル自動時の乱数による結果のブレを無くしました。<br>
                 v1.16 艦娘・装備の検索機能を追加。<br>
+                v1.2  デッキビルダー形式の出力に対応。艦娘を6隻まで選択可能にしました。<br>
                 更新情報は<a href="https://twitter.com/2qrbgxpsaWEziml?s=20" target="_blank">こちらのtwitterから。</a><br>
                 不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank">こちらの質問箱へお願いします。</a>
             </p>
@@ -221,11 +243,12 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">艦娘選択</h4>
-                    <div class="search">検索 <input type="text" class="form-control search-fleet" name="name" size="20" autocomplete="off"></div>
+                    <div class="search">検索 <input type="text" class="form-control search-fleet" name="name" size="20"
+                            autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a class="focus-fleet"  data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
+                        <li class="active"><a class="focus-fleet" data-toggle="tab" href="#bb" id="bb-tab">戦艦</a></li>
                         <li><a class="focus-fleet" data-toggle="tab" href="#cv" id="cv-tab">航空母艦</a></li>
                         <li><a class="focus-fleet" data-toggle="tab" href="#ca" id="ca-tab">重巡</a></li>
                         <li><a class="focus-fleet" data-toggle="tab" href="#cl" id="cl-tab">軽巡</a></li>
@@ -340,12 +363,14 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">装備選択</h4>
-                    <div class="search">検索 <input type="text" class="form-control search-item" name="name" size="20" autocomplete="off"></div>
+                    <div class="search">検索 <input type="text" class="form-control search-item" name="name" size="20"
+                            autocomplete="off"></div>
                 </div>
                 <div class="modal-body">
                     <ul class="nav nav-tabs">
                         <li class="active"><a class="focus-item" data-toggle="tab" href="#gun" id="gun-tab">主砲</a></li>
-                        <li><a class="focus-item" data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a></li>
+                        <li><a class="focus-item" data-toggle="tab" href="#secondaly-gun" id="secondaly-gun-tab">副砲</a>
+                        </li>
                         <li><a class="focus-item" data-toggle="tab" href="#plane" id="plane-tab">艦載機</a></li>
                         <li><a class="focus-item" data-toggle="tab" href="#radar" id="radar-tab">電探</a></li>
                         <li><a class="focus-item" data-toggle="tab" href="#other" id="other-tab">その他</a></li>
@@ -353,7 +378,8 @@
                     <div class="tab-content item-list">
                         <div id="gun" class="tab-pane fade in active">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a class="focus-item" data-toggle="tab" href="#l-gun" id="l-gun-tab">大口径</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#l-gun"
+                                        id="l-gun-tab">大口径</a></li>
                                 <li><a class="focus-item" data-toggle="tab" href="#m-gun" id="#m-gun">中口径</a></li>
                                 <li><a class="focus-item" data-toggle="tab" href="#s-gun" id="#s-gun">小口径</a></li>
                             </ul>
@@ -382,7 +408,8 @@
                         </div>
                         <div id="plane" class="tab-pane fade">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a class="focus-item" data-toggle="tab" href="#attacker" id="attacker-tab">艦攻</a></li>
+                                <li class="active"><a class="focus-item" data-toggle="tab" href="#attacker"
+                                        id="attacker-tab">艦攻</a></li>
                                 <li><a class="focus-item" data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a></li>
                             </ul>
                             <div class="tab-content item-list">
@@ -409,6 +436,25 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="share" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">共有</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control inline-b deck" width="60px">
+                    <button class="btn btn-info deckBuilder">デッキビルダー形式をコピー</button>
+                    <button class="btn btn-info deckImageOpen">艦これ編成画像出力で開く</button>
+                    <button class="btn btn-info deckBuilderOpen">デッキビルダーで開く</button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>

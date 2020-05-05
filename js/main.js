@@ -11,12 +11,18 @@ let hasEnemyClList = false;
 let hasEnemyDdList = false;
 let hasEnemyAvList = false;
 let hasEnemyFleetTypeList = [hasEnemyBbList, hasEnemyCvList, hasEnemyCaList, hasEnemyClList, hasEnemyDdList, , , hasEnemyAvList];
-let selectedMyFleet;
+let selectedMyFleetList = [];
+let selectedFleetNum = 1;
 let selectedEnemyFleet;
-let selectedItemList = [0, 0, 0, 0, 0];
+let selectedItem = [];
 let itemAccuracy = 0;
 let isKira = false;
 let isItemOpen = false;
+
+const MyFleet = function (fleet, item) {
+    this.fleet = fleet;
+    this.item = item;
+}
 
 $(function () {
     $("#select-myfleet").on("shown.bs.modal", function () {
@@ -95,6 +101,7 @@ $(function () {
             button.html("キラを付ける");
         }
         getResultData();
+        this.blur();
     })
     $(".myfleet .lv, .myfleet .luck, .my-formation, .enemy-formation, .engagement, .critical").on("change", function () {
         getResultData();
@@ -106,6 +113,86 @@ $(function () {
         $(".search-item").focus();
         search(".item-list .item", $(this).val());
     })
+    // 艦娘を読み込む
+    $(".fleet-select").on("click", function () {
+        $(".fleet-select.active").removeClass("active");
+        $(this).addClass("active");
+        selectedFleetNum = $(this).text();
+        let selectedMyFleet;
+        if (selectedMyFleetList[selectedFleetNum]) {
+            selectedMyFleet = selectedMyFleetList[selectedFleetNum].fleet;
+            selectedItem = selectedMyFleetList[selectedFleetNum].item;
+        }
+
+        if (selectedMyFleet) {
+            const selectedFleet = selectedMyFleet;
+            const state = selectedFleet.state;
+            const luck = selectedFleet.luck;
+            const id = selectedFleet.id;
+            const src = `./images/ships/${id}.png`;
+            let setState = state;
+            if (setState == "未改造" || setState == "normal") {
+                setState = "";
+            }
+            const setName = selectedFleet.name + " " + setState;
+            const power = selectedMyFleet.type == 2 ? Math.floor((selectedMyFleet.power - 1) * 1.5) + 55 : selectedMyFleet.power + 4;
+            $(`.myfleet .fleet-name`).html(setName);
+            $(".myfleet .fleet-img").attr("src", src);
+            $(".myfleet .luck").val(luck);
+            $(".myfleet .power").html(power);
+            $(".myfleet .lv").val(selectedMyFleet.lv);
+            //結果背景画像変更
+            const img = $('<img>', { 'src': `./images/full/${id}.png` });
+            img.on("load", function () {
+                $(".result.box .background-img").css("background-image", `url(./images/full/${id}.png)`);
+            });
+
+            //resetItemAccuracy();
+            setItemForm();
+            setItemList();
+        } else {
+            const src = `./images/ships/0.png`;
+            $(".myfleet .fleet-img").attr("src", src);
+            $(".result.box .background-img").css("background-image", ``);
+            $(`.myfleet .fleet-name`).html("未選択");
+            $(".myfleet .luck").val("");
+            $(".myfleet .power").html("");
+            $(".myfleet .lv").val("");
+            $(".items tbody").html("");
+        }
+
+        if (selectedMyFleet) {
+            for (let i = 0; i < selectedMyFleet.slot; i++) {
+                if (selectedItem[i] && selectedItem[i] != 0) {
+                    setItem(i, selectedItem[i])
+                }
+            }
+        } else {
+            $(".items tbody").html();
+        }
+
+        getResultData();
+    });
+    $(".share").on("click", function () {
+        const deck = getDeckBuilder();
+        $(".deck").val(deck);
+    })
+    $(".deckBuilder").on("click", function () {
+        $(".deck").select();
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+    })
+    $(".deck").on("click", function () {
+        $(this).select();
+    })
+    $(".deckImageOpen").on("click", function () {
+        const t = "https://nishikuma.net/ImgKCbuilder/?predeck=" + getDeckBuilder();
+        window.open(t, "newtab");
+    })
+    $(".deckBuilderOpen").on("click", function () {
+        const t = "http://kancolle-calc.net/deckbuilder.html?predeck=" + getDeckBuilder();
+        window.open(t, "newtab");
+    });
 
     //艦娘の選択モーダルを構成する
     const setFleetList = (shipType, isEnemy) => {
@@ -180,9 +267,11 @@ $(function () {
                 name = ship.name;
                 for (let index = 0; index < ship.remodel.length; index++) {
                     if (ship.remodel[index].id == id && id <= 1500) {
-                        selectedMyFleet = ship.remodel[index];
-                        selectedMyFleet.type = ship.type;
-                        selectedFleet = selectedMyFleet;
+                        const myFleet = new MyFleet(ship.remodel[index], []);
+                        myFleet.fleet.type = ship.type;
+                        myFleet.fleet.name = name;
+                        selectedMyFleetList[selectedFleetNum] = myFleet;
+                        selectedFleet = myFleet.fleet;
                         break;
                     } else if (ship.remodel[index].id == id) {
                         selectedEnemyFleet = ship.remodel[index];
@@ -211,7 +300,7 @@ $(function () {
             $(".enemy .avoidance").html(selectedFleet.avoidance + selectedFleet.avoidance_item);
             $(".enemy .luck").html(luck);
         } else {
-            const power = selectedMyFleet.type == 2 ? Math.floor((selectedMyFleet.power - 1) * 1.5) + 55 : selectedMyFleet.power + 4;
+            const power = selectedFleet.type == 2 ? Math.floor((selectedFleet.power - 1) * 1.5) + 55 : selectedFleet.power + 4;
             $(`.myfleet .fleet-name`).html(setName);
             $(".myfleet .fleet-img").attr("src", src);
             $(".myfleet .luck").val(luck);
@@ -229,7 +318,7 @@ $(function () {
     //装備スロットを構成する
     const setItemForm = () => {
         $(".myfleet .items tr").remove();
-        for (let index = 0; index < selectedMyFleet.slot; index++) {
+        for (let index = 0; index < selectedMyFleetList[selectedFleetNum].fleet.slot; index++) {
             const button = $("<button>", { type: "button", class: "btn btn-default item", id: `itemSlot${index}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "装備" + (index + 1), value: index });
             button.on("click", function () {
                 $(".search-item").val("");
@@ -243,13 +332,13 @@ $(function () {
                 )
             $(".myfleet .items tbody").append(tr);
         }
-        const button = $("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" });
+        const button = $("<button>", { type: "button", class: "btn btn-default item add-item", id: `itemSlot${selectedMyFleetList[selectedFleetNum].fleet.slot}`, "data-toggle": "modal", "data-target": "#select-myitem", text: "補強増設" });
         button.on("click", function () {
             $(".search-item").val("");
             $(".search-item").focus();
         })
         const remove = $("<button>", { type: "button", class: "btn btn-default", html: "&times;" });
-        remove.on("click", function () { setItem(selectedMyFleet.slot, 0) });
+        remove.on("click", function () { setItem(selectedMyFleetList[selectedFleetNum].fleet.slot, 0) });
         const tr = $("<tr>").append($("<td>")
             .append(button))
             .append(remove)
@@ -278,10 +367,10 @@ $(function () {
             let targetTabId;
             const slotButtonId = this.id;
             const slotNumber = slotButtonId.charAt(slotButtonId.length - 1)
-            let isExpansionSlot = selectedMyFleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
+            let isExpansionSlot = selectedMyFleetList[selectedFleetNum].fleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
             isItemOpen = true;
-            selectedItemList[slotNumber] = 0;
-            const t = getMultiBonus(selectedItemList);
+            selectedMyFleetList[selectedFleetNum].item[slotNumber] = 0;
+            const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
             for (let index = 0; index < ITEM_DATA.length; index++) {
                 const item = $.extend(true, {}, ITEM_DATA[index]);
                 let isException = false;
@@ -290,28 +379,28 @@ $(function () {
                 let canHave = false;
                 if (isExpansionSlot) {
                     isExpansion = expansionItemType.some(c => c == item.type);
-                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type) && isExpansion;
+                    canHave = SHIP_TYPE[selectedMyFleetList[selectedFleetNum].fleet.type - 1].canHaveItem.some(c => c == item.type) && isExpansion;
                 } else {
-                    canHave = SHIP_TYPE[selectedMyFleet.type - 1].canHaveItem.some(c => c == item.type);
+                    canHave = SHIP_TYPE[selectedMyFleetList[selectedFleetNum].fleet.type - 1].canHaveItem.some(c => c == item.type);
                 }
                 if (canHave) {
-                    const isExceptionId = selectedMyFleet.cantHaveItemId ? selectedMyFleet.cantHaveItemId.some(
+                    const isExceptionId = selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId.some(
                         c => c == item.id
                     ) : false;
-                    const isExceptionType = selectedMyFleet.cantHaveItemType ? selectedMyFleet.cantHaveItemType.some(
+                    const isExceptionType = selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType.some(
                         c => c == item.type
                     ) : false;
                     isException = isExceptionId || isExceptionType;
                 } else if (!isExpansion) {
-                    const isSpecialId = selectedMyFleet.specialCanHaveItemId ? selectedMyFleet.specialCanHaveItemId.some(
+                    const isSpecialId = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
-                    const isSpecialType = selectedMyFleet.specialCanHaveItemType ? selectedMyFleet.specialCanHaveItemType.some(
+                    const isSpecialType = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType.some(
                         c => c == item.type
                     ) : false;
                     isSpecial = isSpecialId || isSpecialType;
                 } else {
-                    isSpecial = selectedMyFleet.expansionCanHaveItemId ? selectedMyFleet.expansionCanHaveItemId.some(
+                    isSpecial = selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
                 }
@@ -334,8 +423,8 @@ $(function () {
 
                             const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
                             const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
-                            selectedItemList[slotNumber] = item;
-                            const ta = getMultiBonus(selectedItemList);
+                            selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
+                            const ta = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
                             const bonusPower = (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
                             const bonusTorp = (r.torp ? r.torp : 0) + (s.torp ? s.torp : 0) + (ta.torp ? ta.torp : 0) - (t.torp ? t.torp : 0);
                             const title = `${item.power ? `火力 ${item.power}` : `${bonusPower != 0 ? "火力 " : ""}`}${bonusPower != 0 ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), ` : `${item.power ? ", " : ""}`}${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}` : ""}${bonusTorp != 0 ? `(+${bonusTorp})` : ""}${item.torp || bonusTorp != 0 ? ", " : ""}${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
@@ -358,19 +447,19 @@ $(function () {
 
     const resetItemAccuracy = () => {
         itemAccuracy = 0;
-        selectedItemList.length = 0;
+        selectedMyFleetList[selectedFleetNum].item.length = 0;
         $(".myfleet .accuracy").html(itemAccuracy);
     }
 })
 
 const setItem = (slotNumber, item) => {
-    if (slotNumber == selectedMyFleet.slot && !item.name) {
+    if (slotNumber == selectedMyFleetList[selectedFleetNum].fleet.slot && !item.name) {
         const text = "補強増設";
         $(`#itemSlot${slotNumber}`).text(text);
     } else {
         $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
     }
-    selectedItemList[slotNumber] = item;
+    selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
     let itemPower = 0;
     let itemTorp = 0;
     let itemBomb = 0;
@@ -378,20 +467,19 @@ const setItem = (slotNumber, item) => {
     itemAccuracy = 0;
     const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
     const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
-    const multiBonus = getMultiBonus(selectedItemList);
-    selectedItemList[slotNumber].power = (selectedItemList[slotNumber].power ? selectedItemList[slotNumber].power : 0) + (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
-    selectedItemList[slotNumber].torp = (selectedItemList[slotNumber].torp ? selectedItemList[slotNumber].torp : 0) + (singleAddableBonus.torp ? singleAddableBonus.torp : 0) + (singleBonus.torp ? singleBonus.torp : 0);
-
-    selectedItemList.forEach((t) => {
+    const multiBonus = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
+    selectedMyFleetList[selectedFleetNum].item[slotNumber].power = (selectedMyFleetList[selectedFleetNum].item[slotNumber].power ? selectedMyFleetList[selectedFleetNum].item[slotNumber].power : 0)+ (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
+    selectedMyFleetList[selectedFleetNum].item[slotNumber].torp = (selectedMyFleetList[selectedFleetNum].item[slotNumber].torp ? selectedMyFleetList[selectedFleetNum].item[slotNumber].torp : 0) + (singleAddableBonus.torp ? singleAddableBonus.torp : 0) + (singleBonus.torp ? singleBonus.torp : 0);
+    selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
         if (t != 0) {
             itemPower += t.power ? t.power : 0;
             itemTorp += t.torp ? t.torp : 0;
             itemBomb += t.bomb ? t.bomb : 0;
             itemAccuracy += t.accuracy ? t.accuracy : 0;
         }
-        power = selectedMyFleet.power + itemPower;
+        power = selectedMyFleetList[selectedFleetNum].fleet.power + itemPower;
         //空母用計算式
-        if (selectedMyFleet.type == 2) {
+        if (selectedMyFleetList[selectedFleetNum].fleet.type == 2) {
             power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
         } else {
             power += 4;
@@ -399,6 +487,8 @@ const setItem = (slotNumber, item) => {
     })
     power += multiBonus.power ? multiBonus.power : 0;
 
+
+    selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
     $(".myfleet .power").html(power);
     $(".myfleet .accuracy").html(itemAccuracy);
     getResultData();
@@ -410,7 +500,7 @@ const getSingleAddableBonus = (item) => {
     let torp = 0;
     let bomb = 0;
     item.singleAddableBonus.forEach((t) => {
-        if (t.targetId.some(c => c == selectedMyFleet.id)) {
+        if (t.targetId.some(c => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
             power += t.power ? t.power : 0;
             torp += t.torp ? t.torp : 0;
             bomb += t.bomb ? t.bomb : 0;
@@ -427,11 +517,11 @@ const getSingleBonus = (item, slotNum) => {
     let torp = 0;
     let bomb = 0;
     item.singleBonus.forEach((t) => {
-        const checkItemData = selectedItemList.slice(0, slotNum);
+        const checkItemData = selectedMyFleetList[selectedFleetNum].item.slice(0, slotNum);
         if (checkItemData.some(c => c.id == item.id)) {
             return {};
         }
-        if (t.targetId.some(c => c == selectedMyFleet.id)) {
+        if (t.targetId.some(c => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
             power += t.power ? t.power : 0;
             torp += t.torp ? t.torp : 0;
             bomb += t.bomb ? t.bomb : 0;
@@ -446,12 +536,12 @@ const getMultiBonus = (itemList) => {
     let accuracy = 0;
     let torp = 0;
     let bomb = 0;
-    for (let index = 0; index < selectedMyFleet.slot; index++) {
+    for (let index = 0; index < selectedMyFleetList[selectedFleetNum].fleet.slot; index++) {
         const item = itemList[index];
         if (item && item.multiBonus) {
             item.multiBonus.forEach((t) => {
                 if (t.isBonus(index)) {
-                    if (t.targetId.some(c => c == selectedMyFleet.id)) {
+                    if (t.targetId.some(c => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
                         power += t.power ? t.power : 0;
                         torp += t.torp ? t.torp : 0;
                         bomb += t.bomb ? t.bomb : 0;
@@ -513,7 +603,9 @@ const getResultData = () => {
     let luck = 0;
     let lv = 1;
     lv = $(".myfleet .lv").val();
+    selectedMyFleetList[selectedFleetNum].fleet.lv = lv;
     luck = $(".myfleet .luck").val();
+    selectedMyFleetList[selectedFleetNum].fleet.luck = luck;
     if (isKira) {
         cond_coef = 1.2;
     }
@@ -609,4 +701,30 @@ const search = (targetSelector, searchText) => {
             $(this).parent().css("display", "none");
         }
     })
+}
+
+const getDeckBuilder = () => {
+    let deck = '{"version":4,"f1":{';
+    let fleetNum = 1;
+    for (let i = 0; i < selectedMyFleetList.length + 1; i++) {
+        if (selectedMyFleetList[i]) {
+            deck += `${fleetNum != 1 ? "," : ""}`
+            const myFleet = selectedMyFleetList[i];
+            deck += `"s${fleetNum}":{"id":"${myFleet.fleet.id}","lv":${myFleet.fleet.lv},"luck":${myFleet.fleet.luck},"items":{`;
+            fleetNum++;
+            for (let j = 0; j < myFleet.item.length + 1; j++) {
+                if (myFleet.item[j]) {
+                    if (j == myFleet.item.length) {
+                        deck += `ix:${myFleet.item[j].id},"rf":0}`
+                    } else {
+                        deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}${j != myFleet.item.length - 1 ? "," : ""}`
+                    }
+
+                }
+            }
+            deck += "}}"
+        }
+    }
+    deck += `}}`;
+    return deck;
 }

@@ -47,9 +47,20 @@ body{
     padding: 20px;
     overflow: hidden;
 }
+.myfleet.box{
+    height: 420px;
+    padding-top: 10px;
+}
+.box-header{
+    margin-bottom: 10px;
+}
 .box.enemy,
 .box.setup{
-    height: 190px;
+    height: 200px;
+}
+.myfleet-title{
+    margin: 10px 80px 0 0;
+    font-size: 2.0rem;
 }
 .box-title{
     margin: 0 0 10px;
@@ -64,6 +75,13 @@ body{
     border-bottom: 1px solid rgb(161, 161, 161);
     width: 100%;
     margin-bottom: 4px;
+}
+.box-header>.nav-tabs{
+    border-bottom: 1px solid rgb(161, 161, 161);
+    margin-bottom: 4px;
+}
+.box-header>.nav>li>a{
+    padding: 5px 15px;
 }
 .myfleet,
 .enemy{
@@ -240,6 +258,18 @@ body{
     max-height: 60vh;
     overflow-y: auto;
 }
+.deck{
+    width: calc(100% - 217px);
+}
+.deckImageOpen,
+.deckBuilderOpen{
+    width: 100%;
+    margin: 10px 10px 10px 0;
+}
+.share{
+    margin-left: 6px;
+    width: 76px;
+}
 
 @media (max-width: 992px){
     .header{
@@ -284,5 +314,11 @@ body{
     }
     .items .item{
         width: 60vw;
+    }
+    .myfleet-title{
+        margin-right: 16px;
+    }
+    .box-header>.nav>li>a{
+        padding: 5px 12px;
     }
 }
