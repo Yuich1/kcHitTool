@@ -2664,7 +2664,7 @@ const ENEMY_DATA = [
     },
     {
         type: 4, name: "ツ級", main_id: 1591, remodel: [
-            { id: 1591, state: "normal", luck: 55, avoidance: 69, avoidance_item: 0, armor: 28, hp: 58 },
+            { id: 1591, state: "normal", luck: 55, avoidance: 69, avoidance_item: 0, armor: 55, hp: 48 },
             { id: 1592, state: "elite", luck: 66, avoidance: 74, avoidance_item: 0, armor: 68, hp: 66 },
             { id: 1862, state: "flagship", luck: 0, avoidance: 0, avoidance_item: 0, armor: 108, hp: 130 },
         ]
