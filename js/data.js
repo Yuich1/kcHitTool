@@ -1991,7 +1991,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2015,7 +2015,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2035,7 +2035,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2133,7 +2133,7 @@ const ITEM_DATA = [
                         if (item.id == 90 && furutakaType.some(c => c == selectedMyFleet.id)) {
                             return false; //2号があれば2号電探を優先
                         }
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -2274,7 +2274,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2296,7 +2296,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -2387,7 +2387,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2451,7 +2451,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2521,7 +2521,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2658,7 +2658,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -2933,7 +2933,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2949,7 +2949,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -2991,7 +2991,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3066,7 +3066,7 @@ const ITEM_DATA = [
                     }
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isAir) {
+                        if (item && item.isAir) {
                             isAir = true;
                         }
                     }
@@ -3108,7 +3108,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3136,7 +3136,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3164,7 +3164,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3194,7 +3194,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3276,7 +3276,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -3306,7 +3306,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3339,7 +3339,7 @@ const ITEM_DATA = [
                     let c = 0;
                     for (let index = 0; index < slotNumber; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index] ? selectedMyFleetList[selectedFleetNum].item[index] : 0;
-                        if (item.isAir) c++;
+                        if (item && item.isAir) c++;
                     }
                     return c == 0;
                 }
@@ -3572,7 +3572,7 @@ const ITEM_DATA = [
                     let isSurface = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isSurface) {
+                        if (item && item.isSurface) {
                             isSurface = true;
                         }
                     }
@@ -3591,7 +3591,7 @@ const ITEM_DATA = [
                     let isAir = false;
                     for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
                         const item = selectedMyFleetList[selectedFleetNum].item[index];
-                        if (item.isAir) {
+                        if (item && item.isAir) {
                             isAir = true;
                         }
                     }
