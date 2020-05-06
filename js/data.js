@@ -2671,7 +2671,7 @@ const ENEMY_DATA = [
     },
     {
         type: 3, name: "リ級", main_id: 1509, remodel: [
-            { id: 1509, state: "normal", luck: 1, avoidance: 12, avoidance_item: 0, armor: 22, hp: 48 },
+            { id: 1509, state: "normal", luck: 1, avoidance: 12, avoidance_item: 0, armor: 28, hp: 58 },
             { id: 1522, state: "elite", luck: 10, avoidance: 20, avoidance_item: 0, armor: 60, hp: 60 },
             { id: 1527, state: "flagship", luck: 20, avoidance: 50, avoidance_item: 0, armor: 70, hp: 76 },
         ]
@@ -2690,7 +2690,9 @@ const ENEMY_DATA = [
     },
     {
         type: 3, name: "ネ級改", main_id: 1895, remodel: [
-            { id: 1895, state: "normal", luck: 0, avoidance: 0, avoidance_item: 0, armor: 144, hp: 330 },
+            { id: 1895, state: "A", luck: 0, avoidance: 0, avoidance_item: 0, armor: 144, hp: 330 },
+            { id: 1896, state: "B", luck: 0, avoidance: 0, avoidance_item: 0, armor: 222, hp: 360 },
+            { id: 1897, state: "C", luck: 0, avoidance: 0, avoidance_item: 0, armor: 255, hp: 390 },
         ]
     },
     {
@@ -2732,8 +2734,8 @@ const ENEMY_DATA = [
     },
     {
         type: 2, name: "ヌ級改", main_id: 1523, remodel: [
-            { id: 1523, state: "normal", luck: 0, avoidance: 0, avoidance_item: 0, armor: 25, hp: 65 },
-            { id: 1560, state: "elite", luck: 0, avoidance: 0, avoidance_item: 0, armor: 93, hp: 118 },
+            { id: 1523, state: "elite", luck: 0, avoidance: 0, avoidance_item: 0, armor: 73, hp: 88 },
+            { id: 1560, state: "flagship", luck: 0, avoidance: 0, avoidance_item: 0, armor: 93, hp: 118 },
         ]
     },
     {
