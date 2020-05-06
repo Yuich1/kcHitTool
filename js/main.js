@@ -464,28 +464,31 @@ const setItem = (slotNumber, item) => {
     let itemTorp = 0;
     let itemBomb = 0;
     let power = 0;
+    power += selectedMyFleetList[selectedFleetNum].fleet.power;
     itemAccuracy = 0;
     const singleAddableBonus = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
     const singleBonus = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
     const multiBonus = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
-    selectedMyFleetList[selectedFleetNum].item[slotNumber].power = (selectedMyFleetList[selectedFleetNum].item[slotNumber].power ? selectedMyFleetList[selectedFleetNum].item[slotNumber].power : 0)+ (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0);
+    selectedMyFleetList[selectedFleetNum].item[slotNumber].power = (selectedMyFleetList[selectedFleetNum].item[slotNumber].power ? selectedMyFleetList[selectedFleetNum].item[slotNumber].power : 0);
     selectedMyFleetList[selectedFleetNum].item[slotNumber].torp = (selectedMyFleetList[selectedFleetNum].item[slotNumber].torp ? selectedMyFleetList[selectedFleetNum].item[slotNumber].torp : 0) + (singleAddableBonus.torp ? singleAddableBonus.torp : 0) + (singleBonus.torp ? singleBonus.torp : 0);
+    selectedMyFleetList[selectedFleetNum].item[slotNumber].bonusPower = (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0)
+    //power += (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0)
+    power += multiBonus.power ? multiBonus.power : 0;
     selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
         if (t != 0) {
-            itemPower += t.power ? t.power : 0;
+            itemPower += (t.power ? t.power : 0) + (t.bonusPower ? t.bonusPower : 0);
             itemTorp += t.torp ? t.torp : 0;
             itemBomb += t.bomb ? t.bomb : 0;
             itemAccuracy += t.accuracy ? t.accuracy : 0;
         }
-        power = selectedMyFleetList[selectedFleetNum].fleet.power + itemPower;
-        //空母用計算式
-        if (selectedMyFleetList[selectedFleetNum].fleet.type == 2) {
-            power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
-        } else {
-            power += 4;
-        }
     })
-    power += multiBonus.power ? multiBonus.power : 0;
+    power += itemPower;
+    //空母用計算式
+    if (selectedMyFleetList[selectedFleetNum].fleet.type == 2) {
+        power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
+    } else {
+        power += 4;
+    } 
 
 
     selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
