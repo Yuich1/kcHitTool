@@ -70,6 +70,9 @@ $(function () {
     $("#dd-tab").on("click", function () {
         setFleetList(5, false);
     })
+    $("#av-tab").on("click", function () {
+        setFleetList(8, false);
+    })
 
     $("#create-enemy, #enemy-img, #enemy-name").on("click", function () {
         setFleetList(1, true);
