@@ -1815,8 +1815,8 @@ const SHIP_DATA = [
         type: 8, name: "神威", main_id: 500,
         yomi: "かもい kamoi", remodel: [
             { id: 162, state: "未改造", power: 18, torp: 0, luck: 17, slot: 3, specialCanHaveItemType: [29] },
-            { id: 499, state: "改", power: 22, torp: 0, luck: 19, slot: 3, specialCanHaveItemType: [29] },
-            { id: 500, state: "改母", power: 25, torp: 0, luck: 20, slot: 3, specialCanHaveItemType: [2, 4, 19, 20, 21, 28] },
+            { id: 499, state: "改", power: 22, torp: 0, luck: 19, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+            { id: 500, state: "改母", power: 25, torp: 0, luck: 20, slot: 3, specialCanHaveItemType: [2, 4, 19, 20, 21, 28, 29] },
         ]
     },
     {
@@ -1853,7 +1853,7 @@ const SHIP_DATA = [
     {
         type: 8, name: "秋津洲", main_id: 450,
         yomi: "あきつしま akitsushima", remodel: [
-            { id: 445, state: "未改造", power: 16, torp: 0, luck: 12, slot: 2, specialCanHaveItemType: [4, 15, 28, 29] },
+            { id: 445, state: "未改造", power: 16, torp: 0, luck: 12, slot: 2, specialCanHaveItemType: [4, 15, 28] },
             { id: 450, state: "改", power: 28, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4, 15, 28, 29] },
         ]
     },
@@ -1880,7 +1880,7 @@ const SHIP_DATA = [
     {
         type: 8, name: "神州丸", main_id: 626,
         yomi: "しんしゅうまる shinsyuumaru", remodel: [
-            { id: 621, state: "未改造", power: 22, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4, 28, 29] },
+            { id: 621, state: "未改造", power: 22, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4, 28] },
             { id: 626, state: "改", power: 35, torp: 0, luck: 18, slot: 4, specialCanHaveItemType: [4, 15, 28, 29] },
         ]
     },
