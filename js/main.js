@@ -394,18 +394,21 @@ $(function () {
                         c => c == item.type
                     ) : false;
                     isException = isExceptionId || isExceptionType;
-                } else if (!isExpansion) {
+                } else {
                     const isSpecialId = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId.some(
                         c => c == item.id
                     ) : false;
                     const isSpecialType = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType.some(
                         c => c == item.type
                     ) : false;
-                    isSpecial = isSpecialId || isSpecialType;
-                } else {
-                    isSpecial = selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId.some(
-                        c => c == item.id
-                    ) : false;
+                    if (!isExpansionSlot) {
+                        isSpecial = isSpecialId || isSpecialType;
+                    } else {
+                        const t = selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId ? selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId.some(
+                            c => c == item.id
+                        ) : false;
+                        isSpecial = t || ((isSpecialId || isSpecialType) && isExpansion)
+                    }
                 }
                 if ((canHave && !isException) || isSpecial) {
                     for (let index = 0; index < itemType.length; index++) {
@@ -490,7 +493,7 @@ const setItem = (slotNumber, item) => {
         power = Math.floor((power + itemTorp + Math.floor(itemBomb * 1.3) - 1) * 1.5) + 55;
     } else {
         power += 4;
-    } 
+    }
 
 
     selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
