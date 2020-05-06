@@ -1887,8 +1887,8 @@ const SHIP_DATA = [
     {
         type: 8, name: "あきつ丸", main_id: 166,
         yomi: "あきつまる akitsumaru", remodel: [
-            { id: 161, state: "未改造", power: 16, torp: 0, luck: 12, slot: 2, specialCanHaveItemType: [4] },
-            { id: 166, state: "改", power: 28, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4] },
+            { id: 161, state: "未改造", power: 19, torp: 0, luck: 10, slot: 2, specialCanHaveItemType: [4] },
+            { id: 166, state: "改", power: 33, torp: 0, luck: 13, slot: 3, specialCanHaveItemType: [4] },
         ]
     },
     {
