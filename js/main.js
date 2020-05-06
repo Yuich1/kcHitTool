@@ -548,7 +548,7 @@ const getMultiBonus = (itemList) => {
         const item = itemList[index];
         if (item && item.multiBonus) {
             item.multiBonus.forEach((t) => {
-                if (t.isBonus(index)) {
+                if (t.isBonus && t.isBonus(index)) {
                     if (t.targetId.some(c => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
                         power += t.power ? t.power : 0;
                         torp += t.torp ? t.torp : 0;
