@@ -162,7 +162,7 @@ $(function () {
         }
 
         if (selectedMyFleet) {
-            for (let i = 0; i < selectedMyFleet.slot; i++) {
+            for (let i = 0; i < selectedMyFleet.slot + 1; i++) {
                 if (selectedItem[i] && selectedItem[i] != 0) {
                     setItem(i, selectedItem[i])
                 }
@@ -472,7 +472,6 @@ const setItem = (slotNumber, item) => {
     selectedMyFleetList[selectedFleetNum].item[slotNumber].power = (selectedMyFleetList[selectedFleetNum].item[slotNumber].power ? selectedMyFleetList[selectedFleetNum].item[slotNumber].power : 0);
     selectedMyFleetList[selectedFleetNum].item[slotNumber].torp = (selectedMyFleetList[selectedFleetNum].item[slotNumber].torp ? selectedMyFleetList[selectedFleetNum].item[slotNumber].torp : 0) + (singleAddableBonus.torp ? singleAddableBonus.torp : 0) + (singleBonus.torp ? singleBonus.torp : 0);
     selectedMyFleetList[selectedFleetNum].item[slotNumber].bonusPower = (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0)
-    //power += (singleAddableBonus.power ? singleAddableBonus.power : 0) + (singleBonus.power ? singleBonus.power : 0)
     power += multiBonus.power ? multiBonus.power : 0;
     selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
         if (t != 0) {
