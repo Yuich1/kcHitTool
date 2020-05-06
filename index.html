@@ -17,7 +17,7 @@
     <meta name="description" content="艦これの砲撃支援を計算できるサイトです。命中率、撃破率、命中時撃破率などの計算が行えます。">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--  css更新時はverを変更する  -->
-    <link rel="stylesheet" href="./css/style.css?ver=1.2">
+    <link rel="stylesheet" href="./css/style.css?ver=1.21">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="./js/data.js"></script>
@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">艦これ砲撃支援命中計算機 v1.2
+            <h1 class="title">艦これ砲撃支援命中計算機 v1.21
             </h1>
         </header>
         <div class="wrapper">
@@ -212,7 +212,7 @@
         </div>
         <div class="description">
             <h2 class="title">開発状況</h2>
-            <p>戦艦、空母、重巡、軽巡、駆逐以外の艦娘は順次実装予定です。<br>
+            <p>戦艦、空母、重巡、軽巡、駆逐、補助艦艇以外の艦娘は順次実装予定です。<br>
                 現時点では、敵艦は通常海域に出現するものが実装されています。こちらも拡張予定です。<br>
                 v1.1 装備ボーナスを反映しました。<br>
                 v1.11 駆逐実装しました<br>
@@ -222,6 +222,7 @@
                 v1.15 軽巡・軽巡関連装備ボーナスを追加。算出法を変更し、クリティカル自動時の乱数による結果のブレを無くしました。<br>
                 v1.16 艦娘・装備の検索機能を追加。<br>
                 v1.2  デッキビルダー形式の出力に対応。艦娘を6隻まで選択可能にしました。<br>
+                v1.21 補助艦艇を追加しました。
                 更新情報は<a href="https://twitter.com/2qrbgxpsaWEziml?s=20" target="_blank">こちらのtwitterから。</a><br>
                 不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank">こちらの質問箱へお願いします。</a>
             </p>
@@ -254,7 +255,7 @@
                         <li><a class="focus-fleet" data-toggle="tab" href="#dd" id="dd-tab">駆逐</a></li>
                         <li><a data-toggle="tab" href="#de" id="de-tab">海防</a></li>
                         <li><a data-toggle="tab" href="#ss" id="ss-tab">潜水</a></li>
-                        <li><a data-toggle="tab" href="#av" id="av-tab">補助艦艇</a></li>
+                        <li><a class="focus-fleet" data-toggle="tab" href="#av" id="av-tab">補助艦艇</a></li>
                     </ul>
                     <div class="tab-content fleet-list">
                         <div id="bb" class="tab-pane fade in active table-wrapper">
