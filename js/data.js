@@ -1,12 +1,12 @@
 const SHIP_TYPE = [
     { id: 1, name: "戦艦", type: "bb", canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28] },
-    { id: 2, name: "航空母艦", type: "cv", canHaveItem: [4, 7, 8, 9, 14, 15, 18, 22, 24, 25, 26, 27] },
+    { id: 2, name: "航空母艦", type: "cv", canHaveItem: [4, 7, 8, 9, 14, 15, 18, 22, 24, 25, 26, 27, 29] },
     { id: 3, name: "重巡", type: "ca", canHaveItem: [2, 4, 5, 11, 14, 15, 17, 18, 22, 24, 25, 26, 28] },
     { id: 4, name: "軽巡", type: "cl", canHaveItem: [1, 2, 4, 5, 11, 14, 15, 18, 19, 20, 21, 24, 25, 26, 28] },
     { id: 5, name: "駆逐", type: "dd", canHaveItem: [1, 5, 14, 18, 19, 20, 21, 24, 25, 26, 28] },
     { id: 6, name: "海防", type: "de", canHaveItem: [1, 5, 14, 18, 19, 20, 21, 26, 28] },
     { id: 7, name: "潜水", type: "ss", canHaveItem: [5, 6, 19, 24, 25, 26] },
-    { id: 8, name: "補助艦艇", type: "av", canHaveItem: [26] },
+    { id: 8, name: "補助艦艇", type: "av", canHaveItem: [1, 14, 18, 26] },
 ];
 
 const ITEM_TYPE = [
@@ -37,7 +37,8 @@ const ITEM_TYPE = [
     { id: 25, name: "タービン" },
     { id: 26, name: "ダメコン" },
     { id: 27, name: "艦偵" },
-    { id: 28, name: "見張り員" }
+    { id: 28, name: "見張り員" },
+    { id: 29, name: "航空要員" },
 ];
 
 // 単縦, 複縦, 輪形, 梯形, 単横, 警戒
@@ -591,7 +592,7 @@ const SHIP_DATA = [
         yomi: "もがみ mogami",
         remodel: [
             { id: 70, state: "未改造", power: 59, torp: 69, luck: 10, slot: 3 },
-            { id: 73, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
+            { id: 73, state: "改", power: 75, torp: 69, luck: 10, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -599,7 +600,7 @@ const SHIP_DATA = [
         yomi: "みくま mikuma",
         remodel: [
             { id: 120, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
-            { id: 121, state: "改", power: 76, torp: 69, luck: 10, slot: 4 },
+            { id: 121, state: "改", power: 76, torp: 69, luck: 10, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -607,8 +608,8 @@ const SHIP_DATA = [
         yomi: "すずや suzuya",
         remodel: [
             { id: 124, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
-            { id: 129, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
-            { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4, expansionCanHaveItemId: [66, 220] },
+            { id: 129, state: "改", power: 75, torp: 69, luck: 10, slot: 4, specialCanHaveItemType: [29] },
+            { id: 503, state: "改二", power: 76, torp: 88, luck: 14, slot: 4, specialCanHaveItemType: [29], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
@@ -616,8 +617,8 @@ const SHIP_DATA = [
         yomi: "くまの kumano",
         remodel: [
             { id: 125, state: "未改造", power: 59, torp: 69, luck: 5, slot: 3 },
-            { id: 130, state: "改", power: 75, torp: 69, luck: 10, slot: 4 },
-            { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4, expansionCanHaveItemId: [66, 220] },
+            { id: 130, state: "改", power: 75, torp: 69, luck: 10, slot: 4, specialCanHaveItemType: [29] },
+            { id: 504, state: "改二", power: 76, torp: 87, luck: 13, slot: 4, specialCanHaveItemType: [29], expansionCanHaveItemId: [66, 220] },
         ]
     },
     {
@@ -626,7 +627,7 @@ const SHIP_DATA = [
         remodel: [
             { id: 71, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 273, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
-            { id: 188, state: "改二", power: 77, torp: 82, luck: 15, slot: 4 },
+            { id: 188, state: "改二", power: 77, torp: 82, luck: 15, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -635,7 +636,7 @@ const SHIP_DATA = [
         remodel: [
             { id: 72, state: "未改造", power: 59, torp: 59, luck: 10, slot: 3 },
             { id: 274, state: "改", power: 76, torp: 79, luck: 10, slot: 4 },
-            { id: 189, state: "改二", power: 77, torp: 83, luck: 14, slot: 4 },
+            { id: 189, state: "改二", power: 77, torp: 83, luck: 14, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -652,7 +653,7 @@ const SHIP_DATA = [
         remodel: [
             { id: 448, state: "未改造", power: 58, torp: 28, luck: 10, slot: 3 },
             { id: 358, state: "改", power: 75, torp: 40, luck: 12, slot: 4 },
-            { id: 496, state: "due", power: 87, torp: 48, luck: 17, slot: 4 },
+            { id: 496, state: "due", power: 87, torp: 48, luck: 17, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -702,7 +703,7 @@ const SHIP_DATA = [
         remodel: [
             { id: 100, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 216, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
-            { id: 547, state: "改二", power: 60, torp: 91, luck: 13, slot: 3 },
+            { id: 547, state: "改二", power: 60, torp: 91, luck: 13, slot: 3, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -763,7 +764,7 @@ const SHIP_DATA = [
         remodel: [
             { id: 23, state: "未改造", power: 39, torp: 79, luck: 10, slot: 2 },
             { id: 220, state: "改", power: 59, torp: 79, luck: 12, slot: 3 },
-            { id: 488, state: "改二", power: 56, torp: 80, luck: 16, slot: 3 },
+            { id: 488, state: "改二", power: 56, torp: 80, luck: 16, slot: 3, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -906,9 +907,9 @@ const SHIP_DATA = [
         type: 4, name: "Gotland", main_id: 630,
         yomi: "ごとらんど gotland",
         remodel: [
-            { id: 574, state: "未改造", power: 48, torp: 68, luck: 20, slot: 3 },
-            { id: 579, state: "改", power: 62, torp: 70, luck: 24, slot: 4 },
-            { id: 630, state: "andra", power: 60, torp: 73, luck: 26, slot: 4 },
+            { id: 574, state: "未改造", power: 48, torp: 68, luck: 20, slot: 3, specialCanHaveItemType: [29] },
+            { id: 579, state: "改", power: 62, torp: 70, luck: 24, slot: 4, specialCanHaveItemType: [29] },
+            { id: 630, state: "andra", power: 60, torp: 73, luck: 26, slot: 4, specialCanHaveItemType: [29] },
         ]
     },
     {
@@ -1809,6 +1810,94 @@ const SHIP_DATA = [
             { id: 395, state: "改", power: 66, torp: 68, luck: 43, slot: 4 },
         ]
     },
+
+    {
+        type: 8, name: "神威", main_id: 500,
+        yomi: "かもい kamoi", remodel: [
+            { id: 162, state: "未改造", power: 18, torp: 0, luck: 17, slot: 3, specialCanHaveItemType: [29] },
+            { id: 499, state: "改", power: 22, torp: 0, luck: 19, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+            { id: 500, state: "改母", power: 25, torp: 0, luck: 20, slot: 3, specialCanHaveItemType: [2, 4, 19, 20, 21, 28, 29] },
+        ]
+    },
+    {
+        type: 8, name: "千歳", main_id: 106,
+        yomi: "ちとせ chitose", remodel: [
+            { id: 102, state: "未改造", power: 29, torp: 0, luck: 10, slot: 2, specialCanHaveItemType: [4, 15, 28] },
+            { id: 104, state: "改", power: 29, torp: 29, luck: 10, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+            { id: 106, state: "甲", power: 31, torp: 73, luck: 10, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+        ]
+    },
+    {
+        type: 8, name: "千代田", main_id: 107,
+        yomi: "ちよだ chiyoda", remodel: [
+            { id: 103, state: "未改造", power: 29, torp: 0, luck: 10, slot: 2, specialCanHaveItemType: [4, 15, 28] },
+            { id: 105, state: "改", power: 29, torp: 29, luck: 10, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+            { id: 107, state: "甲", power: 31, torp: 73, luck: 10, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+        ]
+    },
+    {
+        type: 8, name: "瑞穂", main_id: 348,
+        yomi: "みずほ mizuho", remodel: [
+            { id: 451, state: "未改造", power: 36, torp: 32, luck: 8, slot: 2, specialCanHaveItemType: [4, 15, 28] },
+            { id: 348, state: "改", power: 45, torp: 72, luck: 10, slot: 3, specialCanHaveItemType: [4, 15, 28] },
+        ]
+    },
+    {
+        type: 8, name: "日進", main_id: 586,
+        yomi: "にっしん nisshin", remodel: [
+            { id: 581, state: "未改造", power: 46, torp: 40, luck: 9, slot: 3, specialCanHaveItemType: [2, 4, 15, 28, 29] },
+            { id: 690, state: "改", power: 54, torp: 75, luck: 10, slot: 3, specialCanHaveItemType: [2, 4, 15, 28, 29] },
+            { id: 586, state: "甲", power: 60, torp: 88, luck: 10, slot: 4, specialCanHaveItemType: [2, 4, 15, 28, 29] },
+        ]
+    },
+    {
+        type: 8, name: "秋津洲", main_id: 450,
+        yomi: "あきつしま akitsushima", remodel: [
+            { id: 445, state: "未改造", power: 16, torp: 0, luck: 12, slot: 2, specialCanHaveItemType: [4, 15, 28] },
+            { id: 450, state: "改", power: 28, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4, 15, 28, 29] },
+        ]
+    },
+    {
+        type: 8, name: "大鯨", main_id: 184,
+        yomi: "たいげい taigei", remodel: [
+            { id: 184, state: "未改造", power: 15, torp: 0, luck: 20, slot: 3, specialCanHaveItemType: [4, 28] },
+        ]
+    },
+    {
+        type: 8, name: "速吸", main_id: 352,
+        yomi: "はやすい hayasui", remodel: [
+            { id: 460, state: "未改造", power: 22, torp: 0, luck: 7, slot: 2, specialCanHaveItemType: [29] },
+            { id: 352, state: "改", power: 36, torp: 0, luck: 8, slot: 3, specialCanHaveItemType: [8, 15, 29] },
+        ]
+    },
+    {
+        type: 8, name: "明石", main_id: 187,
+        yomi: "あかし akashi", remodel: [
+            { id: 182, state: "未改造", power: 14, torp: 0, luck: 10, slot: 3, specialCanHaveItemType: [4] },
+            { id: 187, state: "改", power: 24, torp: 0, luck: 12, slot: 4, specialCanHaveItemType: [4] },
+        ]
+    },
+    {
+        type: 8, name: "神州丸", main_id: 626,
+        yomi: "しんしゅうまる shinsyuumaru", remodel: [
+            { id: 621, state: "未改造", power: 22, torp: 0, luck: 14, slot: 3, specialCanHaveItemType: [4, 28] },
+            { id: 626, state: "改", power: 35, torp: 0, luck: 18, slot: 4, specialCanHaveItemType: [4, 15, 28, 29] },
+        ]
+    },
+    {
+        type: 8, name: "あきつ丸", main_id: 166,
+        yomi: "あきつまる akitsumaru", remodel: [
+            { id: 161, state: "未改造", power: 19, torp: 0, luck: 10, slot: 2, specialCanHaveItemType: [4] },
+            { id: 166, state: "改", power: 33, torp: 0, luck: 13, slot: 3, specialCanHaveItemType: [4] },
+        ]
+    },
+    {
+        type: 8, name: "Commandant Teste", main_id: 372,
+        yomi: "こまんだんてすと commandant teste", remodel: [
+            { id: 491, state: "未改造", power: 48, torp: 0, luck: 17, slot: 3, specialCanHaveItemType: [2, 4, 15, 28, 29] },
+            { id: 372, state: "改", power: 58, torp: 0, luck: 20, slot: 4, specialCanHaveItemType: [2, 4, 15, 28, 29] },
+        ]
+    },
 ];
 
 const ITEM_DATA = [
@@ -2307,6 +2396,11 @@ const ITEM_DATA = [
     },
 
     {
+        id: 108, type: 29, name: "熟練艦載機整備員", power: 10, accuracy: 1,
+        yomi: "じゅくれんかんさいきせいびいん",
+    },
+
+    {
         id: 111, type: 9, name: "彗星(六〇一空)", bomb: 11, accuracy: 1,
         yomi: "すいせいろくまるいちくう",
         singleAddableBonus: [
@@ -2644,6 +2738,15 @@ const ITEM_DATA = [
         id: 257, type: 8, name: "TBM-3D", power: 2, torp: 9, accuracy: 2,
         yomi: "tbm-3d",
     },
+    {
+        id: 258, type: 29, name: "夜間作戦航空要員", power: 1,
+        yomi: "やかんさくせんこうくうよういん",
+    },
+    {
+        id: 259, type: 29, name: "夜間作戦航空要員 + 熟練甲板員", power: 3, accuracy: 2,
+        yomi: "やかんさくせんこうくうよういん + じゅくれんかんぱんいん",
+    },
+
 
     {
         id: 266, type: 1, name: "12.7cm連装砲C型改二", power: 3, accuracy: 1,
