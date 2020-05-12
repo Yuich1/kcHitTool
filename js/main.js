@@ -1,3 +1,8 @@
+/**
+ * @author Yuichi<https://twitter.com/2qrbgxpsaWEziml?s=20>
+ * @version 1.21
+ */
+
 let hasBbList = false;
 let hasCvList = false;
 let hasCaList = false;
