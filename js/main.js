@@ -190,13 +190,14 @@ $(function () {
       $(".myfleet .power").html(power);
       $(".myfleet .lv").val(selectedMyFleet.lv);
       //結果背景画像変更
+      /*
       const img = $("<img>", { src: `./images/full/${id}.png` });
       img.on("load", function () {
         $(".result.box .background-img").css(
           "background-image",
           `url(./images/full/${id}.png)`
         );
-      });
+      });*/
 
       //resetItemAccuracy();
       setItemForm();
@@ -204,7 +205,7 @@ $(function () {
     } else {
       const src = `./images/ships/0.png`;
       $(".myfleet .fleet-img").attr("src", src);
-      $(".result.box .background-img").css("background-image", ``);
+      //$(".result.box .background-img").css("background-image", ``);
       $(`.myfleet .fleet-name`).html("未選択");
       $(".myfleet .luck").val("");
       $(".myfleet .power").html("");
@@ -392,13 +393,13 @@ $(function () {
       $(".myfleet .power").html(power);
       $(".myfleet .lv").val(defaultLevel);
       //結果背景画像変更
-      const img = $("<img>", { src: `./images/full/${id}.png` });
+      /*const img = $("<img>", { src: `./images/full/${id}.png` });
       img.on("load", function () {
         $(".result.box .background-img").css(
           "background-image",
           `url(./images/full/${id}.png)`
         );
-      });
+      });*/
     }
     getResultData();
   };
