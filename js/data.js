@@ -82,6 +82,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "金剛",
+    id_list: [78, 209, 149, 591],
     main_id: 591,
     speed: "high",
     yomi: "こんごう kongou",
@@ -139,6 +140,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "比叡",
+    id_list: [86, 210, 150, 592],
     main_id: 592,
     speed: "high",
     yomi: "ひえい hiei",
@@ -196,6 +198,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "榛名",
+    id_list: [79, 211, 151],
     main_id: 151,
     speed: "high",
     yomi: "はるな haruna",
@@ -241,6 +244,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "霧島",
+    id_list: [85, 212, 152],
     main_id: 152,
     speed: "high",
     yomi: "霧島 kirishima",
@@ -286,6 +290,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "扶桑",
+    id_list: [26, 286, 411],
     main_id: 411,
     speed: "low",
     yomi: "ふそう fusou",
@@ -328,6 +333,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "山城",
+    id_list: [27, 287, 412],
     main_id: 412,
     speed: "low",
     yomi: "やましろ yamashiro",
@@ -370,6 +376,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "伊勢",
+    id_list: [77, 82, 553],
     main_id: 553,
     speed: "low",
     yomi: "いせ ise",
@@ -413,6 +420,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "日向",
+    id_list: [87, 88, 554],
     main_id: 554,
     speed: "low",
     yomi: "ひゅうが hyuuga",
@@ -456,6 +464,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "長門",
+    id_list: [80, 275, 541],
     main_id: 541,
     speed: "low",
     yomi: "ながと nagato",
@@ -497,6 +506,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "陸奥",
+    id_list: [81, 276, 573],
     main_id: 573,
     speed: "low",
     yomi: "むつ mutsu",
@@ -537,6 +547,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "大和",
+    id_list: [131, 136],
     main_id: 136,
     speed: "low",
     yomi: "やまと yamato",
@@ -567,6 +578,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "武蔵",
+    id_list: [143, 148, 546],
     main_id: 546,
     speed: "low",
     yomi: "むさし musashi",
@@ -608,6 +620,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Bismarck",
+    id_list: [171, 172, 173, 178],
     main_id: 178,
     speed: "high",
     yomi: "びすまるく bismarck",
@@ -665,6 +678,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Italia",
+    id_list: [441, 446],
     main_id: 446,
     speed: "high",
     yomi: "いたりあ italia りっとりお littorio",
@@ -698,6 +712,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Roma",
+    id_list: [442, 447],
     main_id: 447,
     speed: "high",
     yomi: "ろーま roma",
@@ -731,6 +746,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Iowa",
+    id_list: [440, 360],
     main_id: 360,
     speed: "high",
     yomi: "あいおわ iowa",
@@ -764,6 +780,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Colorado",
+    id_list: [601, 1496],
     main_id: 1496,
     speed: "low",
     yomi: "ころらど colorado",
@@ -795,6 +812,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Warspite",
+    id_list: [439, 364],
     main_id: 364,
     speed: "low",
     yomi: "うぉーすぱいと をーすぱいと warspite",
@@ -826,6 +844,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Nelson",
+    id_list: [571, 576],
     main_id: 576,
     speed: "low",
     yomi: "ねるそん nelson",
@@ -857,6 +876,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Richelieu",
+    id_list: [492, 392],
     main_id: 392,
     speed: "high",
     yomi: "りしゅりゅー richelieu",
@@ -890,6 +910,7 @@ const SHIP_DATA = [
   {
     type: 1,
     name: "Гангут",
+    id_list: [511, 512, 513],
     main_id: 513,
     speed: "low",
     yomi: "がんぐーと おくちゃぶりすかやれヴぉりゅーつぃや gangut",
@@ -935,6 +956,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "赤城",
+    id_list: [83, 277, 594, 599],
     main_id: 599,
     yomi: "あかぎ akagi",
     remodel: [
@@ -987,6 +1009,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "加賀",
+    id_list: [84, 278],
     main_id: 278,
     yomi: "かが kaga",
     remodel: [
@@ -1017,6 +1040,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "蒼龍",
+    id_list: [90, 279, 197],
     main_id: 197,
     yomi: "そうりゅう souryu",
     remodel: [
@@ -1058,6 +1082,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "飛龍",
+    id_list: [91, 280, 196],
     main_id: 196,
     yomi: "ひりゅう hiryu",
     remodel: [
@@ -1099,6 +1124,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "翔鶴",
+    id_list: [110, 288, 461, 466],
     main_id: 466,
     yomi: "しょうかく syoukaku",
     remodel: [
@@ -1151,6 +1177,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "瑞鶴",
+    id_list: [111, 112, 462, 467],
     main_id: 467,
     yomi: "ずいかく zuikaku",
     remodel: [
@@ -1203,6 +1230,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "雲龍",
+    id_list: [404, 406],
     main_id: 406,
     yomi: "うんりゅう unryuu",
     remodel: [
@@ -1233,6 +1261,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "天城",
+    id_list: [331, 429],
     main_id: 429,
     yomi: "あまぎ amagi",
     remodel: [
@@ -1263,6 +1292,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "葛城",
+    id_list: [332, 430],
     main_id: 430,
     yomi: "かつらぎ katsuragi",
     remodel: [
@@ -1293,6 +1323,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "大鳳",
+    id_list: [153, 156],
     main_id: 156,
     yomi: "たいほう taihou たうい",
     remodel: [
@@ -1323,6 +1354,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "鳳翔",
+    id_list: [89, 285],
     main_id: 285,
     yomi: "ほうしょう houshou おかん",
     remodel: [
@@ -1353,6 +1385,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "龍驤",
+    id_list: [76, 281, 157],
     main_id: 157,
     yomi: "りゅうじょう ryuujou rj",
     remodel: [
@@ -1394,6 +1427,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "龍鳳",
+    id_list: [185, 318],
     main_id: 318,
     yomi: "りゅうほう ryuuhou",
     remodel: [
@@ -1424,6 +1458,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "祥鳳",
+    id_list: [74, 282],
     main_id: 282,
     yomi: "しょうほう shouhou",
     remodel: [
@@ -1454,6 +1489,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "瑞鳳",
+    id_list: [116, 117, 555, 560],
     main_id: 560,
     yomi: "ずいほう zuihou",
     remodel: [
@@ -1506,6 +1542,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "飛鷹",
+    id_list: [75, 283],
     main_id: 283,
     yomi: "ひよう hiyou",
     remodel: [
@@ -1536,6 +1573,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "隼鷹",
+    id_list: [92, 284, 408],
     main_id: 408,
     yomi: "じゅんよう junyou",
     remodel: [
@@ -1577,6 +1615,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "千歳",
+    id_list: [108, 291, 296],
     main_id: 296,
     yomi: "ちとせ chitose",
     remodel: [
@@ -1618,6 +1657,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "千代田",
+    id_list: [109, 292, 297],
     main_id: 297,
     yomi: "ちよだ chiyoda",
     remodel: [
@@ -1659,6 +1699,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "大鷹",
+    id_list: [521, 526, 380, 529],
     main_id: 529,
     yomi: "たいよう taiyou",
     remodel: [
@@ -1711,6 +1752,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "神鷹",
+    id_list: [534, 381, 536],
     main_id: 536,
     yomi: "しんよう sinyou",
     remodel: [
@@ -1752,6 +1794,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "鈴谷",
+    id_list: [508],
     main_id: 508,
     yomi: "すずや suzuya",
     remodel: [
@@ -1772,6 +1815,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "熊野",
+    id_list: [509],
     main_id: 509,
     yomi: "くまの kumano",
     remodel: [
@@ -1792,6 +1836,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Graf Zeppelin",
+    id_list: [432, 353],
     main_id: 353,
     yomi: "ぐらーふつぇっぺりん graf zeppelin",
     remodel: [
@@ -1822,6 +1867,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Aquila",
+    id_list: [444, 365],
     main_id: 365,
     yomi: "あくいら あくぃら aquila",
     remodel: [
@@ -1852,6 +1898,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Saratoga",
+    id_list: [433, 438, 545, 550],
     main_id: 550,
     yomi: "さらとが saratoga",
     remodel: [
@@ -1903,6 +1950,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Intrepid",
+    id_list: [549, 397],
     main_id: 397,
     yomi: "いんとれぴっど intrepid",
     remodel: [
@@ -1933,6 +1981,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Gambier Bay",
+    id_list: [544, 396],
     main_id: 396,
     yomi: "がんびあべい gambier bay",
     remodel: [
@@ -1963,6 +2012,7 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "Ark Royal",
+    id_list: [515, 393],
     main_id: 393,
     yomi: "あーくろいやる ark royal",
     remodel: [
@@ -1993,6 +2043,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "古鷹",
+    id_list: [59, 262, 416],
     main_id: 416,
     yomi: "ふるたか fututaka",
     remodel: [
@@ -2031,6 +2082,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "加古",
+    id_list: [60, 263, 417],
     main_id: 417,
     yomi: "かこ kako",
     remodel: [
@@ -2069,6 +2121,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "青葉",
+    id_list: [61, 264],
     main_id: 264,
     yomi: "あおば aoba",
     remodel: [
@@ -2097,6 +2150,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "衣笠",
+    id_list: [123, 295, 142],
     main_id: 142,
     yomi: "きぬがさ kinugasa",
     remodel: [
@@ -2135,6 +2189,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "妙高",
+    id_list: [62, 265, 319],
     main_id: 319,
     yomi: "みょうこう myoukou",
     remodel: [
@@ -2173,6 +2228,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "那智",
+    id_list: [63, 266, 192],
     main_id: 192,
     yomi: "なち nachi",
     remodel: [
@@ -2211,6 +2267,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "足柄",
+    id_list: [64, 267, 193],
     main_id: 193,
     yomi: "あしがら ashigara",
     remodel: [
@@ -2249,6 +2306,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "羽黒",
+    id_list: [65, 268, 194],
     main_id: 194,
     yomi: "はぐろ haguro",
     remodel: [
@@ -2287,6 +2345,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "高雄",
+    id_list: [66, 269],
     main_id: 269,
     yomi: "たかお takao",
     remodel: [
@@ -2315,6 +2374,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "愛宕",
+    id_list: [67, 270],
     main_id: 270,
     yomi: "あたご atago",
     remodel: [
@@ -2343,6 +2403,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "摩耶",
+    id_list: [68, 271, 428],
     main_id: 428,
     yomi: "まや maya",
     remodel: [
@@ -2381,6 +2442,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "鳥海",
+    id_list: [69, 272, 427],
     main_id: 427,
     yomi: "ちょうかい choukai",
     remodel: [
@@ -2419,6 +2481,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "最上",
+    id_list: [70, 73],
     main_id: 73,
     yomi: "もがみ mogami",
     remodel: [
@@ -2448,6 +2511,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "三隈",
+    id_list: [120, 121],
     main_id: 121,
     yomi: "みくま mikuma",
     remodel: [
@@ -2477,6 +2541,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "鈴谷",
+    id_list: [124, 129, 503],
     main_id: 503,
     yomi: "すずや suzuya",
     remodel: [
@@ -2518,6 +2583,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "熊野",
+    id_list: [125, 130, 504],
     main_id: 504,
     yomi: "くまの kumano",
     remodel: [
@@ -2559,6 +2625,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "利根",
+    id_list: [71, 273, 188],
     main_id: 188,
     yomi: "とね tone",
     remodel: [
@@ -2598,6 +2665,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "筑摩",
+    id_list: [72, 274, 189],
     main_id: 189,
     yomi: "ちくま chikuma",
     remodel: [
@@ -2637,6 +2705,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "Prinz Eugen",
+    id_list: [176, 177],
     main_id: 177,
     yomi: "ぷりんつおいげん prinz eugen",
     remodel: [
@@ -2665,6 +2734,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "Zara",
+    id_list: [448, 358, 496],
     main_id: 496,
     yomi: "ざら zara",
     remodel: [
@@ -2704,6 +2774,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "Pola",
+    id_list: [449, 361],
     main_id: 361,
     yomi: "ぽーら pola",
     remodel: [
@@ -2732,6 +2803,7 @@ const SHIP_DATA = [
   {
     type: 3,
     name: "Houston",
+    id_list: [595, 600],
     main_id: 600,
     yomi: "ひゅーすとん houston",
     remodel: [
@@ -2760,6 +2832,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "天龍",
+    id_list: [51, 213, 477],
     main_id: 477,
     yomi: "てんりゅう tenryuu",
     remodel: [
@@ -2798,6 +2871,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "龍田",
+    id_list: [52, 214, 478],
     main_id: 478,
     yomi: "たつた tatsuta",
     remodel: [
@@ -2836,6 +2910,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "球磨",
+    id_list: [99, 215],
     main_id: 215,
     yomi: "くま kuma",
     remodel: [
@@ -2864,6 +2939,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "多摩",
+    id_list: [100, 216, 547],
     main_id: 547,
     yomi: "たま tama",
     remodel: [
@@ -2903,6 +2979,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "北上",
+    id_list: [25, 58, 119],
     main_id: 119,
     yomi: "きたかみ kitakami",
     remodel: [
@@ -2941,6 +3018,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "大井",
+    id_list: [24, 57, 118],
     main_id: 118,
     yomi: "おおい ooi",
     remodel: [
@@ -2979,6 +3057,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "木曾",
+    id_list: [101, 217, 146],
     main_id: 146,
     yomi: "きそ kiso",
     remodel: [
@@ -3017,6 +3096,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "長良",
+    id_list: [21, 218],
     main_id: 218,
     yomi: "ながら nagara",
     remodel: [
@@ -3045,6 +3125,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "五十鈴",
+    id_list: [22, 219, 141],
     main_id: 141,
     yomi: "いすず isuzu",
     remodel: [
@@ -3083,6 +3164,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "名取",
+    id_list: [53, 221],
     main_id: 221,
     yomi: "なとり natori",
     remodel: [
@@ -3111,6 +3193,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "由良",
+    id_list: [23, 220, 488],
     main_id: 488,
     yomi: "ゆら yura",
     remodel: [
@@ -3150,6 +3233,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "鬼怒",
+    id_list: [113, 289, 487],
     main_id: 487,
     yomi: "きぬ kinu",
     remodel: [
@@ -3188,6 +3272,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "阿武隈",
+    id_list: [114, 290, 200],
     main_id: 200,
     yomi: "あぶくま abukuma",
     remodel: [
@@ -3226,6 +3311,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "夕張",
+    id_list: [115, 293, 622, 623, 624],
     main_id: 622,
     yomi: "ゆうばり yuubari",
     remodel: [
@@ -3284,6 +3370,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "川内",
+    id_list: [54, 222, 158],
     main_id: 158,
     yomi: "せんだい sendai",
     remodel: [
@@ -3322,6 +3409,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "神通",
+    id_list: [55, 223, 159],
     main_id: 159,
     yomi: "じんつう jintsuu",
     remodel: [
@@ -3360,6 +3448,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "那珂",
+    id_list: [56, 224, 160],
     main_id: 160,
     yomi: "なか naka",
     remodel: [
@@ -3398,6 +3487,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "阿賀野",
+    id_list: [137, 305],
     main_id: 305,
     yomi: "あがの agano",
     remodel: [
@@ -3426,6 +3516,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "能代",
+    id_list: [138, 306],
     main_id: 306,
     yomi: "のしろ noshiro",
     remodel: [
@@ -3454,6 +3545,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "矢矧",
+    id_list: [139, 307],
     main_id: 307,
     yomi: "やはぎ yahagi",
     remodel: [
@@ -3482,6 +3574,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "酒匂",
+    id_list: [140, 314],
     main_id: 314,
     yomi: "さかわ sakawa",
     remodel: [
@@ -3510,6 +3603,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "大淀",
+    id_list: [183, 321],
     main_id: 321,
     yomi: "おおよど ooyodo",
     remodel: [
@@ -3538,6 +3632,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "香取",
+    id_list: [154, 343],
     main_id: 343,
     yomi: "かとり katori",
     remodel: [
@@ -3566,6 +3661,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "鹿島",
+    id_list: [465, 356],
     main_id: 356,
     yomi: "かしま kashima",
     remodel: [
@@ -3594,6 +3690,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "L.d.S.D.d.Abruzzi",
+    id_list: [589, 693],
     main_id: 693,
     yomi:
       "るいーじでぃさぼいあどぅーかでっりあぶるっつぃ luigi di savoia duca degli abruzzi",
@@ -3623,6 +3720,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "G.Garibaldi",
+    id_list: [590, 691],
     main_id: 691,
     yomi: "じゅぜっぺがりばるでぃ がるばるでぃ giuseppe garibaldi",
     remodel: [
@@ -3651,6 +3749,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "Atlanta",
+    id_list: [597, 696],
     main_id: 696,
     yomi: "あとらんた atlanta",
     remodel: [
@@ -3679,6 +3778,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "Gotland",
+    id_list: [574, 579, 630],
     main_id: 630,
     yomi: "ごとらんど gotland",
     remodel: [
@@ -3720,6 +3820,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "De Ruyter",
+    id_list: [604, 609],
     main_id: 609,
     yomi: "でろいてる de ruyter",
     remodel: [
@@ -3748,6 +3849,7 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "Perth",
+    id_list: [613, 618],
     main_id: 618,
     yomi: "ぱーす perth",
     remodel: [
@@ -3777,6 +3879,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "神風",
+    id_list: [471, 476],
     main_id: 476,
     yomi: "かみかぜ kamikaze",
     remodel: [
@@ -3805,6 +3908,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "朝風",
+    id_list: [472, 370],
     main_id: 370,
     yomi: "あさかぜ asakaze",
     remodel: [
@@ -3833,6 +3937,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "春風",
+    id_list: [473, 363],
     main_id: 363,
     yomi: "はるかぜ harukaze",
     remodel: [
@@ -3861,6 +3966,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "松風",
+    id_list: [474, 371],
     main_id: 371,
     yomi: "まつかぜ matsukaze",
     remodel: [
@@ -3889,6 +3995,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "旗風",
+    id_list: [475, 387],
     main_id: 387,
     yomi: "はたかぜ hatakaze",
     remodel: [
@@ -3917,6 +4024,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "睦月",
+    id_list: [1, 254, 434],
     main_id: 434,
     yomi: "むつき mutsuki",
     remodel: [
@@ -3955,6 +4063,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "如月",
+    id_list: [2, 255, 435],
     main_id: 435,
     yomi: "きさらぎ kisaragi",
     remodel: [
@@ -3993,6 +4102,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "弥生",
+    id_list: [164, 308],
     main_id: 308,
     yomi: "やよい yayoi",
     remodel: [
@@ -4021,6 +4131,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "卯月",
+    id_list: [165, 309],
     main_id: 309,
     yomi: "うづき uzuki",
     remodel: [
@@ -4049,6 +4160,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "皐月",
+    id_list: [28, 256, 418],
     main_id: 418,
     yomi: "さつき satsuki",
     remodel: [
@@ -4087,6 +4199,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "水無月",
+    id_list: [481, 366],
     main_id: 366,
     yomi: "みなづき minazuki",
     remodel: [
@@ -4115,6 +4228,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "文月",
+    id_list: [29, 257, 548],
     main_id: 548,
     yomi: "ふみづき fumizuki",
     remodel: [
@@ -4153,6 +4267,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "長月",
+    id_list: [6, 258],
     main_id: 258,
     yomi: "ながつき nagatsuki",
     remodel: [
@@ -4181,6 +4296,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "菊月",
+    id_list: [30, 259],
     main_id: 259,
     yomi: "きくづき kikuzuki",
     remodel: [
@@ -4209,6 +4325,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "三日月",
+    id_list: [7, 260],
     main_id: 260,
     yomi: "みかづき mikazuki",
     remodel: [
@@ -4237,6 +4354,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "望月",
+    id_list: [31, 261],
     main_id: 261,
     yomi: "もちづき mochizuki",
     remodel: [
@@ -4265,6 +4383,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "吹雪",
+    id_list: [9, 201, 426],
     main_id: 426,
     yomi: "ふぶき fubuki",
     remodel: [
@@ -4303,6 +4422,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "白雪",
+    id_list: [10, 202],
     main_id: 202,
     yomi: "しらゆき shirayuki",
     remodel: [
@@ -4331,6 +4451,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "初雪",
+    id_list: [32, 203],
     main_id: 203,
     yomi: "はつゆき hatsuyuki",
     remodel: [
@@ -4359,6 +4480,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "深雪",
+    id_list: [11, 204],
     main_id: 204,
     yomi: "みゆき miyuki",
     remodel: [
@@ -4387,6 +4509,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "叢雲",
+    id_list: [33, 205, 420],
     main_id: 420,
     yomi: "むらくも murakumo",
     remodel: [
@@ -4425,6 +4548,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "磯波",
+    id_list: [12, 206],
     main_id: 206,
     yomi: "いそなみ isonami",
     remodel: [
@@ -4453,6 +4577,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "浦波",
+    id_list: [486, 368],
     main_id: 368,
     yomi: "うらなみ uranami",
     remodel: [
@@ -4481,6 +4606,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "綾波",
+    id_list: [13, 207, 195],
     main_id: 195,
     yomi: "あやなみ ayanami",
     remodel: [
@@ -4519,6 +4645,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "敷波",
+    id_list: [14, 208, 627],
     main_id: 627,
     yomi: "しきなみ shikinami",
     remodel: [
@@ -4557,6 +4684,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "天霧",
+    id_list: [479, 390],
     main_id: 390,
     yomi: "あまぎり amagiri",
     remodel: [
@@ -4585,6 +4713,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "狭霧",
+    id_list: [480, 391],
     main_id: 391,
     yomi: "さぎり sagiri",
     remodel: [
@@ -4613,6 +4742,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "朧",
+    id_list: [93, 230],
     main_id: 230,
     yomi: "おぼろ oboro",
     remodel: [
@@ -4641,6 +4771,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "曙",
+    id_list: [15, 231],
     main_id: 231,
     yomi: "あけぼの akebono",
     remodel: [
@@ -4669,6 +4800,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "漣",
+    id_list: [94, 232],
     main_id: 232,
     yomi: "さざなみ sazanami",
     remodel: [
@@ -4697,6 +4829,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "潮",
+    id_list: [16, 233, 407],
     main_id: 407,
     yomi: "うしお ushio",
     remodel: [
@@ -4735,6 +4868,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "暁",
+    id_list: [34, 234, 437],
     main_id: 437,
     yomi: "あかつき akatsuki",
     remodel: [
@@ -4773,6 +4907,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "響",
+    id_list: [35, 235, 147],
     main_id: 147,
     yomi: "ひびき べーるぬい ヴぇーるぬい べるぬい hibiki verniy",
     remodel: [
@@ -4811,6 +4946,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "雷",
+    id_list: [36, 236],
     main_id: 236,
     yomi: "いかづち ikazuchi",
     remodel: [
@@ -4839,6 +4975,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "電",
+    id_list: [37, 237],
     main_id: 237,
     yomi: "いなづま inazuma",
     remodel: [
@@ -4867,6 +5004,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "初春",
+    id_list: [38, 238, 326],
     main_id: 326,
     yomi: "はつはる hatsuharu",
     remodel: [
@@ -4905,6 +5043,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "子日",
+    id_list: [39, 239],
     main_id: 239,
     yomi: "ねのひ nenohi",
     remodel: [
@@ -4933,6 +5072,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "若葉",
+    id_list: [40, 240],
     main_id: 240,
     yomi: "わかば wakaba",
     remodel: [
@@ -4961,6 +5101,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "初霜",
+    id_list: [41, 241, 419],
     main_id: 419,
     yomi: "はつしも hatsushimo",
     remodel: [
@@ -4999,6 +5140,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "白露",
+    id_list: [42, 242, 497],
     main_id: 497,
     yomi: "しらつゆ shiratsuyu",
     remodel: [
@@ -5037,6 +5179,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "時雨",
+    id_list: [43, 243, 145],
     main_id: 145,
     yomi: "しぐれ shigure",
     remodel: [
@@ -5075,6 +5218,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "村雨",
+    id_list: [44, 244, 498],
     main_id: 498,
     yomi: "むらさめ murasame",
     remodel: [
@@ -5113,6 +5257,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "夕立",
+    id_list: [45, 245, 144],
     main_id: 144,
     yomi: "ゆうだち ぽい yuudachi poi",
     remodel: [
@@ -5151,6 +5296,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "春雨",
+    id_list: [405, 323],
     main_id: 323,
     yomi: "はるさめ harusame",
     remodel: [
@@ -5179,6 +5325,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "五月雨",
+    id_list: [46, 246],
     main_id: 246,
     yomi: "さみだれ samidare",
     remodel: [
@@ -5207,6 +5354,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "海風",
+    id_list: [458, 350, 587],
     main_id: 587,
     yomi: "うみかぜ umikaze",
     remodel: [
@@ -5245,6 +5393,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "山風",
+    id_list: [457, 369],
     main_id: 369,
     yomi: "やまかぜ yamakaze",
     remodel: [
@@ -5273,6 +5422,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "江風",
+    id_list: [459, 351, 469],
     main_id: 469,
     yomi: "かわかぜ kawakaze",
     remodel: [
@@ -5311,6 +5461,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "涼風",
+    id_list: [47, 247],
     main_id: 247,
     yomi: "すずかぜ suzukaze",
     remodel: [
@@ -5339,6 +5490,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "朝潮",
+    id_list: [95, 248, 463, 468],
     main_id: 468,
     yomi: "あさしお asashio",
     remodel: [
@@ -5387,6 +5539,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "大潮",
+    id_list: [96, 249, 199],
     main_id: 199,
     yomi: "おおしお ooshio",
     remodel: [
@@ -5425,6 +5578,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "満潮",
+    id_list: [97, 250, 489],
     main_id: 489,
     yomi: "みちしお michishio",
     remodel: [
@@ -5463,6 +5617,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "荒潮",
+    id_list: [98, 251, 490],
     main_id: 490,
     yomi: "あらしお arashio",
     remodel: [
@@ -5501,6 +5656,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "朝雲",
+    id_list: [413, 327],
     main_id: 327,
     yomi: "あらぐも asagumo",
     remodel: [
@@ -5529,6 +5685,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "山雲",
+    id_list: [414, 328],
     main_id: 328,
     yomi: "やまぐも yamagumo",
     remodel: [
@@ -5557,6 +5714,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "峯雲",
+    id_list: [583, 687],
     main_id: 687,
     yomi: "みねぐも minegumo",
     remodel: [
@@ -5585,6 +5743,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "霰",
+    id_list: [48, 252, 198],
     main_id: 198,
     yomi: "あられ arare",
     remodel: [
@@ -5623,6 +5782,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "霞",
+    id_list: [49, 253, 464, 470],
     main_id: 470,
     yomi: "かすみ kasumi",
     remodel: [
@@ -5671,6 +5831,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "陽炎",
+    id_list: [17, 225, 566],
     main_id: 566,
     yomi: "かげろう kagerou",
     remodel: [
@@ -5709,6 +5870,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "不知火",
+    id_list: [18, 226, 567],
     main_id: 567,
     yomi: "しらぬい shiranui",
     remodel: [
@@ -5747,6 +5909,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "黒潮",
+    id_list: [19, 227, 568],
     main_id: 568,
     yomi: "くろしお kuroshio",
     remodel: [
@@ -5785,6 +5948,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "親潮",
+    id_list: [456, 362],
     main_id: 362,
     yomi: "おやしお oyashio",
     remodel: [
@@ -5813,6 +5977,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "初風",
+    id_list: [190, 300],
     main_id: 300,
     yomi: "はつかぜ hatsukaze",
     remodel: [
@@ -5841,6 +6006,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "雪風",
+    id_list: [20, 228],
     main_id: 228,
     yomi: "ゆきかぜ yukikaze",
     remodel: [
@@ -5869,6 +6035,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "天津風",
+    id_list: [181, 316],
     main_id: 316,
     yomi: "あまつかぜ amatsukaze",
     remodel: [
@@ -5897,6 +6064,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "時津風",
+    id_list: [186, 322],
     main_id: 322,
     yomi: "ときつかぜ tokitsukaze",
     remodel: [
@@ -5925,6 +6093,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "浦風",
+    id_list: [168, 317, 556],
     main_id: 556,
     yomi: "うらかぜ urakaze",
     remodel: [
@@ -5963,6 +6132,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "磯風",
+    id_list: [167, 320, 557],
     main_id: 557,
     yomi: "いそかぜ isokaze",
     remodel: [
@@ -6001,6 +6171,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "浜風",
+    id_list: [170, 312, 558],
     main_id: 558,
     yomi: "はまかぜ hamakaze",
     remodel: [
@@ -6039,6 +6210,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "谷風",
+    id_list: [169, 313, 559],
     main_id: 559,
     yomi: "たにかぜ tanikaze",
     remodel: [
@@ -6077,6 +6249,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "野分",
+    id_list: [415, 329],
     main_id: 329,
     yomi: "のわき nowaki",
     remodel: [
@@ -6105,6 +6278,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "嵐",
+    id_list: [454, 354],
     main_id: 354,
     yomi: "あらし arashi",
     remodel: [
@@ -6133,6 +6307,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "萩風",
+    id_list: [455, 355],
     main_id: 355,
     yomi: "はぎかぜ hagikaze",
     remodel: [
@@ -6161,6 +6336,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "舞風",
+    id_list: [122, 294],
     main_id: 294,
     yomi: "まいかぜ maikaze",
     remodel: [
@@ -6189,6 +6365,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "秋雲",
+    id_list: [132, 301],
     main_id: 301,
     yomi: "あきぐも akigumo",
     remodel: [
@@ -6217,6 +6394,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "夕雲",
+    id_list: [133, 302, 542],
     main_id: 542,
     yomi: "ゆうぐも yuugumo",
     remodel: [
@@ -6255,6 +6433,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "巻雲",
+    id_list: [134, 303, 563],
     main_id: 563,
     yomi: "まきぐも makigumo",
     remodel: [
@@ -6293,6 +6472,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "風雲",
+    id_list: [453, 349, 564],
     main_id: 564,
     yomi: "かざぐも kazagumo",
     remodel: [
@@ -6331,6 +6511,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "長波",
+    id_list: [135, 304, 543],
     main_id: 543,
     yomi: "ながなみ naganami",
     remodel: [
@@ -6369,6 +6550,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "高波",
+    id_list: [424, 345],
     main_id: 345,
     yomi: "たかなみ takanami",
     remodel: [
@@ -6397,6 +6579,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "藤波",
+    id_list: [485, 373],
     main_id: 373,
     yomi: "ふじなみ fujinami",
     remodel: [
@@ -6425,6 +6608,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "早波",
+    id_list: [528, 688],
     main_id: 688,
     yomi: "はやなみ hayanami",
     remodel: [
@@ -6453,6 +6637,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "浜波",
+    id_list: [484, 680],
     main_id: 680,
     yomi: "はまなみ hamanami",
     remodel: [
@@ -6481,6 +6666,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "沖波",
+    id_list: [452, 359, 569],
     main_id: 569,
     yomi: "おきなみ okinami",
     remodel: [
@@ -6519,6 +6705,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "岸波",
+    id_list: [527, 686],
     main_id: 686,
     yomi: "きしなみ kishinami",
     remodel: [
@@ -6547,6 +6734,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "朝霜",
+    id_list: [425, 344, 578],
     main_id: 578,
     yomi: "あさしも asashimo",
     remodel: [
@@ -6585,6 +6773,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "早霜",
+    id_list: [409, 324],
     main_id: 324,
     yomi: "はやしも hayashimo",
     remodel: [
@@ -6613,6 +6802,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "秋霜",
+    id_list: [625, 695],
     main_id: 695,
     yomi: "あきしも akishimo",
     remodel: [
@@ -6641,6 +6831,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "清霜",
+    id_list: [410, 325],
     main_id: 325,
     yomi: "きよしも kiyoshimo",
     remodel: [
@@ -6669,6 +6860,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "秋月",
+    id_list: [421, 330],
     main_id: 330,
     yomi: "あきづき akizuki",
     remodel: [
@@ -6697,6 +6889,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "照月",
+    id_list: [422, 346],
     main_id: 346,
     yomi: "てるづき teruzuki",
     remodel: [
@@ -6725,6 +6918,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "涼月",
+    id_list: [532, 537],
     main_id: 537,
     yomi: "すずつき suzutsuki",
     remodel: [
@@ -6753,6 +6947,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "初月",
+    id_list: [423, 357],
     main_id: 357,
     yomi: "はつづき hatsuzuki",
     remodel: [
@@ -6781,6 +6976,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "島風",
+    id_list: [50, 229],
     main_id: 229,
     yomi: "しまかぜ shimakaze",
     remodel: [
@@ -6809,6 +7005,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Z1",
+    id_list: [174, 310, 179],
     main_id: 179,
     yomi: "れーべひとまーす leberecht maass z1",
     remodel: [
@@ -6847,6 +7044,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Z3",
+    id_list: [175, 311, 180],
     main_id: 180,
     yomi: "まっくすしゅるつ max schultz z3",
     remodel: [
@@ -6885,6 +7083,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Maestrale",
+    id_list: [575, 580],
     main_id: 580,
     yomi: "まえすとらーれ maestrale",
     remodel: [
@@ -6913,6 +7112,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Grecale",
+    id_list: [614, 619],
     main_id: 619,
     yomi: "ぐれかーれ grecale",
     remodel: [
@@ -6941,6 +7141,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Libeccio",
+    id_list: [443, 347],
     main_id: 347,
     yomi: "りべっちお libeccio",
     remodel: [
@@ -6969,6 +7170,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Samuel B.Roberts",
+    id_list: [561, 681],
     main_id: 681,
     yomi: "さみゅえるびーろばーつ samuel b roberts",
     remodel: [
@@ -6997,6 +7199,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Fletcher",
+    id_list: [596, 692, 628, 629],
     main_id: 692,
     yomi: "ふれっちゃー fletcher",
     remodel: [
@@ -7020,11 +7223,32 @@ const SHIP_DATA = [
         fuel: 20,
         bullet: 20,
       },
+      {
+        id: 628,
+        state: "改 Mod.2",
+        power: 60,
+        torp: 86,
+        luck: 47,
+        slot: 3,
+        fuel: 20,
+        bullet: 25,
+      },
+      {
+        id: 629,
+        state: "Mk.II",
+        power: 62,
+        torp: 82,
+        luck: 47,
+        slot: 3,
+        fuel: 25,
+        bullet: 25,
+      },
     ],
   },
   {
     type: 5,
     name: "Johnston",
+    id_list: [562, 689],
     main_id: 689,
     yomi: "じょんすとん johnston",
     remodel: [
@@ -7053,6 +7277,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Jervis",
+    id_list: [519, 394],
     main_id: 394,
     yomi: "じゃーびす jervis",
     remodel: [
@@ -7081,6 +7306,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Janus",
+    id_list: [520, 893],
     main_id: 893,
     yomi: "じぇーなす janus",
     remodel: [
@@ -7109,6 +7335,7 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "Ташкент",
+    id_list: [516, 395],
     main_id: 395,
     yomi: "たしゅけんと tashkent",
     remodel: [
@@ -7138,6 +7365,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "神威",
+    id_list: [162, 499, 500],
     main_id: 500,
     yomi: "かもい kamoi",
     remodel: [
@@ -7179,6 +7407,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "千歳",
+    id_list: [102, 104, 106],
     main_id: 106,
     yomi: "ちとせ chitose",
     remodel: [
@@ -7220,6 +7449,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "千代田",
+    id_list: [103, 105, 107],
     main_id: 107,
     yomi: "ちよだ chiyoda",
     remodel: [
@@ -7261,6 +7491,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "瑞穂",
+    id_list: [451, 348],
     main_id: 348,
     yomi: "みずほ mizuho",
     remodel: [
@@ -7291,6 +7522,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "日進",
+    id_list: [581, 690, 586],
     main_id: 586,
     yomi: "にっしん nisshin",
     remodel: [
@@ -7332,6 +7564,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "秋津洲",
+    id_list: [445, 450],
     main_id: 450,
     yomi: "あきつしま akitsushima",
     remodel: [
@@ -7362,6 +7595,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "大鯨",
+    id_list: [184],
     main_id: 184,
     yomi: "たいげい taigei",
     remodel: [
@@ -7381,6 +7615,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "速吸",
+    id_list: [460, 352],
     main_id: 352,
     yomi: "はやすい hayasui",
     remodel: [
@@ -7411,6 +7646,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "明石",
+    id_list: [182, 187],
     main_id: 187,
     yomi: "あかし akashi",
     remodel: [
@@ -7441,6 +7677,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "神州丸",
+    id_list: [621, 626],
     main_id: 626,
     yomi: "しんしゅうまる shinsyuumaru",
     remodel: [
@@ -7471,6 +7708,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "あきつ丸",
+    id_list: [161, 166],
     main_id: 166,
     yomi: "あきつまる akitsumaru",
     remodel: [
@@ -7501,6 +7739,7 @@ const SHIP_DATA = [
   {
     type: 8,
     name: "Commandant Teste",
+    id_list: [491, 372],
     main_id: 372,
     yomi: "こまんだんてすと commandant teste",
     remodel: [
@@ -10044,6 +10283,30 @@ const ITEM_DATA = [
     isSurface: true,
     isAir: true,
     yomi: "sk + sgレーダー",
+    singleBonus: [
+      {
+        power: 2,
+        targetId: [
+          601,
+          1496,
+          440,
+          360,
+          433,
+          438,
+          545,
+          550,
+          549,
+          397,
+          544,
+          396,
+          595,
+          600,
+          597,
+          696,
+        ],
+      },
+      { power: 1, targetId: [439, 364, 571, 576, 515, 393, 613, 618] },
+    ],
     multiBonus: [
       {
         power: 1,
@@ -10973,6 +11236,37 @@ const ITEM_DATA = [
     isSurface: true,
     isAir: true,
     yomi: "gfcs mk.37 ぐふかす",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [
+          601,
+          1496,
+          440,
+          360,
+          433,
+          438,
+          545,
+          550,
+          549,
+          397,
+          544,
+          396,
+          595,
+          600,
+          597,
+          696,
+          596,
+          692,
+          628,
+          629,
+          562,
+          689,
+          561,
+          681,
+        ],
+      },
+    ],
     multiBonus: [
       {
         power: 1,
@@ -10998,7 +11292,7 @@ const ITEM_DATA = [
     accuracy: 6,
     yomi: "5inch単装砲 mk.30改 + gfcs mk.37 5いんちたんそうほう",
     singleAddableBonus: [
-      { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
+      { power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629] },
       {
         power: 1,
         targetId: [
@@ -11287,7 +11581,7 @@ const ITEM_DATA = [
     accuracy: 2,
     yomi: "5inch単装速射砲 mk.30改 5いんちたんそうそくしゃほう",
     singleAddableBonus: [
-      { power: 2, targetId: [596, 692, 562, 689, 561, 681] },
+      { power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629] },
     ],
   },
 
@@ -11300,6 +11594,30 @@ const ITEM_DATA = [
     isSurface: true,
     isAir: true,
     yomi: "sgレーダー(初期型) sgレーダー初期型",
+    singleAddableBonus: [
+      { power: 3, targetId: [596, 692, 628, 629, 562, 689, 561, 681] },
+      {
+        power: 2,
+        targetId: [
+          601,
+          1496,
+          440,
+          360,
+          433,
+          438,
+          545,
+          550,
+          549,
+          397,
+          544,
+          396,
+          595,
+          600,
+          597,
+          696,
+        ],
+      },
+    ],
     multiBonus: [
       {
         power: 1,

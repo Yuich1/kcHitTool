@@ -246,209 +246,108 @@ $(function () {
       "http://kancolle-calc.net/deckbuilder.html?predeck=" + getDeckBuilder();
     window.open(t, "newtab");
   });
+});
 
-  //艦娘の選択モーダルを構成する
-  const setFleetList = (shipType, isEnemy) => {
-    if (hasMyFleetTypeList[shipType - 1] && !isEnemy) {
-      return;
-    }
-    if (hasEnemyFleetTypeList[shipType - 1] && isEnemy) {
-      return;
-    }
-    let shipList;
-    let targetId;
-    if (isEnemy) {
-      shipList = ENEMY_DATA;
-      targetId = `#${
-        SHIP_TYPE.find((item) => item.id === shipType).type
-      }-enemy`;
-      hasEnemyFleetTypeList[shipType - 1] = true;
-    } else {
-      shipList = SHIP_DATA;
-      targetId = `#${SHIP_TYPE.find((item) => item.id === shipType).type}`;
-      hasMyFleetTypeList[shipType - 1] = true;
-    }
-    for (let index = 0; index < shipList.length; index++) {
-      const ship = shipList[index];
-      if (ship.type == shipType) {
-        const main_id = ship.main_id;
-        const name = ship.name;
-        const tr = $("<tr>");
-        const td = $("<td>");
-        const img = $("<img>", {
-          class: "banner",
-          src: `./images/ships/${main_id}.png`,
-          alt: `${name}`,
+//艦娘の選択モーダルを構成する
+const setFleetList = (shipType, isEnemy) => {
+  if (hasMyFleetTypeList[shipType - 1] && !isEnemy) {
+    return;
+  }
+  if (hasEnemyFleetTypeList[shipType - 1] && isEnemy) {
+    return;
+  }
+  let shipList;
+  let targetId;
+  if (isEnemy) {
+    shipList = ENEMY_DATA;
+    targetId = `#${SHIP_TYPE.find((item) => item.id === shipType).type}-enemy`;
+    hasEnemyFleetTypeList[shipType - 1] = true;
+  } else {
+    shipList = SHIP_DATA;
+    targetId = `#${SHIP_TYPE.find((item) => item.id === shipType).type}`;
+    hasMyFleetTypeList[shipType - 1] = true;
+  }
+  for (let index = 0; index < shipList.length; index++) {
+    const ship = shipList[index];
+    if (ship.type == shipType) {
+      const main_id = ship.main_id;
+      const name = ship.name;
+      const tr = $("<tr>");
+      const td = $("<td>");
+      const img = $("<img>", {
+        class: "banner",
+        src: `./images/ships/${main_id}.png`,
+        alt: `${name}`,
+        "data-dismiss": "modal",
+        "data-id": `${main_id}`,
+        "data-main_id": `${main_id}`,
+      });
+      const span = $("<span>", { class: "fleet-name", text: `${name}` });
+      const yomi = $("<span>", {
+        class: "my-hidden fleet-yomi",
+        text: `${ship.yomi}`,
+      });
+      let selectedFleet;
+      td.append(img).append(span.append(yomi));
+      tr.append(td);
+      for (let index = 0; index < ship.remodel.length; index++) {
+        selectedFleet = Object.assign({}, ship.remodel[index]);
+        const state = selectedFleet.state;
+        const title = `${
+          selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""
+        }${selectedFleet.hp ? `装甲 ${selectedFleet.hp}, ` : ""}${
+          selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""
+        }${selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""}`;
+        const button = $("<button>", {
+          type: "button",
+          class: "btn btn-default set-fleet",
           "data-dismiss": "modal",
-          "data-id": `${main_id}`,
+          "data-id": `${selectedFleet.id}`,
           "data-main_id": `${main_id}`,
-        });
-        const span = $("<span>", { class: "fleet-name", text: `${name}` });
-        const yomi = $("<span>", {
-          class: "my-hidden fleet-yomi",
-          text: `${ship.yomi}`,
-        });
-        let selectedFleet;
-        td.append(img).append(span.append(yomi));
-        tr.append(td);
-        for (let index = 0; index < ship.remodel.length; index++) {
-          selectedFleet = Object.assign({}, ship.remodel[index]);
-          const state = selectedFleet.state;
-          const title = `${
-            selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""
-          }${selectedFleet.hp ? `耐久 ${selectedFleet.hp}, ` : ""}${
-            selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""
-          }${selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""}`;
-          const button = $("<button>", {
-            type: "button",
-            class: "btn btn-default set-fleet",
-            "data-dismiss": "modal",
-            "data-id": `${selectedFleet.id}`,
-            "data-main_id": `${main_id}`,
-          }).append(
-            $("<div>", {
-              class: "item-tooltip",
-              "data-toggle": "tooltip",
-              title: title,
-              text: state,
-            })
-          );
-          td.append(button);
-        }
-        $(`${targetId} .table tbody`).append(tr);
-      }
-    }
-    $('[data-toggle="tooltip"]').tooltip();
-    $(`${targetId} .set-fleet, ${targetId} .banner`).on("click", function () {
-      changeFleet(this);
-      if (!isEnemy) {
-        resetItemAccuracy();
-        setItemForm();
-        setItemList();
-      }
-      getResultData();
-    });
-  };
-
-  //艦娘を選択する
-  const changeFleet = (obj) => {
-    const id = $(obj).data("id");
-    const main_id = $(obj).data("main_id");
-    let shipData;
-    let selectedFleet;
-    if (id > 1500) {
-      shipData = ENEMY_DATA;
-    } else {
-      shipData = SHIP_DATA;
-    }
-    let name = "";
-    for (let index = 0; index < shipData.length; index++) {
-      const ship = shipData[index];
-      if (ship.main_id == main_id) {
-        name = ship.name;
-        for (let index = 0; index < ship.remodel.length; index++) {
-          if (ship.remodel[index].id == id && id <= 1500) {
-            const myFleet = new MyFleet(ship.remodel[index], []);
-            myFleet.fleet.type = ship.type;
-            myFleet.fleet.name = name;
-            selectedMyFleetList[selectedFleetNum] = myFleet;
-            selectedFleet = myFleet.fleet;
-            break;
-          } else if (ship.remodel[index].id == id) {
-            selectedEnemyFleet = ship.remodel[index];
-            selectedEnemyFleet.type = ship.type;
-            selectedFleet = selectedEnemyFleet;
-            break;
-          }
-        }
-      }
-    }
-    const state = selectedFleet.state;
-    const luck = selectedFleet.luck;
-    const src = `./images/ships/${id}.png`;
-    let setState = state;
-    if (setState == "未改造" || setState == "normal") {
-      setState = "";
-    }
-    const setName = name + " " + setState;
-    const defaultLevel = 99;
-
-    if (id > 1500) {
-      $(".enemy .fleet-name").html(setName);
-      $(".enemy .fleet-img").attr("src", src);
-      $(".enemy .hp").html(selectedFleet.hp);
-      $(".enemy .armor").html(selectedFleet.armor);
-      $(".enemy .avoidance").html(
-        selectedFleet.avoidance + selectedFleet.avoidance_item
-      );
-      $(".enemy .luck").html(luck);
-    } else {
-      const power =
-        selectedFleet.type == 2
-          ? Math.floor((selectedFleet.power - 1) * 1.5) + 55
-          : selectedFleet.power + 4;
-      $(`.myfleet .fleet-name`).html(setName);
-      $(".myfleet .fleet-img").attr("src", src);
-      $(".myfleet .luck").val(luck);
-      $(".myfleet .power").html(power);
-      $(".myfleet .lv").val(defaultLevel);
-      //結果背景画像変更
-      /*const img = $("<img>", { src: `./images/full/${id}.png` });
-      img.on("load", function () {
-        $(".result.box .background-img").css(
-          "background-image",
-          `url(./images/full/${id}.png)`
+        }).append(
+          $("<div>", {
+            class: "item-tooltip",
+            "data-toggle": "tooltip",
+            title: title,
+            text: state,
+          })
         );
-      });*/
+        td.append(button);
+      }
+      $(`${targetId} .table tbody`).append(tr);
+    }
+  }
+  $('[data-toggle="tooltip"]').tooltip();
+  $(`${targetId} .set-fleet, ${targetId} .banner`).on("click", function () {
+    changeFleet($(this).data("id"));
+    if (!isEnemy) {
+      resetItemAccuracy();
+      setItemForm();
+      setItemList();
     }
     getResultData();
-  };
+  });
+};
 
-  //装備スロットを構成する
-  const setItemForm = () => {
-    $(".myfleet .items tr").remove();
-    for (
-      let index = 0;
-      index < selectedMyFleetList[selectedFleetNum].fleet.slot;
-      index++
-    ) {
-      const button = $("<button>", {
-        type: "button",
-        class: "btn btn-default item",
-        id: `itemSlot${index}`,
-        "data-toggle": "modal",
-        "data-target": "#select-myitem",
-        text: "装備" + (index + 1),
-        value: index,
-      });
-      button.on("click", function () {
-        $(".search-item").val("");
-      });
-      const remove = $("<button>", {
-        type: "button",
-        class: "btn btn-default",
-        html: "&times;",
-      });
-      remove.on("click", function () {
-        setItem(index, 0);
-      });
-      const tr = $("<tr>")
-        .append($("<td>").append(button))
-        .append(remove)
-        .append($("<td>"));
-      $(".myfleet .items tbody").append(tr);
-    }
+//装備スロットを構成する
+const setItemForm = () => {
+  $(".myfleet .items tr").remove();
+  for (
+    let index = 0;
+    index < selectedMyFleetList[selectedFleetNum].fleet.slot;
+    index++
+  ) {
     const button = $("<button>", {
       type: "button",
-      class: "btn btn-default item add-item",
-      id: `itemSlot${selectedMyFleetList[selectedFleetNum].fleet.slot}`,
+      class: "btn btn-default item",
+      id: `itemSlot${index}`,
       "data-toggle": "modal",
       "data-target": "#select-myitem",
-      text: "補強増設",
+      text: "装備" + (index + 1),
+      value: index,
     });
     button.on("click", function () {
       $(".search-item").val("");
-      $(".search-item").focus();
     });
     const remove = $("<button>", {
       type: "button",
@@ -456,221 +355,318 @@ $(function () {
       html: "&times;",
     });
     remove.on("click", function () {
-      setItem(selectedMyFleetList[selectedFleetNum].fleet.slot, 0);
+      setItem(index, 0);
     });
     const tr = $("<tr>")
       .append($("<td>").append(button))
       .append(remove)
       .append($("<td>"));
     $(".myfleet .items tbody").append(tr);
-  };
+  }
+  const button = $("<button>", {
+    type: "button",
+    class: "btn btn-default item add-item",
+    id: `itemSlot${selectedMyFleetList[selectedFleetNum].fleet.slot}`,
+    "data-toggle": "modal",
+    "data-target": "#select-myitem",
+    text: "補強増設",
+  });
+  button.on("click", function () {
+    $(".search-item").val("");
+    $(".search-item").focus();
+  });
+  const remove = $("<button>", {
+    type: "button",
+    class: "btn btn-default",
+    html: "&times;",
+  });
+  remove.on("click", function () {
+    setItem(selectedMyFleetList[selectedFleetNum].fleet.slot, 0);
+  });
+  const tr = $("<tr>")
+    .append($("<td>").append(button))
+    .append(remove)
+    .append($("<td>"));
+  $(".myfleet .items tbody").append(tr);
+};
 
-  //装備の選択モーダルを構成する
-  const setItemList = () => {
-    const itemType = [
-      { type: "l-gun", id: [3] },
-      { type: "m-gun", id: [2] },
-      { type: "s-gun", id: [1] },
-      { type: "secondaly-gun", id: [4] },
-      { type: "fighter", id: [7] },
-      { type: "attacker", id: [8] },
-      { type: "bomber", id: [9, 10] },
-      { type: "torpedo", id: [5, 6] },
-      { type: "radar", id: [14, 15] },
-      {
-        type: "other",
-        id: [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29,
-        ],
-      },
-    ];
-    const expansionItemType = [18, 25, 26, 28];
-    $(".myfleet .item").on("click", function () {
-      $(".item-list .table tr").remove();
-      let targetTabId;
-      const slotButtonId = this.id;
-      const slotNumber = slotButtonId.charAt(slotButtonId.length - 1);
-      let isExpansionSlot =
-        selectedMyFleetList[selectedFleetNum].fleet.slot ==
-        slotButtonId.charAt(slotButtonId.length - 1);
-      isItemOpen = true;
-      selectedMyFleetList[selectedFleetNum].item[slotNumber] = 0;
-      const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
-      for (let index = 0; index < ITEM_DATA.length; index++) {
-        const item = $.extend(true, {}, ITEM_DATA[index]);
-        let isException = false;
-        let isSpecial = false;
-        let isExpansion = false;
-        let canHave = false;
-        if (isExpansionSlot) {
-          isExpansion = expansionItemType.some((c) => c == item.type);
-          canHave =
-            SHIP_TYPE[
-              selectedMyFleetList[selectedFleetNum].fleet.type - 1
-            ].canHaveItem.some((c) => c == item.type) && isExpansion;
-        } else {
-          canHave = SHIP_TYPE[
+//装備の選択モーダルを構成する
+const setItemList = () => {
+  const itemType = [
+    { type: "l-gun", id: [3] },
+    { type: "m-gun", id: [2] },
+    { type: "s-gun", id: [1] },
+    { type: "secondaly-gun", id: [4] },
+    { type: "fighter", id: [7] },
+    { type: "attacker", id: [8] },
+    { type: "bomber", id: [9, 10] },
+    { type: "torpedo", id: [5, 6] },
+    { type: "radar", id: [14, 15] },
+    {
+      type: "other",
+      id: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+      ],
+    },
+  ];
+  const expansionItemType = [18, 25, 26, 28];
+  $(".myfleet .item").on("click", function () {
+    $(".item-list .table tr").remove();
+    let targetTabId;
+    const slotButtonId = this.id;
+    const slotNumber = slotButtonId.charAt(slotButtonId.length - 1);
+    let isExpansionSlot =
+      selectedMyFleetList[selectedFleetNum].fleet.slot ==
+      slotButtonId.charAt(slotButtonId.length - 1);
+    isItemOpen = true;
+    selectedMyFleetList[selectedFleetNum].item[slotNumber] = 0;
+    const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
+    for (let index = 0; index < ITEM_DATA.length; index++) {
+      const item = $.extend(true, {}, ITEM_DATA[index]);
+      let isException = false;
+      let isSpecial = false;
+      let isExpansion = false;
+      let canHave = false;
+      if (isExpansionSlot) {
+        isExpansion = expansionItemType.some((c) => c == item.type);
+        canHave =
+          SHIP_TYPE[
             selectedMyFleetList[selectedFleetNum].fleet.type - 1
-          ].canHaveItem.some((c) => c == item.type);
-        }
-        if (canHave) {
-          const isExceptionId = selectedMyFleetList[selectedFleetNum].fleet
-            .cantHaveItemId
-            ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId.some(
-                (c) => c == item.id
-              )
-            : false;
-          const isExceptionType = selectedMyFleetList[selectedFleetNum].fleet
-            .cantHaveItemType
-            ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType.some(
-                (c) => c == item.type
-              )
-            : false;
-          isException = isExceptionId || isExceptionType;
+          ].canHaveItem.some((c) => c == item.type) && isExpansion;
+      } else {
+        canHave = SHIP_TYPE[
+          selectedMyFleetList[selectedFleetNum].fleet.type - 1
+        ].canHaveItem.some((c) => c == item.type);
+      }
+      if (canHave) {
+        const isExceptionId = selectedMyFleetList[selectedFleetNum].fleet
+          .cantHaveItemId
+          ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId.some(
+              (c) => c == item.id
+            )
+          : false;
+        const isExceptionType = selectedMyFleetList[selectedFleetNum].fleet
+          .cantHaveItemType
+          ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType.some(
+              (c) => c == item.type
+            )
+          : false;
+        isException = isExceptionId || isExceptionType;
+      } else {
+        const isSpecialId = selectedMyFleetList[selectedFleetNum].fleet
+          .specialCanHaveItemId
+          ? selectedMyFleetList[
+              selectedFleetNum
+            ].fleet.specialCanHaveItemId.some((c) => c == item.id)
+          : false;
+        const isSpecialType = selectedMyFleetList[selectedFleetNum].fleet
+          .specialCanHaveItemType
+          ? selectedMyFleetList[
+              selectedFleetNum
+            ].fleet.specialCanHaveItemType.some((c) => c == item.type)
+          : false;
+        if (!isExpansionSlot) {
+          isSpecial = isSpecialId || isSpecialType;
         } else {
-          const isSpecialId = selectedMyFleetList[selectedFleetNum].fleet
-            .specialCanHaveItemId
+          const t = selectedMyFleetList[selectedFleetNum].fleet
+            .expansionCanHaveItemId
             ? selectedMyFleetList[
                 selectedFleetNum
-              ].fleet.specialCanHaveItemId.some((c) => c == item.id)
+              ].fleet.expansionCanHaveItemId.some((c) => c == item.id)
             : false;
-          const isSpecialType = selectedMyFleetList[selectedFleetNum].fleet
-            .specialCanHaveItemType
-            ? selectedMyFleetList[
-                selectedFleetNum
-              ].fleet.specialCanHaveItemType.some((c) => c == item.type)
-            : false;
-          if (!isExpansionSlot) {
-            isSpecial = isSpecialId || isSpecialType;
-          } else {
-            const t = selectedMyFleetList[selectedFleetNum].fleet
-              .expansionCanHaveItemId
-              ? selectedMyFleetList[
-                  selectedFleetNum
-                ].fleet.expansionCanHaveItemId.some((c) => c == item.id)
-              : false;
-            isSpecial = t || ((isSpecialId || isSpecialType) && isExpansion);
-          }
-        }
-        if ((canHave && !isException) || isSpecial) {
-          for (let index = 0; index < itemType.length; index++) {
-            if (itemType[index].id.indexOf(item.type) != -1) {
-              targetTabId = itemType[index].type;
-              break;
-            }
-          }
-
-          let title = `${item.power ? `火力 ${item.power}, ` : ""}${
-            item.bomb ? `爆装 ${item.bomb}, ` : ""
-          }${item.torp ? `雷装 ${item.torp}, ` : ""}${
-            item.accuracy ? `命中 ${item.accuracy}` : ""
-          }`;
-          let tip = $("<div>", {
-            class: "item-tooltip",
-            "data-toggle": "tooltip",
-            title: title,
-            text: item.name,
-          });
-          const button = $("<button>", {
-            type: "button",
-            class: "btn btn-default item",
-            "data-toggle": "modal",
-            "data-target": "#select-myitem",
-          }).append(tip);
-          const yomi = $("<span>", {
-            class: "my-hidden item-yomi",
-            text: `${item.yomi}`,
-          });
-          button.append(yomi);
-          //装備マウスオーバー時の処理
-          button.on("mouseover", function () {
-            if (isItemOpen) {
-              const r = item.singleAddableBonus
-                ? getSingleAddableBonus(item)
-                : 0;
-              const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
-              selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
-              const ta = getMultiBonus(
-                selectedMyFleetList[selectedFleetNum].item
-              );
-              const bonusPower =
-                (r.power ? r.power : 0) +
-                (s.power ? s.power : 0) +
-                (ta.power ? ta.power : 0) -
-                (t.power ? t.power : 0);
-              const bonusTorp =
-                (r.torp ? r.torp : 0) +
-                (s.torp ? s.torp : 0) +
-                (ta.torp ? ta.torp : 0) -
-                (t.torp ? t.torp : 0);
-              const title = `${
-                item.power
-                  ? `火力 ${item.power}`
-                  : `${bonusPower != 0 ? "火力 " : ""}`
-              }${
-                bonusPower != 0
-                  ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), `
-                  : `${item.power ? ", " : ""}`
-              }${item.bomb ? `爆装 ${item.bomb}, ` : ""}${
-                item.torp ? `雷装 ${item.torp}` : ""
-              }${bonusTorp != 0 ? `(+${bonusTorp})` : ""}${
-                item.torp || bonusTorp != 0 ? ", " : ""
-              }${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
-              $(this)
-                .children(".item-tooltip")
-                .attr("title", title)
-                .tooltip("fixTitle")
-                .tooltip("show");
-              $('[data-toggle="tooltip"]').tooltip();
-            }
-          });
-          //装備選択時の処理
-          button.on("click", function () {
-            isItemOpen = false;
-            setItem(slotNumber, item);
-          });
-          const tr = $("<tr>").append($("<td>").append(button));
-          $(`#${targetTabId} tbody`).append(tr);
-          $('[data-toggle="tooltip"]').tooltip();
+          isSpecial = t || ((isSpecialId || isSpecialType) && isExpansion);
         }
       }
-    });
-  };
+      if ((canHave && !isException) || isSpecial) {
+        for (let index = 0; index < itemType.length; index++) {
+          if (itemType[index].id.indexOf(item.type) != -1) {
+            targetTabId = itemType[index].type;
+            break;
+          }
+        }
 
-  const resetItemAccuracy = () => {
-    itemAccuracy = 0;
-    selectedMyFleetList[selectedFleetNum].item.length = 0;
-    $(".myfleet .accuracy").html(itemAccuracy);
-  };
-});
+        let title = `${item.power ? `火力 ${item.power}, ` : ""}${
+          item.bomb ? `爆装 ${item.bomb}, ` : ""
+        }${item.torp ? `雷装 ${item.torp}, ` : ""}${
+          item.accuracy ? `命中 ${item.accuracy}` : ""
+        }`;
+        let tip = $("<div>", {
+          class: "item-tooltip",
+          "data-toggle": "tooltip",
+          title: title,
+          text: item.name,
+        });
+        const button = $("<button>", {
+          type: "button",
+          class: "btn btn-default item",
+          "data-toggle": "modal",
+          "data-target": "#select-myitem",
+        }).append(tip);
+        const yomi = $("<span>", {
+          class: "my-hidden item-yomi",
+          text: `${item.yomi}`,
+        });
+        button.append(yomi);
+        //装備マウスオーバー時の処理
+        button.on("mouseover", function () {
+          if (isItemOpen) {
+            const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
+            const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
+            selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
+            const ta = getMultiBonus(
+              selectedMyFleetList[selectedFleetNum].item
+            );
+            const bonusPower =
+              (r.power ? r.power : 0) +
+              (s.power ? s.power : 0) +
+              (ta.power ? ta.power : 0) -
+              (t.power ? t.power : 0);
+            const bonusTorp =
+              (r.torp ? r.torp : 0) +
+              (s.torp ? s.torp : 0) +
+              (ta.torp ? ta.torp : 0) -
+              (t.torp ? t.torp : 0);
+            const title = `${
+              item.power
+                ? `火力 ${item.power}`
+                : `${bonusPower != 0 ? "火力 " : ""}`
+            }${
+              bonusPower != 0
+                ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), `
+                : `${item.power ? ", " : ""}`
+            }${item.bomb ? `爆装 ${item.bomb}, ` : ""}${
+              item.torp ? `雷装 ${item.torp}` : ""
+            }${bonusTorp != 0 ? `(+${bonusTorp})` : ""}${
+              item.torp || bonusTorp != 0 ? ", " : ""
+            }${item.accuracy ? `命中 ${item.accuracy}` : ""}`;
+            $(this)
+              .children(".item-tooltip")
+              .attr("title", title)
+              .tooltip("fixTitle")
+              .tooltip("show");
+            $('[data-toggle="tooltip"]').tooltip();
+          }
+        });
+        //装備選択時の処理
+        button.on("click", function () {
+          isItemOpen = false;
+          setItem(slotNumber, item);
+        });
+        const tr = $("<tr>").append($("<td>").append(button));
+        $(`#${targetTabId} tbody`).append(tr);
+        $('[data-toggle="tooltip"]').tooltip();
+      }
+    }
+  });
+};
+
+const resetItemAccuracy = () => {
+  itemAccuracy = 0;
+  selectedMyFleetList[selectedFleetNum].item.length = 0;
+  $(".myfleet .accuracy").html(itemAccuracy);
+};
+
+//艦娘を選択する
+const changeFleet = (id) => {
+  //const id = $(obj).data("id");
+  //const main_id = $(obj).data("main_id");
+  let shipData;
+  let selectedFleet;
+  if (id > 1500) {
+    shipData = ENEMY_DATA;
+  } else {
+    shipData = SHIP_DATA;
+  }
+  let name = "";
+  for (let index = 0; index < shipData.length; index++) {
+    const ship = shipData[index];
+    if (ship.id_list.indexOf(id) != -1) {
+      name = ship.name;
+      for (let index = 0; index < ship.remodel.length; index++) {
+        if (ship.remodel[index].id == id && id <= 1500) {
+          const myFleet = new MyFleet(ship.remodel[index], []);
+          myFleet.fleet.type = ship.type;
+          myFleet.fleet.name = name;
+          selectedMyFleetList[selectedFleetNum] = myFleet;
+          selectedFleet = myFleet.fleet;
+          break;
+        } else if (ship.remodel[index].id == id) {
+          selectedEnemyFleet = ship.remodel[index];
+          selectedEnemyFleet.type = ship.type;
+          selectedFleet = selectedEnemyFleet;
+          break;
+        }
+      }
+    }
+  }
+  const state = selectedFleet.state;
+  const luck = selectedFleet.luck;
+  const src = `./images/ships/${id}.png`;
+  let setState = state;
+  if (setState == "未改造" || setState == "normal") {
+    setState = "";
+  }
+  const setName = name + " " + setState;
+  const defaultLevel = 99;
+
+  if (id > 1500) {
+    $(".enemy .fleet-name").html(setName);
+    $(".enemy .fleet-img").attr("src", src);
+    $(".enemy .hp").html(selectedFleet.hp);
+    $(".enemy .armor").html(selectedFleet.armor);
+    $(".enemy .avoidance").html(
+      selectedFleet.avoidance + selectedFleet.avoidance_item
+    );
+    $(".enemy .luck").html(luck);
+  } else {
+    const power =
+      selectedFleet.type == 2
+        ? Math.floor((selectedFleet.power - 1) * 1.5) + 55
+        : selectedFleet.power + 4;
+    $(`.myfleet .fleet-name`).html(setName);
+    $(".myfleet .fleet-img").attr("src", src);
+    $(".myfleet .luck").val(luck);
+    $(".myfleet .power").html(power);
+    $(".myfleet .lv").val(defaultLevel);
+    //結果背景画像変更
+    /*const img = $("<img>", { src: `./images/full/${id}.png` });
+      img.on("load", function () {
+        $(".result.box .background-img").css(
+          "background-image",
+          `url(./images/full/${id}.png)`
+        );
+      });*/
+  }
+  getResultData();
+};
 
 const setItem = (slotNumber, item) => {
   if (
@@ -860,6 +856,7 @@ const getAttack = (attack, formationDamageCoef, engagementDamageCoef) => {
 };
 
 const getResultData = () => {
+  if (!selectedMyFleetList[selectedFleetNum]) return;
   let sink = 0;
   let taiha = 0;
   let tyuha = 0;
@@ -1062,8 +1059,8 @@ const getDeckBuilder = () => {
       fleetNum++;
       for (let j = 0; j < myFleet.item.length + 1; j++) {
         if (myFleet.item[j]) {
-          if (j == myFleet.item.length) {
-            deck += `ix:${myFleet.item[j].id},"rf":0}`;
+          if (j + 1 == myFleet.item.length) {
+            deck += `"ix":{"id":${myFleet.item[j].id},"rf":0}`;
           } else {
             deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}${
               j != myFleet.item.length - 1 ? "," : ""
@@ -1079,22 +1076,53 @@ const getDeckBuilder = () => {
 };
 
 const setDeckBuilder = (dataString) => {
-  let shipList;
-  let itemList;
+  const fleetNum = selectedFleetNum;
+  selectedFleetNum = 1;
   const raw = JSON.parse(dataString);
   for (const i in raw) {
     if (!raw[i]) continue;
     const fleet = raw[i];
     for (const j in fleet) {
-      if (!fleet[j]) continue;
+      if (!fleet[j].id) continue;
+      //set ship
       const ship = fleet[j];
-      shipList.push(ship);
+      changeFleet(parseInt(ship.id));
+      $(".myfleet .lv").val(ship.lv);
+      $(".myfleet .luck").val(ship.luck);
+      selectedMyFleetList[selectedFleetNum].fleet.lv = ship.lv;
+      selectedMyFleetList[selectedFleetNum].fleet.luck = ship.luck;
+      console.log(selectedMyFleetList[selectedFleetNum].fleet)
+      resetItemAccuracy();
+      setItemForm();
+      setItemList();
+      //set items
+      const items = ship.items;
+      for (const k in items) {
+        const itemId = items[k].id;
+        let item;
+        for (const t in ITEM_DATA) {
+          if (ITEM_DATA[t].id == itemId) {
+            item = ITEM_DATA[t];
+            break;
+          }
+        }
+        setItem(
+          k[1] == "x"
+            ? selectedMyFleetList[selectedFleetNum].fleet.slot
+            : k[1] - 1,
+          item
+        );
+      }
+      selectedFleetNum++;
     }
   }
-};
-var sum  = function(arr) {
-  return arr.reduce(function(prev, current, i, arr) {
-      return prev+current;
-  });
+  selectedFleetNum = fleetNum;
+  $(".fleet-select")[1].click();
+  $(".fleet-select")[0].click();
 };
 
+const sum = function (arr) {
+  return arr.reduce(function (prev, current, i, arr) {
+    return prev + current;
+  });
+};
