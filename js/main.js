@@ -979,8 +979,8 @@ const getResultData = () => {
         中破 ${tyuhaProb}%<br>
         小破 ${shohaProb}%<br>
         小破未満 ${fineProb}%`);
-  $(".result-right").html(`<div class="sub-title">命中込み撃破率</div>
-  撃破 ${Math.floor((sinkProb * finalAccuracy) / 10) / 10}%<br>
+  $(".result-right").html(`<div class="sub-title">命中込み撃沈率</div>
+  撃沈 ${Math.floor((sinkProb * finalAccuracy) / 10) / 10}%<br>
   大破 ${Math.floor((taihaProb * finalAccuracy) / 10) / 10}%<br>
   中破 ${Math.floor((tyuhaProb * finalAccuracy) / 10) / 10}%<br>
   小破 ${Math.floor((shohaProb * finalAccuracy) / 10) / 10}%<br>
