@@ -12309,6 +12309,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "イ級",
+    id_list:[1501, 1514, 1564],
     main_id: 1501,
     remodel: [
       {
@@ -12343,6 +12344,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "イ級後期型",
+    id_list:[1575, 1621],
     main_id: 1575,
     remodel: [
       {
@@ -12368,6 +12370,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ロ級",
+    id_list:[1502, 1515, 1552],
     main_id: 1502,
     remodel: [
       {
@@ -12402,6 +12405,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ロ級後期型",
+    id_list:[1576, 1622],
     main_id: 1576,
     remodel: [
       {
@@ -12427,6 +12431,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ハ級",
+    id_list:[1503, 1516, 1553],
     main_id: 1503,
     remodel: [
       {
@@ -12461,6 +12466,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ハ級後期型",
+    id_list:[1577, 1623],
     main_id: 1577,
     remodel: [
       {
@@ -12486,6 +12492,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ニ級",
+    id_list:[1504, 1517],
     main_id: 1504,
     remodel: [
       {
@@ -12511,6 +12518,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ニ級後期型",
+    id_list:[1578, 1624],
     main_id: 1578,
     remodel: [
       {
@@ -12536,6 +12544,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ニ級改",
+    id_list:[1858],
     main_id: 1858,
     remodel: [
       {
@@ -12552,6 +12561,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ニ級改後期型",
+    id_list:[1859, 1860, 1861],
     main_id: 1859,
     remodel: [
       {
@@ -12586,6 +12596,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ナ級",
+    id_list:[1739, 1740, 1741],
     main_id: 1739,
     remodel: [
       {
@@ -12620,6 +12631,7 @@ const ENEMY_DATA = [
   {
     type: 5,
     name: "ナ級後期型",
+    id_list:[1742, 1743, 1744],
     main_id: 1742,
     remodel: [
       {
@@ -12654,6 +12666,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "ホ級",
+    id_list:[1505, 1518, 1554],
     main_id: 1505,
     remodel: [
       {
@@ -12688,6 +12701,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "ヘ級",
+    id_list:[1506, 1519, 1555],
     main_id: 1506,
     remodel: [
       {
@@ -12722,6 +12736,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "ヘ級改",
+    id_list:[1904, 1905],
     main_id: 1904,
     remodel: [
       {
@@ -12747,6 +12762,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "ト級",
+    id_list:[1507, 1520],
     main_id: 1507,
     remodel: [
       {
@@ -12772,6 +12788,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "チ級",
+    id_list:[1508, 1521, 1559],
     main_id: 1508,
     remodel: [
       {
@@ -12806,6 +12823,7 @@ const ENEMY_DATA = [
   {
     type: 4,
     name: "ツ級",
+    id_list:[1591, 1592, 1862],
     main_id: 1591,
     remodel: [
       {
@@ -12840,6 +12858,7 @@ const ENEMY_DATA = [
   {
     type: 3,
     name: "リ級",
+    id_list:[1509, 1522, 1527],
     main_id: 1509,
     remodel: [
       {
@@ -12874,6 +12893,7 @@ const ENEMY_DATA = [
   {
     type: 3,
     name: "リ級改",
+    id_list:[1566],
     main_id: 1566,
     remodel: [
       {
@@ -12890,6 +12910,7 @@ const ENEMY_DATA = [
   {
     type: 3,
     name: "ネ級",
+    id_list:[1594, 1595, 1761],
     main_id: 1594,
     remodel: [
       {
@@ -12924,6 +12945,7 @@ const ENEMY_DATA = [
   {
     type: 3,
     name: "ネ級改",
+    id_list:[1895, 1896, 1897],
     main_id: 1895,
     remodel: [
       {
@@ -12958,6 +12980,7 @@ const ENEMY_DATA = [
   {
     type: 1,
     name: "ル級",
+    id_list:[1511, 1524, 1529],
     main_id: 1511,
     remodel: [
       {
@@ -12992,6 +13015,7 @@ const ENEMY_DATA = [
   {
     type: 1,
     name: "ル級改",
+    id_list:[1567],
     main_id: 1567,
     remodel: [
       {
@@ -13008,6 +13032,7 @@ const ENEMY_DATA = [
   {
     type: 1,
     name: "タ級",
+    id_list:[1541, 1542, 1543],
     main_id: 1541,
     remodel: [
       {
@@ -13042,6 +13067,7 @@ const ENEMY_DATA = [
   {
     type: 1,
     name: "レ級",
+    id_list:[1561, 1562],
     main_id: 1561,
     remodel: [
       {
@@ -13067,6 +13093,7 @@ const ENEMY_DATA = [
   {
     type: 1,
     name: "南方棲戦姫",
+    id_list:[1548],
     main_id: 1548,
     remodel: [
       {
@@ -13083,6 +13110,7 @@ const ENEMY_DATA = [
   {
     type: 2,
     name: "ヌ級",
+    id_list:[1510, 1523, 1560],
     main_id: 1510,
     remodel: [
       {
@@ -13117,6 +13145,7 @@ const ENEMY_DATA = [
   {
     type: 2,
     name: "ヌ級改",
+    id_list:[1523, 1560],
     main_id: 1523,
     remodel: [
       {
@@ -13142,6 +13171,7 @@ const ENEMY_DATA = [
   {
     type: 2,
     name: "ヲ級",
+    id_list:[1512, 1525, 1528],
     main_id: 1512,
     remodel: [
       {
@@ -13176,6 +13206,7 @@ const ENEMY_DATA = [
   {
     type: 2,
     name: "ヲ級改",
+    id_list:[1565],
     main_id: 1565,
     remodel: [
       {
@@ -13192,6 +13223,7 @@ const ENEMY_DATA = [
   {
     type: 2,
     name: "空母棲姫",
+    id_list:[1586, 1781, 1782],
     main_id: 1586,
     remodel: [
       {
@@ -13226,6 +13258,7 @@ const ENEMY_DATA = [
   {
     type: 8,
     name: "ワ級",
+    id_list:[1513, 1526, 1558],
     main_id: 1513,
     remodel: [
       {
@@ -13260,6 +13293,7 @@ const ENEMY_DATA = [
   {
     type: 8,
     name: "護衛要塞",
+    id_list:[1549],
     main_id: 1549,
     remodel: [
       {
@@ -13276,6 +13310,7 @@ const ENEMY_DATA = [
   {
     type: 8,
     name: "PT小鬼群",
+    id_list:[1637, 1638, 1639, 1640],
     main_id: 1637,
     remodel: [
       {
