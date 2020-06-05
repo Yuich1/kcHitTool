@@ -237,6 +237,12 @@ $(function () {
   $(".deck").on("click", function () {
     $(this).select();
   });
+  $(".deck").on("input", function () {
+    const isOpen = setDeckBuilder($(this).val());
+    if (isOpen) {
+      $("#share").modal("hide");
+    }
+  });
   $(".deckImageOpen").on("click", function () {
     const t = "https://nishikuma.net/ImgKCbuilder/?predeck=" + getDeckBuilder();
     window.open(t, "newtab");
@@ -627,6 +633,7 @@ const changeFleet = (id) => {
       }
     }
   }
+  if (!selectedFleet) return;
   const state = selectedFleet.state;
   const luck = selectedFleet.luck;
   const src = `./images/ships/${id}.png`;
@@ -919,7 +926,7 @@ const getResultData = () => {
     tyuha = 0;
     shoha = 0;
     fine = 0;
-    for (let index = 0; index < trialNumber; index++) {
+    for (let index = 0; index <= trialNumber; index++) {
       const randArmor = (index / trialNumber) * (armor - 1);
       const finalAttack = Math.floor(cappedAttack * criticalCoef[i]);
       const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
@@ -935,14 +942,16 @@ const getResultData = () => {
         fine++;
       }
     }
-    fineProb += Math.floor(((fine * criticalTerms[i]) / trialNumber) * 10) / 10;
+    fineProb +=
+      Math.floor(((fine * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
     shohaProb +=
-      Math.floor(((shoha * criticalTerms[i]) / trialNumber) * 10) / 10;
+      Math.floor(((shoha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
     tyuhaProb +=
-      Math.floor(((tyuha * criticalTerms[i]) / trialNumber) * 10) / 10;
+      Math.floor(((tyuha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
     taihaProb +=
-      Math.floor(((taiha * criticalTerms[i]) / trialNumber) * 10) / 10;
-    sinkProb += Math.floor(((sink * criticalTerms[i]) / trialNumber) * 10) / 10;
+      Math.floor(((taiha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
+    sinkProb +=
+      Math.floor(((sink * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
   }
 
   let fuel = [];
@@ -1059,12 +1068,11 @@ const getDeckBuilder = () => {
       fleetNum++;
       for (let j = 0; j < myFleet.item.length + 1; j++) {
         if (myFleet.item[j]) {
-          if (j + 1 == myFleet.item.length) {
+          deck += `${j != 0 ? "," : ""}`;
+          if (j == myFleet.item.length) {
             deck += `"ix":{"id":${myFleet.item[j].id},"rf":0}`;
           } else {
-            deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}${
-              j != myFleet.item.length - 1 ? "," : ""
-            }`;
+            deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}`;
           }
         }
       }
@@ -1079,6 +1087,7 @@ const setDeckBuilder = (dataString) => {
   const fleetNum = selectedFleetNum;
   selectedFleetNum = 1;
   const raw = JSON.parse(dataString);
+  if (toString(raw.version).includes("4")) return false;
   for (const i in raw) {
     if (!raw[i]) continue;
     const fleet = raw[i];
@@ -1091,7 +1100,6 @@ const setDeckBuilder = (dataString) => {
       $(".myfleet .luck").val(ship.luck);
       selectedMyFleetList[selectedFleetNum].fleet.lv = ship.lv;
       selectedMyFleetList[selectedFleetNum].fleet.luck = ship.luck;
-      console.log(selectedMyFleetList[selectedFleetNum].fleet)
       resetItemAccuracy();
       setItemForm();
       setItemList();
@@ -1106,12 +1114,14 @@ const setDeckBuilder = (dataString) => {
             break;
           }
         }
-        setItem(
-          k[1] == "x"
-            ? selectedMyFleetList[selectedFleetNum].fleet.slot
-            : k[1] - 1,
-          item
-        );
+        if (item) {
+          setItem(
+            k[1] == "x"
+              ? selectedMyFleetList[selectedFleetNum].fleet.slot
+              : k[1] - 1,
+            item
+          );
+        }
       }
       selectedFleetNum++;
     }
@@ -1119,6 +1129,7 @@ const setDeckBuilder = (dataString) => {
   selectedFleetNum = fleetNum;
   $(".fleet-select")[1].click();
   $(".fleet-select")[0].click();
+  return true;
 };
 
 const sum = function (arr) {
