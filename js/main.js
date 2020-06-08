@@ -932,11 +932,11 @@ const getResultData = () => {
       const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
       if (damage >= hp) {
         sink++;
-      } else if (damage > hp * 0.75) {
+      } else if (damage >= hp * 0.75) {
         taiha++;
-      } else if (damage > hp * 0.5) {
+      } else if (damage >= hp * 0.5) {
         tyuha++;
-      } else if (damage > hp * 0.25) {
+      } else if (damage >= hp * 0.25) {
         shoha++;
       } else {
         fine++;
