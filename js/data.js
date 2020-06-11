@@ -754,7 +754,7 @@ const SHIP_DATA = [
       {
         id: 440,
         state: "未改造",
-        power: 150,
+        power: 105,
         torp: 0,
         luck: 35,
         slot: 4,
