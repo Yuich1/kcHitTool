@@ -888,7 +888,8 @@ const getDeckBuilder = () => {
       for (let j = 0; j < myFleet.item.length + 1; j++) {
         if (myFleet.item[j]) {
           deck += `${myFleet.item[j - 1] ? "," : ""}`;
-          if (j == myFleet.item.length - 1) {
+          console.log(j, myFleet.fleet.slot)
+          if (j == myFleet.fleet.slot) {
             deck += `"ix":{"id":${myFleet.item[j].id},"rf":0}`;
           } else {
             deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}`;
