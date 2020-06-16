@@ -8158,7 +8158,7 @@ const ITEM_DATA = [
           for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
             const item = selectedMyFleetList[selectedFleetNum].item[index];
             if (!item) continue;
-            if (item.id == 90 && furutakaType.some((c) => c == selectedMyFleet.id)) {
+            if (item.id == 90 && furutakaType.some((c) => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
               return false; //2号があれば2号電探を優先
             }
             if (item && item.isSurface) {
