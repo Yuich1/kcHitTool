@@ -327,7 +327,8 @@ const setFleetList = (shipType, isEnemy) => {
 //装備スロットを構成する
 const setItemForm = () => {
   $(".myfleet .items tr").remove();
-  for (let index = 0; index < selectedMyFleetList[selectedFleetNum].fleet.slot; index++) {
+  const slot = selectedMyFleetList[selectedFleetNum].fleet.slot;
+  for (let index = 0; index < slot; index++) {
     const button = $("<button>", {
       type: "button",
       class: "btn btn-default item",
@@ -353,11 +354,12 @@ const setItemForm = () => {
     });
     const tr = $("<tr>").append($("<td>").append(button)).append($("<td>").append(remove));
     $(".myfleet .items tbody").append(tr);
+    if(!selectedMyFleetList[selectedFleetNum].item[index]) setItem(index, 0);
   }
   const button = $("<button>", {
     type: "button",
     class: "btn btn-default item add-item",
-    id: `itemSlot${selectedMyFleetList[selectedFleetNum].fleet.slot}`,
+    id: `itemSlot${slot}`,
     "data-toggle": "modal",
     "data-target": "#select-myitem",
     text: "補強増設",
@@ -372,10 +374,11 @@ const setItemForm = () => {
     html: "&times;",
   });
   remove.on("click", function () {
-    setItem(selectedMyFleetList[selectedFleetNum].fleet.slot, 0);
+    setItem(slot, 0);
   });
   const tr = $("<tr>").append($("<td>").append(button)).append($("<td>").append(remove));
   $(".myfleet .items tbody").append(tr);
+  if(!selectedMyFleetList[selectedFleetNum].item[slot]) setItem(slot, 0);
 };
 
 //装備の選択モーダルを構成する
@@ -404,7 +407,6 @@ const setItemList = () => {
     let isExpansionSlot =
       selectedMyFleetList[selectedFleetNum].fleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
     isItemOpen = true;
-    selectedMyFleetList[selectedFleetNum].item[slotNumber] = 0;
     const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
     for (let index = 0; index < ITEM_DATA.length; index++) {
       const item = $.extend(true, {}, ITEM_DATA[index]);
@@ -477,11 +479,12 @@ const setItemList = () => {
         //装備マウスオーバー時の処理
         button.on("mouseover", function () {
           if (isItemOpen) {
+            const itemBefore = selectedMyFleetList[selectedFleetNum].item[slotNumber];
             const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
             const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
             selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
             const ta = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
-            setItem(slotNumber, 0);
+            setItem(slotNumber, itemBefore);
             const bonusPower =
               (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
             const bonusTorp =
@@ -532,7 +535,8 @@ const changeFleet = (id) => {
       name = ship.name;
       for (let index = 0; index < ship.remodel.length; index++) {
         if (ship.remodel[index].id == id && id <= 1500) {
-          const myFleet = new MyFleet(ship.remodel[index], []);
+          const i = Array(ship.remodel[index].slot).fill(0);
+          const myFleet = new MyFleet(ship.remodel[index], i);
           myFleet.fleet.type = ship.type;
           myFleet.fleet.name = name;
           selectedMyFleetList[selectedFleetNum] = myFleet;
@@ -885,10 +889,10 @@ const getDeckBuilder = () => {
       const myFleet = selectedMyFleetList[i];
       deck += `"s${fleetNum}":{"id":"${myFleet.fleet.id}","lv":${myFleet.fleet.lv},"luck":${myFleet.fleet.luck},"items":{`;
       fleetNum++;
+      let itemNum = 1;
       for (let j = 0; j < myFleet.item.length + 1; j++) {
         if (myFleet.item[j]) {
-          deck += `${myFleet.item[j - 1] ? "," : ""}`;
-          console.log(j, myFleet.fleet.slot)
+          deck += `${itemNum++ != 1 ? "," : ""}`;
           if (j == myFleet.fleet.slot) {
             deck += `"ix":{"id":${myFleet.item[j].id},"rf":0}`;
           } else {
@@ -922,7 +926,6 @@ const setDeckBuilder = (dataString) => {
       selectedMyFleetList[selectedFleetNum].fleet.luck = ship.luck;
       resetItemAccuracy();
       setItemForm();
-      setItemList();
       //set items
       const items = ship.items;
       for (const k in items) {
@@ -942,7 +945,6 @@ const setDeckBuilder = (dataString) => {
     }
   }
   selectedFleetNum = fleetNum;
-  $(".fleet-select")[1].click();
   $(".fleet-select")[0].click();
   return true;
 };
