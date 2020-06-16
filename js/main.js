@@ -826,7 +826,7 @@ const getResultData = () => {
 
   let isDamageCap = cappedAttack >= 151;
   $(".result-left").html(`命中項 ${hitTerm}<br>
-        基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "(不明)" : avoidanceTerm}<br>
+        基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "<span style='color: #dc143c'>(不明)</span>" : avoidanceTerm}<br>
         最終命中率 ${finalAccuracy}%<br>
         最終攻撃力 ${
           criticalFlag == 3
