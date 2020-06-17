@@ -206,6 +206,9 @@ $(function () {
     if (selectedMyFleet) {
       for (let i = 0; i < selectedMyFleet.slot + 1; i++) {
         if (selectedItem[i] && selectedItem[i] != 0) {
+          if (selectedItem[i].isImpr) {
+            setImpr(i);
+          }
           setItem(i, selectedItem[i]);
         }
       }
@@ -354,7 +357,7 @@ const setItemForm = () => {
     });
     const tr = $("<tr>").append($("<td>").append(button)).append($("<td>").append(remove));
     $(".myfleet .items tbody").append(tr);
-    if(!selectedMyFleetList[selectedFleetNum].item[index]) setItem(index, 0);
+    if (!selectedMyFleetList[selectedFleetNum].item[index]) setItem(index, 0);
   }
   const button = $("<button>", {
     type: "button",
@@ -378,7 +381,7 @@ const setItemForm = () => {
   });
   const tr = $("<tr>").append($("<td>").append(button)).append($("<td>").append(remove));
   $(".myfleet .items tbody").append(tr);
-  if(!selectedMyFleetList[selectedFleetNum].item[slot]) setItem(slot, 0);
+  if (!selectedMyFleetList[selectedFleetNum].item[slot]) setItem(slot, 0);
 };
 
 //装備の選択モーダルを構成する
@@ -501,6 +504,12 @@ const setItemList = () => {
         //装備選択時の処理
         button.on("click", function () {
           isItemOpen = false;
+          if (selectedMyFleetList[selectedFleetNum].item[slotNumber].isImpr) {
+            $(`#impr${slotNumber}`).parent().remove();
+          }
+          if (item.isImpr) {
+            setImpr(slotNumber);
+          }
           setItem(slotNumber, item);
         });
         const tr = $("<tr>").append($("<td>").append(button));
@@ -594,9 +603,6 @@ const setItem = (slotNumber, item) => {
     $(`#itemSlot${slotNumber}`).text(text);
   } else {
     $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
-  }
-  if (item.isImpr) {
-    setImpr(slotNumber);
   }
   selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
   let itemPower = 0;
@@ -826,7 +832,9 @@ const getResultData = () => {
 
   let isDamageCap = cappedAttack >= 151;
   $(".result-left").html(`命中項 ${hitTerm}<br>
-        基本回避項 ${avoidanceTerm == 0 ? avoidanceTerm + "<span style='color: #dc143c'>(不明)</span>" : avoidanceTerm}<br>
+        基本回避項 ${
+          avoidanceTerm == 0 ? avoidanceTerm + "<span style='color: #dc143c'>(不明)</span>" : avoidanceTerm
+        }<br>
         最終命中率 ${finalAccuracy}%<br>
         最終攻撃力 ${
           criticalFlag == 3
