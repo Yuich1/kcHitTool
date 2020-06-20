@@ -36,6 +36,7 @@ let isItemOpen = false;
 const MyFleet = function (fleet, item) {
   this.fleet = fleet;
   this.item = item;
+  this.impr = [];
 };
 
 $(function () {
@@ -902,9 +903,9 @@ const getDeckBuilder = () => {
         if (myFleet.item[j]) {
           deck += `${itemNum++ != 1 ? "," : ""}`;
           if (j == myFleet.fleet.slot) {
-            deck += `"ix":{"id":${myFleet.item[j].id},"rf":0}`;
+            deck += `"ix":{"id":${myFleet.item[j].id},"rf":${myFleet.impr[j] ? myFleet.impr[j] : 0}}`;
           } else {
-            deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":0}`;
+            deck += `"i${j + 1}":{"id":${myFleet.item[j].id},"rf":${myFleet.impr[j] ? myFleet.impr[j] : 0}}`;
           }
         }
       }
@@ -947,6 +948,10 @@ const setDeckBuilder = (dataString) => {
         }
         if (item) {
           setItem(k[1] == "x" ? selectedMyFleetList[selectedFleetNum].fleet.slot : k[1] - 1, item);
+          if (items[k].rf != 0) {
+            selectedMyFleetList[selectedFleetNum].impr[(k[1] - 1)] = items[k].rf;
+            setImpr(k[1] - 1);
+          }
         }
       }
       selectedFleetNum++;
@@ -964,11 +969,13 @@ const sum = function (arr) {
 };
 
 const setImpr = (slotNum) => {
+  const impr = selectedMyFleetList[selectedFleetNum].impr[slotNum];
   const form = $("<input>", {
     type: "number",
     id: `impr${slotNum}`,
     class: "form-control impr inline-b item-opt",
     placeholder: "改修",
+    value: `${impr ? impr : undefined}`,
   });
   form.on("input", function () {
     //setItem(slotNum, selectedMyFleetList[selectedFleetNum].item[slotNum]);
@@ -1013,6 +1020,7 @@ const setImpr = (slotNum) => {
     }
 
     selectedMyFleetList[selectedFleetNum].item[slotNum] = item;
+    selectedMyFleetList[selectedFleetNum].impr[slotNum] = form.val();
     $(".myfleet .power").html(power);
     $(".myfleet .accuracy").html(itemAccuracy);
     getResultData();
