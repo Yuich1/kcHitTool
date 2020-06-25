@@ -1,6 +1,6 @@
 /**
  * @author Yuichi<https://twitter.com/2qrbgxpsaWEziml?s=20>
- * @version 1.24
+ * @version 1.25
  */
 
 let hasBbList = false;
@@ -141,7 +141,7 @@ $(function () {
     getResultData();
     this.blur();
   });
-  $(".myfleet .lv, .myfleet .luck, .my-formation, .enemy-formation, .engagement, .critical").on("input", function () {
+  $(".myfleet .lv, .myfleet .luck, .my-formation, .enemy-formation, .engagement, .critical, .enemy .hp, .enemy .armor, .enemy .luck, .enemy .avoidance").on("input", function () {
     getResultData();
   });
   $(".search-fleet").on("input", function () {
@@ -573,10 +573,10 @@ const changeFleet = (id) => {
   if (id > 1500) {
     $(".enemy .fleet-name").html(setName);
     $(".enemy .fleet-img").attr("src", src);
-    $(".enemy .hp").html(selectedFleet.hp);
-    $(".enemy .armor").html(selectedFleet.armor);
-    $(".enemy .avoidance").html(selectedFleet.avoidance + selectedFleet.avoidance_item);
-    $(".enemy .luck").html(luck);
+    $(".enemy .hp").val(selectedFleet.hp);
+    $(".enemy .armor").val(selectedFleet.armor);
+    $(".enemy .avoidance").val(selectedFleet.avoidance + selectedFleet.avoidance_item);
+    $(".enemy .luck").val(luck);
   } else {
     const power = selectedFleet.type == 2 ? Math.floor((selectedFleet.power - 1) * 1.5) + 55 : selectedFleet.power + 4;
     $(`.myfleet .fleet-name`).html(setName);
@@ -749,7 +749,7 @@ const getResultData = () => {
   let tyuha = 0;
   let shoha = 0;
   let fine = 0;
-  const hp = $(".enemy .hp").text();
+  const hp = $(".enemy .hp").val();
   const formationDamageCoef = FORMATION_DAMAGE_COEF[parseInt($(".my-formation").val())];
   const engagementDamageCoef = parseFloat($(".engagement").val());
   const criticalFlag = parseFloat($(".critical").val());
@@ -767,12 +767,12 @@ const getResultData = () => {
   }
   let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
 
-  let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").text()), parseInt($(".enemy .luck").text()));
+  let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").val()), parseInt($(".enemy .luck").val()));
 
   let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
 
   let power = parseInt($(".myfleet .power").text());
-  const armor = parseInt($(".enemy .armor").text());
+  const armor = parseInt($(".enemy .armor").val());
 
   const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
   const trialNumber = 100;
@@ -809,11 +809,11 @@ const getResultData = () => {
         fine++;
       }
     }
-    fineProb += Math.floor(((fine * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
-    shohaProb += Math.floor(((shoha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
-    tyuhaProb += Math.floor(((tyuha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
-    taihaProb += Math.floor(((taiha * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
-    sinkProb += Math.floor(((sink * criticalTerms[i]) / (trialNumber + 1)) * 10) / 10;
+    fineProb += (fine * criticalTerms[i]) / (trialNumber + 1);
+    shohaProb += (shoha * criticalTerms[i]) / (trialNumber + 1);
+    tyuhaProb += (tyuha * criticalTerms[i]) / (trialNumber + 1);
+    taihaProb += (taiha * criticalTerms[i]) / (trialNumber + 1);
+    sinkProb += (sink * criticalTerms[i]) / (trialNumber + 1);
   }
 
   let fuel = [];
@@ -843,17 +843,17 @@ const getResultData = () => {
         クリティカル率 (CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%<br>
         <br>
         <div class="sub-title">命中時撃破率</div>
-        撃沈 ${sinkProb}%<br>
-        大破 ${taihaProb}%<br>
-        中破 ${tyuhaProb}%<br>
-        小破 ${shohaProb}%<br>
-        小破未満 ${fineProb}%`);
+        撃沈 ${round(sinkProb, 1)}%<br>
+        大破 ${round(taihaProb, 1)}%<br>
+        中破 ${round(tyuhaProb, 1)}%<br>
+        小破 ${round(shohaProb, 1)}%<br>
+        小破未満 ${Math.round(fineProb, 1)}%`);
   $(".result-right").html(`<div class="sub-title">命中込み撃沈率</div>
-  撃沈 ${Math.floor((sinkProb * finalAccuracy) / 10) / 10}%<br>
-  大破 ${Math.floor((taihaProb * finalAccuracy) / 10) / 10}%<br>
-  中破 ${Math.floor((tyuhaProb * finalAccuracy) / 10) / 10}%<br>
-  小破 ${Math.floor((shohaProb * finalAccuracy) / 10) / 10}%<br>
-  小破未満 ${Math.floor((fineProb * finalAccuracy) / 10) / 10}%<br>
+  撃沈 ${round(sinkProb * finalAccuracy / 100, 1)}%<br>
+  大破 ${round(taihaProb * finalAccuracy / 100, 1)}%<br>
+  中破 ${round(tyuhaProb * finalAccuracy / 100, 1)}%<br>
+  小破 ${round(shohaProb * finalAccuracy / 100, 1)}%<br>
+  小破未満 ${round(fineProb * finalAccuracy / 100, 1)}%<br>
   miss ${100 - finalAccuracy}%<br>
   <br>
   <div class="sub-title">資材消費</div>
@@ -1025,3 +1025,14 @@ const setImpr = (slotNum) => {
   });
   $(`#itemSlot${slotNum}`).parent().parent().append($("<td>").append(form));
 };
+
+function round(number, precision) {
+  let shift = function (number, precision, reverseShift) {
+    if (reverseShift) {
+      precision = -precision;
+    }  
+    let numArray = ("" + number).split("e");
+    return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
+  };
+  return shift(Math.round(shift(number, precision, false)), precision, true);
+}

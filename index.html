@@ -26,14 +26,14 @@
   <link rel="stylesheet" href="./css/style.min.css?ver=1.24" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script defer src="./js/data.min.js?ver=1.242"></script>
-  <script defer src="./js/main.min.js?ver=1.245"></script>
+  <script defer src="./js/data.min.js?ver=1.25"></script>
+  <script defer src="./js/main.min.js?ver=1.25"></script>
 </head>
 
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="title">艦これ砲撃支援命中計算機 v1.24</h1>
+      <h1 class="title">艦これ砲撃支援命中計算機 v1.25</h1>
     </header>
     <div class="wrapper">
       <div class="row">
@@ -137,13 +137,21 @@
               <tbody>
                 <tr>
                   <td>耐久</td>
-                  <td class="hp">66</td>
+                  <td>
+                    <input type="number" class="form-control enemy-status hp" value="66" />
+                  </td>
                   <td>装甲</td>
-                  <td class="armor">68</td>
+                  <td>
+                    <input type="number" class="form-control enemy-status armor" value="68" />
+                  </td>
                   <td>回避</td>
-                  <td class="avoidance">74</td>
+                  <td>
+                    <input type="number" class="form-control enemy-status avoidance" value="74" />
+                  </td>
                   <td>運</td>
-                  <td class="luck">66</td>
+                  <td>
+                    <input type="number" class="form-control enemy-status luck" value="66" />
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -273,6 +281,7 @@
         v1.22 命中込み撃破率を詳細でも表示するように変更しました。資材消費を追加しました。<br />
         v1.23 Fletcher改Mod.2, Mk.IIを追加。海外レーダーの装備ボーナスを追加しました。<br />
         v1.24 4月作戦ランカー報酬を追加。改修値による装備ボーナス変化を反映。<br />
+        v1.25 敵艦のステータスを設定可能にしました。<br />
         更新情報は<a href="https://twitter.com/2qrbgxpsaWEziml?s=20" target="_blank">こちらのtwitterから。</a><br />
         不具合/要望は<a href="https://peing.net/ja/2qrbgxpsaweziml?event=0" target="_blank"
           >こちらの質問箱へお願いします。</a
