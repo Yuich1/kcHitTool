@@ -120,7 +120,8 @@ body{
 }
 .lv,
 .luck,
-.impr{
+.impr,
+.enemy-status{
     width: 65px;
     padding: 6px 4px 6px 12px;
 }
@@ -155,7 +156,7 @@ body{
 }
 .item{
     margin: 0 10px 6px 0;
-    width: 280px;
+    width: 300px;
 }
 .item .item-tooltip{
     white-space: nowrap;
@@ -333,7 +334,14 @@ body{
         margin-left: 15%;
     }
     .items .item{
-        width: 60vw;
+        width: 55vw;
+        margin-right: 4px;
+    }
+    .items .item-opt{
+        margin-right: 4px;
+    }
+    .enemy input{
+        width: 50px;
     }
     .myfleet-title{
         margin-right: 16px;
