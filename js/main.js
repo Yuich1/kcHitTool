@@ -529,8 +529,6 @@ const resetItemAccuracy = () => {
 
 //艦娘を選択する
 const changeFleet = (id) => {
-  //const id = $(obj).data("id");
-  //const main_id = $(obj).data("main_id");
   let shipData;
   let selectedFleet;
   if (id > 1500) {
@@ -968,6 +966,7 @@ const sum = function (arr) {
   });
 };
 
+//改修値フォームの設定
 const setImpr = (slotNum) => {
   const impr = selectedMyFleetList[selectedFleetNum].impr[slotNum];
   const form = $("<input>", {
@@ -977,9 +976,8 @@ const setImpr = (slotNum) => {
     placeholder: "改修",
     value: `${impr ? impr : undefined}`,
   });
+  //改修値込みの火力を再計算
   form.on("input", function () {
-    //setItem(slotNum, selectedMyFleetList[selectedFleetNum].item[slotNum]);
-    //getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
     const item = selectedMyFleetList[selectedFleetNum].item[slotNum];
     let itemPower = 0;
     let itemTorp = 0;
