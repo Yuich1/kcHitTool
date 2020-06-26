@@ -148,7 +148,7 @@ $(function () {
   });
   $(".myfleet .lv").on("input", function(){
     const f = $(".myfleet .lv");
-    f.val(Math.max(f.val(), 0));
+    f.val(Math.max(f.val(), 1));
     f.val(Math.min(f.val(), 175));
     getResultData();
   });
@@ -164,7 +164,7 @@ $(function () {
   });
   $(".enemy .hp").on("input", function(){
     const f = $(".enemy .hp");
-    f.val(Math.max(f.val(), 0));
+    f.val(Math.max(f.val(), 1));
     getResultData();
   });
   $(".enemy .luck").on("input", function(){
