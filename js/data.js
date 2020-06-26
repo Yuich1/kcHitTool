@@ -13695,7 +13695,7 @@ const ENEMY_DATA = [
     main_id: 1927,
     remodel: [
       { id: 1930, state: "甲", luck: 0, avoidance: 0, avoidance_item: 0, armor: 230, hp: 590 },
-      { id: 1931, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 0 },
+      { id: 1931, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 190, hp: 480 },
       { id: 1932, state: "丙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 330 },
     ],
   },
