@@ -146,7 +146,38 @@ $(function () {
     getResultData();
     this.blur();
   });
-  $(".myfleet .lv, .myfleet .luck, .my-formation, .enemy-formation, .engagement, .critical, .enemy .hp, .enemy .armor, .enemy .luck, .enemy .avoidance").on("input", function () {
+  $(".myfleet .lv").on("input", function(){
+    const f = $(".myfleet .lv");
+    f.val(Math.max(f.val(), 0));
+    f.val(Math.min(f.val(), 175));
+    getResultData();
+  });
+  $(".myfleet .luck").on("input", function(){
+    const f = $(".myfleet .luck");
+    f.val(Math.max(f.val(), 0));
+    getResultData();
+  });
+  $(".enemy .armor").on("input", function(){
+    const f = $(".enemy .armor");
+    f.val(Math.max(f.val(), 0));
+    getResultData();
+  });
+  $(".enemy .hp").on("input", function(){
+    const f = $(".enemy .hp");
+    f.val(Math.max(f.val(), 0));
+    getResultData();
+  });
+  $(".enemy .luck").on("input", function(){
+    const f = $(".enemy .luck");
+    f.val(Math.max(f.val(), 0));
+    getResultData();
+  });
+  $(".enemy .avoidance").on("input", function(){
+    const f = $(".enemy .avoidance");
+    f.val(Math.max(f.val(), 0));
+    getResultData();
+  });
+  $(".my-formation, .enemy-formation, .engagement, .critical").on("input", function () {
     getResultData();
   });
   $(".search-fleet").on("input", function () {
@@ -983,6 +1014,8 @@ const setImpr = (slotNum) => {
   });
   //改修値込みの火力を再計算
   form.on("input", function () {
+    form.val(Math.max(form.val(), 0));
+    form.val(Math.min(form.val(), 10));
     const item = selectedMyFleetList[selectedFleetNum].item[slotNum];
     let itemPower = 0;
     let itemTorp = 0;
