@@ -15,6 +15,7 @@ let hasEnemyCaList = false;
 let hasEnemyClList = false;
 let hasEnemyDdList = false;
 let hasEnemyAvList = false;
+let hasEnemyEventList = false;
 let hasEnemyFleetTypeList = [
   hasEnemyBbList,
   hasEnemyCvList,
@@ -24,6 +25,7 @@ let hasEnemyFleetTypeList = [
   ,
   ,
   hasEnemyAvList,
+  hasEnemyEventList,
 ];
 let selectedMyFleetList = [];
 let selectedFleetNum = 1;
@@ -127,6 +129,9 @@ $(function () {
   $("#av-tab-enemy").on("click", function () {
     setFleetList(8, true);
   });
+  $("#event-tab-enemy").on("click", function () {
+    setFleetList(9, true);
+  });  
 
   $("#kira").on("click", function () {
     const button = $("#kira");

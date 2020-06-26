@@ -37,6 +37,7 @@ const SHIP_TYPE = [
   },
   { id: 7, name: "潜水", type: "ss", canHaveItem: [5, 6, 19, 24, 25, 26] },
   { id: 8, name: "補助艦艇", type: "av", canHaveItem: [1, 14, 18, 26] },
+  { id: 9, name: "イベント", type: "event", canHaveItem: [1] },
 ];
 
 const ITEM_TYPE = [
@@ -13673,6 +13674,29 @@ const ENEMY_DATA = [
         armor: 39,
         hp: 18,
       },
+    ],
+  },
+  //event enemy
+  {
+    type: 9,
+    name: "深海千島棲姫",
+    id_list: [1927, 1928, 1929],
+    main_id: 1927,
+    remodel: [
+      { id: 1927, state: "甲", luck: 0, avoidance: 0, avoidance_item: 0, armor: 200, hp: 590 },
+      { id: 1928, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 0 },
+      { id: 1929, state: "丙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 130, hp: 330 },
+    ],
+  },
+  {
+    type: 9,
+    name: "深海千島棲姫 -壊-",
+    id_list: [1930, 1931, 1932],
+    main_id: 1927,
+    remodel: [
+      { id: 1930, state: "甲", luck: 0, avoidance: 0, avoidance_item: 0, armor: 230, hp: 590 },
+      { id: 1931, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 0 },
+      { id: 1932, state: "丙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 330 },
     ],
   },
 ];
