@@ -4547,6 +4547,35 @@ const SHIP_DATA = [
   },
   {
     type: 5,
+    name: "薄雲",
+    id_list: [631, 700],
+    main_id: 700,
+    yomi: "うすぐも usugumo",
+    remodel: [
+      {
+        id: 631,
+        state: "未改造",
+        power: 29,
+        torp: 69,
+        luck: 7,
+        slot: 2,
+        fuel: 15,
+        bullet: 20,
+      },
+      {
+        id: 700,
+        state: "改",
+        power: 49,
+        torp: 79,
+        luck: 9,
+        slot: 3,
+        fuel: 15,
+        bullet: 20,
+      },
+    ],
+  },
+  {
+    type: 5,
     name: "磯波",
     id_list: [12, 206],
     main_id: 206,
@@ -7004,6 +7033,35 @@ const SHIP_DATA = [
   },
   {
     type: 5,
+    name: "松",
+    id_list: [641, 702],
+    main_id: 702,
+    yomi: "まつ shimakaze",
+    remodel: [
+      {
+        id: 641,
+        state: "未改造",
+        power: 26,
+        torp: 60,
+        luck: 14,
+        slot: 2,
+        fuel: 15,
+        bullet: 15,
+      },
+      {
+        id: 702,
+        state: "改",
+        power: 42,
+        torp: 72,
+        luck: 18,
+        slot: 3,
+        fuel: 15,
+        bullet: 15,
+      },
+    ],
+  },
+  {
+    type: 5,
     name: "Z1",
     id_list: [174, 310, 179],
     main_id: 179,
@@ -9119,6 +9177,10 @@ const ITEM_DATA = [
           72,
           274,
           189,
+          631,
+          700,
+          641,
+          702,
         ],
       },
     ],
@@ -10575,6 +10637,8 @@ const ITEM_DATA = [
           236,
           37,
           237,
+          631,
+          700,
         ],
       },
     ],
@@ -10628,6 +10692,8 @@ const ITEM_DATA = [
           236,
           37,
           237,
+          631,
+          700,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -10708,6 +10774,8 @@ const ITEM_DATA = [
           236,
           37,
           237,
+          631,
+          700,
         ],
       },
     ],
@@ -10761,6 +10829,8 @@ const ITEM_DATA = [
           236,
           37,
           237,
+          631,
+          700,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -11385,6 +11455,10 @@ const ITEM_DATA = [
           357,
           50,
           229,
+          631,
+          700,
+          641,
+          702,
         ],
       },
     ],
@@ -12196,6 +12270,7 @@ const ITEM_DATA = [
         ],
       },
       { power: 2, targetId: [22, 219, 141, 113, 289, 487, 56, 224, 160, 23, 220, 488, 25, 58, 119, 24, 57, 118] },
+      { power: 3, targetId: [641, 702] },
     ],
     multiBonus: [
       {
@@ -12410,6 +12485,29 @@ const ITEM_DATA = [
           return isSurface && c == 1;
         },
       },
+      {
+        power: 4,
+        targetId: [641, 702],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 379) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
     ],
   },
   {
@@ -12450,10 +12548,33 @@ const ITEM_DATA = [
         ],
       },
       { power: 2, targetId: [141, 487, 160, 488] },
-      { power: 3, targetId: [118, 119] },
+      { power: 3, targetId: [118, 119, 641, 702] },
     ],
     multiBonus: [
       //水上電探
+      {
+        power: 4,
+        targetId: [641, 702],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 380) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
       {
         power: 3,
         targetId: [141, 487, 160, 488, 118, 119],
@@ -12589,7 +12710,7 @@ const ITEM_DATA = [
     name: "16inch三連装砲 Mk.6",
     power: 22,
     accuracy: 2,
-    yomi: "16いんちさんれんそうほうまーく6",
+    yomi: "16いんちさんれんそうほうまーく6 mk.6",
     isImpr: true,
     multiBonus: [
       {
@@ -12605,7 +12726,7 @@ const ITEM_DATA = [
             }
           }
           const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
-          return (impr < 6) & (c == 1);
+          return impr < 6;
         },
       },
       {
@@ -12621,7 +12742,83 @@ const ITEM_DATA = [
             }
           }
           const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
-          return (impr >= 6) & (c == 1);
+          return impr >= 6;
+        },
+      },
+    ],
+  },
+  {
+    id: 385,
+    type: 3,
+    name: "16inch三連装砲 Mk.6 mod.2",
+    power: 23,
+    accuracy: 3,
+    yomi: "16いんちさんれんそうほうまーく6もっど2 mk.6",
+    isImpr: true,
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [
+          78,
+          209,
+          149,
+          591,
+          79,
+          211,
+          151,
+          86,
+          210,
+          150,
+          592,
+          85,
+          212,
+          152,
+          171,
+          172,
+          173,
+          441,
+          446,
+          442,
+          447,
+          492,
+          392,
+          511,
+          512,
+          513,
+        ],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 2,
+        targetId: [601, 1496, 440, 360],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 385) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          return impr < 6;
+        },
+      },
+      {
+        power: 3,
+        targetId: [601, 1496, 440, 360],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 385) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          return impr >= 6;
         },
       },
     ],
