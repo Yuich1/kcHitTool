@@ -329,7 +329,7 @@ const setFleetList = (shipType, isEnemy) => {
         selectedFleet = Object.assign({}, ship.remodel[index]);
         const state = selectedFleet.state;
         const title = `${selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""}${
-          selectedFleet.hp ? `装甲 ${selectedFleet.hp}, ` : ""
+          selectedFleet.hp ? `耐久 ${selectedFleet.hp}, ` : ""
         }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""}${
           selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""
         }`;
