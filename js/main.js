@@ -131,7 +131,7 @@ $(function () {
   });
   $("#event-tab-enemy").on("click", function () {
     setFleetList(9, true);
-  });  
+  });
 
   $("#kira").on("click", function () {
     const button = $("#kira");
@@ -146,33 +146,33 @@ $(function () {
     getResultData();
     this.blur();
   });
-  $(".myfleet .lv").on("input", function(){
+  $(".myfleet .lv").on("input", function () {
     const f = $(".myfleet .lv");
     f.val(Math.max(f.val(), 1));
     f.val(Math.min(f.val(), 175));
     getResultData();
   });
-  $(".myfleet .luck").on("input", function(){
+  $(".myfleet .luck").on("input", function () {
     const f = $(".myfleet .luck");
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
-  $(".enemy .armor").on("input", function(){
+  $(".enemy .armor").on("input", function () {
     const f = $(".enemy .armor");
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
-  $(".enemy .hp").on("input", function(){
+  $(".enemy .hp").on("input", function () {
     const f = $(".enemy .hp");
     f.val(Math.max(f.val(), 1));
     getResultData();
   });
-  $(".enemy .luck").on("input", function(){
+  $(".enemy .luck").on("input", function () {
     const f = $(".enemy .luck");
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
-  $(".enemy .avoidance").on("input", function(){
+  $(".enemy .avoidance").on("input", function () {
     const f = $(".enemy .avoidance");
     f.val(Math.max(f.val(), 0));
     getResultData();
@@ -330,8 +330,8 @@ const setFleetList = (shipType, isEnemy) => {
         const state = selectedFleet.state;
         const title = `${selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""}${
           selectedFleet.hp ? `耐久 ${selectedFleet.hp}, ` : ""
-        }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""}${
-          selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""
+        }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}` : ""}${
+          selectedFleet.luck ? `, 運 ${selectedFleet.luck}` : ""
         }`;
         const button = $("<button>", {
           type: "button",
@@ -885,11 +885,11 @@ const getResultData = () => {
         小破 ${round(shohaProb, 1)}%<br>
         小破未満 ${Math.round(fineProb, 1)}%`);
   $(".result-right").html(`<div class="sub-title">命中込み撃沈率</div>
-  撃沈 ${round(sinkProb * finalAccuracy / 100, 1)}%<br>
-  大破 ${round(taihaProb * finalAccuracy / 100, 1)}%<br>
-  中破 ${round(tyuhaProb * finalAccuracy / 100, 1)}%<br>
-  小破 ${round(shohaProb * finalAccuracy / 100, 1)}%<br>
-  小破未満 ${round(fineProb * finalAccuracy / 100, 1)}%<br>
+  撃沈 ${round((sinkProb * finalAccuracy) / 100, 1)}%<br>
+  大破 ${round((taihaProb * finalAccuracy) / 100, 1)}%<br>
+  中破 ${round((tyuhaProb * finalAccuracy) / 100, 1)}%<br>
+  小破 ${round((shohaProb * finalAccuracy) / 100, 1)}%<br>
+  小破未満 ${round((fineProb * finalAccuracy) / 100, 1)}%<br>
   miss ${100 - finalAccuracy}%<br>
   <br>
   <div class="sub-title">資材消費</div>
@@ -983,7 +983,7 @@ const setDeckBuilder = (dataString) => {
         if (item) {
           setItem(k[1] == "x" ? selectedMyFleetList[selectedFleetNum].fleet.slot : k[1] - 1, item);
           if (items[k].rf != 0) {
-            selectedMyFleetList[selectedFleetNum].impr[(k[1] - 1)] = items[k].rf;
+            selectedMyFleetList[selectedFleetNum].impr[k[1] - 1] = items[k].rf;
             setImpr(k[1] - 1);
           }
         }
@@ -1068,9 +1068,9 @@ function round(number, precision) {
   let shift = function (number, precision, reverseShift) {
     if (reverseShift) {
       precision = -precision;
-    }  
+    }
     let numArray = ("" + number).split("e");
-    return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
+    return +(numArray[0] + "e" + (numArray[1] ? +numArray[1] + precision : precision));
   };
   return shift(Math.round(shift(number, precision, false)), precision, true);
 }
