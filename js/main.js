@@ -330,8 +330,8 @@ const setFleetList = (shipType, isEnemy) => {
         const state = selectedFleet.state;
         const title = `${selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""}${
           selectedFleet.hp ? `耐久 ${selectedFleet.hp}, ` : ""
-        }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""}${
-          selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""
+        }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}` : ""}${
+          selectedFleet.luck ? `, 運 ${selectedFleet.luck}` : ""
         }`;
         const button = $("<button>", {
           type: "button",
