@@ -13526,6 +13526,32 @@ const ENEMY_DATA = [
     ],
   },
   {
+    type: 5,
+    name: "ナ級後期型II",
+    id_list: [1951, 1952],
+    main_id: 1951,
+    remodel: [
+      {
+        id: 1951,
+        state: "elite",
+        luck: 0,
+        avoidance: 0,
+        avoidance_item: 0,
+        armor: 69,
+        hp: 66,
+      },
+      {
+        id: 1952,
+        state: "flagship",
+        luck: 0,
+        avoidance: 0,
+        avoidance_item: 0,
+        armor: 79,
+        hp: 69,
+      },
+    ],
+  },
+  {
     type: 4,
     name: "ホ級",
     id_list: [1505, 1518, 1554],
