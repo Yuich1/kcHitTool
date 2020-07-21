@@ -328,11 +328,16 @@ const setFleetList = (shipType, isEnemy) => {
       for (let index = 0; index < ship.remodel.length; index++) {
         selectedFleet = Object.assign({}, ship.remodel[index]);
         const state = selectedFleet.state;
-        const title = `${selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""}${
-          selectedFleet.hp ? `耐久 ${selectedFleet.hp}, ` : ""
-        }${selectedFleet.armor ? `装甲 ${selectedFleet.armor}` : ""}${
-          selectedFleet.luck ? `, 運 ${selectedFleet.luck}` : ""
-        }`;
+        let title;
+        if (selectedFleet.id < 1501) {
+          title = `${selectedFleet.power ? `火力 ${selectedFleet.power}, ` : ""}${
+            selectedFleet.luck ? `運 ${selectedFleet.luck}` : ""
+          }`;
+        } else {
+          title = `${selectedFleet.armor ? `装甲 ${selectedFleet.armor}, ` : ""}${
+            selectedFleet.hp ? `耐久 ${selectedFleet.hp}` : ""
+          }`;
+        }
         const button = $("<button>", {
           type: "button",
           class: "btn btn-default set-fleet",
