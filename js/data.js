@@ -3,7 +3,7 @@ const SHIP_TYPE = [
     id: 1,
     name: "戦艦",
     type: "bb",
-    canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28],
+    canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28, 30],
   },
   {
     id: 2,
@@ -70,6 +70,7 @@ const ITEM_TYPE = [
   { id: 27, name: "艦偵" },
   { id: 28, name: "見張り員" },
   { id: 29, name: "航空要員" },
+  { id: 30, name: "戦艦電探" },
 ];
 
 // 単縦, 複縦, 輪形, 梯形, 単横, 警戒
@@ -5977,6 +5978,8 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 15,
         bullet: 20,
+        specialCanHaveItemType: [15],
+        cantHaveItemId: [142],
       },
     ],
   },
@@ -9385,7 +9388,7 @@ const ITEM_DATA = [
   },
   {
     id: 142,
-    type: 15,
+    type: 30,
     name: "15m二重測距儀 + 21号電探改二",
     power: 1,
     accuracy: 9,
@@ -13162,7 +13165,6 @@ const ITEM_DATA = [
       },
     ],
   },
-
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
 ];
