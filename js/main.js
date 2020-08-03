@@ -177,11 +177,7 @@ $(function () {
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
-  $(".my-formation, .enemy-formation, .critical").on("input", function () {
-    getResultData();
-  });
-  $(".engagement").on("input", function () {
-    setSauin($(".engagement").val().split(",").length != 1);
+  $(".my-formation, .enemy-formation, .engagement, .critical").on("input", function () {
     getResultData();
   });
   $(".search-fleet").on("input", function () {
@@ -796,7 +792,7 @@ const getResultData = () => {
   let fine = 0;
   const hp = $(".enemy .hp").val();
   const formationDamageCoef = FORMATION_DAMAGE_COEF[parseInt($(".my-formation").val())];
-  const engagementDamageCoefs = $(".engagement").val().split(",");
+  const engagementDamageCoef = parseFloat($(".engagement").val());
   const criticalFlag = parseFloat($(".critical").val());
   const support_const = 64;
   let cond_coef = 1.0;
@@ -818,69 +814,47 @@ const getResultData = () => {
 
   let power = parseInt($(".myfleet .power").text());
   const armor = parseInt($(".enemy .armor").val());
-  const criticalCoef = [1.0, 1.5];
 
-  let cappedAttack = 0;
-  let criticalTerm = 0;
+  const cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
+  const trialNumber = 100;
+  let criticalTerm = criticalFlag == 2 ? 100 : 0;
+  if (criticalFlag == 3) {
+    criticalTerm = Math.floor(Math.sqrt(finalAccuracy)) + 1;
+  }
+  const criticalCoef = [1.0, 1.5];
+  const criticalTerms = [100 - criticalTerm, criticalTerm];
   let fineProb = 0;
   let shohaProb = 0;
   let tyuhaProb = 0;
   let taihaProb = 0;
   let sinkProb = 0;
-  const engagementRates = { noSaiun: [0.15, 0.45, 0.3, 0.1], saiun: [0.15, 0.45, 0.4, 0] };
-  for (let j = 0; j < engagementDamageCoefs.length; j++) {
-    const engagementDamageCoef = parseFloat(engagementDamageCoefs[j]);
-    cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
-    const trialNumber = 100;
-    criticalTerm = criticalFlag == 2 ? 100 : 0;
-    if (criticalFlag == 3) {
-      criticalTerm = Math.floor(Math.sqrt(finalAccuracy)) + 1;
-    }
-    const criticalTerms = [100 - criticalTerm, criticalTerm];
-    /*
-    fineProb = 0;
-    shohaProb = 0;
-    tyuhaProb = 0;
-    taihaProb = 0;
-    sinkProb = 0;
-    */
-    for (let i = 0; i < 2; i++) {
-      sink = 0;
-      taiha = 0;
-      tyuha = 0;
-      shoha = 0;
-      fine = 0;
-      for (let index = 0; index <= trialNumber; index++) {
-        const randArmor = (index / trialNumber) * (armor - 1);
-        const finalAttack = Math.floor(cappedAttack * criticalCoef[i]);
-        const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
-        if (damage >= hp) {
-          sink++;
-        } else if (damage >= hp * 0.75) {
-          taiha++;
-        } else if (damage >= hp * 0.5) {
-          tyuha++;
-        } else if (damage >= hp * 0.25) {
-          shoha++;
-        } else {
-          fine++;
-        }
+  for (let i = 0; i < 2; i++) {
+    sink = 0;
+    taiha = 0;
+    tyuha = 0;
+    shoha = 0;
+    fine = 0;
+    for (let index = 0; index <= trialNumber; index++) {
+      const randArmor = (index / trialNumber) * (armor - 1);
+      const finalAttack = Math.floor(cappedAttack * criticalCoef[i]);
+      const damage = Math.floor(finalAttack - (armor * 0.7 + randArmor * 0.6));
+      if (damage >= hp) {
+        sink++;
+      } else if (damage >= hp * 0.75) {
+        taiha++;
+      } else if (damage >= hp * 0.5) {
+        tyuha++;
+      } else if (damage >= hp * 0.25) {
+        shoha++;
+      } else {
+        fine++;
       }
-      let engagementRate = 1.0;
-      if (engagementDamageCoefs.length > 1 && document.getElementById("saiunCheck")) {
-        const isSauin = document.getElementById("saiunCheck").checked;
-        if (isSauin) {
-          engagementRate = engagementRates.saiun[j];
-        } else {
-          engagementRate = engagementRates.noSaiun[j];
-        }
-      }
-      fineProb += ((fine * criticalTerms[i]) / (trialNumber + 1)) * engagementRate;
-      shohaProb += ((shoha * criticalTerms[i]) / (trialNumber + 1)) * engagementRate;
-      tyuhaProb += ((tyuha * criticalTerms[i]) / (trialNumber + 1)) * engagementRate;
-      taihaProb += ((taiha * criticalTerms[i]) / (trialNumber + 1)) * engagementRate;
-      sinkProb += ((sink * criticalTerms[i]) / (trialNumber + 1)) * engagementRate;
     }
+    fineProb += (fine * criticalTerms[i]) / (trialNumber + 1);
+    shohaProb += (shoha * criticalTerms[i]) / (trialNumber + 1);
+    tyuhaProb += (tyuha * criticalTerms[i]) / (trialNumber + 1);
+    taihaProb += (taiha * criticalTerms[i]) / (trialNumber + 1);
+    sinkProb += (sink * criticalTerms[i]) / (trialNumber + 1);
   }
 
   let fuel = [];
@@ -896,21 +870,18 @@ const getResultData = () => {
     }
   }
 
+  let isDamageCap = cappedAttack >= 151;
   $(".result-left").html(`命中項 ${hitTerm}<br>
         基本回避項 ${
           avoidanceTerm == 0 ? avoidanceTerm + "<span style='color: #dc143c'>(不明)</span>" : avoidanceTerm
         }<br>
         最終命中率 ${finalAccuracy}%<br>
-        ${
-          engagementDamageCoefs.length == 1
-            ? `最終攻撃力 ${
-                criticalFlag == 3
-                  ? `(CL1) ${Math.floor(cappedAttack * 1.0)}, (CL2) ${Math.floor(cappedAttack * 1.5)}`
-                  : Math.floor(cappedAttack * criticalCoef[criticalFlag - 1])
-              }${cappedAttack >= 151 ? "(キャップ到達)" : ""}<br>
-        クリティカル率 (CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%<br></br>`
-            : ""
-        }
+        最終攻撃力 ${
+          criticalFlag == 3
+            ? `(CL1) ${Math.floor(cappedAttack * 1.0)}, (CL2) ${Math.floor(cappedAttack * 1.5)}`
+            : Math.floor(cappedAttack * criticalCoef[criticalFlag - 1])
+        }${isDamageCap ? "(キャップ到達)" : ""}<br>
+        クリティカル率 (CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%<br>
         <br>
         <div class="sub-title">命中時撃破率</div>
         撃沈 ${round(sinkProb, 1)}%<br>
@@ -933,15 +904,15 @@ const getResultData = () => {
   $(".result .progress-bar-miss").attr("style", `width:${100 - finalAccuracy}%`);
   $(".result .progress-bar-miss").html(`miss ${Math.floor((100 - finalAccuracy) * 10) / 10}%`);
   $(".result .progress-bar-fine").attr("style", `width:${(fineProb * finalAccuracy) / 100}%`);
-  $(".result .progress-bar-fine").html(`小破未満 ${round((fineProb * finalAccuracy) / 100, 1)}%`);
+  $(".result .progress-bar-fine").html(`小破未満 ${Math.floor((fineProb * finalAccuracy) / 10) / 10}%`);
   $(".result .progress-bar-shoha").attr("style", `width:${(shohaProb * finalAccuracy) / 100}%`);
-  $(".result .progress-bar-shoha").html(`小破 ${round((shohaProb * finalAccuracy) / 100, 1)}%`);
+  $(".result .progress-bar-shoha").html(`小破 ${Math.floor((shohaProb * finalAccuracy) / 10) / 10}%`);
   $(".result .progress-bar-tyuha").attr("style", `width:${(tyuhaProb * finalAccuracy) / 100}%`);
-  $(".result .progress-bar-tyuha").html(`中破 ${round((tyuhaProb * finalAccuracy) / 100, 1)}%`);
+  $(".result .progress-bar-tyuha").html(`中破 ${Math.floor((tyuhaProb * finalAccuracy) / 10) / 10}%`);
   $(".result .progress-bar-taiha").attr("style", `width:${(taihaProb * finalAccuracy) / 100}%`);
-  $(".result .progress-bar-taiha").html(`大破 ${round((taihaProb * finalAccuracy) / 100, 1)}%`);
+  $(".result .progress-bar-taiha").html(`大破 ${Math.floor((taihaProb * finalAccuracy) / 10) / 10}%`);
   $(".result .progress-bar-sink").attr("style", `width:${(sinkProb * finalAccuracy) / 100}%`);
-  $(".result .progress-bar-sink").html(`撃沈 ${round((sinkProb * finalAccuracy) / 100, 1)}%`);
+  $(".result .progress-bar-sink").html(`撃沈 ${Math.floor((sinkProb * finalAccuracy) / 10) / 10}%`);
 };
 
 const search = (targetSelector, searchText) => {
@@ -1108,27 +1079,3 @@ function round(number, precision) {
   };
   return shift(Math.round(shift(number, precision, false)), precision, true);
 }
-
-//彩雲設定フォームの追加
-const setSauin = (isActive) => {
-  if (isActive) {
-    const form = $("<input>", {
-      type: "checkbox",
-      class: "form-check-input",
-      id: "saiunCheck",
-      onclick: "getResultData()",
-    });
-    const label = $("<label>", {
-      class: "form-check-label",
-      text: "彩雲",
-      for: "saiunCheck",
-    });
-    const div = $("<div>", {
-      class: "form-check",
-    });
-    div.append(form).append(label);
-    $(".saiunSet").append(div);
-  } else {
-    $(".saiunSet").children().remove();
-  }
-};
