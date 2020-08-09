@@ -28,6 +28,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script defer src="./js/data.min.js?ver=1.265"></script>
   <script defer src="./js/main.min.js?ver=1.266"></script>
+  <script type="module" src="./js/index.js?ver=1.266"></script>
 </head>
 
 <body>
@@ -548,6 +549,9 @@
                 <li>
                   <a class="focus-item" data-toggle="tab" href="#bomber" id="bomber-tab">艦爆</a>
                 </li>
+                <li>
+                  <a class="focus-item" data-toggle="tab" href="#interceptor" id="interceptor-tab">局戦</a>
+                </li>
               </ul>
               <div class="tab-content item-list">
                 <div id="attacker" class="tab-pane fade in active table-wrapper">
@@ -558,6 +562,17 @@
                 <div id="bomber" class="tab-pane fade table-wrapper">
                   <table class="table">
                     <tbody></tbody>
+                  </table>
+                </div>
+                <div id="interceptor" class="tab-pane fade table-wrapper">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <button type="button" class="btn btn-default item" data-toggle="modal" data-target="#game" id="startButton">
+                          秋水
+                        </button>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -603,6 +618,25 @@
           <button class="btn btn-info deckBuilderOpen">
             デッキビルダーで開く
           </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            閉じる
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="game" class="modal fade" data-keybord="false" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="gameView"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">
