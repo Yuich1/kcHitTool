@@ -177,6 +177,14 @@ $(function () {
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
+  $(".enemy .luck, .enemy .avoidance").on("input", function () {
+    saveEnemyStatus(selectedEnemyFleet.id, $(".enemy .avoidance").val(), $(".enemy .luck").val());
+  });
+  $(".saved-info .status-reset").on("click", function () {
+    resetEnemyStatus(selectedEnemyFleet.id);
+    $(".saved-info").css("display", "none");
+    getResultData();
+  });
   $(".my-formation, .enemy-formation, .critical").on("input", function () {
     getResultData();
   });
@@ -191,6 +199,9 @@ $(function () {
     $(".search-item").focus();
     search(".item-list .item", $(this).val());
   });
+
+  //ツ級を初期設定に
+  changeFleet(1592);
   // 艦娘を読み込む
   $(".fleet-select").on("click", function () {
     $(".fleet-select.active").removeClass("active");
@@ -606,7 +617,7 @@ const changeFleet = (id) => {
   }
   if (!selectedFleet) return;
   const state = selectedFleet.state;
-  const luck = selectedFleet.luck;
+  let luck = selectedFleet.luck;
   const src = `./images/ships/${id}.png`;
   let setState = state;
   if (setState == "未改造" || setState == "normal") {
@@ -620,7 +631,17 @@ const changeFleet = (id) => {
     $(".enemy .fleet-img").attr("src", src);
     $(".enemy .hp").val(selectedFleet.hp);
     $(".enemy .armor").val(selectedFleet.armor);
-    $(".enemy .avoidance").val(selectedFleet.avoidance + selectedFleet.avoidance_item);
+    let avoidance;
+    if (localStorage.getItem(selectedEnemyFleet.id)) {
+      const savedStatus = localStorage.getItem(selectedEnemyFleet.id).split(",");
+      avoidance = parseInt(savedStatus[0]);
+      luck = parseInt(savedStatus[1]);
+      $(".saved-info").css("display", "block");
+    } else {
+      avoidance = selectedFleet.avoidance + selectedFleet.avoidance_item;
+      $(".saved-info").css("display", "none");
+    }
+    $(".enemy .avoidance").val(avoidance);
     $(".enemy .luck").val(luck);
   } else {
     const power = selectedFleet.type == 2 ? Math.floor((selectedFleet.power - 1) * 1.5) + 55 : selectedFleet.power + 4;
@@ -1132,4 +1153,19 @@ const setSauin = (isActive) => {
   } else {
     $(".saiunSet").children().remove();
   }
+};
+
+//敵回避、運の保存
+const saveEnemyStatus = (shipId, avoidance, luck) => {
+  const data = [avoidance, luck];
+  localStorage.setItem(`${shipId}`, `${data}`);
+
+  $(".saved-info").css("display", "block");
+};
+
+const resetEnemyStatus = (shipId) => {
+  localStorage.removeItem(shipId);
+
+  $(".enemy .avoidance").val(selectedEnemyFleet.avoidance);
+  $(".enemy .luck").val(selectedEnemyFleet.luck);
 };
