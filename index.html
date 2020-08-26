@@ -53,9 +53,7 @@
                 <li class="fleet-select"><a href="#">6</a></li>
               </ul>
             </div>
-            <p class="fleet-name" id="myfleet-name" data-toggle="modal" data-target="#select-myfleet">
-              未選択
-            </p>
+            <p class="fleet-name" id="myfleet-name" data-toggle="modal" data-target="#select-myfleet">未選択</p>
             <br />
             <img
               class="fleet-img"
@@ -95,9 +93,7 @@
                   <td>装備命中</td>
                   <td class="accuracy"></td>
                   <td>
-                    <button type="button" class="btn btn-default btn-sm no-kira" id="kira">
-                      キラを付ける
-                    </button>
+                    <button type="button" class="btn btn-default btn-sm no-kira" id="kira">キラを付ける</button>
                   </td>
                 </tr>
               </tbody>
@@ -113,15 +109,13 @@
         <div class="col-md-6">
           <div class="enemy box">
             <h2 class="box-title">敵艦船</h2>
-            <p class="fleet-name" id="enemy-name" data-toggle="modal" data-target="#select-enemy">
-              軽巡ツ級 elite
-            </p>
+            <p class="fleet-name" id="enemy-name" data-toggle="modal" data-target="#select-enemy">軽巡ツ級 elite</p>
             <br />
             <img
               class="fleet-img"
               id="enemy-img"
               src="./images/ships/1592.png"
-              alt="艦娘"
+              alt="深海棲艦"
               data-toggle="modal"
               data-target="#select-enemy"
             />
@@ -156,6 +150,9 @@
                 </tr>
               </tbody>
             </table>
+            <div class="saved-info">
+              設定済み <button type="button" class="btn btn-info status-reset">初期値に戻す</button>
+            </div>
           </div>
           <div class="setup box">
             <h2 class="box-title">設定</h2>
@@ -239,24 +236,12 @@
             <h2 class="box-title">計算結果</h2>
             <!--<div class="background-img"></div>-->
             <div class="progress">
-              <div class="progress-bar progress-bar-miss" role="progressbar" style="width: 0%;">
-                miss
-              </div>
-              <div class="progress-bar progress-bar-fine" role="progressbar" style="width: 0%;">
-                小破未満
-              </div>
-              <div class="progress-bar progress-bar-shoha" role="progressbar" style="width: 0%;">
-                小破
-              </div>
-              <div class="progress-bar progress-bar-tyuha" role="progressbar" style="width: 0%;">
-                中破
-              </div>
-              <div class="progress-bar progress-bar-taiha" role="progressbar" style="width: 0%;">
-                大破
-              </div>
-              <div class="progress-bar progress-bar-sink" role="progressbar" style="width: 0%;">
-                撃沈
-              </div>
+              <div class="progress-bar progress-bar-miss" role="progressbar" style="width: 0%">miss</div>
+              <div class="progress-bar progress-bar-fine" role="progressbar" style="width: 0%">小破未満</div>
+              <div class="progress-bar progress-bar-shoha" role="progressbar" style="width: 0%">小破</div>
+              <div class="progress-bar progress-bar-tyuha" role="progressbar" style="width: 0%">中破</div>
+              <div class="progress-bar progress-bar-taiha" role="progressbar" style="width: 0%">大破</div>
+              <div class="progress-bar progress-bar-sink" role="progressbar" style="width: 0%">撃沈</div>
             </div>
             <p class="box-title">詳細</p>
             <div class="grid-result">
@@ -314,9 +299,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">艦娘選択</h4>
           <div class="search">
             検索
@@ -372,12 +355,8 @@
                 <tbody></tbody>
               </table>
             </div>
-            <div id="de" class="tab-pane fade table-wrapper">
-              未実装
-            </div>
-            <div id="ss" class="tab-pane fade table-wrapper">
-              未実装
-            </div>
+            <div id="de" class="tab-pane fade table-wrapper">未実装</div>
+            <div id="ss" class="tab-pane fade table-wrapper">未実装</div>
             <div id="av" class="tab-pane fade table-wrapper">
               <table class="table">
                 <tbody></tbody>
@@ -386,9 +365,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            閉じる
-          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
         </div>
       </div>
     </div>
@@ -398,9 +375,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">敵艦船選択</h4>
         </div>
         <div class="modal-body">
@@ -466,9 +441,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            閉じる
-          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
         </div>
       </div>
     </div>
@@ -478,9 +451,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">装備選択</h4>
           <div class="search">
             検索
@@ -568,7 +539,13 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <button type="button" class="btn btn-default item" data-toggle="modal" data-target="#game" id="startButton">
+                        <button
+                          type="button"
+                          class="btn btn-default item"
+                          data-toggle="modal"
+                          data-target="#game"
+                          id="startButton"
+                        >
                           秋水
                         </button>
                       </tr>
@@ -590,9 +567,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            閉じる
-          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
         </div>
       </div>
     </div>
@@ -601,28 +576,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">共有</h4>
         </div>
         <div class="modal-body">
           <div>コードを入力して編成を展開できます</div>
           <input type="text" class="form-control inline-b deck" width="60px" />
-          <button class="btn btn-info deckBuilder">
-            デッキビルダー形式をコピー
-          </button>
-          <button class="btn btn-info deckImageOpen">
-            艦これ編成画像出力で開く
-          </button>
-          <button class="btn btn-info deckBuilderOpen">
-            デッキビルダーで開く
-          </button>
+          <button class="btn btn-info deckBuilder">デッキビルダー形式をコピー</button>
+          <button class="btn btn-info deckImageOpen">艦これ編成画像出力で開く</button>
+          <button class="btn btn-info deckBuilderOpen">デッキビルダーで開く</button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            閉じる
-          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
         </div>
       </div>
     </div>
@@ -631,17 +596,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            &times;
-          </button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <div id="gameView"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
-            閉じる
-          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
         </div>
       </div>
     </div>

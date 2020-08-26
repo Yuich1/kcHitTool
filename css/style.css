@@ -124,6 +124,7 @@ body{
 .enemy-status{
     width: 65px;
     padding: 6px 4px 6px 12px;
+    margin-right: 4px;
 }
 .fleet-list .btn{
     max-width: 120px;
@@ -178,6 +179,20 @@ body{
     right: 20px;
     top: 118px;
     width: 96px;
+}
+.saved-info{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    display: none;
+}
+.saved-info::before{
+    display: block;
+    content: "";
+    border-bottom: 1px solid rgb(161, 161, 161);
+    width: 110%;
+    margin-bottom: 2px;
+    margin-left: -44px;
 }
 .kira{
     background-color: rgba(255, 251, 0, 0.89);
