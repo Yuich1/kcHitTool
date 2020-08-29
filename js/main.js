@@ -1,6 +1,6 @@
 /**
  * @author Yuichi<https://twitter.com/2qrbgxpsaWEziml?s=20>
- * @version 1.26
+ * @version 1.28
  */
 
 let hasBbList = false;
