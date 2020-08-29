@@ -1055,7 +1055,7 @@ const SHIP_DATA = [
     type: 2,
     name: "加賀",
     id_list: [84, 278, 610, 646, 698],
-    main_id: 278,
+    main_id: 698,
     yomi: "かが kaga",
     remodel: [
       {
