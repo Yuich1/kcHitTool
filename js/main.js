@@ -453,6 +453,8 @@ const setItemList = () => {
     { type: "bomber", id: [9, 10] },
     { type: "torpedo", id: [5, 6] },
     { type: "radar", id: [14, 15, 30] },
+    { type: "scout", id: [27]},
+    { type: "heli", id: [31] },
     {
       type: "other",
       id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
