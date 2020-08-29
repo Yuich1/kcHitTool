@@ -71,6 +71,7 @@ const ITEM_TYPE = [
   { id: 28, name: "見張り員" },
   { id: 29, name: "航空要員" },
   { id: 30, name: "戦艦電探" },
+  { id: 31, name: "回転翼機" },
 ];
 
 // 単縦, 複縦, 輪形, 梯形, 単横, 警戒
@@ -315,6 +316,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 95,
         bullet: 105,
@@ -326,6 +328,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 13,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 105,
         bullet: 140,
@@ -358,6 +361,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 95,
         bullet: 105,
@@ -369,6 +373,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 14,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 105,
         bullet: 140,
@@ -401,6 +406,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 30,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 95,
         bullet: 105,
@@ -412,7 +418,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 40,
         slot: 5,
-        specialCanHaveItemType: [9],
+        specialCanHaveItemType: [9, 27, 31],
         cantHaveItemId: [128, 281],
         fuel: 110,
         bullet: 145,
@@ -445,6 +451,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 30,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [128, 281],
         fuel: 95,
         bullet: 105,
@@ -456,7 +463,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 40,
         slot: 5,
-        specialCanHaveItemType: [9],
+        specialCanHaveItemType: [9, 27, 31],
         cantHaveItemId: [128, 281],
         fuel: 115,
         bullet: 140,
@@ -541,6 +548,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 16,
         slot: 4,
+        specialCanHaveItemType: [31],
         fuel: 180,
         bullet: 225,
       },
@@ -613,6 +621,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 5,
+        specialCanHaveItemType: [31],
         expansionCanHaveItemId: [71, 275],
         fuel: 275,
         bullet: 350,
@@ -1045,7 +1054,6 @@ const SHIP_DATA = [
   {
     type: 2,
     name: "加賀",
-    id_list: [84, 278],
     id_list: [84, 278, 610, 646, 698],
     main_id: 278,
     yomi: "かが kaga",
@@ -1436,6 +1444,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 20,
         slot: 2,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 25,
         bullet: 25,
@@ -1447,6 +1456,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 30,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 30,
         bullet: 30,
@@ -1467,6 +1477,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1478,6 +1489,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1489,6 +1501,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 15,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 45,
@@ -1509,6 +1522,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 20,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1520,6 +1534,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 24,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 40,
@@ -1540,6 +1555,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1551,6 +1567,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1571,6 +1588,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 30,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1582,6 +1600,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 40,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1593,6 +1612,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 42,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 45,
@@ -1604,6 +1624,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 42,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 45,
@@ -1624,6 +1645,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1635,6 +1657,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 45,
@@ -1655,6 +1678,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 20,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1666,6 +1690,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 30,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 45,
@@ -1677,6 +1702,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 41,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 50,
@@ -1697,6 +1723,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1708,6 +1735,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 40,
@@ -1719,6 +1747,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 13,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 40,
@@ -1739,6 +1768,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 40,
         bullet: 40,
@@ -1750,6 +1780,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 40,
@@ -1761,6 +1792,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 13,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 45,
         bullet: 40,
@@ -1814,6 +1846,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 14,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1856,6 +1889,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 15,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 35,
         bullet: 35,
@@ -1876,6 +1910,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 13,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         expansionCanHaveItemId: [66, 220],
         fuel: 60,
@@ -1897,6 +1932,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         expansionCanHaveItemId: [66, 220],
         fuel: 60,
@@ -2074,6 +2110,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 15,
         slot: 3,
+        specialCanHaveItemType: [31],
         cantHaveItemId: [151],
         fuel: 25,
         bullet: 35,
@@ -2604,7 +2641,7 @@ const SHIP_DATA = [
         torp: 69,
         luck: 10,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 55,
       },
@@ -2634,7 +2671,7 @@ const SHIP_DATA = [
         torp: 69,
         luck: 10,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 55,
       },
@@ -2664,7 +2701,7 @@ const SHIP_DATA = [
         torp: 69,
         luck: 10,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 55,
       },
@@ -2675,7 +2712,7 @@ const SHIP_DATA = [
         torp: 88,
         luck: 14,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         expansionCanHaveItemId: [66, 220],
         fuel: 55,
         bulllet: 60,
@@ -2706,7 +2743,7 @@ const SHIP_DATA = [
         torp: 69,
         luck: 10,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 55,
       },
@@ -2717,7 +2754,7 @@ const SHIP_DATA = [
         torp: 87,
         luck: 13,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         expansionCanHaveItemId: [66, 220],
         fuel: 55,
         bullet: 60,
@@ -2758,7 +2795,7 @@ const SHIP_DATA = [
         torp: 82,
         luck: 15,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 65,
       },
@@ -2798,7 +2835,7 @@ const SHIP_DATA = [
         torp: 83,
         luck: 14,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 50,
         bullet: 65,
       },
@@ -2965,6 +3002,7 @@ const SHIP_DATA = [
         torp: 78,
         luck: 17,
         slot: 3,
+        specialCanHaveItemType: [31],
         fuel: 25,
         bullet: 25,
       },
@@ -3004,6 +3042,7 @@ const SHIP_DATA = [
         torp: 80,
         luck: 18,
         slot: 3,
+        specialCanHaveItemType: [31],
         fuel: 25,
         bullet: 25,
       },
@@ -3072,7 +3111,7 @@ const SHIP_DATA = [
         torp: 91,
         luck: 13,
         slot: 3,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 25,
         bullet: 30,
       },
@@ -3919,7 +3958,7 @@ const SHIP_DATA = [
         torp: 68,
         luck: 20,
         slot: 3,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 30,
         bullet: 25,
       },
@@ -3941,7 +3980,7 @@ const SHIP_DATA = [
         torp: 73,
         luck: 26,
         slot: 4,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 30,
         bullet: 35,
       },
@@ -7595,7 +7634,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 17,
         slot: 3,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 30,
         bullet: 10,
       },
@@ -7606,7 +7645,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 19,
         slot: 3,
-        specialCanHaveItemType: [4, 15, 28],
+        specialCanHaveItemType: [4, 15, 28, 31],
         fuel: 30,
         bullet: 15,
       },
@@ -7763,7 +7802,7 @@ const SHIP_DATA = [
         torp: 75,
         luck: 10,
         slot: 3,
-        specialCanHaveItemType: [2, 4, 15, 28, 29],
+        specialCanHaveItemType: [2, 4, 15, 28, 29, 31],
         fuel: 40,
         bullet: 40,
       },
@@ -7825,7 +7864,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 20,
         slot: 3,
-        specialCanHaveItemType: [4, 28],
+        specialCanHaveItemType: [4, 28, 31],
         fuel: 35,
         bullet: 10,
       },
@@ -7845,7 +7884,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 7,
         slot: 2,
-        specialCanHaveItemType: [29],
+        specialCanHaveItemType: [29, 31],
         fuel: 100,
         bullet: 15,
       },
@@ -7856,7 +7895,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 8,
         slot: 3,
-        specialCanHaveItemType: [8, 15, 29],
+        specialCanHaveItemType: [8, 15, 29, 31],
         fuel: 120,
         bullet: 20,
       },
@@ -7876,7 +7915,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 3,
-        specialCanHaveItemType: [4],
+        specialCanHaveItemType: [4, 31],
         fuel: 50,
         bullet: 10,
       },
@@ -7887,7 +7926,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 12,
         slot: 4,
-        specialCanHaveItemType: [4],
+        specialCanHaveItemType: [4, 31],
         fuel: 55,
         bullet: 15,
       },
@@ -7907,7 +7946,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 14,
         slot: 3,
-        specialCanHaveItemType: [4, 28],
+        specialCanHaveItemType: [4, 28, 31],
         fuel: 35,
         bullet: 5,
       },
@@ -7918,7 +7957,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 18,
         slot: 4,
-        specialCanHaveItemType: [4, 15, 28, 29],
+        specialCanHaveItemType: [4, 15, 28, 29, 31],
         fuel: 40,
         bullet: 20,
       },
@@ -7938,7 +7977,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 10,
         slot: 2,
-        specialCanHaveItemType: [4],
+        specialCanHaveItemType: [4, 31],
         fuel: 40,
         bullet: 10,
       },
@@ -7949,7 +7988,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 13,
         slot: 3,
-        specialCanHaveItemType: [4],
+        specialCanHaveItemType: [4, 31],
         fuel: 45,
         bullet: 25,
       },
@@ -7969,7 +8008,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 17,
         slot: 3,
-        specialCanHaveItemType: [2, 4, 15, 28, 29],
+        specialCanHaveItemType: [2, 4, 15, 28, 29, 31],
         fuel: 35,
         bullet: 40,
       },
@@ -7980,7 +8019,7 @@ const SHIP_DATA = [
         torp: 0,
         luck: 20,
         slot: 4,
-        specialCanHaveItemType: [2, 4, 15, 28, 29],
+        specialCanHaveItemType: [2, 4, 15, 28, 29, 31],
         fuel: 40,
         bullet: 50,
       },
@@ -8102,8 +8141,8 @@ const ITEM_DATA = [
     torp: 10,
     yomi: "りゅうせい",
     singleAddableBonus: [
-      { power: 2, targetId: [277, 278, 156, 594] },
-      { power: 1, targetId: [599] },
+      { power: 1, targetId: [277, 278, 156, 594, 698, 646] },
+      { power: 2, targetId: [599, 610] },
     ],
   },
   //{ id: 19, type: 7, name: "九六式艦戦", power: 0, torp: 0, accuracy: 0 },
@@ -8123,6 +8162,12 @@ const ITEM_DATA = [
     name: "彗星",
     bomb: 8,
     yomi: "すいせい",
+    singleAddableBonus: [
+      {
+        power: 2,
+        targetId: [553, 554],
+      },
+    ],
   },
   //{ id: 25, type: 11, name: "零式水上偵察機", power: 0, torp: 0, accuracy: 1 },
   //{ id: 26, type: 12, name: "瑞雲", power: 0, torp: 0, accuracy: 1 },
@@ -8477,8 +8522,8 @@ const ITEM_DATA = [
     torp: 13,
     yomi: "りゅうせいかい",
     singleAddableBonus: [
-      { power: 2, targetId: [277, 278, 156, 594] },
-      { power: 1, targetId: [599] },
+      { power: 1, targetId: [277, 278, 156, 594, 698, 646] },
+      { power: 2, targetId: [599, 610] },
     ],
   },
   //{ id: 53, type: 7, name: "烈風 一一型", power: 0, torp: 0, accuracy: 2 },
@@ -8521,6 +8566,388 @@ const ITEM_DATA = [
     name: "二式艦上偵察機",
     accuracy: 3,
     yomi: "にしきかんじょうていさつき",
+    isImpr: true,
+    multiBonus: [
+      //伊勢日向改二
+      {
+        power: 3,
+        targetId: [553, 554],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 4 && c == 1;
+        },
+      },
+      {
+        power: 4,
+        targetId: [553, 554],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 5,
+        targetId: [553, 554],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+      //蒼龍
+      {
+        power: 3,
+        targetId: [90, 279, 197],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 0 && impr < 4 && c == 1;
+        },
+      },
+      {
+        power: 4,
+        targetId: [90, 279, 197],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3 && impr < 8 && c == 1;
+        },
+      },
+      {
+        power: 5,
+        targetId: [90, 279, 197],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 7 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 6,
+        targetId: [90, 279, 197],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+      //飛龍
+      {
+        power: 2,
+        targetId: [91, 280, 196],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 0 && impr < 4 && c == 1;
+        },
+      },
+      {
+        power: 3,
+        targetId: [91, 280, 196],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 4,
+        targetId: [91, 280, 196],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+      //瑞鳳改二乙,鈴谷航改二,熊野航改二
+      {
+        power: 1,
+        targetId: [560, 508, 509],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 0 && impr < 4 && c == 1;
+        },
+      },
+      {
+        power: 2,
+        targetId: [560, 508, 509],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 3,
+        targetId: [560, 508, 509],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+      //その他の空母
+      {
+        power: 1,
+        targetId: [
+          83,
+          277,
+          594,
+          599,
+          84,
+          278,
+          698,
+          910,
+          646,
+          110,
+          288,
+          461,
+          466,
+          111,
+          112,
+          462,
+          467,
+          404,
+          406,
+          331,
+          429,
+          332,
+          430,
+          153,
+          156,
+          89,
+          285,
+          76,
+          281,
+          157,
+          185,
+          318,
+          74,
+          282,
+          116,
+          117,
+          555,
+          75,
+          283,
+          92,
+          284,
+          408,
+          108,
+          291,
+          296,
+          109,
+          292,
+          297,
+          529,
+          536,
+          432,
+          353,
+          444,
+          365,
+          433,
+          438,
+          545,
+          550,
+          549,
+          397,
+          544,
+          396,
+          603,
+          704,
+          515,
+          393,
+        ],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 0 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 2,
+        targetId: [
+          83,
+          277,
+          594,
+          599,
+          84,
+          278,
+          698,
+          910,
+          646,
+          110,
+          288,
+          461,
+          466,
+          111,
+          112,
+          462,
+          467,
+          404,
+          406,
+          331,
+          429,
+          332,
+          430,
+          153,
+          156,
+          89,
+          285,
+          76,
+          281,
+          157,
+          185,
+          318,
+          74,
+          282,
+          116,
+          117,
+          555,
+          75,
+          283,
+          92,
+          284,
+          408,
+          108,
+          291,
+          296,
+          109,
+          292,
+          297,
+          529,
+          536,
+          432,
+          353,
+          444,
+          365,
+          433,
+          438,
+          545,
+          550,
+          549,
+          397,
+          544,
+          396,
+          603,
+          704,
+          515,
+          393,
+        ],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 61) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+    ],
   },
 
   {
@@ -8555,7 +8982,44 @@ const ITEM_DATA = [
     accuracy: 1,
     yomi: "8せんちこうかくほう",
   },
-
+  {
+    id: 69,
+    type: 31,
+    name: "カ号観測機",
+    accuracy: 1,
+    yomi: "かごうかんそくき",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [553, 554, 646],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 3,
+        targetId: [646],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let thisc = 0;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 389) {
+              c++;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 69) {
+              thisc++;
+            }
+          }
+          return c == 1 && thisc == 1;
+        },
+      },
+    ],
+  },
   {
     id: 71,
     type: 4,
@@ -9455,7 +9919,7 @@ const ITEM_DATA = [
     yomi: "きゅうななしきかんこうむらたたい",
     singleBonus: [
       { power: 3, targetId: [277, 594] },
-      { power: 2, targetId: [278, 110] },
+      { power: 2, targetId: [278, 110, 698, 610, 646] },
       { power: 1, targetId: [111, 157] },
     ],
   },
@@ -9469,7 +9933,7 @@ const ITEM_DATA = [
     singleBonus: [
       { power: 4, targetId: [461, 466] },
       { power: 3, targetId: [277, 594, 599] },
-      { power: 2, targetId: [278, 110, 288, 462, 467] },
+      { power: 2, targetId: [278, 110, 288, 462, 467, 698, 610, 646] },
       { power: 1, targetId: [111, 112, 157] },
     ],
   },
@@ -9497,6 +9961,42 @@ const ITEM_DATA = [
     power: 2,
     accuracy: 2,
     yomi: "しせいけいうんかんていがた",
+    isImpr: true,
+    multiBonus: [
+      //伊勢日向改二
+      {
+        power: 1,
+        targetId: [466, 467, 153, 156, 550],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 151) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3 && impr < 10 && c == 1;
+        },
+      },
+      {
+        power: 2,
+        targetId: [466, 467, 153, 156, 550],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 151) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 9 && c == 1;
+        },
+      },
+    ],
   },
 
   {
@@ -11829,7 +12329,182 @@ const ITEM_DATA = [
       { power: 2, targetId: [553] },
     ],
   },
-
+  {
+    id: 324,
+    type: 31,
+    name: "オ号観測機改",
+    power: 1,
+    accuracy: 1,
+    yomi: "おごうかんそくきかい",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [553],
+      },
+      {
+        power: 2,
+        targetId: [554, 646],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 3,
+        targetId: [646],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let thisc = 0;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 389) {
+              c++;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 324) {
+              thisc++;
+            }
+          }
+          return c == 1 && thisc == 1;
+        },
+      },
+    ],
+  },
+  {
+    id: 325,
+    type: 31,
+    name: "オ号観測機改二",
+    power: 1,
+    accuracy: 1,
+    yomi: "おごうかんそくきかいに",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [553],
+      },
+      {
+        power: 2,
+        targetId: [554, 646],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 3,
+        targetId: [646],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let thisc = 0;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 389) {
+              c++;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 325) {
+              thisc++;
+            }
+          }
+          return c == 1 && thisc == 1;
+        },
+      },
+    ],
+  },
+  {
+    id: 326,
+    type: 31,
+    name: "S-51J",
+    power: 2,
+    accuracy: 2,
+    yomi: "s-51j",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [553],
+      },
+      {
+        power: 3,
+        targetId: [554, 646],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 8,
+        targetId: [646],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let thisc = 0;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 389) {
+              c++;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 326) {
+              thisc++;
+            }
+          }
+          return c == 1 && thisc == 1;
+        },
+      },
+    ],
+  },
+  {
+    id: 327,
+    type: 31,
+    name: "S-51J改",
+    power: 2,
+    accuracy: 3,
+    yomi: "s-51jかい",
+    singleAddableBonus: [
+      {
+        power: 2,
+        targetId: [553],
+      },
+      {
+        power: 4,
+        targetId: [554],
+      },
+      {
+        power: 5,
+        targetId: [646],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 8,
+        targetId: [646],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let thisc = 0;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 389) {
+              c++;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 327) {
+              thisc++;
+            }
+          }
+          return c == 1 && thisc == 1;
+        },
+      },
+    ],
+  },
   {
     id: 328,
     type: 3,
@@ -11929,8 +12604,8 @@ const ITEM_DATA = [
     accuracy: 1,
     yomi: "りゅうせいかいいっこうせん",
     singleAddableBonus: [
-      { power: 3, targetId: [599] },
-      { power: 2, targetId: [594] },
+      { power: 3, targetId: [599, 610] },
+      { power: 2, targetId: [594, 698, 646] },
       { power: 1, targetId: [277, 278, 461, 466, 462, 467] },
     ],
   },
@@ -11942,8 +12617,8 @@ const ITEM_DATA = [
     accuracy: 2,
     yomi: "りゅうせいかいいっこうせんじゅくれん",
     singleAddableBonus: [
-      { power: 5, targetId: [599] },
-      { power: 3, targetId: [594] },
+      { power: 5, targetId: [599, 610] },
+      { power: 3, targetId: [594, 698, 646] },
       { power: 2, targetId: [277, 278] },
       { power: 1, targetId: [461, 466, 462, 467] },
     ],
@@ -12952,7 +13627,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
       },
@@ -12968,7 +13643,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
       },
@@ -12984,7 +13659,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
       },
@@ -13000,7 +13675,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
       },
@@ -13060,7 +13735,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
       },
@@ -13076,7 +13751,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
       },
@@ -13103,7 +13778,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 2;
         },
       },
@@ -13119,7 +13794,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 2 && impr < 7;
         },
       },
@@ -13135,7 +13810,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 7;
         },
       },
@@ -13162,7 +13837,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 2;
         },
       },
@@ -13178,7 +13853,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 2 && impr < 7;
         },
       },
@@ -13194,9 +13869,33 @@ const ITEM_DATA = [
               c++;
             }
           }
-          const impr = $(`#impr${slotNumber}`).val() ? $(`#impr${slotNumber}`).val() : 0;
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 7;
         },
+      },
+    ],
+  },
+  {
+    id: 389,
+    type: 8,
+    name: "TBM-3W + 3S",
+    power: 3,
+    torp: 10,
+    bomb: 7,
+    accuracy: 3,
+    yomi: "tbm-3w+3s",
+    singleBonus: [
+      {
+        power: 3,
+        targetId: [698, 610],
+      },
+      {
+        power: 4,
+        targetId: [646],
+      },
+      {
+        power: 2,
+        targetId: [544, 396, 433, 438, 545, 550, 603, 704, 549, 397],
       },
     ],
   },
