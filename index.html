@@ -221,8 +221,11 @@
                       </select>
                     </div>
                   </td>
+                  <td></td>
                   <td>
-                    <div class="saiunSet"></div>
+                    <button type="button" class="btn btn-info save-fleet" data-toggle="modal" data-target="#save-fleet">
+                      編成記録
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -601,6 +604,54 @@
           <button class="btn btn-info deckBuilder">デッキビルダー形式をコピー</button>
           <button class="btn btn-info deckImageOpen">艦これ編成画像出力で開く</button>
           <button class="btn btn-info deckBuilderOpen">デッキビルダーで開く</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="save-fleet" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">編成記録</h4>
+        </div>
+        <div class="modal-body">
+          <div class="save">
+            <button class="btn btn-info save-fleet-button" data-toggle="modal" data-target="#save-form">
+              + 編成を保存
+            </button>
+          </div>
+          <div class="saved-fleetlist table-wrapper">
+            <table class="table">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="save-form" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">編成を保存</h4>
+        </div>
+        <div class="modal-body">
+          <div class="fleet-name">
+            編成名
+            <input type="text" class="form-control fleet-name" size="30" autocomplete="off" />
+          </div>
+          <div class="fleet-banners"></div>
+          <button class="btn btn-info" id="save-fleet-button" data-toggle="modal" data-target="#save-form">
+            編成を保存
+          </button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
