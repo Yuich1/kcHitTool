@@ -23,18 +23,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="shortcut icon" href="./images/icon/favicon.ico" />
   <!--  css更新時はverを変更する  -->
-  <link rel="stylesheet" href="./css/style.min.css?ver=1.27" />
+  <link rel="stylesheet" href="./css/style.min.css?ver=1.29" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script defer src="./js/data.min.js?ver=1.281"></script>
-  <script defer src="./js/main.min.js?ver=1.28"></script>
+  <script defer src="./js/main.min.js?ver=1.29"></script>
   <script type="module" src="./js/game.js?ver=1.269"></script>
 </head>
 
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="title">艦これ砲撃支援命中計算機 v1.28</h1>
+      <h1 class="title">艦これ砲撃支援命中計算機 v1.29</h1>
     </header>
     <div class="wrapper">
       <div class="row">
@@ -221,8 +221,11 @@
                       </select>
                     </div>
                   </td>
+                  <td></td>
                   <td>
-                    <div class="saiunSet"></div>
+                    <button type="button" class="btn btn-info save-fleet" data-toggle="modal" data-target="#save-fleet">
+                      編成記録
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -277,6 +280,7 @@
         v1.26 2020梅雨イベの艦娘と装備を追加しました。 <br />
         v1.27 敵艦船の回避、運を次回以降も保持するよう変更しました。変更後ステータスはリセットも可能です。<br />
         v1.28 加賀改二、回転翼機を実装。艦偵の改修による装備ボーナスを追加しました。<br />
+        v1.29 編成記録を追加しました。
       </p>
       <h2 class="title">知的財産権</h2>
       <p>
@@ -601,6 +605,54 @@
           <button class="btn btn-info deckBuilder">デッキビルダー形式をコピー</button>
           <button class="btn btn-info deckImageOpen">艦これ編成画像出力で開く</button>
           <button class="btn btn-info deckBuilderOpen">デッキビルダーで開く</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="save-fleet" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">編成記録</h4>
+        </div>
+        <div class="modal-body">
+          <div class="save">
+            <button class="btn btn-info save-fleet-button" data-toggle="modal" data-target="#save-form">
+              + 編成を保存
+            </button>
+          </div>
+          <div class="saved-fleetlist table-wrapper">
+            <table class="table">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="save-form" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">編成を保存</h4>
+        </div>
+        <div class="modal-body">
+          <div class="fleet-name">
+            編成名
+            <input type="text" class="form-control fleet-name" size="30" autocomplete="off" />
+          </div>
+          <div class="fleet-banners"></div>
+          <button class="btn btn-info" id="save-fleet-button" data-toggle="modal" data-target="#save-form">
+            編成を保存
+          </button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>

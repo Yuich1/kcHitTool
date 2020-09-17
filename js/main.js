@@ -1,6 +1,6 @@
 /**
  * @author Yuichi<https://twitter.com/2qrbgxpsaWEziml?s=20>
- * @version 1.28
+ * @version 1.29
  */
 
 let hasBbList = false;
@@ -132,6 +132,36 @@ $(function () {
   $("#event-tab-enemy").on("click", function () {
     setFleetList(9, true);
   });
+  $(".save-fleet-button").on("click", function () {
+    //バナー画像のセット
+    $(".fleet-banners").empty();
+    for (let i = 0; i < selectedMyFleetList.length-1; i++) {
+      const ship = selectedMyFleetList[i + 1].fleet;
+      const img = $("<img>", {
+        class: "banner",
+        src: `./images/ships/${ship.id}.png`,
+        alt: `${ship.name}`,
+      });
+      $(".fleet-banners").append(img);
+      if ((i+1) % 3 == 0 && i != 0) {
+        $(".fleet-banners").append($("<br>"));
+      }
+    }
+    //編成名の初期値
+    const fleetNumber = getSavedFleetNumber();
+    $(".fleet-name").val("編成" + (fleetNumber + 1));
+  });
+  $("#save-fleet-button").on("click", function () {
+    const fleetName = getFleetName();
+    const fleetComment = getFleetComment();
+    const deckCode = getDeckBuilder();
+    const fleetNumber = getSavedFleetNumber();
+    saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
+    setSavedFleetList();
+  });
+  $(".save-fleet").on("click", function(){
+    setSavedFleetList();
+  })
 
   $("#kira").on("click", function () {
     const button = $("#kira");
@@ -453,7 +483,7 @@ const setItemList = () => {
     { type: "bomber", id: [9, 10] },
     { type: "torpedo", id: [5, 6] },
     { type: "radar", id: [14, 15, 30] },
-    { type: "scout", id: [27]},
+    { type: "scout", id: [27] },
     { type: "heli", id: [31] },
     {
       type: "other",
@@ -1170,4 +1200,128 @@ const resetEnemyStatus = (shipId) => {
 
   $(".enemy .avoidance").val(selectedEnemyFleet.avoidance);
   $(".enemy .luck").val(selectedEnemyFleet.luck);
+};
+
+//編成記録
+const getSavedFleetNumber = () => {
+  let fleetNumber = 0;
+  while (localStorage.getItem("fleet" + fleetNumber)) {
+    fleetNumber++;
+  }
+  console.log("test : " + fleetNumber);
+  return fleetNumber;
+};
+const getFleetName = () => {
+  let name = $(".form-control.fleet-name").val();
+  if (name == "") {
+    name = "example";
+  }
+  return name;
+};
+const getFleetComment = () => {
+  let text = $(".form-control.fleet-comment").val();
+  return text;
+};
+const saveFleet = (fleetName, fleetComment, deckCode, fleetNumber) => {
+  const data = { deckCode: deckCode, fleetName: fleetName, fleetComment: fleetComment };
+  console.log(data, fleetNumber);
+  const jsonData = JSON.stringify(data);
+  localStorage.setItem("fleet" + fleetNumber, jsonData);
+};
+const deleteFleet = (fleetNumber) => {
+  localStorage.removeItem("fleet" + fleetNumber);
+  while (localStorage.getItem("fleet" + (fleetNumber + 1))) {
+    const data = localStorage.getItem("fleet" + (fleetNumber + 1));
+    console.log(fleetNumber);
+    localStorage.setItem("fleet" + fleetNumber, data);
+    fleetNumber++;
+  }
+  localStorage.removeItem("fleet" + fleetNumber);
+};
+
+//記録済み編成を一覧に
+const setSavedFleetList = () => {
+  //初期化
+  $(".saved-fleetlist tbody").empty();
+
+  let fleetNumber = 0;
+  while (localStorage.getItem("fleet" + fleetNumber)) {
+    const data = localStorage.getItem("fleet" + fleetNumber);
+    const jsonData = JSON.parse(data);
+    const fleetName = jsonData.fleetName;
+    const fleetComment = jsonData.fleetComment;
+    const deckCode = jsonData.deckCode;
+
+    const listObj = $("<tr>", {
+      class: "saved-fleet",
+    });
+    const banner = $("<td>");
+
+    const raw = JSON.parse(deckCode);
+    if (toString(raw.version).includes("4")) return false;
+    for (const i in raw) {
+      if (!raw[i]) continue;
+      const fleet = raw[i];
+      for (const j in fleet) {
+        if (!fleet[j].id) continue;
+        //set ship
+        const ship = fleet[j];
+        const img = $("<img>", {
+          class: "banner",
+          src: `./images/ships/${ship.id}.png`,
+          alt: `${ship.name}`,
+        });
+        banner.append(img);
+        if (j[1] % 2 == 0 && j[1] != 0) {
+          banner.append($("<br>"));
+        }
+        //console.log(j);
+      }
+    }
+    const button = $("<button>", {
+      type: "button",
+      class: "btn btn-default",
+      text: "展開",
+      "data-fleetNumber": fleetNumber,
+      "data-toggle": "modal",
+      "data-target": "#save-fleet"
+    });
+    const button2 = $("<button>", {
+      type: "button",
+      class: "btn btn-default",
+      text: "上書き",
+      "data-fleetNumber": fleetNumber,
+    });
+    const button3 = $("<button>", {
+      type: "button",
+      class: "btn btn-danger",
+      text: "削除",
+      "data-fleetNumber": fleetNumber,
+    });
+    button.on("click", function () {
+      const fleetNumber = button3.data("fleetnumber");
+      const data = localStorage.getItem("fleet" + fleetNumber);
+      const jsonData = JSON.parse(data);
+      const deckCode = jsonData.deckCode;
+      setDeckBuilder(deckCode);
+    });
+    button2.on("click", function () {
+      const fleetNumber = button3.data("fleetnumber");
+      const fleetComment = getFleetComment();
+      const deckCode = getDeckBuilder();
+      saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
+      setSavedFleetList();
+    });
+    button3.on("click", function () {
+      const fleetNumber = button3.data("fleetnumber");
+      console.log(fleetNumber);
+      deleteFleet(fleetNumber);
+      setSavedFleetList();
+    });
+    const text = $("<td>");
+    text.append(fleetName).append($("<br>")).append($("<br>")).append(button).append(button2).append(button3);
+    listObj.append(banner).append(text);
+    $(".saved-fleetlist tbody").append(listObj);
+    fleetNumber++;
+  }
 };
