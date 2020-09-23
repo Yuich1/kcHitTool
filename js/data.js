@@ -2355,7 +2355,7 @@ const SHIP_DATA = [
       {
         id: 319,
         state: "改二",
-        power: 80,
+        power: 81,
         torp: 88,
         luck: 32,
         slot: 4,
@@ -2433,7 +2433,7 @@ const SHIP_DATA = [
       {
         id: 193,
         state: "改二",
-        power: 82,
+        power: 83,
         torp: 84,
         luck: 20,
         slot: 4,
@@ -5054,8 +5054,8 @@ const SHIP_DATA = [
       {
         id: 407,
         state: "改二",
-        power: 58,
-        torp: 80,
+        power: 59,
+        torp: 83,
         luck: 32,
         slot: 3,
         fuel: 15,
