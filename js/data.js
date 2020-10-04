@@ -13899,6 +13899,115 @@ const ITEM_DATA = [
       },
     ],
   },
+  {
+    id: 390,
+    type: 3,
+    name: "16inch三連装砲 Mk.6 + GFCS",
+    power: 23,
+    accuracy: 6,
+    yomi: "16inchさんれんそうほうmk.6+gfcs",
+    isImpr: true,
+    singleBonus: [
+      {
+        power: 1,
+        targetId: [
+          78,
+          209,
+          149,
+          591,
+          86,
+          210,
+          150,
+          592,
+          79,
+          211,
+          151,
+          85,
+          212,
+          152,
+          171,
+          172,
+          173,
+          178,
+          441,
+          446,
+          442,
+          447,
+          492,
+          392,
+          511,
+          512,
+          513,
+        ],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 2,
+        targetId: [360, 1496],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 390) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr <= 2;
+        },
+      },
+      {
+        power: 3,
+        targetId: [360, 1496],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 390) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 2;
+        },
+      },
+      {
+        power: 3,
+        targetId: [602, 697],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 390) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr <= 2;
+        },
+      },
+      {
+        power: 4,
+        targetId: [602, 697],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 390) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 2;
+        },
+      },
+    ]
+  },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
 ];
