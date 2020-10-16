@@ -3,7 +3,7 @@ const SHIP_TYPE = [
     id: 1,
     name: "戦艦",
     type: "bb",
-    canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28, 30],
+    canHaveItem: [2, 3, 4, 11, 14, 15, 16, 17, 18, 22, 24, 25, 26, 28, 30, 32],
   },
   {
     id: 2,
@@ -15,19 +15,19 @@ const SHIP_TYPE = [
     id: 3,
     name: "重巡",
     type: "ca",
-    canHaveItem: [2, 4, 5, 11, 14, 15, 17, 18, 22, 24, 25, 26, 28],
+    canHaveItem: [2, 4, 5, 11, 14, 15, 17, 18, 22, 24, 25, 26, 28, 32],
   },
   {
     id: 4,
     name: "軽巡",
     type: "cl",
-    canHaveItem: [1, 2, 4, 5, 11, 14, 15, 18, 19, 20, 21, 24, 25, 26, 28],
+    canHaveItem: [1, 2, 4, 5, 11, 14, 15, 18, 19, 20, 21, 24, 25, 26, 28, 32],
   },
   {
     id: 5,
     name: "駆逐",
     type: "dd",
-    canHaveItem: [1, 5, 14, 18, 19, 20, 21, 24, 25, 26, 28],
+    canHaveItem: [1, 5, 14, 18, 19, 20, 21, 24, 25, 26, 28, 32],
   },
   {
     id: 6,
@@ -36,7 +36,7 @@ const SHIP_TYPE = [
     canHaveItem: [1, 5, 14, 18, 19, 20, 21, 26, 28],
   },
   { id: 7, name: "潜水", type: "ss", canHaveItem: [5, 6, 19, 24, 25, 26] },
-  { id: 8, name: "補助艦艇", type: "av", canHaveItem: [1, 14, 18, 26] },
+  { id: 8, name: "補助艦艇", type: "av", canHaveItem: [1, 14, 18, 26, 32] },
   { id: 9, name: "イベント", type: "event", canHaveItem: [1] },
 ];
 
@@ -72,6 +72,7 @@ const ITEM_TYPE = [
   { id: 29, name: "航空要員" },
   { id: 30, name: "戦艦電探" },
   { id: 31, name: "回転翼機" },
+  { id: 32, name: "探照灯" },
 ];
 
 // 単縦, 複縦, 輪形, 梯形, 単横, 警戒
@@ -6594,8 +6595,8 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "秋雲",
-    id_list: [132, 301],
-    main_id: 301,
+    id_list: [132, 301, 648],
+    main_id: 648,
     yomi: "あきぐも akigumo",
     remodel: [
       {
@@ -6614,6 +6615,16 @@ const SHIP_DATA = [
         power: 44,
         torp: 79,
         luck: 15,
+        slot: 3,
+        fuel: 15,
+        bullet: 20,
+      },
+      {
+        id: 648,
+        state: "改二",
+        power: 65,
+        torp: 91,
+        luck: 18,
         slot: 3,
         fuel: 15,
         bullet: 20,
@@ -8179,27 +8190,6 @@ const ITEM_DATA = [
     isSurface: false,
     isAir: true,
     yomi: "13ごうたいくうでんたん",
-    singleAddableBonus: [
-      {
-        power: 1,
-        targetId: [407, 145, 419, 151, 541],
-      },
-    ],
-    multiBonus: [
-      {
-        power: 1,
-        targetId: [569],
-        isBonus: function (slotNumber) {
-          let c = 0;
-          for (let index = 0; index < slotNumber; index++) {
-            const item = selectedMyFleetList[selectedFleetNum].item[index];
-            if (!item) continue;
-            if (item && item.isAir) c++;
-          }
-          return c == 0;
-        },
-      },
-    ],
   },
   {
     id: 28,
@@ -9028,7 +9018,54 @@ const ITEM_DATA = [
     accuracy: 1,
     yomi: "10せんちれんそうこうかくほうほうか",
   },
-
+  {
+    id: 75,
+    type: 32,
+    name: "探照灯",
+    yomi: "たんしょうとう",
+    singleAddableBonus: [
+      {
+        power: 8,
+        targetId: [55, 223, 159],
+      },
+      {
+        power: 4,
+        targetId: [86, 210, 150, 592, 85, 212, 152, 69, 272, 427, 34, 234, 437],
+      },
+      {
+        power: 2,
+        targetId: [132, 301, 648],
+      },
+      {
+        power: 1,
+        targetId: [20, 228],
+      },
+    ],
+    multiBonus: [
+      {
+        //D砲改二探照灯
+        power: 3,
+        targetId: [648],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isDgun = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.id == 267 || t.id == 366) {
+              isDgun = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 75) {
+              c++;
+            }
+          }
+          return isDgun && c == 1;
+        },
+      },
+    ],
+  },
   {
     id: 76,
     type: 3,
@@ -9321,6 +9358,18 @@ const ITEM_DATA = [
     isSurface: false,
     isAir: true,
     yomi: "13ごうたいくうでんたんかい",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [407, 145, 419, 151, 541],
+      },
+    ],
+    singleBonus: [
+      {
+        power: 1,
+        targetId: [569, 648],
+      },
+    ],
     multiBonus: [
       {
         power: 1,
@@ -9814,7 +9863,32 @@ const ITEM_DATA = [
           702,
           632,
           703,
+          648,
         ],
+      },
+    ],
+    multiBonus: [
+      {
+        //D砲改二見張員
+        power: 2,
+        targetId: [648],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isDgun = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.id == 267 || t.id == 366) {
+              isDgun = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 129) {
+              c++;
+            }
+          }
+          return isDgun && c == 1;
+        },
       },
     ],
   },
@@ -10472,6 +10546,7 @@ const ITEM_DATA = [
           294,
           132,
           301,
+          648,
         ],
       },
     ],
@@ -10631,6 +10706,7 @@ const ITEM_DATA = [
           294,
           132,
           301,
+          648,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -10660,7 +10736,7 @@ const ITEM_DATA = [
     accuracy: 2,
     yomi: "12.7cm連装砲d型改二 12.7せんちれんそうほうdがたかいに d砲改二",
     singleAddableBonus: [
-      { power: 3, targetId: [542, 563, 564, 543, 578, 569] },
+      { power: 3, targetId: [542, 563, 564, 543, 578, 569, 648] },
       {
         power: 2,
         targetId: [
@@ -10762,7 +10838,7 @@ const ITEM_DATA = [
       {
         //D砲改二水上電探(夕雲型改二)
         power: 3,
-        targetId: [542, 563, 564, 543, 578, 569],
+        targetId: [542, 563, 564, 543, 578, 569, 648],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
@@ -11896,6 +11972,7 @@ const ITEM_DATA = [
           704,
           615,
           620,
+          648,
         ],
       },
     ],
@@ -12163,6 +12240,7 @@ const ITEM_DATA = [
           702,
           632,
           703,
+          648,
         ],
       },
     ],
@@ -12255,10 +12333,17 @@ const ITEM_DATA = [
         ],
       },
     ],
+    singleBonus: [
+      {
+        power: 1,
+        targetId: [569, 648],
+      },
+    ],
+    /*
     multiBonus: [
       {
         power: 1,
-        targetId: [569],
+        targetId: [569, 648],
         isBonus: function (slotNumber) {
           let c = 0;
           for (let index = 0; index < slotNumber; index++) {
@@ -12269,7 +12354,7 @@ const ITEM_DATA = [
           return c == 0;
         },
       },
-    ],
+    ],*/
   },
   {
     id: 316,
@@ -12899,7 +12984,7 @@ const ITEM_DATA = [
     accuracy: 2,
     yomi: "12.7せんちれんそうほうdがたかいさん 12.7cm連装砲d型改三",
     singleAddableBonus: [
-      { power: 4, targetId: [569] },
+      { power: 4, targetId: [569, 648] },
       { power: 3, targetId: [542, 563, 564, 543, 578] },
       {
         power: 2,
@@ -12985,9 +13070,9 @@ const ITEM_DATA = [
     ],
     multiBonus: [
       {
-        // 水上電探(夕雲型改二,島風改)
+        // 水上電探(夕雲型改二,島風改,秋雲改二)
         power: 2,
-        targetId: [542, 563, 564, 543, 578, 569, 229],
+        targetId: [542, 563, 564, 543, 578, 569, 229, 648],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
@@ -13009,9 +13094,9 @@ const ITEM_DATA = [
         },
       },
       {
-        // 対空電探(夕雲型改二,島風改)
+        // 対空電探(夕雲型改二,島風改,秋雲改二)
         power: 1,
-        targetId: [542, 563, 564, 543, 578, 569, 229],
+        targetId: [542, 563, 564, 543, 578, 569, 229, 648],
         isBonus: function (slotNumber) {
           let c = 0;
           let isAir = false;
@@ -14006,7 +14091,7 @@ const ITEM_DATA = [
           return impr > 2;
         },
       },
-    ]
+    ],
   },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
