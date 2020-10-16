@@ -487,7 +487,7 @@ const setItemList = () => {
     { type: "heli", id: [31] },
     {
       type: "other",
-      id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+      id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32],
     },
   ];
   const expansionItemType = [18, 25, 26, 28];
@@ -787,7 +787,7 @@ const getMultiBonus = (itemList) => {
   let accuracy = 0;
   let torp = 0;
   let bomb = 0;
-  for (let index = 0; index < selectedMyFleetList[selectedFleetNum].fleet.slot; index++) {
+  for (let index = 0; index < selectedMyFleetList[selectedFleetNum].fleet.slot + 1; index++) {
     const item = itemList[index];
     if (item && item.multiBonus) {
       item.multiBonus.forEach((t) => {
