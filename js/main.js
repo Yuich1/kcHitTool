@@ -229,6 +229,11 @@ $(function () {
     $(".search-item").focus();
     search(".item-list .item", $(this).val());
   });
+  $("#delete-fleet").on("click", function () {
+    const fleetNumber = parseInt($("#delete-fleet").attr("data-fleetnumber"));
+    deleteFleet(fleetNumber);
+    setSavedFleetList();
+  });
 
   //ツ級を初期設定に
   changeFleet(1592);
@@ -1343,11 +1348,7 @@ const setSavedFleetList = () => {
     });
     button3.on("click", function () {
       $("#delete-fleet").attr("data-fleetnumber", button3.data("fleetnumber"));
-    });
-    $("#delete-fleet").on("click", function () {
-      const fleetNumber = $("#delete-fleet").attr("data-fleetnumber");
-      deleteFleet(fleetNumber);
-      setSavedFleetList();
+      console.log($("#delete-fleet").attr("data-fleetnumber"));
     });
     const text = $("<td>");
     text.append(fleetName).append($("<br>")).append($("<br>")).append(button).append(button2).append(button3);
