@@ -135,7 +135,7 @@ $(function () {
   $(".save-fleet-button").on("click", function () {
     //バナー画像のセット
     $(".fleet-banners").empty();
-    for (let i = 0; i < selectedMyFleetList.length - 1; i++) {
+    for (let i = 0; i < selectedMyFleetList.length-1; i++) {
       const ship = selectedMyFleetList[i + 1].fleet;
       const img = $("<img>", {
         class: "banner",
@@ -143,7 +143,7 @@ $(function () {
         alt: `${ship.name}`,
       });
       $(".fleet-banners").append(img);
-      if ((i + 1) % 3 == 0 && i != 0) {
+      if ((i+1) % 3 == 0 && i != 0) {
         $(".fleet-banners").append($("<br>"));
       }
     }
@@ -159,9 +159,9 @@ $(function () {
     saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
     setSavedFleetList();
   });
-  $(".save-fleet").on("click", function () {
+  $(".save-fleet").on("click", function(){
     setSavedFleetList();
-  });
+  })
 
   $("#kira").on("click", function () {
     const button = $("#kira");
@@ -487,38 +487,7 @@ const setItemList = () => {
     { type: "heli", id: [31] },
     {
       type: "other",
-      id: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        32,
-      ],
+      id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 32],
     },
   ];
   const expansionItemType = [18, 25, 26, 28];
@@ -1239,6 +1208,7 @@ const getSavedFleetNumber = () => {
   while (localStorage.getItem("fleet" + fleetNumber)) {
     fleetNumber++;
   }
+  console.log("test : " + fleetNumber);
   return fleetNumber;
 };
 const getFleetName = () => {
@@ -1254,6 +1224,7 @@ const getFleetComment = () => {
 };
 const saveFleet = (fleetName, fleetComment, deckCode, fleetNumber) => {
   const data = { deckCode: deckCode, fleetName: fleetName, fleetComment: fleetComment };
+  console.log(data, fleetNumber);
   const jsonData = JSON.stringify(data);
   localStorage.setItem("fleet" + fleetNumber, jsonData);
 };
@@ -1261,6 +1232,7 @@ const deleteFleet = (fleetNumber) => {
   localStorage.removeItem("fleet" + fleetNumber);
   while (localStorage.getItem("fleet" + (fleetNumber + 1))) {
     const data = localStorage.getItem("fleet" + (fleetNumber + 1));
+    console.log(fleetNumber);
     localStorage.setItem("fleet" + fleetNumber, data);
     fleetNumber++;
   }
@@ -1303,6 +1275,7 @@ const setSavedFleetList = () => {
         if (j[1] % 2 == 0 && j[1] != 0) {
           banner.append($("<br>"));
         }
+        //console.log(j);
       }
     }
     const button = $("<button>", {
@@ -1311,7 +1284,7 @@ const setSavedFleetList = () => {
       text: "展開",
       "data-fleetNumber": fleetNumber,
       "data-toggle": "modal",
-      "data-target": "#save-fleet",
+      "data-target": "#save-fleet"
     });
     const button2 = $("<button>", {
       type: "button",
@@ -1324,8 +1297,6 @@ const setSavedFleetList = () => {
       class: "btn btn-danger",
       text: "削除",
       "data-fleetNumber": fleetNumber,
-      "data-toggle": "modal",
-      "data-target": "#delete-check",
     });
     button.on("click", function () {
       const fleetNumber = button3.data("fleetnumber");
@@ -1342,10 +1313,8 @@ const setSavedFleetList = () => {
       setSavedFleetList();
     });
     button3.on("click", function () {
-      $("#delete-fleet").attr("data-fleetnumber", button3.data("fleetnumber"));
-    });
-    $("#delete-fleet").on("click", function () {
-      const fleetNumber = $("#delete-fleet").attr("data-fleetnumber");
+      const fleetNumber = button3.data("fleetnumber");
+      console.log(fleetNumber);
       deleteFleet(fleetNumber);
       setSavedFleetList();
     });
