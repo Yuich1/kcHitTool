@@ -14093,6 +14093,36 @@ const ITEM_DATA = [
       },
     ],
   },
+  {
+    id: 391,
+    type: 9,
+    name: "九九式艦爆二二型",
+    bomb: 6,
+    accuracy: 1,
+    yomi: "きゅうきゅうしきかんばくににがた",
+  },
+  {
+    id: 392,
+    type: 9,
+    name: "九九式艦爆二二型(熟練)",
+    bomb: 8,
+    accuracy: 3,
+    yomi: "きゅうきゅうしきかんばくににがたじゅくれん",
+    singleAddableBonus: [
+      {
+        power: 3,
+        targetId: [555, 560],
+      },
+      {
+        power: 2,
+        targetId: [116, 117, 282, 185, 318, 288, 112, ]
+      },
+      {
+        power: 1,
+        targetId: [283, 408]
+      }
+    ]
+  },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
 ];
