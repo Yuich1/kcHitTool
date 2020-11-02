@@ -10015,10 +10015,16 @@ const ITEM_DATA = [
   {
     id: 147,
     type: 1,
-    name: "120mm連装砲",
+    name: "120mm/50連装砲",
     power: 3,
     accuracy: 1,
-    yomi: "120みりれんそうほう",
+    yomi: "120/50みりれんそうほう",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [575, 580, 614, 619, 443, 347],
+      },
+    ],
   },
   {
     id: 148,
@@ -14115,13 +14121,41 @@ const ITEM_DATA = [
       },
       {
         power: 2,
-        targetId: [116, 117, 282, 185, 318, 288, 112, ]
+        targetId: [116, 117, 282, 185, 318, 288, 112],
       },
       {
         power: 1,
-        targetId: [283, 408]
-      }
-    ]
+        targetId: [283, 408],
+      },
+    ],
+  },
+  {
+    id: 393,
+    type: 1,
+    name: "120mm/50連装砲 mod.1936",
+    power: 3,
+    accuracy: 2,
+    yomi: "120mm/50れんそうほうmod.1936",
+    singleAddableBonus: [
+      {
+        power: 2,
+        targetId: [575, 580, 614, 619, 443, 347],
+      },
+    ],
+  },
+  {
+    id: 394,
+    type: 1,
+    name: "120mm/50連装砲改 A.mod.1937",
+    power: 3,
+    accuracy: 3,
+    yomi: "120mm/50れんそうほうかいa.mod.1937",
+    singleAddableBonus: [
+      {
+        power: 2,
+        targetId: [575, 580, 614, 619, 443, 347],
+      },
+    ],
   },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
