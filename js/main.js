@@ -564,7 +564,7 @@ const setItemList = () => {
         });
         const button = $("<button>", {
           type: "button",
-          class: "btn btn-default item",
+          class: `btn btn-default item type${item.type}`,
           "data-toggle": "modal",
           "data-target": "#select-myitem",
         }).append(tip);
@@ -700,11 +700,20 @@ const changeFleet = (id) => {
 };
 
 const setItem = (slotNumber, item) => {
+  const itemSlot = $(`#itemSlot${slotNumber}`);
   if (slotNumber == selectedMyFleetList[selectedFleetNum].fleet.slot && !item.name) {
     const text = "補強増設";
-    $(`#itemSlot${slotNumber}`).text(text);
+    itemSlot.text(text);
+    itemSlot.removeClass(function (index, className) {
+      return (className.match(/\btype\S+/g) || []).join(" ");
+    });
+    itemSlot.addClass(`type${item.type}`);
   } else {
-    $(`#itemSlot${slotNumber}`).text(item.name ? item.name : `装備${slotNumber + 1}`);
+    itemSlot.text(item.name ? item.name : `装備${slotNumber + 1}`);
+    itemSlot.removeClass(function (index, className) {
+      return (className.match(/\btype\S+/g) || []).join(" ");
+    });
+    itemSlot.addClass(`type${item.type}`);
   }
   selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
   let itemPower = 0;

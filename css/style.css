@@ -319,6 +319,37 @@ body {
   text-align: center;
 }
 
+.item.type16,
+.item.type17,
+.item.type28,
+.item.type29,
+.item.type32{
+  border-left: 8px solid lightslategray;
+}
+.item.type1,
+.item.type2,
+.item.type3,
+.item.type9{
+  border-left: 8px solid #ff7a7a;
+}
+.item.type4,
+.item.type10,
+.item.type27{
+    border-left: 8px solid #e9ce56;
+}
+.item.type8{
+  border-left: 8px solid #506ceb;
+}
+.item.type14,
+.item.type15,
+.item.type30{
+  border-left: 8px solid rgb(240, 163, 62);
+}
+.item.type18,
+.item.type31{
+  border-left: 8px solid seagreen;
+}
+
 @media (max-width: 992px) {
   .header {
     margin: 20px 0;
