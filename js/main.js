@@ -1008,7 +1008,7 @@ const getResultData = () => {
                   : Math.floor(cappedAttack * criticalCoef[criticalFlag - 1])
               }${cappedAttack >= 151 ? "(キャップ到達)" : ""}<br>
         クリティカル率 (CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%<br></br>`
-            : ""
+            : `クリティカル率 (CL1) ${100 - criticalTerm}%, (CL2) ${criticalTerm}%<br></br>`
         }
         <br>
         <div class="sub-title">命中時撃破率</div>
