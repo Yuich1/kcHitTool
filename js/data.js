@@ -3646,7 +3646,7 @@ const SHIP_DATA = [
       {
         id: 305,
         state: "改",
-        power: 67,
+        power: 68,
         torp: 79,
         luck: 10,
         slot: 3,
@@ -3675,7 +3675,7 @@ const SHIP_DATA = [
       {
         id: 306,
         state: "改",
-        power: 68,
+        power: 70,
         torp: 79,
         luck: 10,
         slot: 3,
@@ -3704,7 +3704,7 @@ const SHIP_DATA = [
       {
         id: 307,
         state: "改",
-        power: 70,
+        power: 72,
         torp: 79,
         luck: 14,
         slot: 3,
@@ -3733,7 +3733,7 @@ const SHIP_DATA = [
       {
         id: 314,
         state: "改",
-        power: 65,
+        power: 67,
         torp: 78,
         luck: 30,
         slot: 3,
@@ -5434,7 +5434,7 @@ const SHIP_DATA = [
       {
         id: 145,
         state: "改二",
-        power: 60,
+        power: 61,
         torp: 86,
         luck: 50,
         slot: 3,
@@ -6236,9 +6236,9 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "雪風",
-    id_list: [20, 228],
-    main_id: 228,
-    yomi: "ゆきかぜ yukikaze",
+    id_list: [20, 228, 651, 656],
+    main_id: 656,
+    yomi: "ゆきかぜ yukikaze たんやん danyang",
     remodel: [
       {
         id: 20,
@@ -6259,6 +6259,26 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 15,
         bullet: 20,
+      },
+      {
+        id: 651,
+        state: "丹陽",
+        power: 68,
+        torp: 56,
+        luck: 60,
+        slot: 3,
+        fuel: 15,
+        bullet: 20,
+      },
+      {
+        id: 656,
+        state: "改二",
+        power: 66,
+        torp: 90,
+        luck: 63,
+        slot: 3,
+        fuel: 15,
+        bullet: 25,
       },
     ],
   },
@@ -6389,7 +6409,7 @@ const SHIP_DATA = [
       {
         id: 557,
         state: "乙改",
-        power: 61,
+        power: 63,
         torp: 82,
         luck: 24,
         slot: 3,
@@ -6428,7 +6448,7 @@ const SHIP_DATA = [
       {
         id: 558,
         state: "乙改",
-        power: 58,
+        power: 60,
         torp: 83,
         luck: 20,
         slot: 3,
@@ -7964,7 +7984,7 @@ const SHIP_DATA = [
       {
         id: 626,
         state: "改",
-        power: 35,
+        power: 36,
         torp: 0,
         luck: 18,
         slot: 4,
@@ -9038,7 +9058,7 @@ const ITEM_DATA = [
       },
       {
         power: 1,
-        targetId: [20, 228],
+        targetId: [20, 22, 651, 656],
       },
     ],
     multiBonus: [
@@ -9089,6 +9109,63 @@ const ITEM_DATA = [
     power: 2,
     accuracy: 1,
     yomi: "12.7せんちたんそうほう",
+    isImpr: true,
+    multiBonus: [
+      {
+        power: 1,
+        targetId: [174, 310, 179, 175, 311, 180],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 78) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 8;
+        },
+      },
+      {
+        power: 2,
+        targetId: [174, 310, 179, 175, 311, 180],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 78) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 7;
+        },
+      },
+      //水上電探
+      {
+        power: 2,
+        targetId: [174, 310, 179, 175, 311, 180],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.isSurface) {
+              isSurface = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 78) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
+    ],
   },
 
   {
@@ -9463,6 +9540,48 @@ const ITEM_DATA = [
     power: 3,
     accuracy: 1,
     yomi: "10せんちこうかくほうこうしゃそうち",
+    isImpr: true,
+    multiBonus: [
+      {
+        power: 5,
+        targetId: [656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 122) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3;
+        },
+      },
+      //水上電探
+      {
+        power: 4,
+        targetId: [656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.isSurface) {
+              isSurface = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 122) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return isSurface && c == 1 && impr > 3;
+        },
+      },
+    ],
   },
   {
     id: 123,
@@ -9864,6 +9983,8 @@ const ITEM_DATA = [
           632,
           703,
           648,
+          651,
+          656,
         ],
       },
     ],
@@ -10232,14 +10353,15 @@ const ITEM_DATA = [
     power: 1,
     accuracy: 1,
     yomi: "12.7せんちたんそうこうかくほうこうきがた",
+    isImpr: true,
     singleAddableBonus: [
-      { power: 2, targetId: [488, 487] },
+      { power: 1, targetId: [622, 623, 624] },
+      { power: 2, targetId: [656] },
+    ],
+    multiBonus: [
       {
         power: 1,
         targetId: [
-          622,
-          263,
-          624,
           471,
           476,
           472,
@@ -10277,12 +10399,146 @@ const ITEM_DATA = [
           31,
           261,
         ],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 229) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 6;
+        },
       },
-    ],
-    multiBonus: [
+      {
+        power: 2,
+        targetId: [488, 487],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 229) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 6;
+        },
+      },
       {
         power: 1,
         targetId: [622, 623, 624],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 229) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
+      {
+        power: 2,
+        targetId: [
+          471,
+          476,
+          472,
+          370,
+          473,
+          363,
+          474,
+          371,
+          475,
+          387,
+          1,
+          254,
+          434,
+          2,
+          255,
+          435,
+          164,
+          308,
+          165,
+          309,
+          28,
+          256,
+          418,
+          481,
+          366,
+          29,
+          257,
+          548,
+          6,
+          258,
+          30,
+          259,
+          7,
+          260,
+          31,
+          261,
+        ],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 229) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return isSurface && c == 1 && impr > 6;
+        },
+      },
+      {
+        power: 3,
+        targetId: [488, 487, 160],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 229) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return isSurface && c == 1 && impr > 6;
+        },
+      },
+      {
+        power: 2,
+        targetId: [656],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
@@ -10553,15 +10809,16 @@ const ITEM_DATA = [
           132,
           301,
           648,
+          651,
         ],
       },
     ],
-    singleBonus: [{ power: 2, targetId: [566, 567, 568] }],
+    singleBonus: [{ power: 2, targetId: [566, 567, 568, 656] }],
     multiBonus: [
       {
         // C砲改二2積み
         power: 3,
-        targetId: [566, 567, 568],
+        targetId: [566, 567, 568, 656],
         isBonus: function (slotNumber) {
           let c = 0;
           if (slotNumber == 0) {
@@ -10578,7 +10835,7 @@ const ITEM_DATA = [
       {
         // C砲改二3積み
         power: 1,
-        targetId: [566, 567, 568],
+        targetId: [566, 567, 568, 656],
         isBonus: function (slotNumber) {
           let c = 0;
           if (slotNumber == 0) {
@@ -10713,6 +10970,8 @@ const ITEM_DATA = [
           132,
           301,
           648,
+          651,
+          656,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -10819,15 +11078,16 @@ const ITEM_DATA = [
           294,
           132,
           301,
+          651,
         ],
       },
     ],
-    singleBonus: [{ power: 2, targetId: [566, 567, 568] }],
+    singleBonus: [{ power: 2, targetId: [566, 567, 568, 656] }],
     multiBonus: [
       {
         // D砲改二2積み,3積み
         power: 1,
-        targetId: [566, 567, 568],
+        targetId: [566, 567, 568, 656],
         isBonus: function (slotNumber) {
           let c = 0;
           if (slotNumber == 0) {
@@ -12006,7 +12266,7 @@ const ITEM_DATA = [
     accuracy: 6,
     yomi: "5inch単装砲 mk.30改 + gfcs mk.37 5いんちたんそうほう",
     singleAddableBonus: [
-      { power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629] },
+      { power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629, 651, 656] },
       {
         power: 1,
         targetId: [
@@ -12297,7 +12557,7 @@ const ITEM_DATA = [
     power: 3,
     accuracy: 2,
     yomi: "5inch単装速射砲 mk.30改 5いんちたんそうそくしゃほう",
-    singleAddableBonus: [{ power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629] }],
+    singleAddableBonus: [{ power: 2, targetId: [596, 692, 562, 689, 561, 681, 628, 629, 651, 656] }],
   },
 
   {
@@ -12340,6 +12600,10 @@ const ITEM_DATA = [
       },
     ],
     singleBonus: [
+      {
+        power: 2,
+        targetId: [651, 656],
+      },
       {
         power: 1,
         targetId: [569, 648],
@@ -13028,6 +13292,7 @@ const ITEM_DATA = [
           566,
           567,
           568,
+          656,
         ],
       },
       {
@@ -13071,6 +13336,7 @@ const ITEM_DATA = [
           294,
           132,
           301,
+          651,
         ],
       },
     ],
@@ -13163,7 +13429,12 @@ const ITEM_DATA = [
     power: 1,
     accuracy: 1,
     yomi: "12.7せんちたんそうこうかくほうかいに",
-    singleBonus: [
+    singleAddableBonus: [
+      {
+        power: 3,
+        targetId: [651, 656],
+      },
+      { power: 2, targetId: [22, 219, 141, 113, 289, 487, 56, 224, 160, 23, 220, 488, 25, 58, 119, 24, 57, 118] },
       {
         power: 1,
         targetId: [
@@ -13262,9 +13533,8 @@ const ITEM_DATA = [
           372,
         ],
       },
-      { power: 2, targetId: [22, 219, 141, 113, 289, 487, 56, 224, 160, 23, 220, 488, 25, 58, 119, 24, 57, 118] },
-      { power: 3, targetId: [641, 702] },
     ],
+    singleBonus: [{ power: 3, targetId: [641, 702] }],
     multiBonus: [
       {
         power: 2,
@@ -13310,6 +13580,8 @@ const ITEM_DATA = [
           160,
           119,
           118,
+          651,
+          656,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -13501,6 +13773,21 @@ const ITEM_DATA = [
           return isSurface && c == 1;
         },
       },
+      {
+        power: 1,
+        targetId: [641, 702],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 379) {
+              c++;
+            }
+          }
+          return c == 2;
+        },
+      },
     ],
   },
   {
@@ -13510,7 +13797,7 @@ const ITEM_DATA = [
     power: 2,
     accuracy: 1,
     yomi: "12.7せんちれんそうこうかくほうかいに",
-    singleBonus: [
+    singleAddableBonus: [
       {
         power: 1,
         targetId: [
@@ -13541,7 +13828,13 @@ const ITEM_DATA = [
         ],
       },
       { power: 2, targetId: [141, 487, 160, 488] },
-      { power: 3, targetId: [118, 119, 641, 702] },
+      { power: 3, targetId: [118, 119, 651, 656] },
+    ],
+    singleBonus: [
+      {
+        power: 3,
+        targetId: [641, 702],
+      },
     ],
     multiBonus: [
       //水上電探
@@ -13693,6 +13986,44 @@ const ITEM_DATA = [
             }
           }
           return isSurface && c == 1;
+        },
+      },
+      {
+        power: 1,
+        targetId: [651, 656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.isSurface) {
+              isSurface = true;
+            }
+          }
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 380) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
+      {
+        power: 1,
+        targetId: [641, 702],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 380) {
+              c++;
+            }
+          }
+          return c == 2;
         },
       },
     ],
@@ -14154,6 +14485,177 @@ const ITEM_DATA = [
       {
         power: 2,
         targetId: [575, 580, 614, 619, 443, 347],
+      },
+    ],
+  },
+  {
+    id: 397,
+    type: 1,
+    name: "現地改装12.7cm連装高角砲",
+    power: 3,
+    accuracy: 2,
+    yomi: "げんちかいそう12.7cmれんそうこうかくほう",
+    isImpr: true,
+    singleAddableBonus: [
+      {
+        power: 3,
+        targetId: [656],
+      },
+    ],
+    multiBonus: [
+      //丹陽
+      {
+        power: 5,
+        targetId: [651],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 397) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 4;
+        },
+      },
+      {
+        power: 9,
+        targetId: [651],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 397) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3;
+        },
+      },
+      //水上電探
+      {
+        power: 3,
+        targetId: [651, 656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.isSurface) {
+              isSurface = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 397) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
+      },
+    ],
+  },
+  {
+    id: 398,
+    type: 1,
+    name: "現地改装10cm連装高角砲",
+    power: 2,
+    accuracy: 1,
+    yomi: "げんちかいそう10cmれんそうこうかくほう",
+    isImpr: true,
+    multiBonus: [
+      //丹陽
+      {
+        power: 4,
+        targetId: [651],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 398) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 4;
+        },
+      },
+      {
+        power: 7,
+        targetId: [651],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 398) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3;
+        },
+      },
+      //雪風改二
+      {
+        power: 3,
+        targetId: [656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 398) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 4;
+        },
+      },
+      {
+        power: 5,
+        targetId: [656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 398) {
+              c++;
+            }
+          }
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr > 3;
+        },
+      },
+      //水上電探
+      {
+        power: 3,
+        targetId: [651, 656],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.isSurface) {
+              isSurface = true;
+            }
+          });
+          for (let index = 0; index < parseInt(slotNumber) + 1; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item.id == 398) {
+              c++;
+            }
+          }
+          return isSurface && c == 1;
+        },
       },
     ],
   },
