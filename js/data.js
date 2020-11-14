@@ -3646,7 +3646,7 @@ const SHIP_DATA = [
       {
         id: 305,
         state: "改",
-        power: 67,
+        power: 68,
         torp: 79,
         luck: 10,
         slot: 3,
@@ -3675,7 +3675,7 @@ const SHIP_DATA = [
       {
         id: 306,
         state: "改",
-        power: 68,
+        power: 70,
         torp: 79,
         luck: 10,
         slot: 3,
@@ -3704,7 +3704,7 @@ const SHIP_DATA = [
       {
         id: 307,
         state: "改",
-        power: 70,
+        power: 72,
         torp: 79,
         luck: 14,
         slot: 3,
@@ -3733,7 +3733,7 @@ const SHIP_DATA = [
       {
         id: 314,
         state: "改",
-        power: 65,
+        power: 67,
         torp: 78,
         luck: 30,
         slot: 3,
@@ -5434,7 +5434,7 @@ const SHIP_DATA = [
       {
         id: 145,
         state: "改二",
-        power: 60,
+        power: 61,
         torp: 86,
         luck: 50,
         slot: 3,
@@ -6409,7 +6409,7 @@ const SHIP_DATA = [
       {
         id: 557,
         state: "乙改",
-        power: 61,
+        power: 63,
         torp: 82,
         luck: 24,
         slot: 3,
@@ -6448,7 +6448,7 @@ const SHIP_DATA = [
       {
         id: 558,
         state: "乙改",
-        power: 58,
+        power: 60,
         torp: 83,
         luck: 20,
         slot: 3,
@@ -7984,7 +7984,7 @@ const SHIP_DATA = [
       {
         id: 626,
         state: "改",
-        power: 35,
+        power: 36,
         torp: 0,
         luck: 18,
         slot: 4,
