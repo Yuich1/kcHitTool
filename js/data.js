@@ -13649,8 +13649,6 @@ const ITEM_DATA = [
         power: 1,
         targetId: [440, 360, 601, 1496],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 381);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
@@ -13659,8 +13657,6 @@ const ITEM_DATA = [
         power: 2,
         targetId: [602, 697],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 381);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
@@ -13669,8 +13665,6 @@ const ITEM_DATA = [
         power: 2,
         targetId: [440, 360, 601, 1496],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 381);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
@@ -13679,8 +13673,6 @@ const ITEM_DATA = [
         power: 3,
         targetId: [602, 697],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 381);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
@@ -13733,8 +13725,6 @@ const ITEM_DATA = [
         power: 2,
         targetId: [601, 1496, 440, 360, 602, 697],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 385);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
         },
@@ -13743,8 +13733,6 @@ const ITEM_DATA = [
         power: 3,
         targetId: [601, 1496, 440, 360, 602, 697],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 385);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
         },
@@ -13764,8 +13752,6 @@ const ITEM_DATA = [
         power: 1,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 386);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 2;
         },
@@ -13774,8 +13760,6 @@ const ITEM_DATA = [
         power: 2,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 386);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 2 && impr < 7;
         },
@@ -13784,8 +13768,6 @@ const ITEM_DATA = [
         power: 3,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 386);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 7;
         },
@@ -13805,8 +13787,6 @@ const ITEM_DATA = [
         power: 1,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 387);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 2;
         },
@@ -13815,8 +13795,6 @@ const ITEM_DATA = [
         power: 2,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 387);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 2 && impr < 7;
         },
@@ -13825,8 +13803,6 @@ const ITEM_DATA = [
         power: 3,
         targetId: [615, 620],
         isBonus: function (slotNumber) {
-          let c = 0;
-          c = countItem(slotNumber, 387);
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 7;
         },
