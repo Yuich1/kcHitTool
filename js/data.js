@@ -12419,7 +12419,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          c = countItem(slotNumber, 324);
+          thisc = countItem(slotNumber, 324);
           return c == 1 && thisc == 1;
         },
       },
@@ -12456,7 +12456,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          c = countItem(slotNumber, 325);
+          thisc = countItem(slotNumber, 325);
           return c == 1 && thisc == 1;
         },
       },
@@ -12493,7 +12493,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          c = countItem(slotNumber, 326);
+          thisc = countItem(slotNumber, 326);
           return c == 1 && thisc == 1;
         },
       },
@@ -12534,7 +12534,7 @@ const ITEM_DATA = [
               c++;
             }
           }
-          c = countItem(slotNumber, 327);
+          thisc = countItem(slotNumber, 327);
           return c == 1 && thisc == 1;
         },
       },
