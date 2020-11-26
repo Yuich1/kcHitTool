@@ -535,7 +535,6 @@ const setItemList = () => {
     let isExpansionSlot =
       selectedMyFleetList[selectedFleetNum].fleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
     isItemOpen = true;
-    const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
     for (let index = 0; index < ITEM_DATA.length; index++) {
       const item = $.extend(true, {}, ITEM_DATA[index]);
       let isException = false;
@@ -604,19 +603,41 @@ const setItemList = () => {
           text: `${item.yomi}`,
         });
         button.append(yomi);
+        const arrow = $("<span>", {
+          class: "arrow",
+        });
+        const r = item.singleAddableBonus ? getSingleAddableBonus(item).power > 0 : false;
+        if (r) {
+          button.append(arrow);
+        } else {
+          const s = item.singleBonus ? getSingleBonus(item, slotNumber).power > 0 : false;
+          if (s) {
+            button.append(arrow);
+          } else if (item.multiBonus ? true : false) {
+            const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item).power;
+            const itemBefore = selectedMyFleetList[selectedFleetNum].item[slotNumber];
+            selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
+            const ta = getMultiBonus(selectedMyFleetList[selectedFleetNum].item).power;
+            setItem(slotNumber, itemBefore);
+            //console.log("multi");
+            if (ta - t > 0) {
+              button.append(arrow);
+            }
+          }
+        }
+
         //装備マウスオーバー時の処理
         button.on("mouseover", function () {
           if (isItemOpen) {
+            const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
             const itemBefore = selectedMyFleetList[selectedFleetNum].item[slotNumber];
             const r = item.singleAddableBonus ? getSingleAddableBonus(item) : 0;
             const s = item.singleBonus ? getSingleBonus(item, slotNumber) : 0;
             selectedMyFleetList[selectedFleetNum].item[slotNumber] = item;
             const ta = getMultiBonus(selectedMyFleetList[selectedFleetNum].item);
             setItem(slotNumber, itemBefore);
-            const bonusPower =
-              (r.power ? r.power : 0) + (s.power ? s.power : 0) + (ta.power ? ta.power : 0) - (t.power ? t.power : 0);
-            const bonusTorp =
-              (r.torp ? r.torp : 0) + (s.torp ? s.torp : 0) + (ta.torp ? ta.torp : 0) - (t.torp ? t.torp : 0);
+            const bonusPower = (r.power ? r.power : 0) + (s.power ? s.power : 0) + ta.power - t.power;
+            const bonusTorp = (r.torp ? r.torp : 0) + (s.torp ? s.torp : 0) + ta.torp - t.torp;
             const title = `${item.power ? `火力 ${item.power}` : `${bonusPower != 0 ? "火力 " : ""}`}${
               bonusPower != 0 ? `(${bonusPower > 0 ? "+" : ""}${bonusPower}), ` : `${item.power ? ", " : ""}`
             }${item.bomb ? `爆装 ${item.bomb}, ` : ""}${item.torp ? `雷装 ${item.torp}` : ""}${
@@ -802,6 +823,7 @@ const getSingleAddableBonus = (item) => {
       torp += t.torp ? t.torp : 0;
       bomb += t.bomb ? t.bomb : 0;
       accuracy += t.accuracy ? t.accuracy : 0;
+      return true;
     }
   });
   return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
@@ -822,6 +844,7 @@ const getSingleBonus = (item, slotNum) => {
       torp += t.torp ? t.torp : 0;
       bomb += t.bomb ? t.bomb : 0;
       accuracy += t.accuracy ? t.accuracy : 0;
+      return true;
     }
   });
   return { power: power, torp: torp, bomb: bomb, accuracy: accuracy };
@@ -836,12 +859,13 @@ const getMultiBonus = (itemList) => {
     const item = itemList[index];
     if (item && item.multiBonus) {
       item.multiBonus.forEach((t) => {
-        if (t.isBonus && t.isBonus(index)) {
-          if (t.targetId.some((c) => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
+        if (t.targetId.some((c) => c == selectedMyFleetList[selectedFleetNum].fleet.id)) {
+          if (t.isBonus && t.isBonus(index)) {
             power += t.power ? t.power : 0;
             torp += t.torp ? t.torp : 0;
             bomb += t.bomb ? t.bomb : 0;
             accuracy += t.accuracy ? t.accuracy : 0;
+            return true;
           }
         }
       });
