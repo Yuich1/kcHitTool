@@ -14079,6 +14079,14 @@ const ITEM_DATA = [
       },
     ],
   },
+  {
+    id: 399,
+    type: 2,
+    name: "6inch Mk.XXIII三連装砲",
+    power: 7,
+    accuracy: 1,
+    yomi: "6inch mk.xxiiiさんれんそうほう",
+  },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
 ];

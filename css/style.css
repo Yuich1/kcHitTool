@@ -157,6 +157,7 @@ body {
   margin: 0 4px 7px 0;
 }
 .item {
+  position: relative;
   margin: 0 10px 6px 0;
   width: 300px;
 }
@@ -239,6 +240,9 @@ body {
 .description .title {
   font-size: 2.2rem;
 }
+.tooltip{
+  position: fixed;
+}
 
 .result.box {
   position: relative;
@@ -275,6 +279,7 @@ body {
 }
 .table-wrapper {
   max-height: 60vh;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 .deck {
@@ -312,14 +317,14 @@ body {
   white-space: pre-wrap;
 }
 .saved-fleetlist .banner,
-.fleet-banners .banner{
+.fleet-banners .banner {
   margin: 2px;
 }
-.saiunSet{
+.saiunSet {
   margin-top: 4px;
   margin-left: 4px;
 }
-.center{
+.center {
   text-align: center;
 }
 
@@ -327,31 +332,46 @@ body {
 .item.type17,
 .item.type28,
 .item.type29,
-.item.type32{
+.item.type32 {
   border-left: 8px solid lightslategray;
 }
 .item.type1,
 .item.type2,
 .item.type3,
-.item.type9{
+.item.type9 {
   border-left: 8px solid #ff7a7a;
 }
 .item.type4,
 .item.type10,
-.item.type27{
-    border-left: 8px solid #e9ce56;
+.item.type27 {
+  border-left: 8px solid #e9ce56;
 }
-.item.type8{
+.item.type8 {
   border-left: 8px solid #506ceb;
 }
 .item.type14,
 .item.type15,
-.item.type30{
+.item.type30 {
   border-left: 8px solid rgb(240, 163, 62);
 }
 .item.type18,
-.item.type31{
+.item.type31 {
   border-left: 8px solid seagreen;
+}
+.hasItemBonus {
+  border-right: 8px solid palevioletred;
+}
+.arrow {
+  display: block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-top: solid 2px #ec4c37;
+  border-right: solid 2px #ec4c37;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 @media (max-width: 992px) {
