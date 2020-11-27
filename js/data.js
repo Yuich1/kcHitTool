@@ -15166,24 +15166,15 @@ const ENEMY_DATA = [
   //event enemy
   {
     type: 9,
-    name: "深海千島棲姫",
-    id_list: [1927, 1928, 1929],
+    name: "イベント用",
+    id_list: [1927, 1928, 1929, 1930, 1931],
     main_id: 1927,
     remodel: [
-      { id: 1927, state: "甲", luck: 0, avoidance: 0, avoidance_item: 0, armor: 200, hp: 590 },
-      { id: 1928, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 0 },
-      { id: 1929, state: "丙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 130, hp: 330 },
-    ],
-  },
-  {
-    type: 9,
-    name: "深海千島棲姫 -壊-",
-    id_list: [1930, 1931, 1932],
-    main_id: 1927,
-    remodel: [
-      { id: 1930, state: "甲", luck: 0, avoidance: 0, avoidance_item: 0, armor: 230, hp: 590 },
-      { id: 1931, state: "乙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 190, hp: 480 },
-      { id: 1932, state: "丙", luck: 0, avoidance: 0, avoidance_item: 0, armor: 0, hp: 330 },
+      { id: 1927, state: "A", luck: 0, avoidance: 0, avoidance_item: 0, armor: 1, hp: 1 },
+      { id: 1928, state: "B", luck: 0, avoidance: 0, avoidance_item: 0, armor: 1, hp: 1 },
+      { id: 1929, state: "C", luck: 0, avoidance: 0, avoidance_item: 0, armor: 1, hp: 1 },
+      { id: 1930, state: "D", luck: 0, avoidance: 0, avoidance_item: 0, armor: 1, hp: 1 },
+      { id: 1931, state: "E", luck: 0, avoidance: 0, avoidance_item: 0, armor: 1, hp: 1 },
     ],
   },
 ];
