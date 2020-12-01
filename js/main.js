@@ -682,22 +682,14 @@ const updateItemList = () => {
           }
         }
 
-        const itemButton = button.parent();
-        if (itemButton.css("display") == "none") {
-          itemButton.show();
-        }
+        button.parent().show();
         const r = item.singleAddableBonus ? getSingleAddableBonus(item).power > 0 : false;
-        const arrow = button.children(".arrow");
         if (r) {
-          if (arrow.css("display") == "none") {
-            arrow.show();
-          }
+          button.children(".arrow").show();
         } else {
           const s = item.singleBonus ? getSingleBonus(item, slotNumber).power > 0 : false;
           if (s) {
-            if (arrow.css("display") == "none") {
-              arrow.show();
-            }
+            button.children(".arrow").show();
           } else {
             const t = getMultiBonus(selectedMyFleetList[selectedFleetNum].item).power;
             const itemBefore = selectedMyFleetList[selectedFleetNum].item[slotNumber];
@@ -705,19 +697,14 @@ const updateItemList = () => {
             const ta = getMultiBonus(selectedMyFleetList[selectedFleetNum].item).power;
             selectedMyFleetList[selectedFleetNum].item[slotNumber] = itemBefore;
             if (ta - t > 0) {
-              if (arrow.css("display") == "none") {
-                arrow.show();
-              }
-            } else if (arrow.css("display") != "none") {
+              button.children(".arrow").show();
+            } else {
               button.children(".arrow").hide();
             }
           }
         }
       } else {
-        const itemButton = button.parent();
-        if (itemButton.css("display") != "none") {
-          itemButton.hide();
-        }
+        button.parent().hide();
       }
 
       //装備マウスオーバー時の処理
