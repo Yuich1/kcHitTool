@@ -752,6 +752,29 @@ const changeFleet = (id) => {
           break;
         }
       }
+      // 適切な装備を選択
+      switch (ship.type) {
+        // 戦艦
+        case 1:
+          $("#gun-tab").click();
+          $("#l-gun-tab").click();
+          break;
+        // 空母
+        case 2:
+          $("#plane-tab").click();
+          break;
+        // 巡洋艦
+        case 3:
+        case 4:
+          $("#gun-tab").click();
+          $("#m-gun-tab").click();
+          break;
+        // 駆逐
+        case 5:
+          $("#gun-tab").click();
+          $("#s-gun-tab").click();
+          break;
+      }
     }
   }
   if (!selectedFleet) return;
