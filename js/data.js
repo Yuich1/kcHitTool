@@ -8494,7 +8494,7 @@ const ITEM_DATA = [
             return false;
           }
           c = countItem(slotNumber, 50);
-          return c == 2
+          return c == 2;
         },
       },
       {
@@ -10069,7 +10069,7 @@ const ITEM_DATA = [
     singleAddableBonus: [
       {
         power: 1,
-        targetId: [575, 580, 614, 619, 443, 347],
+        targetId: [575, 580, 614, 619, 443, 347, 653, 658],
       },
     ],
   },
@@ -11145,6 +11145,8 @@ const ITEM_DATA = [
           704,
           615,
           620,
+          654,
+          659,
         ],
       },
       { power: 1, targetId: [439, 364, 571, 576, 515, 393, 613, 618] },
@@ -12039,6 +12041,8 @@ const ITEM_DATA = [
           615,
           620,
           648,
+          654,
+          659,
         ],
       },
     ],
@@ -12307,6 +12311,8 @@ const ITEM_DATA = [
           632,
           703,
           648,
+          653,
+          658,
         ],
       },
     ],
@@ -12390,6 +12396,8 @@ const ITEM_DATA = [
           704,
           615,
           620,
+          654,
+          659,
         ],
       },
     ],
@@ -12804,6 +12812,42 @@ const ITEM_DATA = [
     power: 2,
     accuracy: 1,
     yomi: "5いんちたんそうこうかくほうぐん",
+    singleAddableBonus: [
+      { power: 2, targetId: [595, 600] },
+      {
+        power: 1,
+        targetId: [
+          601,
+          1496,
+          602,
+          697,
+          440,
+          360,
+          433,
+          438,
+          545,
+          550,
+          603,
+          704,
+          549,
+          397,
+          544,
+          396,
+          615,
+          620,
+          597,
+          696,
+          439,
+          364,
+          571,
+          576,
+          515,
+          393,
+          654,
+          659,
+        ],
+      },
+    ],
   },
   {
     id: 359,
@@ -13737,7 +13781,7 @@ const ITEM_DATA = [
     multiBonus: [
       {
         power: 1,
-        targetId: [440, 360, 601, 1496],
+        targetId: [440, 360, 601, 1496, 654, 659],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
@@ -13745,7 +13789,7 @@ const ITEM_DATA = [
       },
       {
         power: 2,
-        targetId: [602, 697],
+        targetId: [602, 697, 654, 659],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
@@ -13813,7 +13857,7 @@ const ITEM_DATA = [
     multiBonus: [
       {
         power: 2,
-        targetId: [601, 1496, 440, 360, 602, 697],
+        targetId: [601, 1496, 440, 360],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr < 6;
@@ -13821,7 +13865,23 @@ const ITEM_DATA = [
       },
       {
         power: 3,
-        targetId: [601, 1496, 440, 360, 602, 697],
+        targetId: [601, 1496, 440, 360],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr >= 6;
+        },
+      },
+      {
+        power: 3,
+        targetId: [602, 697, 654, 659],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 6;
+        },
+      },
+      {
+        power: 4,
+        targetId: [602, 697, 654, 659],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 6;
@@ -13984,7 +14044,7 @@ const ITEM_DATA = [
       },
       {
         power: 3,
-        targetId: [602, 697],
+        targetId: [602, 697, 654, 659],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr <= 2;
@@ -13992,7 +14052,7 @@ const ITEM_DATA = [
       },
       {
         power: 4,
-        targetId: [602, 697],
+        targetId: [602, 697, 654, 659],
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr > 2;
@@ -14040,7 +14100,7 @@ const ITEM_DATA = [
     singleAddableBonus: [
       {
         power: 2,
-        targetId: [575, 580, 614, 619, 443, 347],
+        targetId: [575, 580, 614, 619, 443, 347, 653, 658],
       },
     ],
   },
@@ -14054,7 +14114,7 @@ const ITEM_DATA = [
     singleAddableBonus: [
       {
         power: 2,
-        targetId: [575, 580, 614, 619, 443, 347],
+        targetId: [575, 580, 614, 619, 443, 347, 653, 658],
       },
     ],
   },
@@ -14176,6 +14236,25 @@ const ITEM_DATA = [
     power: 7,
     accuracy: 1,
     yomi: "6inch mk.xxiiiさんれんそうほう",
+    isImpr: true,
+    multiBonus: [
+      {
+        power: 1,
+        targetId: [514, 705],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 4;
+        },
+      },
+      {
+        power: 2,
+        targetId: [514, 705],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr >= 4;
+        },
+      },
+    ],
   },
 
   //{id: , type: , name: "", power: , torp: , accuracy: },
