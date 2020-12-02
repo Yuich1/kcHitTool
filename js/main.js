@@ -279,6 +279,7 @@ $(function () {
       });*/
 
       //resetItemAccuracy();
+      setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
       setItemForm();
       updateItemList();
     } else {
@@ -412,6 +413,7 @@ const setFleetList = (shipType, isEnemy) => {
   $('[data-toggle="tooltip"]').tooltip();
   $(`${targetId} .set-fleet, ${targetId} .banner`).on("click", function () {
     changeFleet($(this).data("id"));
+    setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
     if (!isEnemy) {
       resetItemAccuracy();
       setItemForm();
@@ -783,29 +785,6 @@ const changeFleet = (id) => {
           break;
         }
       }
-      // 適切な装備を選択
-      switch (ship.type) {
-        // 戦艦
-        case 1:
-          $("#gun-tab").click();
-          $("#l-gun-tab").click();
-          break;
-        // 空母
-        case 2:
-          $("#plane-tab").click();
-          break;
-        // 巡洋艦
-        case 3:
-        case 4:
-          $("#gun-tab").click();
-          $("#m-gun-tab").click();
-          break;
-        // 駆逐
-        case 5:
-          $("#gun-tab").click();
-          $("#s-gun-tab").click();
-          break;
-      }
     }
   }
   if (!selectedFleet) return;
@@ -999,10 +978,7 @@ const getAvoidanceTerm = (avoidance, luck) => {
 
 const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
   let finalAccuracy = hitTerm - avoidanceTerm + 1;
-  if (finalAccuracy > 97) {
-    finalAccuracy = 97;
-  }
-  return finalAccuracy;
+  return Math.min(finalAccuracy, 97);
 };
 
 const getAttack = (attack, formationDamageCoef, engagementDamageCoef) => {
@@ -1254,6 +1230,7 @@ const setDeckBuilder = (dataString) => {
   }
   selectedFleetNum = fleetNum;
   $(".fleet-select")[0].click();
+  setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
   return true;
 };
 
@@ -1492,5 +1469,31 @@ const setSavedFleetList = () => {
     listObj.append(banner).append(text);
     $(".saved-fleetlist tbody").append(listObj);
     fleetNumber++;
+  }
+};
+
+// 艦娘に応じた装備タブを表示
+const setItemTab = (type) => {
+  switch (type) {
+    // 戦艦
+    case 1:
+      $("#gun-tab").click();
+      $("#l-gun-tab").click();
+      break;
+    // 空母
+    case 2:
+      $("#plane-tab").click();
+      break;
+    // 巡洋艦
+    case 3:
+    case 4:
+      $("#gun-tab").click();
+      $("#m-gun-tab").click();
+      break;
+    // 駆逐
+    case 5:
+      $("#gun-tab").click();
+      $("#s-gun-tab").click();
+      break;
   }
 };
