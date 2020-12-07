@@ -135,7 +135,7 @@ $(function () {
   $(".save-fleet-button").on("click", function () {
     //バナー画像のセット
     $(".fleet-banners").empty();
-    for (let i = 0; i < selectedMyFleetList.length - 1; i++) {
+    for (let i = 0; (len = selectedMyFleetList.length - 1), i < len; i++) {
       const ship = selectedMyFleetList[i + 1].fleet;
       const img = $("<img>", {
         class: "banner",
@@ -355,7 +355,7 @@ const setFleetList = (shipType, isEnemy) => {
     targetId = `#${SHIP_TYPE.find((item) => item.id === shipType).type}`;
     hasMyFleetTypeList[shipType - 1] = true;
   }
-  for (let index = 0; index < shipList.length; index++) {
+  for (let index = 0; (len = shipList.length), index < len; index++) {
     const ship = shipList[index];
     if (ship.type == shipType) {
       const main_id = ship.main_id;
@@ -378,7 +378,7 @@ const setFleetList = (shipType, isEnemy) => {
       let selectedFleet;
       td.append(img).append(span.append(yomi));
       tr.append(td);
-      for (let index = 0; index < ship.remodel.length; index++) {
+      for (let index = 0; (len = ship.remodel.length), index < len; index++) {
         selectedFleet = Object.assign({}, ship.remodel[index]);
         const state = selectedFleet.state;
         let title;
@@ -534,10 +534,10 @@ const initItemList = () => {
   $(".item-list .table tr").remove();
   let targetTabId;
   isItemOpen = true;
-  for (let index = 0; index < ITEM_DATA.length; index++) {
+  for (let index = 0; (len = ITEM_DATA.length), index < len; index++) {
     const item = $.extend(true, {}, ITEM_DATA[index]);
 
-    for (let index = 0; index < itemType.length; index++) {
+    for (let index = 0; (len = itemType.length), index < len; index++) {
       if (itemType[index].id.indexOf(item.type) != -1) {
         targetTabId = itemType[index].type;
         break;
@@ -632,10 +632,10 @@ const updateItemList = () => {
     let targetTabId;
     const slotButtonId = this.id;
     const slotNumber = parseInt(slotButtonId.charAt(slotButtonId.length - 1));
-    let isExpansionSlot =
-      selectedMyFleetList[selectedFleetNum].fleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
+    const fleet = selectedMyFleetList[selectedFleetNum].fleet;
+    let isExpansionSlot = fleet.slot == slotButtonId.charAt(slotButtonId.length - 1);
     isItemOpen = true;
-    for (let index = 0; index < ITEM_DATA.length; index++) {
+    for (let index = 0; (len = ITEM_DATA.length), index < len; index++) {
       const item = $.extend(true, {}, ITEM_DATA[index]);
       let isException = false;
       let isSpecial = false;
@@ -644,40 +644,28 @@ const updateItemList = () => {
       const button = $(`.id${item.id}`);
       if (isExpansionSlot) {
         isExpansion = expansionItemType.some((c) => c == item.type);
-        canHave =
-          SHIP_TYPE[selectedMyFleetList[selectedFleetNum].fleet.type - 1].canHaveItem.some((c) => c == item.type) &&
-          isExpansion;
+        canHave = SHIP_TYPE[fleet.type - 1].canHaveItem.some((c) => c == item.type) && isExpansion;
       } else {
-        canHave = SHIP_TYPE[selectedMyFleetList[selectedFleetNum].fleet.type - 1].canHaveItem.some(
-          (c) => c == item.type
-        );
+        canHave = SHIP_TYPE[fleet.type - 1].canHaveItem.some((c) => c == item.type);
       }
       if (canHave) {
-        const isExceptionId = selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId
-          ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemId.some((c) => c == item.id)
-          : false;
-        const isExceptionType = selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType
-          ? selectedMyFleetList[selectedFleetNum].fleet.cantHaveItemType.some((c) => c == item.type)
-          : false;
+        const isExceptionId = fleet.cantHaveItemId ? fleet.cantHaveItemId.some((c) => c == item.id) : false;
+        const isExceptionType = fleet.cantHaveItemType ? fleet.cantHaveItemType.some((c) => c == item.type) : false;
         isException = isExceptionId || isExceptionType;
       } else {
-        const isSpecialId = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId
-          ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemId.some((c) => c == item.id)
-          : false;
-        const isSpecialType = selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType
-          ? selectedMyFleetList[selectedFleetNum].fleet.specialCanHaveItemType.some((c) => c == item.type)
+        const isSpecialId = fleet.specialCanHaveItemId ? fleet.specialCanHaveItemId.some((c) => c == item.id) : false;
+        const isSpecialType = fleet.specialCanHaveItemType
+          ? fleet.specialCanHaveItemType.some((c) => c == item.type)
           : false;
         if (!isExpansionSlot) {
           isSpecial = isSpecialId || isSpecialType;
         } else {
-          const t = selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId
-            ? selectedMyFleetList[selectedFleetNum].fleet.expansionCanHaveItemId.some((c) => c == item.id)
-            : false;
+          const t = fleet.expansionCanHaveItemId ? fleet.expansionCanHaveItemId.some((c) => c == item.id) : false;
           isSpecial = t || ((isSpecialId || isSpecialType) && isExpansion);
         }
       }
       if ((canHave && !isException) || isSpecial) {
-        for (let index = 0; index < itemType.length; index++) {
+        for (let index = 0; (len = itemType.length), index < len; index++) {
           if (itemType[index].id.indexOf(item.type) != -1) {
             targetTabId = itemType[index].type;
             break;
@@ -765,11 +753,11 @@ const changeFleet = (id) => {
     shipData = SHIP_DATA;
   }
   let name = "";
-  for (let index = 0; index < shipData.length; index++) {
+  for (let index = 0; (len = shipData.length), index < len; index++) {
     const ship = shipData[index];
     if (ship.id_list.indexOf(id) != -1) {
       name = ship.name;
-      for (let index = 0; index < ship.remodel.length; index++) {
+      for (let index = 0; (len = ship.remodel.length), index < len; index++) {
         if (ship.remodel[index].id == id && id <= 1500) {
           const i = Array(ship.remodel[index].slot).fill(0);
           const myFleet = new MyFleet(ship.remodel[index], i);
@@ -1030,7 +1018,7 @@ const getResultData = () => {
   let taihaProb = 0;
   let sinkProb = 0;
   const engagementRates = { noSaiun: [0.15, 0.45, 0.3, 0.1], saiun: [0.15, 0.45, 0.4, 0] };
-  for (let j = 0; j < engagementDamageCoefs.length; j++) {
+  for (let j = 0; (len = engagementDamageCoefs.length), j < len; j++) {
     const engagementDamageCoef = parseFloat(engagementDamageCoefs[j]);
     cappedAttack = Math.floor(getAttack(power, formationDamageCoef, engagementDamageCoef));
     const trialNumber = 100;
@@ -1163,14 +1151,14 @@ const search = (targetSelector, searchText) => {
 const getDeckBuilder = () => {
   let deck = '{"version":4,"f1":{';
   let fleetNum = 1;
-  for (let i = 0; i < selectedMyFleetList.length + 1; i++) {
+  for (let i = 0; (len = selectedMyFleetList.length + 1), i < len; i++) {
     if (selectedMyFleetList[i]) {
       deck += `${fleetNum != 1 ? "," : ""}`;
       const myFleet = selectedMyFleetList[i];
       deck += `"s${fleetNum}":{"id":"${myFleet.fleet.id}","lv":${myFleet.fleet.lv},"luck":${myFleet.fleet.luck},"items":{`;
       fleetNum++;
       let itemNum = 1;
-      for (let j = 0; j < myFleet.item.length + 1; j++) {
+      for (let j = 0; (len = myFleet.item.length + 1), j < len; j++) {
         if (myFleet.item[j]) {
           deck += `${itemNum++ != 1 ? "," : ""}`;
           if (j == myFleet.fleet.slot) {
