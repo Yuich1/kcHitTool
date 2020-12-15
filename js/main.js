@@ -156,8 +156,13 @@ $(function () {
     const fleetComment = getFleetComment();
     const deckCode = getDeckBuilder();
     const fleetNumber = getSavedFleetNumber();
-    saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
-    setSavedFleetList();
+    const isSuccess = saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
+    if(isSuccess){
+      setSavedFleetList();
+    }else{
+      alert("空の艦隊で上書きできません")
+    }
+
   });
   $(".save-fleet").on("click", function () {
     setSavedFleetList();
@@ -1360,9 +1365,12 @@ const getFleetComment = () => {
   return text;
 };
 const saveFleet = (fleetName, fleetComment, deckCode, fleetNumber) => {
+  const isEmpty = deckCode.match(/s[1-6]/) ? false : true;
+  if (isEmpty) return false;
   const data = { deckCode: deckCode, fleetName: fleetName, fleetComment: fleetComment };
   const jsonData = JSON.stringify(data);
   localStorage.setItem("fleet" + fleetNumber, jsonData);
+  return true;
 };
 const deleteFleet = (fleetNumber) => {
   localStorage.removeItem("fleet" + fleetNumber);
@@ -1445,8 +1453,12 @@ const setSavedFleetList = () => {
       const fleetNumber = button3.data("fleetnumber");
       const fleetComment = getFleetComment();
       const deckCode = getDeckBuilder();
-      saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
-      setSavedFleetList();
+      const isSuccess = saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
+      if(isSuccess){
+        setSavedFleetList();
+      }else{
+        alert("空の艦隊で上書きできません")
+      }
     });
     button3.on("click", function () {
       $("#delete-fleet").attr("data-fleetnumber", button3.data("fleetnumber"));
