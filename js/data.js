@@ -14918,7 +14918,7 @@ const ENEMY_DATA = [
         luck: 0,
         avoidance: 0,
         avoidance_item: 0,
-        armor: 112,
+        armor: 115,
         hp: 220,
       },
     ],
