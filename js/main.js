@@ -157,12 +157,11 @@ $(function () {
     const deckCode = getDeckBuilder();
     const fleetNumber = getSavedFleetNumber();
     const isSuccess = saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
-    if(isSuccess){
+    if (isSuccess) {
       setSavedFleetList();
-    }else{
-      alert("空の艦隊で上書きできません")
+    } else {
+      alert("空の艦隊で上書きできません");
     }
-
   });
   $(".save-fleet").on("click", function () {
     setSavedFleetList();
@@ -212,8 +211,14 @@ $(function () {
     f.val(Math.max(f.val(), 0));
     getResultData();
   });
-  $(".enemy .luck, .enemy .avoidance").on("input", function () {
-    saveEnemyStatus(selectedEnemyFleet.id, $(".enemy .avoidance").val(), $(".enemy .luck").val());
+  $(".enemy .hp, .enemy .armor, .enemy .luck, .enemy .avoidance").on("input", function () {
+    saveEnemyStatus(
+      selectedEnemyFleet.id,
+      $(".enemy .hp").val(),
+      $(".enemy .armor").val(),
+      $(".enemy .avoidance").val(),
+      $(".enemy .luck").val()
+    );
   });
   $(".saved-info .status-reset").on("click", function () {
     resetEnemyStatus(selectedEnemyFleet.id);
@@ -418,8 +423,8 @@ const setFleetList = (shipType, isEnemy) => {
   $('[data-toggle="tooltip"]').tooltip();
   $(`${targetId} .set-fleet, ${targetId} .banner`).on("click", function () {
     changeFleet($(this).data("id"));
-    setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
     if (!isEnemy) {
+      setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
       resetItemAccuracy();
       setItemForm();
       updateItemList();
@@ -796,16 +801,22 @@ const changeFleet = (id) => {
     $(".enemy .fleet-img").attr("src", src);
     $(".enemy .hp").val(selectedFleet.hp);
     $(".enemy .armor").val(selectedFleet.armor);
-    let avoidance;
+    let avoidance = 0;
+    let hp = selectedFleet.hp;
+    let armor = selectedFleet.armor;
     if (localStorage.getItem(selectedEnemyFleet.id)) {
       const savedStatus = localStorage.getItem(selectedEnemyFleet.id).split(",");
-      avoidance = parseInt(savedStatus[0]);
-      luck = parseInt(savedStatus[1]);
+      savedStatus[0] ? (avoidance = parseInt(savedStatus[0])) : 0;
+      savedStatus[1] ? (luck = parseInt(savedStatus[1])) : 0;
+      savedStatus[2] ? (hp = parseInt(savedStatus[2])) : 0;
+      savedStatus[3] ? (armor = parseInt(savedStatus[3])) : 0;
       $(".saved-info").css("display", "block");
     } else {
       avoidance = selectedFleet.avoidance + selectedFleet.avoidance_item;
       $(".saved-info").css("display", "none");
     }
+    $(".enemy .hp").val(hp);
+    $(".enemy .armor").val(armor);
     $(".enemy .avoidance").val(avoidance);
     $(".enemy .luck").val(luck);
   } else {
@@ -1331,8 +1342,8 @@ const setSauin = (isActive) => {
 };
 
 //敵回避、運の保存
-const saveEnemyStatus = (shipId, avoidance, luck) => {
-  const data = [avoidance, luck];
+const saveEnemyStatus = (shipId, hp, armor, avoidance, luck) => {
+  const data = [avoidance, luck, hp, armor];
   localStorage.setItem(`${shipId}`, `${data}`);
 
   $(".saved-info").css("display", "block");
@@ -1341,6 +1352,8 @@ const saveEnemyStatus = (shipId, avoidance, luck) => {
 const resetEnemyStatus = (shipId) => {
   localStorage.removeItem(shipId);
 
+  $(".enemy .hp").val(selectedEnemyFleet.hp);
+  $(".enemy .armor").val(selectedEnemyFleet.armor);
   $(".enemy .avoidance").val(selectedEnemyFleet.avoidance);
   $(".enemy .luck").val(selectedEnemyFleet.luck);
 };
@@ -1454,10 +1467,10 @@ const setSavedFleetList = () => {
       const fleetComment = getFleetComment();
       const deckCode = getDeckBuilder();
       const isSuccess = saveFleet(fleetName, fleetComment, deckCode, fleetNumber);
-      if(isSuccess){
+      if (isSuccess) {
         setSavedFleetList();
-      }else{
-        alert("空の艦隊で上書きできません")
+      } else {
+        alert("空の艦隊で上書きできません");
       }
     });
     button3.on("click", function () {
