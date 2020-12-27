@@ -214,13 +214,7 @@ $(function () {
   $(".enemy .hp, .enemy .armor, .enemy .luck, .enemy .avoidance").on("input", function () {
     let hp = $(".enemy .hp").val();
     let armor = $(".enemy .armor").val();
-    saveEnemyStatus(
-      selectedEnemyFleet.id,
-      hp,
-      armor,
-      $(".enemy .avoidance").val(),
-      $(".enemy .luck").val()
-    );
+    saveEnemyStatus(selectedEnemyFleet.id, hp, armor, $(".enemy .avoidance").val(), $(".enemy .luck").val());
     const title = `装甲 ${armor}, 耐久 ${hp}`;
     $(`[data-id="${selectedEnemyFleet.id}"]`).children(".item-tooltip").attr("title", title).tooltip("fixTitle");
   });
@@ -335,7 +329,7 @@ $(function () {
     $(this).select();
   });
   $(".deck").on("input", function () {
-    const isOpen = setDeckBuilder($(this).val());
+    const isOpen = checkDeckBuilder($(this).val());
     if (isOpen) {
       $("#share").modal("hide");
     }
@@ -1199,57 +1193,115 @@ const getDeckBuilder = () => {
   return deck;
 };
 
-const setDeckBuilder = (dataString) => {
-  const fleetNum = selectedFleetNum;
-  selectedFleetNum = 1;
+const checkDeckBuilder = (dataString) => {
   const raw = JSON.parse(dataString);
   if (toString(raw.version).includes("4")) return false;
-  for (const i in raw) {
-    if (!raw[i]) continue;
-    const fleet = raw[i];
-    for (const j in fleet) {
-      if (!fleet[j].id) continue;
-      //set ship
-      const ship = fleet[j];
-      changeFleet(parseInt(ship.id));
-      $(".myfleet .lv").val(ship.lv);
-      $(".myfleet .luck").val(ship.luck);
-      selectedMyFleetList[selectedFleetNum].fleet.lv = ship.lv;
-      selectedMyFleetList[selectedFleetNum].fleet.luck = ship.luck;
-      resetItemAccuracy();
-      setItemForm();
-      //set items
-      const items = ship.items;
-      for (const k in items) {
-        const itemId = items[k].id;
-        let item;
-        for (const t in ITEM_DATA) {
-          if (ITEM_DATA[t].id == itemId) {
-            item = ITEM_DATA[t];
-            break;
-          }
-        }
-        if (item) {
-          setItem(k[1] == "x" ? selectedMyFleetList[selectedFleetNum].fleet.slot : k[1] - 1, item);
-          if (items[k].rf != 0) {
-            selectedMyFleetList[selectedFleetNum].impr[k[1] - 1] = items[k].rf;
-            setImpr(k[1] - 1);
-          }
+  let fleets = [];
+  const fleetIndex = ["f1", "f2", "f3", "f4"];
+  for (let i = 0; i < 4; i++) {
+    const fleet = raw[fleetIndex[i]];
+    if (fleet && Object.keys(fleet).length > 0) {
+      fleets.push(fleet);
+    }
+  }
+  let selectedData;
+  if (fleets.length == 1) {
+    selectedData = fleets.pop();
+    setDeckBuilder(selectedData);
+  } else if (fleets.length > 0) {
+    setDeckList(fleets);
+    $("#select-deckbuilder").modal("show");
+  }
+  return true;
+};
+
+function setDeckBuilder(json) {
+  const fleetNum = selectedFleetNum;
+  selectedFleetNum = 1;
+  for (const i in json) {
+    if (!json[i]) continue;
+    const ship = json[i];
+    //set ship
+    changeFleet(parseInt(ship.id));
+    $(".myfleet .lv").val(ship.lv);
+    $(".myfleet .luck").val(ship.luck);
+    selectedMyFleetList[selectedFleetNum].fleet.lv = ship.lv;
+    selectedMyFleetList[selectedFleetNum].fleet.luck = ship.luck;
+    resetItemAccuracy();
+    setItemForm();
+    //set items
+    const items = ship.items;
+    for (const k in items) {
+      const itemId = items[k].id;
+      let item;
+      for (let t = 0; (len = ITEM_DATA.length), t < len; t++) {
+        if (ITEM_DATA[t].id == itemId) {
+          item = ITEM_DATA[t];
+          break;
         }
       }
-      selectedFleetNum++;
+      if (item) {
+        setItem(k[1] == "x" ? selectedMyFleetList[selectedFleetNum].fleet.slot : k[1] - 1, item);
+        if (items[k].rf != 0) {
+          selectedMyFleetList[selectedFleetNum].impr[k[1] - 1] = items[k].rf;
+          setImpr(k[1] - 1);
+        }
+      }
     }
+    selectedFleetNum++;
   }
   selectedFleetNum = fleetNum;
   $(".fleet-select")[0].click();
   setItemTab(selectedMyFleetList[selectedFleetNum].fleet.type);
   return true;
-};
+}
 
 const sum = function (arr) {
   return arr.reduce(function (prev, current, i, arr) {
     return prev + current;
   });
+};
+
+// 読み込む編成のリストを生成
+const setDeckList = (deckCodeList) => {
+  //初期化
+  $(".select-fleetlist tbody").empty();
+
+  for (let i = 0; i < deckCodeList.length; i++) {
+    const listObj = $("<tr>", {
+      class: "select-fleet",
+    });
+    const banner = $("<td>");
+    const fleet = deckCodeList[i];
+    for (let j = 0; j < Object.keys(fleet).length; j++) {
+      const ship = fleet[`s${j + 1}`];
+      const img = $("<img>", {
+        class: "banner",
+        src: `./images/ships/${ship.id}.png`,
+        alt: `${ship.name}`,
+      });
+      banner.append(img);
+      if ((j + 1) % 2 == 0 && j != 0) {
+        banner.append($("<br>"));
+      }
+    }
+    const button = $("<button>", {
+      type: "button",
+      class: "btn btn-default",
+      text: "展開",
+      "data-dismiss": "modal",
+    });
+    button.on("click", function () {
+      $("#share").modal("hide");
+      setDeckBuilder(deckCodeList[i]);
+    });
+
+    const fleetName = `第${i + 1}艦隊`;
+    const text = $("<td>");
+    text.append(fleetName).append($("<br>")).append($("<br>")).append(button);
+    listObj.append(banner).append(text);
+    $(".select-fleetlist tbody").append(listObj);
+  }
 };
 
 //改修値フォームの設定
@@ -1365,7 +1417,7 @@ const resetEnemyStatus = (shipId) => {
   $(".enemy .avoidance").val(selectedEnemyFleet.avoidance);
   $(".enemy .luck").val(selectedEnemyFleet.luck);
   const title = `装甲 ${selectedEnemyFleet.armor}, 耐久 ${selectedEnemyFleet.hp}`;
-    $(`[data-id="${selectedEnemyFleet.id}"]`).children(".item-tooltip").attr("title", title).tooltip("fixTitle");
+  $(`[data-id="${selectedEnemyFleet.id}"]`).children(".item-tooltip").attr("title", title).tooltip("fixTitle");
 };
 
 //編成記録
@@ -1470,7 +1522,7 @@ const setSavedFleetList = () => {
       const data = localStorage.getItem("fleet" + fleetNumber);
       const jsonData = JSON.parse(data);
       const deckCode = jsonData.deckCode;
-      setDeckBuilder(deckCode);
+      checkDeckBuilder(deckCode);
     });
     button2.on("click", function () {
       const fleetNumber = button3.data("fleetnumber");
@@ -1485,7 +1537,6 @@ const setSavedFleetList = () => {
     });
     button3.on("click", function () {
       $("#delete-fleet").attr("data-fleetnumber", button3.data("fleetnumber"));
-      console.log($("#delete-fleet").attr("data-fleetnumber"));
     });
     const text = $("<td>");
     text.append(fleetName).append($("<br>")).append($("<br>")).append(button).append(button2).append(button3);

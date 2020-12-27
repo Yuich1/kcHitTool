@@ -317,8 +317,12 @@ body {
   white-space: pre-wrap;
 }
 .saved-fleetlist .banner,
-.fleet-banners .banner {
+.fleet-banners .banner ,
+.select-fleetlist .banner{
   margin: 2px;
+}
+.select-fleetlist tr td:nth-child(even){
+  width: 180px;
 }
 .saiunSet {
   margin-top: 4px;
