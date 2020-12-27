@@ -23,20 +23,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="shortcut icon" href="./images/icon/favicon.ico" />
   <!--  css更新時はverを変更する  -->
-  <link rel="stylesheet" href="./css/style.min.css?ver=1.3.2.0" />
+  <link rel="stylesheet" href="./css/style.min.css?ver=1.3.3.0" />
   <script type="text/javascript" src="./js/ncmb.min.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script defer src="./js/common.min.js?ver=1.3.0.0"></script>
   <script defer src="./js/data.min.js?ver=1.3.2.0"></script>
-  <script defer src="./js/main.min.js?ver=1.3.2.0"></script>
+  <script defer src="./js/main.min.js?ver=1.3.3.0"></script>
   <script type="module" src="./js/game.js?ver=1.3.0.0"></script>
 </head>
 
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="title">艦これ砲撃支援命中計算機 v1.3.2</h1>
+      <h1 class="title">艦これ砲撃支援命中計算機 v1.3.3</h1>
     </header>
     <div class="wrapper">
       <div class="row">
@@ -291,6 +291,7 @@
         v1.3.0 装備ボーナスを可視化、イベント用の空の敵艦を追加しました。<br />
         v1.3.1 艦娘選択時に適切な装備タブを表示するよう変更しました。 <br />
         v1.3.2 敵艦の耐久、装甲も保存するように変更しました<br />
+        v1.3.3 デッキビルダー形式の読み込み時、複数艦隊から読み込む編成を選択可能になりました。<br />
       </details>
 
       <h2 class="title">知的財産権</h2>
@@ -676,6 +677,26 @@
         <div class="modal-body center">
           削除した編成は復元できません。<br />
           <button class="btn btn-danger" id="delete-fleet" data-dismiss="modal">削除</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="select-deckbuilder" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">展開する編成を選択</h4>
+        </div>
+        <div class="modal-body">
+          <div class="select-fleetlist table-wrapper">
+            <table class="table">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
