@@ -247,6 +247,7 @@ body {
 .result.box {
   position: relative;
   z-index: 0;
+  height: 410px;
 }
 .result.box .background-img {
   content: "";
