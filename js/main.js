@@ -221,6 +221,7 @@ $(function () {
   $(".saved-info .status-reset").on("click", function () {
     resetEnemyStatus(selectedEnemyFleet.id);
     $(".status-reset").css("display", "none");
+    $(".status").removeClass("saved-info");
     getResultData();
   });
   $(".my-formation, .enemy-formation, .critical").on("input", function () {
@@ -814,9 +815,11 @@ const changeFleet = (id) => {
       savedStatus[2] ? (hp = parseInt(savedStatus[2])) : 0;
       savedStatus[3] ? (armor = parseInt(savedStatus[3])) : 0;
       $(".status-reset").css("display", "block");
+      $(".status").addClass("saved-info");
     } else {
       avoidance = selectedFleet.avoidance + selectedFleet.avoidance_item;
       $(".status-reset").css("display", "none");
+      $(".status").removeClass("saved-info");
     }
     $(".enemy .hp").val(hp);
     $(".enemy .armor").val(armor);
@@ -1433,6 +1436,7 @@ const saveEnemyStatus = (shipId, hp, armor, avoidance, luck) => {
   localStorage.setItem(`${shipId}`, `${data}`);
 
   $(".status-reset").css("display", "block");
+  $(".status").addClass("saved-info");
 };
 
 const resetEnemyStatus = (shipId) => {
