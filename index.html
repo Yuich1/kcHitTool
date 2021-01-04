@@ -121,6 +121,7 @@
               data-toggle="modal"
               data-target="#select-enemy"
             />
+            <p id="unknown-status"></p>
             <button
               type="button"
               class="btn btn-info"
@@ -130,7 +131,7 @@
             >
               敵艦船を選ぶ
             </button>
-            <table class="status">
+            <table class="status" data-toggle="tooltip" title="任意のステータスを設定可能">
               <tbody>
                 <tr>
                   <td>耐久</td>
@@ -153,7 +154,7 @@
               </tbody>
             </table>
             <div class="saved-info">
-              設定済み <button type="button" class="btn btn-info status-reset">初期値に戻す</button>
+              <button type="button" class="btn btn-info status-reset">初期値に戻す</button>
             </div>
           </div>
           <div class="setup box">

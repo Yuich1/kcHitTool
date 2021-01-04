@@ -92,6 +92,11 @@ body {
   position: absolute;
   right: 20px;
 }
+#unknown-status{
+  position: absolute;
+  right: 140px;
+  top: 163px;
+}
 .myfleet .fleet-name,
 .enemy .fleet-name {
   display: inline-block;
@@ -182,19 +187,19 @@ body {
   top: 118px;
   width: 96px;
 }
-.saved-info {
+.saved-info:not(#unknown-status) {
   position: absolute;
   right: 20px;
   bottom: 10px;
   display: none;
 }
-.saved-info::before {
+.saved-info:not(#unknown-status)::before {
   display: block;
   content: "";
   border-bottom: 1px solid rgb(161, 161, 161);
-  width: 224%;
+  width: 324%;
   margin-bottom: 2px;
-  margin-left: -212px;
+  margin-left: -274px;
 }
 .kira {
   background-color: rgba(255, 251, 0, 0.89);
@@ -240,7 +245,7 @@ body {
 .description .title {
   font-size: 2.2rem;
 }
-.tooltip{
+.tooltip {
   position: fixed;
 }
 
@@ -318,11 +323,11 @@ body {
   white-space: pre-wrap;
 }
 .saved-fleetlist .banner,
-.fleet-banners .banner ,
-.select-fleetlist .banner{
+.fleet-banners .banner,
+.select-fleetlist .banner {
   margin: 2px;
 }
-.select-fleetlist tr td:nth-child(even){
+.select-fleetlist tr td:nth-child(even) {
   width: 180px;
 }
 .saiunSet {
@@ -377,6 +382,10 @@ body {
   border-right: solid 2px #ec4c37;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+
+.enemy-status.unknown {
+  border: 2px solid  #ff7a7a;
 }
 
 @media (max-width: 992px) {
