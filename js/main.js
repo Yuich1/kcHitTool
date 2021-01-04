@@ -220,7 +220,7 @@ $(function () {
   });
   $(".saved-info .status-reset").on("click", function () {
     resetEnemyStatus(selectedEnemyFleet.id);
-    $(".saved-info").css("display", "none");
+    $(".status-reset").css("display", "none");
     getResultData();
   });
   $(".my-formation, .enemy-formation, .critical").on("input", function () {
@@ -432,6 +432,7 @@ const setFleetList = (shipType, isEnemy) => {
       updateItemList();
     }
     getResultData();
+    console.log("test");
   });
 };
 
@@ -812,10 +813,10 @@ const changeFleet = (id) => {
       savedStatus[1] ? (luck = parseInt(savedStatus[1])) : 0;
       savedStatus[2] ? (hp = parseInt(savedStatus[2])) : 0;
       savedStatus[3] ? (armor = parseInt(savedStatus[3])) : 0;
-      $(".saved-info").css("display", "block");
+      $(".status-reset").css("display", "block");
     } else {
       avoidance = selectedFleet.avoidance + selectedFleet.avoidance_item;
-      $(".saved-info").css("display", "none");
+      $(".status-reset").css("display", "none");
     }
     $(".enemy .hp").val(hp);
     $(".enemy .armor").val(armor);
@@ -996,6 +997,31 @@ const getAttack = (attack, formationDamageCoef, engagementDamageCoef) => {
 };
 
 const getResultData = () => {
+  // 回避、運が未設定なら警告
+  let existAvoidance = true;
+  let existLuck = true;
+  if ($(".enemy .avoidance").val() == 0) {
+    $(".enemy .avoidance").addClass("unknown");
+    existAvoidance = false;
+  } else {
+    $(".enemy .avoidance").removeClass("unknown");
+    existAvoidance = true;
+  }
+  if ($(".enemy .luck").val() == 0) {
+    $(".enemy .luck").addClass("unknown");
+    existLuck = false;
+  } else {
+    $(".enemy .luck").removeClass("unknown");
+    existLuck = true;
+  }
+  let text = "";
+  if (!existAvoidance) text += "回避";
+  if (!existAvoidance && !existLuck) text += "と";
+  if (!existLuck) text += "運";
+  if (text.length != 0) {
+    text += "が未設定です";
+  }
+  $("#unknown-status").text(text);
   if (!selectedMyFleetList[selectedFleetNum]) return;
   let sink = 0;
   let taiha = 0;
@@ -1021,30 +1047,6 @@ const getResultData = () => {
   let hitTerm = getHitTerm(formation_coef, support_const, cond_coef, luck, lv, itemAccuracy);
 
   let avoidanceTerm = getAvoidanceTerm(parseInt($(".enemy .avoidance").val()), parseInt($(".enemy .luck").val()));
-  let existAvoidance = true;
-  let existLuck = true;
-  if ($(".enemy .avoidance").val() == 0) {
-    $(".enemy .avoidance").addClass("unknown");
-    existAvoidance = false;
-  } else {
-    $(".enemy .avoidance").removeClass("unknown");
-    existAvoidance = true;
-  }
-  if ($(".enemy .luck").val() == 0) {
-    $(".enemy .luck").addClass("unknown");
-    existLuck = false;
-  } else {
-    $(".enemy .luck").removeClass("unknown");
-    existLuck = true;
-  }
-  let text = "";
-  if (!existAvoidance) text += "回避";
-  if (!existAvoidance && !existLuck) text += "と";
-  if (!existLuck) text += "運";
-  if (text.length != 0) {
-    text += "が未設定です";
-  }
-  $("#unknown-status").text(text);
 
   let finalAccuracy = getFinalAccuracy(hitTerm, avoidanceTerm);
 
@@ -1430,7 +1432,7 @@ const saveEnemyStatus = (shipId, hp, armor, avoidance, luck) => {
   const data = [avoidance, luck, hp, armor];
   localStorage.setItem(`${shipId}`, `${data}`);
 
-  $(".saved-info").css("display", "block");
+  $(".status-reset").css("display", "block");
 };
 
 const resetEnemyStatus = (shipId) => {
