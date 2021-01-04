@@ -7328,7 +7328,7 @@ const SHIP_DATA = [
     name: "松",
     id_list: [641, 702],
     main_id: 702,
-    yomi: "まつ shimakaze",
+    yomi: "まつ matsu",
     remodel: [
       {
         id: 641,
@@ -7346,6 +7346,35 @@ const SHIP_DATA = [
         power: 42,
         torp: 72,
         luck: 18,
+        slot: 3,
+        fuel: 15,
+        bullet: 15,
+      },
+    ],
+  },
+  {
+    type: 5,
+    name: "竹",
+    id_list: [642, 706],
+    main_id: 706,
+    yomi: "たけ take",
+    remodel: [
+      {
+        id: 642,
+        state: "未改造",
+        power: 25,
+        torp: 79,
+        luck: 28,
+        slot: 2,
+        fuel: 15,
+        bullet: 15,
+      },
+      {
+        id: 706,
+        state: "改",
+        power: 42,
+        torp: 98,
+        luck: 38,
         slot: 3,
         fuel: 15,
         bullet: 15,
@@ -9917,6 +9946,8 @@ const ITEM_DATA = [
           648,
           651,
           656,
+          642,
+          706,
         ],
       },
     ],
@@ -12313,6 +12344,8 @@ const ITEM_DATA = [
           648,
           653,
           658,
+          642,
+          706,
         ],
       },
     ],
@@ -13336,7 +13369,7 @@ const ITEM_DATA = [
         ],
       },
     ],
-    singleBonus: [{ power: 3, targetId: [641, 702] }],
+    singleBonus: [{ power: 3, targetId: [641, 702, 642, 706] }],
     multiBonus: [
       {
         power: 2,
@@ -13536,7 +13569,7 @@ const ITEM_DATA = [
       },
       {
         power: 4,
-        targetId: [641, 702],
+        targetId: [641, 702, 642, 706],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
@@ -13553,7 +13586,7 @@ const ITEM_DATA = [
       },
       {
         power: 1,
-        targetId: [641, 702],
+        targetId: [641, 702, 642, 706],
         isBonus: function (slotNumber) {
           let c = 0;
           c = countItem(slotNumber, 379);
@@ -13605,14 +13638,14 @@ const ITEM_DATA = [
     singleBonus: [
       {
         power: 3,
-        targetId: [641, 702],
+        targetId: [641, 702, 642, 706],
       },
     ],
     multiBonus: [
       //水上電探
       {
         power: 4,
-        targetId: [641, 702],
+        targetId: [641, 702, 642, 706],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
@@ -13759,9 +13792,10 @@ const ITEM_DATA = [
           return isSurface && c == 1;
         },
       },
+      // 二基目
       {
         power: 1,
-        targetId: [641, 702],
+        targetId: [641, 702, 642, 706],
         isBonus: function (slotNumber) {
           let c = 0;
           c = countItem(slotNumber, 380);
