@@ -3084,8 +3084,8 @@ const SHIP_DATA = [
   {
     type: 4,
     name: "球磨",
-    id_list: [99, 215],
-    main_id: 215,
+    id_list: [99, 215, 652, 657],
+    main_id: 652,
     yomi: "くま kuma",
     remodel: [
       {
@@ -3107,6 +3107,26 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 25,
         bullet: 25,
+      },
+      {
+        id: 652,
+        state: "改二",
+        power: 70,
+        torp: 92,
+        luck: 16,
+        slot: 3,
+        fuel: 25,
+        bullet: 35,
+      },
+      {
+        id: 657,
+        state: "改二丁",
+        power: 67,
+        torp: 84,
+        luck: 16,
+        slot: 3,
+        fuel: 25,
+        bullet: 35,
       },
     ],
   },
@@ -9948,6 +9968,8 @@ const ITEM_DATA = [
           656,
           642,
           706,
+          652,
+          657,
         ],
       },
     ],
@@ -12005,6 +12027,8 @@ const ITEM_DATA = [
           574,
           579,
           630,
+          652,
+          657,
         ],
       },
     ],
@@ -12981,6 +13005,8 @@ const ITEM_DATA = [
           622,
           623,
           624,
+          652,
+          657,
         ],
       },
     ],
@@ -13047,6 +13073,8 @@ const ITEM_DATA = [
           622,
           623,
           624,
+          652,
+          657,
         ],
       },
     ],
@@ -13269,7 +13297,10 @@ const ITEM_DATA = [
         power: 3,
         targetId: [651, 656],
       },
-      { power: 2, targetId: [22, 219, 141, 113, 289, 487, 56, 224, 160, 23, 220, 488, 25, 58, 119, 24, 57, 118] },
+      {
+        power: 2,
+        targetId: [22, 219, 141, 113, 289, 487, 56, 224, 160, 23, 220, 488, 25, 58, 119, 24, 57, 118, 652, 657],
+      },
       {
         power: 1,
         targetId: [
@@ -13417,6 +13448,8 @@ const ITEM_DATA = [
           118,
           651,
           656,
+          652,
+          657,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -13633,7 +13666,7 @@ const ITEM_DATA = [
         ],
       },
       { power: 2, targetId: [141, 487, 160, 488] },
-      { power: 3, targetId: [118, 119, 651, 656] },
+      { power: 3, targetId: [118, 119, 651, 656, 652, 657] },
     ],
     singleBonus: [
       {
@@ -13662,7 +13695,7 @@ const ITEM_DATA = [
       },
       {
         power: 3,
-        targetId: [141, 487, 160, 488, 118, 119],
+        targetId: [141, 487, 160, 488, 118, 119, 652, 657],
         isBonus: function (slotNumber) {
           let c = 0;
           let isSurface = false;
