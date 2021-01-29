@@ -407,6 +407,9 @@ body {
   #create-myfleet {
     top: 78px;
   }
+  .result.box{
+    height: 460px;
+  }
   .result.box .background-img {
     background-size: 50%;
     background-position: 100% 100%;
