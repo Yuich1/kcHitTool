@@ -335,10 +335,12 @@ $(function () {
       $("#share").modal("hide");
     }
   });
+  /*
   $(".deckImageOpen").on("click", function () {
     const t = "https://nishikuma.net/ImgKCbuilder/?predeck=" + getDeckBuilder();
     window.open(t, "newtab");
   });
+  */
   $(".deckBuilderOpen").on("click", function () {
     const t = "http://kancolle-calc.net/deckbuilder.html?predeck=" + getDeckBuilder();
     window.open(t, "newtab");
