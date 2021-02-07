@@ -3831,7 +3831,6 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 35,
         bullet: 30,
-        expansionCanHaveItemId: [71, 275],
       },
       {
         id: 321,
@@ -3842,7 +3841,6 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 35,
-        expansionCanHaveItemId: [71, 275],
       },
     ],
   },
