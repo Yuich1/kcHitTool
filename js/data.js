@@ -3419,6 +3419,7 @@ const SHIP_DATA = [
         luck: 16,
         slot: 3,
         specialCanHaveItemType: [29],
+        expansionCanHaveItemId: [66, 220],
         fuel: 25,
         bullet: 30,
       },
@@ -3694,6 +3695,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 305,
@@ -3704,15 +3706,17 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
   {
     type: 4,
     name: "能代",
-    id_list: [138, 306],
-    main_id: 306,
+    id_list: [138, 306, 662],
+    main_id: 662,
     yomi: "のしろ noshiro",
+
     remodel: [
       {
         id: 138,
@@ -3723,6 +3727,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 306,
@@ -3733,6 +3738,18 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
+      },
+      {
+        id: 662,
+        state: "改二",
+        power: 78,
+        torp: 86,
+        luck: 13,
+        slot: 4,
+        fuel: 35,
+        bullet: 45,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3752,6 +3769,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 307,
@@ -3762,6 +3780,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3781,6 +3800,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 314,
@@ -3791,6 +3811,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3810,6 +3831,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 35,
         bullet: 30,
+        expansionCanHaveItemId: [71, 275],
       },
       {
         id: 321,
@@ -3820,6 +3842,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 35,
+        expansionCanHaveItemId: [71, 275],
       },
     ],
   },
@@ -3839,6 +3862,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 15,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 343,
@@ -3849,6 +3873,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 20,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3868,6 +3893,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 15,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 356,
@@ -3878,6 +3904,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 20,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -8035,6 +8062,7 @@ const SHIP_DATA = [
         luck: 20,
         slot: 3,
         specialCanHaveItemType: [4, 28, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 35,
         bullet: 10,
       },
@@ -8086,6 +8114,7 @@ const SHIP_DATA = [
         luck: 10,
         slot: 3,
         specialCanHaveItemType: [4, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 50,
         bullet: 10,
       },
@@ -8097,6 +8126,7 @@ const SHIP_DATA = [
         luck: 12,
         slot: 4,
         specialCanHaveItemType: [4, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 55,
         bullet: 15,
       },
@@ -9066,15 +9096,17 @@ const ITEM_DATA = [
     type: 32,
     name: "探照灯",
     yomi: "たんしょうとう",
-    singleAddableBonus: [
+    singleBonus: [
       {
         power: 8,
         targetId: [55, 223, 159],
       },
       {
         power: 4,
-        targetId: [86, 210, 150, 592, 85, 212, 152, 69, 272, 427, 34, 234, 437],
+        targetId: [86, 210, 150, 592, 85, 212, 152, 69, 272, 427, 34, 234, 437, 662],
       },
+    ],
+    singleAddableBonus: [
       {
         power: 2,
         targetId: [132, 301, 648],
@@ -9970,6 +10002,7 @@ const ITEM_DATA = [
           706,
           652,
           657,
+          662,
         ],
       },
     ],
@@ -10048,6 +10081,12 @@ const ITEM_DATA = [
     power: 6,
     accuracy: 4,
     yomi: "15.2せんちれんそうほうかい",
+    singleAddableBonus: [
+      {
+        power: 2,
+        targetId: [662],
+      },
+    ],
   },
 
   {
@@ -10311,6 +10350,12 @@ const ITEM_DATA = [
     power: 1,
     accuracy: 2,
     yomi: "8せんちこうかくほうかい ぞうせつきじゅう",
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [662],
+      },
+    ],
   },
 
   {
@@ -12029,6 +12074,7 @@ const ITEM_DATA = [
           630,
           652,
           657,
+          662,
         ],
       },
     ],
@@ -12927,7 +12973,7 @@ const ITEM_DATA = [
     yomi: "bofors 15cm連装速射砲 Mk.9 Model 1938 ぼふぉーす15せんちれんそうそくしゃほう",
     singleAddableBonus: [
       { power: 2, targetId: [604, 609, 574, 579, 630] },
-      { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+      { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314, 662] },
     ],
   },
   {
@@ -12940,7 +12986,7 @@ const ITEM_DATA = [
       "bofors 15cm連装速射砲 mk.9改 + 単装速射砲 mk.10改 model 1938 ぼふぉーす15せんちれんそうそくしゃほう たんそうそくしゃほう",
     singleAddableBonus: [
       { power: 2, targetId: [604, 609, 574, 579, 630] },
-      { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314] },
+      { power: 1, targetId: [137, 305, 138, 306, 139, 307, 140, 314, 662] },
     ],
   },
   {
@@ -14319,6 +14365,37 @@ const ITEM_DATA = [
         isBonus: function (slotNumber) {
           const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
           return impr >= 4;
+        },
+      },
+    ],
+  },
+  {
+    id: 407,
+    type: 2,
+    name: "15.2cm連装砲改二",
+    power: 6,
+    accuracy: 4,
+    yomi: "15.2cmれんそうほうかいに",
+    singleAddableBonus: [
+      {
+        power: 4,
+        targetId: [662],
+      },
+    ],
+    multiBonus: [
+      {
+        power: 2,
+        targetId: [662],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let isSurface = false;
+          selectedMyFleetList[selectedFleetNum].item.forEach((t) => {
+            if (t.isSurface) {
+              isSurface = true;
+            }
+          });
+          c = countItem(slotNumber, 407);
+          return isSurface && c == 1;
         },
       },
     ],
