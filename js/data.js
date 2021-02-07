@@ -3419,6 +3419,7 @@ const SHIP_DATA = [
         luck: 16,
         slot: 3,
         specialCanHaveItemType: [29],
+        expansionCanHaveItemId: [66, 220],
         fuel: 25,
         bullet: 30,
       },
@@ -3694,6 +3695,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 305,
@@ -3704,6 +3706,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3713,6 +3716,7 @@ const SHIP_DATA = [
     id_list: [138, 306, 662],
     main_id: 662,
     yomi: "のしろ noshiro",
+
     remodel: [
       {
         id: 138,
@@ -3723,6 +3727,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 306,
@@ -3733,6 +3738,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 662,
@@ -3743,6 +3749,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 45,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3762,6 +3769,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 307,
@@ -3772,6 +3780,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3791,6 +3800,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 35,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 314,
@@ -3801,6 +3811,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 40,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3849,6 +3860,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 15,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 343,
@@ -3859,6 +3871,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 20,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -3878,6 +3891,7 @@ const SHIP_DATA = [
         slot: 3,
         fuel: 30,
         bullet: 15,
+        expansionCanHaveItemId: [66, 220],
       },
       {
         id: 356,
@@ -3888,6 +3902,7 @@ const SHIP_DATA = [
         slot: 4,
         fuel: 35,
         bullet: 20,
+        expansionCanHaveItemId: [66, 220],
       },
     ],
   },
@@ -8045,6 +8060,7 @@ const SHIP_DATA = [
         luck: 20,
         slot: 3,
         specialCanHaveItemType: [4, 28, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 35,
         bullet: 10,
       },
@@ -8096,6 +8112,7 @@ const SHIP_DATA = [
         luck: 10,
         slot: 3,
         specialCanHaveItemType: [4, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 50,
         bullet: 10,
       },
@@ -8107,6 +8124,7 @@ const SHIP_DATA = [
         luck: 12,
         slot: 4,
         specialCanHaveItemType: [4, 31],
+        expansionCanHaveItemId: [66, 220],
         fuel: 55,
         bullet: 15,
       },
