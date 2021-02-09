@@ -876,7 +876,7 @@ const SHIP_DATA = [
       {
         id: 360,
         state: "改",
-        power: 115,
+        power: 116,
         torp: 0,
         luck: 40,
         slot: 4,
