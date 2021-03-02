@@ -5078,8 +5078,8 @@ const SHIP_DATA = [
   {
     type: 5,
     name: "曙",
-    id_list: [15, 231],
-    main_id: 231,
+    id_list: [15, 231, 665],
+    main_id: 665,
     yomi: "あけぼの akebono",
     remodel: [
       {
@@ -5098,6 +5098,16 @@ const SHIP_DATA = [
         power: 49,
         torp: 79,
         luck: 12,
+        slot: 3,
+        fuel: 15,
+        bullet: 20,
+      },
+      {
+        id: 665,
+        state: "改二",
+        power: 60,
+        torp: 87,
+        luck: 18,
         slot: 3,
         fuel: 15,
         bullet: 20,
@@ -8489,12 +8499,42 @@ const ITEM_DATA = [
     type: 18,
     name: "25mm連装機銃",
     yomi: "25みりれんそうきじゅう",
+    multiBonus: [
+      {
+        //25m系対空機銃
+        power: 1,
+        targetId: [154, 343, 465, 356],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          c += countItem(slotNumber, 49);
+          c += countItem(slotNumber, 39);
+          c += countItem(slotNumber, 40);
+          c += countItem(slotNumber, 131);
+          return c == 1;
+        },
+      },
+    ]
   },
   {
     id: 40,
     type: 18,
     name: "25mm三連装機銃",
     yomi: "25みりさんれんそうきじゅう",
+    multiBonus: [
+      {
+        //25m系対空機銃
+        power: 1,
+        targetId: [154, 343, 465, 356],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          c += countItem(slotNumber, 49);
+          c += countItem(slotNumber, 39);
+          c += countItem(slotNumber, 40);
+          c += countItem(slotNumber, 131);
+          return c == 1;
+        },
+      },
+    ]
   },
   //{ id: 41, type: 23, name: "甲標的 甲型", power: 0, torp: 12, accuracy: 0 },
   //{ id: 42, type: 26, name: "応急修理要員", power: 0, torp: 0, accuracy: 0 },
@@ -8515,6 +8555,28 @@ const ITEM_DATA = [
     type: 18,
     name: "25mm単装機銃",
     yomi: "25みりたんそうきじゅう",
+    /*
+    singleAddableBonus: [
+      {
+        power: 1,
+        targetId: [154, 343, 465, 356]
+      }
+    ],*/
+    multiBonus: [
+      {
+        //25m系対空機銃
+        power: 1,
+        targetId: [154, 343, 465, 356],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          c += countItem(slotNumber, 49);
+          c += countItem(slotNumber, 39);
+          c += countItem(slotNumber, 40);
+          c += countItem(slotNumber, 131);
+          return c == 1;
+        },
+      },
+    ]
   },
   {
     id: 50,
@@ -10003,6 +10065,7 @@ const ITEM_DATA = [
           652,
           657,
           662,
+          665,
         ],
       },
     ],
@@ -10038,6 +10101,21 @@ const ITEM_DATA = [
     type: 18,
     name: "25mm三連装機銃 集中配備",
     yomi: "25みりさんれんそうきじゅうしゅうちゅうはいび",
+    multiBonus: [
+      {
+        //25m系対空機銃
+        power: 1,
+        targetId: [154, 343, 465, 356],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          c += countItem(slotNumber, 49);
+          c += countItem(slotNumber, 39);
+          c += countItem(slotNumber, 40);
+          c += countItem(slotNumber, 131);
+          return c == 1;
+        },
+      },
+    ]
   },
 
   {
@@ -11591,6 +11669,7 @@ const ITEM_DATA = [
           237,
           631,
           700,
+          665,
         ],
       },
     ],
@@ -11646,6 +11725,7 @@ const ITEM_DATA = [
           237,
           631,
           700,
+          665,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -11722,6 +11802,7 @@ const ITEM_DATA = [
           237,
           631,
           700,
+          665,
         ],
       },
     ],
@@ -11777,6 +11858,7 @@ const ITEM_DATA = [
           237,
           631,
           700,
+          665,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -11871,6 +11953,7 @@ const ITEM_DATA = [
           247,
           632,
           703,
+          665,
         ],
       },
     ],
@@ -11946,6 +12029,7 @@ const ITEM_DATA = [
           247,
           632,
           703,
+          665,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -12416,6 +12500,7 @@ const ITEM_DATA = [
           658,
           642,
           706,
+          665,
         ],
       },
     ],
@@ -12428,10 +12513,7 @@ const ITEM_DATA = [
     power: 5,
     accuracy: 3,
     yomi: "14せんちれんそうほうかい",
-    singleAddableBonus: [
-      { power: 4, targetId: [622, 623, 624] },
-      { power: 2, targetId: [115, 293, 154, 343, 465, 356] },
-    ],
+    isImpr: true,
     multiBonus: [
       {
         power: 3,
@@ -12448,6 +12530,58 @@ const ITEM_DATA = [
           }
           c = countItem(slotNumber, 310);
           return isSurface && c == 1;
+        },
+      },
+      // 夕張改二系
+      {
+        power: 4,
+        targetId: [622, 623, 624],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 7;
+        },
+      },
+      {
+        power: 5,
+        targetId: [622, 623, 624],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr >= 7 && impr < 10;
+        },
+      },
+      {
+        power: 7,
+        targetId: [622, 623, 624],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr == 10;
+        },
+      },
+      // 鹿島香取
+      {
+        power: 2,
+        targetId: [154, 343, 465, 356],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 10;
+        },
+      },
+      // 含日清
+      {
+        power: 4,
+        targetId: [154, 343, 465, 356, 581, 690, 586],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr == 10;
+        },
+      },
+      // 日進
+      {
+        power: 3,
+        targetId: [581, 690, 586],
+        isBonus: function (slotNumber) {
+          const impr = $(`#impr${slotNumber}`).val() ? parseInt($(`#impr${slotNumber}`).val()) : 0;
+          return impr < 10;
         },
       },
     ],
@@ -13712,7 +13846,7 @@ const ITEM_DATA = [
         ],
       },
       { power: 2, targetId: [141, 487, 160, 488] },
-      { power: 3, targetId: [118, 119, 651, 656, 652, 657] },
+      { power: 3, targetId: [118, 119, 651, 656, 652, 657, 407, 665] },
     ],
     singleBonus: [
       {
@@ -13839,6 +13973,8 @@ const ITEM_DATA = [
           445,
           450,
           491,
+          407,
+          665,
         ],
         isBonus: function (slotNumber) {
           let c = 0;
@@ -13881,6 +14017,24 @@ const ITEM_DATA = [
           return c == 2;
         },
       },
+      // 潮，曙改二対空機銃
+      {
+        power: 1,
+        targetId: [607, 665],
+        isBonus: function (slotNumber) {
+          let c = 0;
+          let hasAAMG = false;
+          c = countItem(slotNumber, 380);
+          for (let index = 0; index < selectedMyFleetList[selectedFleetNum].item.length; index++) {
+            const item = selectedMyFleetList[selectedFleetNum].item[index];
+            if (!item) continue;
+            if (item && item.type == 18) {
+              hasAAMG = true;
+            }
+          }
+          return hasAAMG && c == 1;
+        }
+      }
     ],
   },
   {
