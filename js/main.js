@@ -995,8 +995,8 @@ const getFinalAccuracy = (hitTerm, avoidanceTerm) => {
 
 const getAttack = (attack, formationDamageCoef, engagementDamageCoef) => {
   attack = attack * formationDamageCoef * engagementDamageCoef;
-  if (attack > 150) {
-    attack = 150 + Math.sqrt(attack - 150);
+  if (attack > 170) {
+    attack = 170 + Math.sqrt(attack - 170);
   }
   return Math.floor(attack);
 };
