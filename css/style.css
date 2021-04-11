@@ -124,10 +124,15 @@ body {
   display: inline-block;
   margin-right: 4px;
 }
+.power,
+.bomb,
+.torp,
+.item_accuracy,
 .lv,
 .luck,
 .impr,
-.enemy-status {
+.enemy-status,
+.cap {
   width: 65px;
   padding: 6px 4px 6px 12px;
   margin-right: 4px;
@@ -180,12 +185,8 @@ body {
 .cond-wrapper {
   position: relative;
 }
-.status .btn {
-  display: inline-block;
-  position: absolute;
-  right: 20px;
-  top: 118px;
-  width: 96px;
+#kira{
+  width:90px;
 }
 .status-reset {
   position: absolute;
